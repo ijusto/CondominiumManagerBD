@@ -28,101 +28,153 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.condoSelectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.complaintsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.requestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // button1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.condoSelectToolStripMenuItem,
-            this.eventsToolStripMenuItem,
-            this.maintenanceToolStripMenuItem,
-            this.paymentsToolStripMenuItem,
-            this.readingsToolStripMenuItem,
-            this.contactsToolStripMenuItem,
-            this.complaintsToolStripMenuItem,
-            this.requestsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(25, 104);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 140);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // condoSelectToolStripMenuItem
+            // button2
             // 
-            this.condoSelectToolStripMenuItem.Name = "condoSelectToolStripMenuItem";
-            this.condoSelectToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.condoSelectToolStripMenuItem.Text = "CondoSelect";
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(249, 116);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 80);
+            this.button2.TabIndex = 1;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // eventsToolStripMenuItem
+            // button3
             // 
-            this.eventsToolStripMenuItem.Name = "eventsToolStripMenuItem";
-            this.eventsToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.eventsToolStripMenuItem.Text = "Events";
-            this.eventsToolStripMenuItem.Click += new System.EventHandler(this.Events_Click);
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(249, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(80, 80);
+            this.button3.TabIndex = 2;
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // maintenanceToolStripMenuItem
+            // button4
             // 
-            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.maintenanceToolStripMenuItem.Text = "Maintenance";
-            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.Maintenance_Click);
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(249, 227);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(80, 80);
+            this.button4.TabIndex = 3;
+            this.button4.UseVisualStyleBackColor = false;
             // 
-            // paymentsToolStripMenuItem
+            // button5
             // 
-            this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
-            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.paymentsToolStripMenuItem.Text = "Payments";
-            this.paymentsToolStripMenuItem.Click += new System.EventHandler(this.Payments_Click);
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(344, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(80, 80);
+            this.button5.TabIndex = 4;
+            this.button5.UseVisualStyleBackColor = false;
             // 
-            // readingsToolStripMenuItem
+            // button6
             // 
-            this.readingsToolStripMenuItem.Name = "readingsToolStripMenuItem";
-            this.readingsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.readingsToolStripMenuItem.Text = "Readings";
-            this.readingsToolStripMenuItem.Click += new System.EventHandler(this.Readings_Click);
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(344, 227);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(80, 80);
+            this.button6.TabIndex = 5;
+            this.button6.UseVisualStyleBackColor = false;
             // 
-            // contactsToolStripMenuItem
+            // button7
             // 
-            this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.contactsToolStripMenuItem.Text = "Contacts";
-            this.contactsToolStripMenuItem.Click += new System.EventHandler(this.Contacts_Click);
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(344, 116);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(80, 80);
+            this.button7.TabIndex = 6;
+            this.button7.UseVisualStyleBackColor = false;
             // 
-            // complaintsToolStripMenuItem
+            // button8
             // 
-            this.complaintsToolStripMenuItem.Name = "complaintsToolStripMenuItem";
-            this.complaintsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.complaintsToolStripMenuItem.Text = "Complaints";
-            this.complaintsToolStripMenuItem.Click += new System.EventHandler(this.Complaints_Click);
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.Transparent;
+            this.button8.Location = new System.Drawing.Point(430, 12);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(80, 80);
+            this.button8.TabIndex = 7;
+            this.button8.UseVisualStyleBackColor = false;
             // 
-            // requestsToolStripMenuItem
+            // textBox1
             // 
-            this.requestsToolStripMenuItem.Name = "requestsToolStripMenuItem";
-            this.requestsToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.requestsToolStripMenuItem.Text = "Requests";
-            this.requestsToolStripMenuItem.Click += new System.EventHandler(this.Requests_Click);
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox1.Location = new System.Drawing.Point(249, 90);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(80, 13);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.Text = "Events";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(558, 326);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "CondominiumManager";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,15 +182,15 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem condoSelectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eventsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem paymentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem readingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem requestsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem complaintsToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

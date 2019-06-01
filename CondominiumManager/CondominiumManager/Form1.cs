@@ -15,6 +15,7 @@ namespace CondominiumManager
         public Form1()
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         private void Events_Click(object sender, EventArgs e)
@@ -52,6 +53,9 @@ namespace CondominiumManager
 
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
