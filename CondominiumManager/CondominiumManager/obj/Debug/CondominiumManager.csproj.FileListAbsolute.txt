@@ -1,10 +1,10 @@
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.exe.config
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.exe
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.pdb
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csprojAssemblyReference.cache
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Form1.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Properties.Resources.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csproj.GenerateResource.cache
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csproj.CoreCompileInputs.cache
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.exe
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.pdb
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Events.resources

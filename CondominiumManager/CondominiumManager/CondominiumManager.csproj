@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CustomTextBox.cs">
-      <SubType>Component</SubType>
-    </EmbeddedResource>
+    <Compile Include="Events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Events.Designer.cs">
+      <DependentUpon>Events.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OverlayControl.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,7 +71,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Events.resx">
+      <DependentUpon>Events.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -84,6 +88,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_icon-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utilities-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payments_icon-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contacts_icon-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile_icon-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tasklist-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\condo_manager_app_icon-web.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
