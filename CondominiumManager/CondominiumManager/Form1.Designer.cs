@@ -35,6 +35,7 @@
             this.Contacts_textBox = new System.Windows.Forms.TextBox();
             this.Task_list_textBox = new System.Windows.Forms.TextBox();
             this.Panel_Main_menu = new System.Windows.Forms.Panel();
+            this.Condo_choose_comboBox = new System.Windows.Forms.ComboBox();
             this.Contacts_button = new System.Windows.Forms.Button();
             this.Readings_button = new System.Windows.Forms.Button();
             this.Logo_button = new System.Windows.Forms.Button();
@@ -118,6 +119,7 @@
             // 
             // Panel_Main_menu
             // 
+            this.Panel_Main_menu.Controls.Add(this.Condo_choose_comboBox);
             this.Panel_Main_menu.Controls.Add(this.Contacts_button);
             this.Panel_Main_menu.Controls.Add(this.Readings_button);
             this.Panel_Main_menu.Controls.Add(this.Logo_button);
@@ -141,6 +143,16 @@
             this.Panel_Main_menu.Name = "Panel_Main_menu";
             this.Panel_Main_menu.Size = new System.Drawing.Size(580, 365);
             this.Panel_Main_menu.TabIndex = 14;
+            // 
+            // Condo_choose_comboBox
+            // 
+            this.Condo_choose_comboBox.BackColor = System.Drawing.Color.White;
+            this.Condo_choose_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Condo_choose_comboBox.FormattingEnabled = true;
+            this.Condo_choose_comboBox.Location = new System.Drawing.Point(230, 45);
+            this.Condo_choose_comboBox.Name = "Condo_choose_comboBox";
+            this.Condo_choose_comboBox.Size = new System.Drawing.Size(280, 21);
+            this.Condo_choose_comboBox.TabIndex = 19;
             // 
             // Contacts_button
             // 
@@ -309,6 +321,7 @@
         private Payments Payments_user_control;
         private Readings Readings_user_control;
         private System.Windows.Forms.Button Task_List_button;
+        private System.Windows.Forms.ComboBox Condo_choose_comboBox;
     }
 }
 

@@ -1,21 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace CondominiumManager
 {
     public partial class Form1 : Form
     {
+        private SqlConnection cn;
+        SqlCommand cmd;
+
         public Form1()
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            Fill_condo_comboBox();
+        }
+
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C: \\Users\\Ines Justo\\source\\repos\\CondominiumManager_\\CondominiumManagerBD\\CondominiumManager\\CondominiumManager\\Database1.mdf;Integrated Security=True");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -61,6 +76,25 @@ namespace CondominiumManager
             // Show current user control
             Contacts_user_control.Show();
             Contacts_user_control.BringToFront();
+        }
+
+        private void Fill_condo_comboBox()
+        {
+            cn = getSGBDConnection();
+            Condo_choose_comboBox.Items.Clear();
+            cn.Open();
+            cmd = cn.CreateCommand(); 
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT Endereco FROM [CONDOMANAGER].[Condominio]";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach(DataRow dr in dt.Rows)
+            {
+                Condo_choose_comboBox.Items.Add(dr["Endereco"].ToString());
+            }
+            cn.Close();
         }
     }
 }

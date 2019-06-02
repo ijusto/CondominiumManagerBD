@@ -12,3 +12,6 @@ C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\Condom
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Contact.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Payments.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Readings.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csprojAssemblyReference.cache
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\Database1.mdf
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\Database1_log.ldf

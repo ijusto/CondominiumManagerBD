@@ -27,6 +27,5 @@ namespace CondominiumManager
             this.SendToBack();
             this.Hide();
         }
-        
     }
 }

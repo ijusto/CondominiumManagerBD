@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tasklistBox = new System.Windows.Forms.ListBox();
+            this.TasklistBox = new System.Windows.Forms.ListBox();
             this.Reclamacoes_textBox = new System.Windows.Forms.TextBox();
             this.Data_textBox = new System.Windows.Forms.TextBox();
             this.Data_input_textBox = new System.Windows.Forms.TextBox();
@@ -41,13 +41,13 @@
             this.Back_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tasklistBox
+            // TasklistBox
             // 
-            this.tasklistBox.FormattingEnabled = true;
-            this.tasklistBox.Location = new System.Drawing.Point(34, 71);
-            this.tasklistBox.Name = "tasklistBox";
-            this.tasklistBox.Size = new System.Drawing.Size(211, 251);
-            this.tasklistBox.TabIndex = 0;
+            this.TasklistBox.FormattingEnabled = true;
+            this.TasklistBox.Location = new System.Drawing.Point(34, 71);
+            this.TasklistBox.Name = "TasklistBox";
+            this.TasklistBox.Size = new System.Drawing.Size(211, 251);
+            this.TasklistBox.TabIndex = 0;
             // 
             // Reclamacoes_textBox
             // 
@@ -177,7 +177,7 @@
             this.Controls.Add(this.Data_input_textBox);
             this.Controls.Add(this.Data_textBox);
             this.Controls.Add(this.Reclamacoes_textBox);
-            this.Controls.Add(this.tasklistBox);
+            this.Controls.Add(this.TasklistBox);
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "TaskList";
             this.Size = new System.Drawing.Size(580, 365);
@@ -189,7 +189,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox tasklistBox;
+        private System.Windows.Forms.ListBox TasklistBox;
         private System.Windows.Forms.TextBox Reclamacoes_textBox;
         private System.Windows.Forms.TextBox Data_textBox;
         private System.Windows.Forms.TextBox Data_input_textBox;
