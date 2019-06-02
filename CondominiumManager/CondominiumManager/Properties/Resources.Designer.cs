@@ -63,6 +63,16 @@ namespace CondominiumManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap app_color_web {
+            get {
+                object obj = ResourceManager.GetObject("app_color-web", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar__1_ {
             get {
                 object obj = ResourceManager.GetObject("calendar (1)", resourceCulture);

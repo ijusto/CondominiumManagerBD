@@ -8,3 +8,7 @@ C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\Condom
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.exe
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.pdb
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Events.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.TaskList.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csprojAssemblyReference.cache
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Contact.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Payments.resources
