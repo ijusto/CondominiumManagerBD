@@ -22,9 +22,11 @@ namespace CondominiumManager
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Back_button_Click(object sender, EventArgs e)
         {
-
+            this.SendToBack();
+            this.Hide();
         }
+        
     }
 }

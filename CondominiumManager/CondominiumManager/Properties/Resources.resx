@@ -133,16 +133,19 @@
   <data name="tasklist-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tasklist-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="events_icon-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\events_icon-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="contacts_icon-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contacts_icon-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="app_color-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\app_color-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="events_icon-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\events_icon-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="profile_icon-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile_icon-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="app_color-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\app_color-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="back_icon-web" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_icon-web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

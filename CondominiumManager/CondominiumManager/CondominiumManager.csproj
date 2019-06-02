@@ -110,6 +110,9 @@
     <EmbeddedResource Include="Events.resx">
       <DependentUpon>Events.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Readings.resx">
+      <DependentUpon>Readings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TaskList.resx">
       <DependentUpon>TaskList.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\app_color-web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_icon-web.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

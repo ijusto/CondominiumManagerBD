@@ -16,5 +16,16 @@ namespace CondominiumManager
         {
             InitializeComponent();
         }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.SendToBack();
+            this.Hide();
+        }
+
+        private void Readings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
