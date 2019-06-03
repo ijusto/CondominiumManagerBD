@@ -251,6 +251,7 @@
             this.Contacts_user_control.Name = "Contacts_user_control";
             this.Contacts_user_control.Size = new System.Drawing.Size(580, 365);
             this.Contacts_user_control.TabIndex = 16;
+            this.Contacts_user_control.Load += new System.EventHandler(this.Contacts_user_control_Load);
             // 
             // Payments_user_control
             // 

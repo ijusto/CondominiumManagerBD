@@ -17,15 +17,34 @@ namespace CondominiumManager
             Fill_condo_comboBox();
         }
 
-        private SqlConnection getSGBDConnection()
+        private void Fill_condo_comboBox()
         {
-            return new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C: \\Users\\Ines Justo\\source\\repos\\CondominiumManager_\\CondominiumManagerBD\\CondominiumManager\\CondominiumManager\\Database1.mdf;Integrated Security=True");
+            cn = GetSGBDConnection();
+            Condo_choose_comboBox.Items.Clear();
+            cn.Open();
+            cmd = cn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT Endereco FROM [CONDOMANAGER].[Condominio]";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Condo_choose_comboBox.Items.Add(dr["Endereco"].ToString());
+            }
+            cn.Close();
         }
 
-        private bool verifySGBDConnection()
+        private SqlConnection GetSGBDConnection()
+        {
+            return new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Ines Justo\\source\\repos\\CondominiumManager_\\CondominiumManagerBD\\CondominiumManager\\CondominiumManager\\Database1.mdf;Integrated Security=True");
+        }
+
+        private bool VerifySGBDConnection()
         {
             if (cn == null)
-                cn = getSGBDConnection();
+                cn = GetSGBDConnection();
 
             if (cn.State != ConnectionState.Open)
                 cn.Open();
@@ -78,23 +97,9 @@ namespace CondominiumManager
             Contacts_user_control.BringToFront();
         }
 
-        private void Fill_condo_comboBox()
+        private void Contacts_user_control_Load(object sender, EventArgs e)
         {
-            cn = getSGBDConnection();
-            Condo_choose_comboBox.Items.Clear();
-            cn.Open();
-            cmd = cn.CreateCommand(); 
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Endereco FROM [CONDOMANAGER].[Condominio]";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            foreach(DataRow dr in dt.Rows)
-            {
-                Condo_choose_comboBox.Items.Add(dr["Endereco"].ToString());
-            }
-            cn.Close();
+
         }
     }
 }
