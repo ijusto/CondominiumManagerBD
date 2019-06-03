@@ -30,6 +30,14 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	foreign key(nif_gestor) references CONDOMANAGER.Gestor_Condominio(nif)
  )
 
+ CREATE TABLE CONDOMANAGER.Condomino(
+	NIF varchar(9),
+	Nome VARCHAR(40) NOT NULL,
+	Telemovel VARCHAR(9) NOT NULL UNIQUE,
+	Email VARCHAR(40) NOT NULL UNIQUE,
+	PRIMARY KEY(NIF),
+)
+
  CREATE TABLE CONDOMANAGER.Fracao(
 	Ref_fracao varchar(5),
 	Endereco varchar(40),
@@ -38,20 +46,13 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	leitura_gas float,
 	leitura_luz float,
 	leitura_agua float,
+	nif_condomino varchar(9),
 	PRIMARY KEY(Ref_fracao, Endereco), 
-	FOREIGN KEY(Endereco) references CONDOMANAGER.Condominio(Endereco)
+	FOREIGN KEY(Endereco) references CONDOMANAGER.Condominio(Endereco),
+	foreign key(nif_condomino) references condomanager.condomino(nif)
  )
 
- CREATE TABLE CONDOMANAGER.Condomino(
-	NIF varchar(9),
-	Nome VARCHAR(40) NOT NULL,
-	Telemovel VARCHAR(9) NOT NULL UNIQUE,
-	Email VARCHAR(40) NOT NULL UNIQUE,
-	endereco varchar(40),
-	ref_fracao varchar(5),
-	PRIMARY KEY(NIF),
-	foreign key(ref_fracao, endereco) references condomanager.Fracao(ref_fracao, endereco)
- )
+ 
 
 
  CREATE TABLE CONDOMANAGER.Reclamacao(
@@ -136,7 +137,6 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	NIF_gestor varchar(9),
 	Descricao varchar(40),
 	Valor money,
-
 	PRIMARY KEY(Id),
 	foreign key(nif_gestor) references condomanager.gestor_condominio(nif)
 
@@ -158,5 +158,55 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
  )
 
+ Create table condomanager.fotosprediais(
+	id varchar(40),
+	localizacao varchar(256),
+	primary key(localizacao, id),
+	foreign key(id) references condomanager.condominio(endereco)
+ 
+ )
+
+ Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
+			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', 'pass123'),
+			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', 'pass123'),
+			('265904536', 'Pedro Vieira', '967230185', 'pedro.vieira@sapo.pt', 'pass123')
+
+insert into condomanager.Condominio(Endereco, Orcam_Anual, nif_gestor) values
+			('Rua São Martinho', 10000, '250238280'),
+			('Rua Nova', 20000, '123876530'),
+			('Avenida dos Combatentes', 50000, '265904536'),
+			('Rua 25 de Abril', 40000, '250238280'),
+			('Rua Direita', 340000, '123876530'),
+			('Avenida Guerra Junqueiro', 500000, '265904536')
 
 
+insert into condomanager.Condomino(NIF, Nome, Email, Telemovel) values
+			('213564756', 'Maria Albertina', 'maria.albertina@sapo.pt', '918278497'),
+			('263547859', 'Carlos Costa', 'carlos.costa@sapo.pt', '918276476'),
+			('126374659', 'Tomás Ferreira', 'tomas.ferreira@sapo.pt', '254673875'),
+			('167485967', 'Diogo Teixeira', 'diogo.teixeira@sapo.pt', '938476583'),
+			('143567467', 'Joana Madalena', 'joana.madalena@sapo.pt', '917283746'),
+			('237168594', 'Tiago Andrade', 'tiago.andrade@sapo.pt', '918276473'),
+			('216374865', 'Rúben Matias', 'ruben.matias@sapo.pt', '918274630')
+
+
+
+
+
+
+
+insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_condomino) values
+			('Rua São Martinho', 'A1', 10000, 'RC/D','213564756'),
+			('Rua São Martinho', 'A2', 3000, 'RC/E', '263547859'),
+			('Rua São Martinho', 'A3', 100, '1Dt','126374659'),
+			('Rua São Martinho', 'A4', 12300, '1Esq', '167485967'),
+			('Rua São Martinho', 'A5', 1000, '2DT', '213564756'),
+			('Rua São Martinho', 'A6', 10000, '2Esq', '143567467'),
+			('Rua Nova', 'A1', 123743, 'RC/D', '237168594'),
+			('Rua Nova', 'A2', 12243, 'RC/E', '216374865'),
+			('Rua Nova', 'A3', 121743, '1Dt', '213564756'),
+			('Avenida dos Combatentes','B1', 12322, 'RC/D', '237168594'),
+			('Avenida dos Combatentes','B2', 12322, 'RC/E', '216374865')
+
+
+select * from condomanager.Condomino join condomanager.Fracao on nif=nif_condomino where endereco='Rua Nova'
