@@ -131,11 +131,11 @@
             this.Panel_Main_menu.Controls.Add(this.Payments_textBox);
             this.Panel_Main_menu.Controls.Add(this.Payments_button);
             this.Panel_Main_menu.Controls.Add(this.Task_List_button);
-            this.Panel_Main_menu.Controls.Add(this.Contacts_user_control);
             this.Panel_Main_menu.Controls.Add(this.Payments_user_control);
             this.Panel_Main_menu.Controls.Add(this.Readings_user_control);
             this.Panel_Main_menu.Controls.Add(this.Events_user_control);
             this.Panel_Main_menu.Controls.Add(this.TaskList_user_control);
+            this.Panel_Main_menu.Controls.Add(this.Contacts_user_control);
             this.Panel_Main_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.Panel_Main_menu.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main_menu.Margin = new System.Windows.Forms.Padding(0);
@@ -260,6 +260,7 @@
             this.Payments_user_control.Name = "Payments_user_control";
             this.Payments_user_control.Size = new System.Drawing.Size(580, 365);
             this.Payments_user_control.TabIndex = 17;
+            this.Payments_user_control.Load += new System.EventHandler(this.Payments_user_control_Load);
             // 
             // Readings_user_control
             // 

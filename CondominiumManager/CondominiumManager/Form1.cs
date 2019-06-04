@@ -38,7 +38,7 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            return new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
         }
 
         private bool VerifySGBDConnection()
@@ -98,6 +98,11 @@ namespace CondominiumManager
         }
 
         private void Contacts_user_control_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Payments_user_control_Load(object sender, EventArgs e)
         {
 
         }
