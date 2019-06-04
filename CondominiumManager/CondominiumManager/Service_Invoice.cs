@@ -12,6 +12,7 @@ namespace CondominiumManager
         private String _Date;
         private String _Amount;
         private String _Description;
+        private String _Condominium;
 
         public String Invoice_ID
         {
@@ -35,6 +36,12 @@ namespace CondominiumManager
         {
             get { return _Description; }
             set { _Description = value; }
+        }
+
+        public String Condominium
+        {
+            get { return _Condominium; }
+            set { _Condominium = value; }
         }
     }
 }
