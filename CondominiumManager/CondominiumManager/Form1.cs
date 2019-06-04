@@ -38,7 +38,7 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            return new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Ines Justo\\source\\repos\\CondominiumManager_\\CondominiumManagerBD\\CondominiumManager\\CondominiumManager\\Database1.mdf;Integrated Security=True");
+            return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
         }
 
         private bool VerifySGBDConnection()

@@ -1,0 +1,14 @@
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Release\CondominiumManager.exe.config
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Release\CondominiumManager.exe
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Release\CondominiumManager.pdb
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Contact.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Form1.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Payments.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Properties.Resources.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Events.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Readings.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.TaskList.resources
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.csproj.GenerateResource.cache
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.csproj.CoreCompileInputs.cache
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.exe
+C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.pdb
