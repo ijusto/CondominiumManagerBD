@@ -1,6 +1,6 @@
 ﻿namespace CondominiumManager
 {
-    partial class Payments
+    partial class ReadingsPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -46,14 +46,15 @@
             this.Back_button.UseVisualStyleBackColor = false;
             this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
-            // Payments
+            // Readings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Back_button);
             this.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Name = "Payments";
+            this.Name = "Readings";
             this.Size = new System.Drawing.Size(580, 365);
+            this.Load += new System.EventHandler(this.Readings_Load);
             this.ResumeLayout(false);
 
         }

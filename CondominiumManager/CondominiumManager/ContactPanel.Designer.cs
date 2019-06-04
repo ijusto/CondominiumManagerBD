@@ -1,6 +1,6 @@
 ﻿namespace CondominiumManager
 {
-    partial class Contact
+    partial class ContactPanel
     {
         /// <summary> 
         /// Required designer variable.

@@ -29,93 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Events_textBox = new System.Windows.Forms.TextBox();
-            this.Readings_textBox = new System.Windows.Forms.TextBox();
-            this.Payments_textBox = new System.Windows.Forms.TextBox();
-            this.Contacts_textBox = new System.Windows.Forms.TextBox();
-            this.Task_list_textBox = new System.Windows.Forms.TextBox();
             this.Panel_Main_menu = new System.Windows.Forms.Panel();
             this.Condo_choose_comboBox = new System.Windows.Forms.ComboBox();
             this.Contacts_button = new System.Windows.Forms.Button();
             this.Readings_button = new System.Windows.Forms.Button();
             this.Logo_button = new System.Windows.Forms.Button();
+            this.Contacts_textBox = new System.Windows.Forms.TextBox();
+            this.Task_list_textBox = new System.Windows.Forms.TextBox();
             this.Events_button = new System.Windows.Forms.Button();
+            this.Readings_textBox = new System.Windows.Forms.TextBox();
+            this.Events_textBox = new System.Windows.Forms.TextBox();
+            this.Payments_textBox = new System.Windows.Forms.TextBox();
             this.Payments_button = new System.Windows.Forms.Button();
             this.Task_List_button = new System.Windows.Forms.Button();
-            this.Contacts_user_control = new CondominiumManager.Contact();
-            this.Payments_user_control = new CondominiumManager.Payments();
-            this.Readings_user_control = new CondominiumManager.Readings();
-            this.Events_user_control = new CondominiumManager.Events();
-            this.TaskList_user_control = new CondominiumManager.TaskList();
+            this.eventsPanel = new CondominiumManager.EventsPanel();
+            this.readingsPanel = new CondominiumManager.ReadingsPanel();
+            this.contactPanel = new CondominiumManager.ContactPanel();
+            this.paymentsPanel = new CondominiumManager.PaymentsPanel();
+            this.taskListPanel = new CondominiumManager.TaskListPanel();
             this.Panel_Main_menu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Events_textBox
-            // 
-            this.Events_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Events_textBox.BackColor = System.Drawing.SystemColors.Window;
-            this.Events_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Events_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Events_textBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Events_textBox.Location = new System.Drawing.Point(230, 154);
-            this.Events_textBox.Name = "Events_textBox";
-            this.Events_textBox.ReadOnly = true;
-            this.Events_textBox.Size = new System.Drawing.Size(80, 13);
-            this.Events_textBox.TabIndex = 8;
-            this.Events_textBox.Text = "Events";
-            this.Events_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Readings_textBox
-            // 
-            this.Readings_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Readings_textBox.BackColor = System.Drawing.SystemColors.Window;
-            this.Readings_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Readings_textBox.Location = new System.Drawing.Point(331, 154);
-            this.Readings_textBox.Name = "Readings_textBox";
-            this.Readings_textBox.ReadOnly = true;
-            this.Readings_textBox.Size = new System.Drawing.Size(80, 13);
-            this.Readings_textBox.TabIndex = 9;
-            this.Readings_textBox.Text = "Readings";
-            this.Readings_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Payments_textBox
-            // 
-            this.Payments_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Payments_textBox.BackColor = System.Drawing.SystemColors.Window;
-            this.Payments_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Payments_textBox.Location = new System.Drawing.Point(230, 278);
-            this.Payments_textBox.Name = "Payments_textBox";
-            this.Payments_textBox.ReadOnly = true;
-            this.Payments_textBox.Size = new System.Drawing.Size(80, 13);
-            this.Payments_textBox.TabIndex = 11;
-            this.Payments_textBox.Text = "Payments";
-            this.Payments_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Contacts_textBox
-            // 
-            this.Contacts_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Contacts_textBox.BackColor = System.Drawing.SystemColors.Window;
-            this.Contacts_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Contacts_textBox.Location = new System.Drawing.Point(430, 154);
-            this.Contacts_textBox.Name = "Contacts_textBox";
-            this.Contacts_textBox.ReadOnly = true;
-            this.Contacts_textBox.Size = new System.Drawing.Size(80, 13);
-            this.Contacts_textBox.TabIndex = 12;
-            this.Contacts_textBox.Text = "Contacts";
-            this.Contacts_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Task_list_textBox
-            // 
-            this.Task_list_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Task_list_textBox.BackColor = System.Drawing.SystemColors.Window;
-            this.Task_list_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Task_list_textBox.Location = new System.Drawing.Point(331, 278);
-            this.Task_list_textBox.Name = "Task_list_textBox";
-            this.Task_list_textBox.ReadOnly = true;
-            this.Task_list_textBox.Size = new System.Drawing.Size(80, 13);
-            this.Task_list_textBox.TabIndex = 13;
-            this.Task_list_textBox.Text = "Task List";
-            this.Task_list_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Panel_Main_menu
             // 
@@ -131,12 +64,11 @@
             this.Panel_Main_menu.Controls.Add(this.Payments_textBox);
             this.Panel_Main_menu.Controls.Add(this.Payments_button);
             this.Panel_Main_menu.Controls.Add(this.Task_List_button);
-            this.Panel_Main_menu.Controls.Add(this.Payments_user_control);
-            this.Panel_Main_menu.Controls.Add(this.Readings_user_control);
-            this.Panel_Main_menu.Controls.Add(this.Events_user_control);
-            this.Panel_Main_menu.Controls.Add(this.TaskList_user_control);
-            this.Panel_Main_menu.Controls.Add(this.Contacts_user_control);
-            this.Panel_Main_menu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Panel_Main_menu.Controls.Add(this.eventsPanel);
+            this.Panel_Main_menu.Controls.Add(this.readingsPanel);
+            this.Panel_Main_menu.Controls.Add(this.contactPanel);
+            this.Panel_Main_menu.Controls.Add(this.paymentsPanel);
+            this.Panel_Main_menu.Controls.Add(this.taskListPanel);
             this.Panel_Main_menu.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main_menu.Margin = new System.Windows.Forms.Padding(0);
             this.Panel_Main_menu.MinimumSize = new System.Drawing.Size(580, 365);
@@ -162,7 +94,7 @@
             this.Contacts_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Contacts_button.FlatAppearance.BorderSize = 0;
             this.Contacts_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Contacts_button.Location = new System.Drawing.Point(430, 69);
+            this.Contacts_button.Location = new System.Drawing.Point(430, 87);
             this.Contacts_button.Margin = new System.Windows.Forms.Padding(0);
             this.Contacts_button.Name = "Contacts_button";
             this.Contacts_button.Size = new System.Drawing.Size(80, 80);
@@ -178,7 +110,7 @@
             this.Readings_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Readings_button.FlatAppearance.BorderSize = 0;
             this.Readings_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Readings_button.Location = new System.Drawing.Point(331, 69);
+            this.Readings_button.Location = new System.Drawing.Point(331, 87);
             this.Readings_button.Name = "Readings_button";
             this.Readings_button.Size = new System.Drawing.Size(80, 80);
             this.Readings_button.TabIndex = 4;
@@ -199,6 +131,37 @@
             this.Logo_button.TabIndex = 0;
             this.Logo_button.UseVisualStyleBackColor = false;
             // 
+            // Contacts_textBox
+            // 
+            this.Contacts_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Contacts_textBox.BackColor = System.Drawing.Color.White;
+            this.Contacts_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Contacts_textBox.Enabled = false;
+            this.Contacts_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Contacts_textBox.Location = new System.Drawing.Point(430, 172);
+            this.Contacts_textBox.Name = "Contacts_textBox";
+            this.Contacts_textBox.ReadOnly = true;
+            this.Contacts_textBox.Size = new System.Drawing.Size(80, 16);
+            this.Contacts_textBox.TabIndex = 12;
+            this.Contacts_textBox.Text = "Contacts";
+            this.Contacts_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Task_list_textBox
+            // 
+            this.Task_list_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Task_list_textBox.BackColor = System.Drawing.Color.White;
+            this.Task_list_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Task_list_textBox.Enabled = false;
+            this.Task_list_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Task_list_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Task_list_textBox.Location = new System.Drawing.Point(331, 296);
+            this.Task_list_textBox.Name = "Task_list_textBox";
+            this.Task_list_textBox.ReadOnly = true;
+            this.Task_list_textBox.Size = new System.Drawing.Size(80, 16);
+            this.Task_list_textBox.TabIndex = 13;
+            this.Task_list_textBox.Text = "Task List";
+            this.Task_list_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Events_button
             // 
             this.Events_button.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -207,12 +170,58 @@
             this.Events_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Events_button.FlatAppearance.BorderSize = 0;
             this.Events_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Events_button.Location = new System.Drawing.Point(230, 69);
+            this.Events_button.Location = new System.Drawing.Point(230, 87);
             this.Events_button.Name = "Events_button";
             this.Events_button.Size = new System.Drawing.Size(80, 80);
             this.Events_button.TabIndex = 2;
             this.Events_button.UseVisualStyleBackColor = false;
             this.Events_button.Click += new System.EventHandler(this.Events_button_Click);
+            // 
+            // Readings_textBox
+            // 
+            this.Readings_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Readings_textBox.BackColor = System.Drawing.Color.White;
+            this.Readings_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Readings_textBox.Enabled = false;
+            this.Readings_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Readings_textBox.Location = new System.Drawing.Point(331, 172);
+            this.Readings_textBox.Name = "Readings_textBox";
+            this.Readings_textBox.ReadOnly = true;
+            this.Readings_textBox.Size = new System.Drawing.Size(80, 16);
+            this.Readings_textBox.TabIndex = 9;
+            this.Readings_textBox.Text = "Readings";
+            this.Readings_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Events_textBox
+            // 
+            this.Events_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Events_textBox.BackColor = System.Drawing.Color.White;
+            this.Events_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Events_textBox.Enabled = false;
+            this.Events_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Events_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Events_textBox.Location = new System.Drawing.Point(230, 172);
+            this.Events_textBox.Name = "Events_textBox";
+            this.Events_textBox.ReadOnly = true;
+            this.Events_textBox.Size = new System.Drawing.Size(80, 16);
+            this.Events_textBox.TabIndex = 8;
+            this.Events_textBox.Text = "Events";
+            this.Events_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Payments_textBox
+            // 
+            this.Payments_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Payments_textBox.BackColor = System.Drawing.Color.White;
+            this.Payments_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Payments_textBox.Enabled = false;
+            this.Payments_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Payments_textBox.Location = new System.Drawing.Point(230, 296);
+            this.Payments_textBox.Name = "Payments_textBox";
+            this.Payments_textBox.ReadOnly = true;
+            this.Payments_textBox.Size = new System.Drawing.Size(80, 16);
+            this.Payments_textBox.TabIndex = 11;
+            this.Payments_textBox.Text = "Payments";
+            this.Payments_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Payments_button
             // 
@@ -222,7 +231,7 @@
             this.Payments_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Payments_button.FlatAppearance.BorderSize = 0;
             this.Payments_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Payments_button.Location = new System.Drawing.Point(230, 192);
+            this.Payments_button.Location = new System.Drawing.Point(230, 210);
             this.Payments_button.Name = "Payments_button";
             this.Payments_button.Size = new System.Drawing.Size(80, 80);
             this.Payments_button.TabIndex = 1;
@@ -237,54 +246,52 @@
             this.Task_List_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Task_List_button.FlatAppearance.BorderSize = 0;
             this.Task_List_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Task_List_button.Location = new System.Drawing.Point(331, 192);
+            this.Task_List_button.Location = new System.Drawing.Point(331, 210);
             this.Task_List_button.Name = "Task_List_button";
             this.Task_List_button.Size = new System.Drawing.Size(80, 80);
             this.Task_List_button.TabIndex = 3;
             this.Task_List_button.UseVisualStyleBackColor = false;
             this.Task_List_button.Click += new System.EventHandler(this.Task_List_button_Click);
             // 
-            // Contacts_user_control
+            // eventsPanel
             // 
-            this.Contacts_user_control.Location = new System.Drawing.Point(0, 0);
-            this.Contacts_user_control.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Contacts_user_control.Name = "Contacts_user_control";
-            this.Contacts_user_control.Size = new System.Drawing.Size(580, 365);
-            this.Contacts_user_control.TabIndex = 16;
-            this.Contacts_user_control.Load += new System.EventHandler(this.Contacts_user_control_Load);
+            this.eventsPanel.Location = new System.Drawing.Point(0, 0);
+            this.eventsPanel.MinimumSize = new System.Drawing.Size(580, 365);
+            this.eventsPanel.Name = "eventsPanel";
+            this.eventsPanel.Size = new System.Drawing.Size(580, 365);
+            this.eventsPanel.TabIndex = 20;
             // 
-            // Payments_user_control
+            // readingsPanel
             // 
-            this.Payments_user_control.Location = new System.Drawing.Point(0, 0);
-            this.Payments_user_control.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Payments_user_control.Name = "Payments_user_control";
-            this.Payments_user_control.Size = new System.Drawing.Size(580, 365);
-            this.Payments_user_control.TabIndex = 17;
-            this.Payments_user_control.Load += new System.EventHandler(this.Payments_user_control_Load);
+            this.readingsPanel.Location = new System.Drawing.Point(0, 0);
+            this.readingsPanel.MinimumSize = new System.Drawing.Size(580, 365);
+            this.readingsPanel.Name = "readingsPanel";
+            this.readingsPanel.Size = new System.Drawing.Size(580, 365);
+            this.readingsPanel.TabIndex = 21;
             // 
-            // Readings_user_control
+            // contactPanel
             // 
-            this.Readings_user_control.Location = new System.Drawing.Point(0, -1);
-            this.Readings_user_control.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Readings_user_control.Name = "Readings_user_control";
-            this.Readings_user_control.Size = new System.Drawing.Size(580, 366);
-            this.Readings_user_control.TabIndex = 18;
+            this.contactPanel.Location = new System.Drawing.Point(0, 0);
+            this.contactPanel.MinimumSize = new System.Drawing.Size(580, 365);
+            this.contactPanel.Name = "contactPanel";
+            this.contactPanel.Size = new System.Drawing.Size(580, 365);
+            this.contactPanel.TabIndex = 22;
             // 
-            // Events_user_control
+            // paymentsPanel
             // 
-            this.Events_user_control.Location = new System.Drawing.Point(0, 0);
-            this.Events_user_control.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Events_user_control.Name = "Events_user_control";
-            this.Events_user_control.Size = new System.Drawing.Size(580, 365);
-            this.Events_user_control.TabIndex = 14;
+            this.paymentsPanel.Location = new System.Drawing.Point(0, 0);
+            this.paymentsPanel.MinimumSize = new System.Drawing.Size(580, 365);
+            this.paymentsPanel.Name = "paymentsPanel";
+            this.paymentsPanel.Size = new System.Drawing.Size(580, 365);
+            this.paymentsPanel.TabIndex = 23;
             // 
-            // TaskList_user_control
+            // taskListPanel
             // 
-            this.TaskList_user_control.Location = new System.Drawing.Point(0, 0);
-            this.TaskList_user_control.MinimumSize = new System.Drawing.Size(580, 365);
-            this.TaskList_user_control.Name = "TaskList_user_control";
-            this.TaskList_user_control.Size = new System.Drawing.Size(580, 365);
-            this.TaskList_user_control.TabIndex = 15;
+            this.taskListPanel.Location = new System.Drawing.Point(0, 0);
+            this.taskListPanel.MinimumSize = new System.Drawing.Size(580, 365);
+            this.taskListPanel.Name = "taskListPanel";
+            this.taskListPanel.Size = new System.Drawing.Size(580, 365);
+            this.taskListPanel.TabIndex = 24;
             // 
             // Form1
             // 
@@ -317,13 +324,13 @@
         private System.Windows.Forms.TextBox Contacts_textBox;
         private System.Windows.Forms.TextBox Task_list_textBox;
         private System.Windows.Forms.Panel Panel_Main_menu;
-        private Events Events_user_control;
-        private TaskList TaskList_user_control;
-        private Contact Contacts_user_control;
-        private Payments Payments_user_control;
-        private Readings Readings_user_control;
         private System.Windows.Forms.Button Task_List_button;
         private System.Windows.Forms.ComboBox Condo_choose_comboBox;
+        private EventsPanel eventsPanel;
+        private ReadingsPanel readingsPanel;
+        private ContactPanel contactPanel;
+        private PaymentsPanel paymentsPanel;
+        private TaskListPanel taskListPanel;
     }
 }
 
