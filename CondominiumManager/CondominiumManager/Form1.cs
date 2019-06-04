@@ -38,7 +38,8 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            //return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            return new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
         }
 
         private bool VerifySGBDConnection()
@@ -55,51 +56,47 @@ namespace CondominiumManager
         private void Form1_Load_1(object sender, EventArgs e)
         {
             // Hide user controls
-            Events_user_control.Hide();
-            TaskList_user_control.Hide();
-            Payments_user_control.Hide();
-            Readings_user_control.Hide();
-            Contacts_user_control.Hide();
+            eventsPanel.Hide();
+            taskListPanel.Hide();
+            paymentsPanel.Hide();
+            readingsPanel.Hide();
+            contactPanel.Hide();
         }
 
         private void Events_button_Click(object sender, EventArgs e)
         {
             // Show current user control
-            Events_user_control.Show();
-            Events_user_control.BringToFront();
+            eventsPanel.Show();
+            eventsPanel.BringToFront();
         }
 
         private void Task_List_button_Click(object sender, EventArgs e)
         {
             // Show current user control
-            TaskList_user_control.Show();
-            TaskList_user_control.BringToFront();
+            taskListPanel.Show();
+            taskListPanel.BringToFront();
         }
 
         private void Payments_button_Click(object sender, EventArgs e)
         {
             // Show current user control
-            Payments_user_control.Show();
-            Payments_user_control.BringToFront(); 
+            paymentsPanel.Show();
+            paymentsPanel.BringToFront(); 
         }
 
         private void Readings_button_Click(object sender, EventArgs e)
         {
             // Show current user control
-            Readings_user_control.Show();
-            Readings_user_control.BringToFront();
+            readingsPanel.Show();
+            readingsPanel.BringToFront();
         }
 
         private void Contacts_button_Click(object sender, EventArgs e)
         {
             // Show current user control
-            Contacts_user_control.Show();
-            Contacts_user_control.BringToFront();
+            contactPanel.Show();
+            contactPanel.BringToFront();
         }
-
-        private void Contacts_user_control_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

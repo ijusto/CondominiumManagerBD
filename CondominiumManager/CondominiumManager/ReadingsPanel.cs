@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace CondominiumManager
 {
-    public partial class TaskList : UserControl
+    public partial class ReadingsPanel : UserControl
     {
-        public TaskList()
+        public ReadingsPanel()
         {
             InitializeComponent();
-        }
-
-        private void UserControl1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void Back_button_Click(object sender, EventArgs e)
         {
             this.SendToBack();
             this.Hide();
+        }
+
+        private void Readings_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

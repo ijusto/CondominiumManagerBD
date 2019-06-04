@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CondominiumManager
 {
-    public partial class Payments : UserControl
+    public partial class ContactPanel : UserControl
     {
-        public Payments()
+        public ContactPanel()
         {
             InitializeComponent();
         }
