@@ -28,30 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Damaged_textBox = new System.Windows.Forms.TextBox();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.Repair_button = new System.Windows.Forms.Button();
             this.Meeting_button = new System.Windows.Forms.Button();
+            this.Repair_button = new System.Windows.Forms.Button();
             this.Book_textBox = new System.Windows.Forms.TextBox();
             this.Name_textBox = new System.Windows.Forms.TextBox();
             this.Name_input_textBox = new System.Windows.Forms.TextBox();
             this.Time_textBox = new System.Windows.Forms.TextBox();
-            this.Hour_input_textBox = new System.Windows.Forms.TextBox();
-            this.Minute_input_textBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Place_textBox = new System.Windows.Forms.TextBox();
-            this.Damaged_textBox = new System.Windows.Forms.TextBox();
             this.Place_input_textBox = new System.Windows.Forms.TextBox();
             this.Damaged_input_textBox = new System.Windows.Forms.TextBox();
             this.Description_textBox = new System.Windows.Forms.TextBox();
             this.Description_input_textBox = new System.Windows.Forms.TextBox();
             this.Ok_button = new System.Windows.Forms.Button();
             this.Cancel_button = new System.Windows.Forms.Button();
+            this.Hour_input_textBox = new System.Windows.Forms.TextBox();
+            this.Minute_input_textBox = new System.Windows.Forms.TextBox();
             this.Type_textBox = new System.Windows.Forms.TextBox();
             this.Type_input_textBox = new System.Windows.Forms.TextBox();
             this.Back_button = new System.Windows.Forms.Button();
             this.Date_textBox = new System.Windows.Forms.TextBox();
             this.Date_input_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // Damaged_textBox
+            // 
+            this.Damaged_textBox.BackColor = System.Drawing.Color.White;
+            this.Damaged_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Damaged_textBox.Enabled = false;
+            this.Damaged_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Damaged_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Damaged_textBox.Location = new System.Drawing.Point(277, 143);
+            this.Damaged_textBox.Name = "Damaged_textBox";
+            this.Damaged_textBox.ReadOnly = true;
+            this.Damaged_textBox.Size = new System.Drawing.Size(77, 16);
+            this.Damaged_textBox.TabIndex = 11;
+            this.Damaged_textBox.Text = "Damaged:";
             // 
             // monthCalendar
             // 
@@ -60,20 +74,6 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
             this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar1_DateChanged);
-            // 
-            // Repair_button
-            // 
-            this.Repair_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
-            this.Repair_button.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.Repair_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Repair_button.ForeColor = System.Drawing.Color.White;
-            this.Repair_button.Location = new System.Drawing.Point(431, 44);
-            this.Repair_button.Name = "Repair_button";
-            this.Repair_button.Size = new System.Drawing.Size(75, 23);
-            this.Repair_button.TabIndex = 2;
-            this.Repair_button.Text = "Repair";
-            this.Repair_button.UseVisualStyleBackColor = false;
-            this.Repair_button.Click += new System.EventHandler(this.Repair_button_Click);
             // 
             // Meeting_button
             // 
@@ -88,6 +88,20 @@
             this.Meeting_button.Text = "Meeting";
             this.Meeting_button.UseVisualStyleBackColor = false;
             this.Meeting_button.Click += new System.EventHandler(this.Meeting_button_Click);
+            // 
+            // Repair_button
+            // 
+            this.Repair_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Repair_button.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.Repair_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Repair_button.ForeColor = System.Drawing.Color.White;
+            this.Repair_button.Location = new System.Drawing.Point(431, 44);
+            this.Repair_button.Name = "Repair_button";
+            this.Repair_button.Size = new System.Drawing.Size(75, 23);
+            this.Repair_button.TabIndex = 2;
+            this.Repair_button.Text = "Repair";
+            this.Repair_button.UseVisualStyleBackColor = false;
+            this.Repair_button.Click += new System.EventHandler(this.Repair_button_Click);
             // 
             // Book_textBox
             // 
@@ -139,22 +153,6 @@
             this.Time_textBox.TabIndex = 6;
             this.Time_textBox.Text = "Time:";
             // 
-            // Hour_input_textBox
-            // 
-            this.Hour_input_textBox.Location = new System.Drawing.Point(455, 99);
-            this.Hour_input_textBox.MaxLength = 2;
-            this.Hour_input_textBox.Name = "Hour_input_textBox";
-            this.Hour_input_textBox.Size = new System.Drawing.Size(21, 20);
-            this.Hour_input_textBox.TabIndex = 7;
-            // 
-            // Minute_input_textBox
-            // 
-            this.Minute_input_textBox.Location = new System.Drawing.Point(485, 99);
-            this.Minute_input_textBox.MaxLength = 2;
-            this.Minute_input_textBox.Name = "Minute_input_textBox";
-            this.Minute_input_textBox.Size = new System.Drawing.Size(21, 20);
-            this.Minute_input_textBox.TabIndex = 8;
-            // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
@@ -183,20 +181,6 @@
             this.Place_textBox.Size = new System.Drawing.Size(45, 16);
             this.Place_textBox.TabIndex = 10;
             this.Place_textBox.Text = "Place:";
-            // 
-            // Damaged_textBox
-            // 
-            this.Damaged_textBox.BackColor = System.Drawing.Color.White;
-            this.Damaged_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Damaged_textBox.Enabled = false;
-            this.Damaged_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Damaged_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Damaged_textBox.Location = new System.Drawing.Point(277, 143);
-            this.Damaged_textBox.Name = "Damaged_textBox";
-            this.Damaged_textBox.ReadOnly = true;
-            this.Damaged_textBox.Size = new System.Drawing.Size(77, 16);
-            this.Damaged_textBox.TabIndex = 11;
-            this.Damaged_textBox.Text = "Damaged:";
             // 
             // Place_input_textBox
             // 
@@ -260,6 +244,22 @@
             this.Cancel_button.Text = "Cancel";
             this.Cancel_button.UseVisualStyleBackColor = false;
             this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
+            // 
+            // Hour_input_textBox
+            // 
+            this.Hour_input_textBox.Location = new System.Drawing.Point(455, 99);
+            this.Hour_input_textBox.MaxLength = 2;
+            this.Hour_input_textBox.Name = "Hour_input_textBox";
+            this.Hour_input_textBox.Size = new System.Drawing.Size(21, 20);
+            this.Hour_input_textBox.TabIndex = 7;
+            // 
+            // Minute_input_textBox
+            // 
+            this.Minute_input_textBox.Location = new System.Drawing.Point(485, 99);
+            this.Minute_input_textBox.MaxLength = 2;
+            this.Minute_input_textBox.Name = "Minute_input_textBox";
+            this.Minute_input_textBox.Size = new System.Drawing.Size(21, 20);
+            this.Minute_input_textBox.TabIndex = 8;
             // 
             // Type_textBox
             // 
@@ -369,6 +369,7 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox Damaged_textBox;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button Meeting_button;
         private System.Windows.Forms.Button Repair_button;
@@ -376,17 +377,16 @@
         private System.Windows.Forms.TextBox Name_textBox;
         private System.Windows.Forms.TextBox Name_input_textBox;
         private System.Windows.Forms.TextBox Time_textBox;
-        private System.Windows.Forms.TextBox Hour_input_textBox;
-        private System.Windows.Forms.TextBox Minute_input_textBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox Place_textBox;
-        private System.Windows.Forms.TextBox Damaged_textBox;
         private System.Windows.Forms.TextBox Place_input_textBox;
         private System.Windows.Forms.TextBox Damaged_input_textBox;
         private System.Windows.Forms.TextBox Description_textBox;
         private System.Windows.Forms.TextBox Description_input_textBox;
         private System.Windows.Forms.Button Ok_button;
         private System.Windows.Forms.Button Cancel_button;
+        private System.Windows.Forms.TextBox Hour_input_textBox;
+        private System.Windows.Forms.TextBox Minute_input_textBox;
         private System.Windows.Forms.TextBox Type_textBox;
         private System.Windows.Forms.TextBox Type_input_textBox;
         private System.Windows.Forms.Button Back_button;

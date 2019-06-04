@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace CondominiumManager
 {
-    public partial class Form1 : Form
+    public partial class MainMenuForm : Form
     {
         private SqlConnection cn;
         SqlCommand cmd;
 
-        public Form1()
+        public MainMenuForm()
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -55,48 +55,70 @@ namespace CondominiumManager
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+            /*
             // Hide user controls
             eventsPanel.Hide();
             taskListPanel.Hide();
             paymentsPanel.Hide();
             readingsPanel.Hide();
             contactPanel.Hide();
+            */
         }
 
         private void Events_button_Click(object sender, EventArgs e)
         {
-            // Show current user control
-            eventsPanel.Show();
-            eventsPanel.BringToFront();
-        }
-
-        private void Task_List_button_Click(object sender, EventArgs e)
-        {
-            // Show current user control
-            taskListPanel.Show();
-            taskListPanel.BringToFront();
-        }
-
-        private void Payments_button_Click(object sender, EventArgs e)
-        {
-            // Show current user control
-            paymentsPanel.Show();
-            paymentsPanel.BringToFront(); 
+            ChangeForm("Events");            
         }
 
         private void Readings_button_Click(object sender, EventArgs e)
         {
-            // Show current user control
-            readingsPanel.Show();
-            readingsPanel.BringToFront();
+            ChangeForm("Readings");
         }
 
         private void Contacts_button_Click(object sender, EventArgs e)
         {
-            // Show current user control
-            contactPanel.Show();
-            contactPanel.BringToFront();
+            ChangeForm("Contacts");
         }
-        
+
+        private void Payments_button_Click(object sender, EventArgs e)
+        {
+            ChangeForm("Payments");
+        }
+
+        private void Task_List_button_Click(object sender, EventArgs e)
+        {
+            ChangeForm("TaskList");
+        }
+
+        private void ChangeForm(string name)
+        {
+            if (name.Equals("Events"))
+            {
+                var form = new EventsForm();
+                form.ShowDialog();
+            }
+            else if (name.Equals("Readings"))
+            {
+                var form = new ReadingsForm();
+                form.ShowDialog();
+            }
+            else if (name.Equals("Contacts"))
+            {
+                var form = new ContactsForm();
+                form.ShowDialog();
+            }
+            else if (name.Equals("Payments"))
+            {
+                var form = new PaymentsForm();
+                form.ShowDialog();
+            }
+            else if (name.Equals("TaskList"))
+            {
+                var form = new TaskListForm();
+                form.ShowDialog();
+            }
+            this.SendToBack();
+            this.Close();
+        }
     }
 }

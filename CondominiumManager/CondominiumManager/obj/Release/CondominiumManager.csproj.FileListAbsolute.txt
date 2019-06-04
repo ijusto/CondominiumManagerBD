@@ -16,7 +16,6 @@ C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\Condom
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Release\CondominiumManager.exe
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Release\CondominiumManager.pdb
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.csprojAssemblyReference.cache
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Form1.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.Properties.Resources.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.csproj.GenerateResource.cache
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.csproj.CoreCompileInputs.cache
@@ -27,3 +26,9 @@ C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\Condom
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.EventsPanel.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.ReadingsPanel.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.TaskListPanel.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.ContactsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.EventsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.MainMenuForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.PaymentsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.ReadingsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Release\CondominiumManager.TaskListForm.resources

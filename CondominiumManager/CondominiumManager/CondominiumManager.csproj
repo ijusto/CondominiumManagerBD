@@ -66,14 +66,44 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactsForm.Designer.cs">
+      <DependentUpon>ContactsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event.cs" />
     <Compile Include="Condominium_Manager.cs" />
+    <Compile Include="EventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsForm.Designer.cs">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Meeting.cs" />
+    <Compile Include="PaymentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentsForm.Designer.cs">
+      <DependentUpon>PaymentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs" />
+    <Compile Include="ReadingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReadingsForm.Designer.cs">
+      <DependentUpon>ReadingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repair.cs" />
     <Compile Include="Revenue_Invoice.cs" />
     <Compile Include="Services_Provider.cs" />
     <Compile Include="Service_Invoice.cs" />
+    <Compile Include="TaskListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskListForm.Designer.cs">
+      <DependentUpon>TaskListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tenant.cs" />
     <Compile Include="EventsPanel.cs">
       <SubType>UserControl</SubType>
@@ -81,11 +111,11 @@
     <Compile Include="EventsPanel.Designer.cs">
       <DependentUpon>EventsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,8 +146,17 @@
     <EmbeddedResource Include="ContactPanel.resx">
       <DependentUpon>ContactPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ContactsForm.resx">
+      <DependentUpon>ContactsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventsForm.resx">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentsForm.resx">
+      <DependentUpon>PaymentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentsPanel.resx">
       <DependentUpon>PaymentsPanel.cs</DependentUpon>
@@ -135,8 +174,14 @@
     <EmbeddedResource Include="EventsPanel.resx">
       <DependentUpon>EventsPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReadingsForm.resx">
+      <DependentUpon>ReadingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReadingsPanel.resx">
       <DependentUpon>ReadingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskListForm.resx">
+      <DependentUpon>TaskListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaskListPanel.resx">
       <DependentUpon>TaskListPanel.cs</DependentUpon>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace CondominiumManager
 {
-    public partial class EventsPanel : UserControl
+    public partial class EventsForm : Form
     {
-        private string Data = "";
+        private string date = "";
 
-        public EventsPanel()
+        public EventsForm()
         {
             InitializeComponent();
         }
-
-        private void Events_Load(object sender, EventArgs e)
+    
+        private void EventsForm_Load(object sender, EventArgs e)
         {
             Buttons_Visibility("events");
         }
@@ -40,12 +40,6 @@ namespace CondominiumManager
         private void Cancel_button_Click(object sender, EventArgs e)
         {
             Buttons_Visibility("cancel");
-        }
-
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            this.SendToBack();
-            this.Hide();
         }
 
         private void Buttons_Visibility(string name)
@@ -91,7 +85,7 @@ namespace CondominiumManager
                 Ok_button.Hide();
                 Cancel_button.Hide();
             }
-            else if(name.Equals("Meeting"))
+            else if (name.Equals("Meeting"))
             {
                 Damaged_textBox.Hide();
                 Damaged_input_textBox.Hide();
@@ -100,7 +94,7 @@ namespace CondominiumManager
                 Name_input_textBox.Text = "";
                 Name_input_textBox.Show();
                 Date_textBox.Show();
-                Date_input_textBox.Text = Data;
+                Date_input_textBox.Text = date;
                 Date_input_textBox.Show();
                 Time_textBox.Show();
                 Hour_input_textBox.Text = "";
@@ -119,7 +113,7 @@ namespace CondominiumManager
                 Ok_button.Show();
                 Cancel_button.Show();
             }
-            else if(name.Equals("Repair"))
+            else if (name.Equals("Repair"))
             {
                 Place_textBox.Hide();
                 Place_input_textBox.Hide();
@@ -128,7 +122,7 @@ namespace CondominiumManager
                 Name_input_textBox.Text = "";
                 Name_input_textBox.Show();
                 Date_textBox.Show();
-                Date_input_textBox.Text = Data;
+                Date_input_textBox.Text = date;
                 Date_input_textBox.Show();
                 Time_textBox.Show();
                 Hour_input_textBox.Text = "";
@@ -153,7 +147,20 @@ namespace CondominiumManager
         {
             string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
             string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
-            Data = startDate;
+            date = startDate;
         }
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            var form = new MainMenuForm();
+            form.ShowDialog();
+            this.SendToBack();
+            this.Close();
+        }
+
+        private void Ok_button_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }
