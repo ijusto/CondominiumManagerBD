@@ -76,8 +76,10 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Descricao varchar(100),
 	localizacao varchar(40),
 	nif_gestor varchar(9),
+	endereco varchar(40),
 	PRIMARY KEY(Id),
-	foreign key(nif_gestor) references CONDOMANAGER.Gestor_Condominio(nif)
+	foreign key(nif_gestor) references CONDOMANAGER.Gestor_Condominio(nif),
+	foreign key(endereco) references condomanager.condominio(endereco)
  )
 
  CREATE TABLE CONDOMANAGER.Reparacao(
@@ -87,8 +89,10 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Descricao varchar(100),
 	Danificado varchar(50),
 	nif_gestor varchar(9),
+	endereco varchar(40),
 	PRIMARY KEY(Id),
-	foreign key(nif_gestor) references condomanager.gestor_condominio(nif)
+	foreign key(nif_gestor) references condomanager.gestor_condominio(nif),
+	foreign key(endereco) references condomanager.condominio(endereco)
  )
 
   CREATE TABLE CONDOMANAGER.Tipo_Fornecedor(
@@ -99,7 +103,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
  CREATE TABLE CONDOMANAGER.Fornecedor_Servicos(
 	NIF varchar(9),
-	Nome varchar(15),
+	Nome varchar(20),
 	Telemovel varchar(9),
 	Morada varchar(40),
 	tipo int
@@ -148,13 +152,15 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Data date,
 	Id_Fornec varchar(9),
 	Id_Consumidor varchar(9),
+	endereco varchar(40),
 	id_pagamento int,
 	Quantia money,
 
 	PRIMARY KEY(Id_Fatura),
 	foreign key(id_fornec) references condomanager.fornecedor_servicos(nif),
 	foreign key (id_consumidor) references condomanager.gestor_condominio(nif),
-	foreign key( id_pagamento) references condomanager.pagamento_servicos(id)
+	foreign key( id_pagamento) references condomanager.pagamento_servicos(id),
+	foreign key(endereco) references condomanager.condominio(endereco)
 
  )
 
@@ -209,4 +215,37 @@ insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_cond
 			('Avenida dos Combatentes','B2', 12322, 'RC/E', '216374865')
 
 
-select * from condomanager.Condomino join condomanager.Fracao on nif=nif_condomino where endereco='Rua Nova'
+insert into condomanager.Reclamacao(endereco, ref_fracao, nif_gestor, nif_condomino, Data, Descricao) values
+			('Rua São Martinho', 'A3', '250238280', '126374659', '20190604', 'Contador da água com valores acima do normal'),
+			('Rua São Martinho', 'A1', '250238280', '213564756', '20190604', 'Contador da luz com valores acima do normal'),
+			('Rua Nova', 'A2', '123876530','216374865', '20190601', 'Luz da entrada fundida'),
+			('Avenida dos Combatentes', 'B2', '265904536', '216374865', '20190602', 'Elevador não funcional')
+
+insert into condomanager.Tipo_Fornecedor(Id, Descricao) values
+			(1, 'Fornecedor de Água'),
+			(2, 'Fornecedor de Luz'),
+			(3, 'Fornecedor de Gás'),
+			(4, 'Fornecedor de Material de Reparação'),
+			(5, 'Forencedor de Material de Construcão')
+
+insert into condomanager.Fornecedor_Servicos(NIF, Nome, Morada, Telemovel, tipo) values
+			('501654738', 'Endesa', 'Rua Marquês de Pombal', '213423569', 2),
+			('501276453', 'GALP Energia', 'Rua da Constituição', '217635487', 3),
+			('502645787', 'Águas de Portugal', 'Praçeta de Lisboa', '217489203', 1),
+			('501746539', 'ReparaTudo', 'Rua de Espinho', '228376476', 4),
+			('504982746', 'Cimento&Afins', 'Rua da Ladra', '217364895', 5)
+
+
+insert into condomanager.Reparacao(Nome, Data, Danificado, Descricao, nif_gestor, endereco) values
+			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', '123876530', 'Rua Nova')
+
+
+insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, nif_gestor, endereco) values
+			('Mudança de Orçamento', '20190610', 'Alteração do Orçamento do 1º Direito', 'Cave do edificio da Rua São Martinho',
+				'250238280', 'Rua São Martinho')
+
+insert into condomanager.Fatura_Servicos(Id_Consumidor, Id_Fornec, endereco, Data, Quantia) values
+			('123876530', '501654738', 'Rua Direita', '20190617',65)
+
+--insert into condomanager.Fatura_Quotas(
+   
