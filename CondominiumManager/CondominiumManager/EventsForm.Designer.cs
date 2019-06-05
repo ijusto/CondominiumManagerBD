@@ -66,6 +66,7 @@
             this.Date_input_textBox.ReadOnly = true;
             this.Date_input_textBox.Size = new System.Drawing.Size(67, 16);
             this.Date_input_textBox.TabIndex = 45;
+            this.Date_input_textBox.Text = this.monthCalendar.TodayDate.ToString();
             // 
             // Date_textBox
             // 
@@ -317,6 +318,7 @@
             this.monthCalendar.MaxSelectionCount = 1;
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 23;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             // 
             // Damaged_textBox
             // 

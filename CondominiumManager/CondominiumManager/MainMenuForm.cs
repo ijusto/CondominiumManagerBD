@@ -55,14 +55,6 @@ namespace CondominiumManager
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            /*
-            // Hide user controls
-            eventsPanel.Hide();
-            taskListPanel.Hide();
-            paymentsPanel.Hide();
-            readingsPanel.Hide();
-            contactPanel.Hide();
-            */
         }
 
         private void Events_button_Click(object sender, EventArgs e)

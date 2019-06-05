@@ -12,13 +12,15 @@ namespace CondominiumManager
 {
     public partial class EventsForm : Form
     {
+        private string event_type = "";
         private string date = "";
 
         public EventsForm()
         {
             InitializeComponent();
+            date = Date_input_textBox.Text;
         }
-    
+
         private void EventsForm_Load(object sender, EventArgs e)
         {
             Buttons_Visibility("events");
@@ -26,14 +28,13 @@ namespace CondominiumManager
 
         private void Repair_button_Click(object sender, EventArgs e)
         {
-
+            event_type = "Repair";
             Buttons_Visibility("Repair");
-
-            // TODO: Ok
         }
 
         private void Meeting_button_Click(object sender, EventArgs e)
         {
+            event_type = "Meeting";
             Buttons_Visibility("Meeting");
         }
 
@@ -142,13 +143,7 @@ namespace CondominiumManager
                 Cancel_button.Show();
             }
         }
-
-        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
-            string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
-            date = startDate;
-        }
+        
         private void Back_button_Click(object sender, EventArgs e)
         {
             var form = new MainMenuForm();
@@ -159,8 +154,18 @@ namespace CondominiumManager
 
         private void Ok_button_Click(object sender, EventArgs e)
         {
-
+            //TODO: Save event in database
         }
-        
+
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
+            string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
+            date = startDate;
+            //if(event_type.Equals("Repair") || event_type.Equals("Meeting"))
+            //{
+                Date_input_textBox.Text = date;
+            //}
+        }
     }
 }
