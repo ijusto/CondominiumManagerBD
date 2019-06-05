@@ -19,12 +19,11 @@ namespace CondominiumManager
         private SqlCommand cmd;
         private string condo = Chosencondo.Chosen_condo;
         private string querydate = "";
+        private List<meetings> meetingsList;
 
         private SqlConnection GetSGBDConnection()
         {
-            SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            return toms;
+            return new SqlConnection(path);
         }
 
         private bool VerifySGBDConnection()
@@ -191,6 +190,7 @@ namespace CondominiumManager
 
         private void CheckEventInDate()
         {
+            meetingsList = new List<meetings>();
             cn = GetSGBDConnection();
             cn.Open();
             cmd = new SqlCommand("showevents", cn);
@@ -204,7 +204,15 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                MessageBox.Show(dr["descricao"].ToString());
+                meetings meet = new meetings();
+                meet.id = (int)dr["id"];
+                meet.name = dr["name"].ToString();
+                meet.location = dr["localizacao"].ToString();
+                meet.date = dr["data"].ToString();
+                meet.description = dr["description"].ToString();
+                meet.condo = dr["endereco"].ToString();
+
+                meetingsList.Add(meet);
             }
 
 
@@ -229,6 +237,8 @@ namespace CondominiumManager
                 location = this.location;
                 condo = this.condo;
             }
+
+            public meetings() { }
         }
     }
 }
