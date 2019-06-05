@@ -12,7 +12,6 @@ namespace CondominiumManager
 {
     public partial class EventsForm : Form
     {
-        private string event_type = "";
         private string date = "";
 
         public EventsForm()
@@ -28,13 +27,11 @@ namespace CondominiumManager
 
         private void Repair_button_Click(object sender, EventArgs e)
         {
-            event_type = "Repair";
             Buttons_Visibility("Repair");
         }
 
         private void Meeting_button_Click(object sender, EventArgs e)
         {
-            event_type = "Meeting";
             Buttons_Visibility("Meeting");
         }
 
@@ -162,10 +159,14 @@ namespace CondominiumManager
             string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
             string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
             date = startDate;
-            //if(event_type.Equals("Repair") || event_type.Equals("Meeting"))
-            //{
-                Date_input_textBox.Text = date;
-            //}
+            Date_input_textBox.Text = date;
+        }
+
+        private bool CheckEventInDate()
+        {
+            //TODO: verify if date selected has events to show
+            string dateSel = monthCalendar.SelectionRange.Start.ToString();
+            return false;
         }
     }
 }

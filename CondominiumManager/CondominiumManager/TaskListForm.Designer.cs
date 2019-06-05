@@ -163,6 +163,7 @@
             this.TasklistBox.Name = "TasklistBox";
             this.TasklistBox.Size = new System.Drawing.Size(211, 251);
             this.TasklistBox.TabIndex = 12;
+            this.TasklistBox.SelectedIndexChanged += new System.EventHandler(this.TasklistBox_SelectedIndexChanged);
             // 
             // TaskListForm
             // 

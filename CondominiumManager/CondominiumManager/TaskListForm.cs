@@ -12,6 +12,8 @@ namespace CondominiumManager
 {
     public partial class TaskListForm : Form
     {
+        private int currentContact;
+
         public TaskListForm()
         {
             InitializeComponent();
@@ -28,6 +30,16 @@ namespace CondominiumManager
             form.ShowDialog();
             this.SendToBack();
             this.Close();
+        }
+
+        private void TasklistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (TasklistBox.SelectedIndex > 0)
+            {
+                currentContact = TasklistBox.SelectedIndex;
+                //ShowContact();
+            }
         }
     }
 }

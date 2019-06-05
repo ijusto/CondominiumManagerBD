@@ -46,14 +46,15 @@
             this.Back_button.UseVisualStyleBackColor = false;
             this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
-            // Contact
+            // ContactPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Back_button);
             this.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Name = "Contact";
+            this.Name = "ContactPanel";
             this.Size = new System.Drawing.Size(580, 365);
+            this.Load += new System.EventHandler(this.ContactPanel_Load);
             this.ResumeLayout(false);
 
         }

@@ -24,6 +24,7 @@ namespace CondominiumManager
 
         private void Back_button_Click(object sender, EventArgs e)
         {
+
             var form = new MainMenuForm();
             form.ShowDialog();
             this.SendToBack();

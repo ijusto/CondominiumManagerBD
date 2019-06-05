@@ -38,10 +38,5 @@ namespace CondominiumManager
                 //ShowContact();
             }
         }
-
-        private void Data_textBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

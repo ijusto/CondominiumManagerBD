@@ -77,7 +77,6 @@
             this.Date_textBox.Size = new System.Drawing.Size(37, 16);
             this.Date_textBox.TabIndex = 2;
             this.Date_textBox.Text = "Date\r\n:";
-            this.Date_textBox.TextChanged += new System.EventHandler(this.Data_textBox_TextChanged);
             // 
             // Date_input_textBox
             // 

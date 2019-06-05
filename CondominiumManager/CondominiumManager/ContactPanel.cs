@@ -22,5 +22,10 @@ namespace CondominiumManager
             this.SendToBack();
             this.Hide();
         }
+
+        private void ContactPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
