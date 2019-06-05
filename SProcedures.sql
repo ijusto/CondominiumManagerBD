@@ -105,39 +105,27 @@ begin
 end;
 go
 
+create procedure getfaturaquota (@endereco as varchar(40)) as
+begin
+	select data, descricao, ref_fracao, endereco, quantia from condomanager.fatura_quotas where endereco = @endereco
+end;
+go
+
+create procedure getfaturaservico(@endereco as varchar(40) as
+begin
+	select data, nif_fornecedor, ref_fracao, endereco, quantia from condomanager.fatura_servicos where endereco = @endereco
+end;
+go
 
 
 
 
 
-create trigger log_meetings on condomanager.reuniao after insert, update, delete as
-begin 
-		DECLARE @operation CHAR(6)
-		SET @operation = CASE
-				WHEN EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
-					THEN 'Update'
-				WHEN EXISTS(SELECT * FROM inserted)
-					THEN 'Insert'
-				WHEN EXISTS(SELECT * FROM deleted)
-					THEN 'Delete'
-				ELSE NULL
-		end
-			IF @operation = 'Delete'
-			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagada reunião com o id', STR(d.id))
-			FROM deleted d
- 
-			IF @operation = 'Insert'
-			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criada reunião com o id', STR(i.id))
-			FROM inserted i
- 
-			IF @operation = 'Update'
-			INSERT INTO condomanager.logs (Command, data, descricao)
-				SELECT @operation, GETDATE(), Concat('Modificada reunião com o id ', STR(d.id), 'Para o id: ', STR(i.id))
-			FROM deleted d, inserted i
-END
-GO
+
+
+
+
+
 
 
 
