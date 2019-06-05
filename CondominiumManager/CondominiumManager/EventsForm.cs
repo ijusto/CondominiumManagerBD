@@ -19,6 +19,7 @@ namespace CondominiumManager
         private SqlCommand cmd;
         private string condo = Chosencondo.Chosen_condo;
         private string querydate = "";
+        private List<meetings> meetingsList;
 
         private SqlConnection GetSGBDConnection()
         {
@@ -189,6 +190,7 @@ namespace CondominiumManager
 
         private void CheckEventInDate()
         {
+            meetingsList = new List<meetings>();
             cn = GetSGBDConnection();
             cn.Open();
             cmd = new SqlCommand("showevents", cn)
@@ -204,7 +206,15 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                MessageBox.Show(dr["descricao"].ToString());
+                meetings meet = new meetings();
+                meet.id = (int)dr["id"];
+                meet.name = dr["name"].ToString();
+                meet.location = dr["localizacao"].ToString();
+                meet.date = dr["data"].ToString();
+                meet.description = dr["description"].ToString();
+                meet.condo = dr["endereco"].ToString();
+
+                meetingsList.Add(meet);
             }
 
 

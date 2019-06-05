@@ -65,3 +65,16 @@ begin
 	select Nome, Telemovel from condomanager.Reclamacao join condomanager.Condomino on nif_condomino = nif where id = @id_complaint
 end;
 go
+
+
+create procedure getsupplier as
+begin
+	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
+end;
+go
+
+create procedure getsuppliernif(@nif as varchar(9)) as
+begin
+	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
+	 where condomanager.Fornecedor_Servicos.NIF = @nif
+end;
