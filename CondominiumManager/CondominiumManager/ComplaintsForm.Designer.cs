@@ -185,7 +185,7 @@
             this.Name = "TaskListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
-            this.Load += new System.EventHandler(this.TaskListForm_Load);
+            this.Load += new System.EventHandler(this.ComplaintsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

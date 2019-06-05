@@ -1,20 +1,12 @@
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.exe.config
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.exe
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.pdb
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Form1.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Properties.Resources.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csproj.GenerateResource.cache
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csproj.CoreCompileInputs.cache
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.exe
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.pdb
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Events.resources
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.TaskList.resources
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Contact.resources
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Payments.resources
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Readings.resources
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csprojAssemblyReference.cache
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\Database1.mdf
-C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\Database1_log.ldf
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.exe.config
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.exe
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\bin\Debug\CondominiumManager.pdb
@@ -30,3 +22,14 @@ C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumMa
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.csproj.CoreCompileInputs.cache
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.exe
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.pdb
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.ContactPanel.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.ContactsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.EventsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.MainMenuForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.PaymentsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.PaymentsPanel.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.EventsPanel.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.ReadingsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.ReadingsPanel.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.ComplaintsForm.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.TaskListPanel.resources

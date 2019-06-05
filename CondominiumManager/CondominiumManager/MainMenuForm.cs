@@ -9,6 +9,9 @@ namespace CondominiumManager
     {
         private SqlConnection cn;
         SqlCommand cmd;
+        private static String tomsDB = "data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
+        private static String inesDB = "data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
+        public static String path = inesDB;
 
         public MainMenuForm()
         {
@@ -26,9 +29,6 @@ namespace CondominiumManager
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT Endereco FROM [CONDOMANAGER].[Condominio]";
             cmd.ExecuteNonQuery();
-            //cmd.commandtype = CommandType.storedprocedure
-            //cmd.Parameters.Addwithvalue("endereco", "Rua Nova")
-
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -41,9 +41,7 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            return ines;
+            return new SqlConnection(path);
         }
 
         private bool VerifySGBDConnection()
@@ -122,7 +120,22 @@ namespace CondominiumManager
             }
         }
 
-        public static class Chosencondo{
+        private void Condo_choose_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Chosencondo.Chosen_condo = Condo_choose_comboBox.Text.ToString();
+            Chosencondo.Index = Condo_choose_comboBox.SelectedIndex;
+        }
+
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+            if(Chosencondo.Index != 0)
+            {
+                Condo_choose_comboBox.SelectedIndex = Chosencondo.Index;
+            }
+        }
+
+        public static class Chosencondo
+        {
             private static string _chosen_condo;
             private static int _index;
 
@@ -136,22 +149,6 @@ namespace CondominiumManager
             {
                 get { return _index; }
                 set { _index = value; }
-            }
-
-
-        }
-
-        private void Condo_choose_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Chosencondo.Chosen_condo = Condo_choose_comboBox.Text.ToString();
-            Chosencondo.Index = Condo_choose_comboBox.SelectedIndex;
-        }
-
-        private void MainMenuForm_Load(object sender, EventArgs e)
-        {
-            if(Chosencondo.Index != 0)
-            {
-                Condo_choose_comboBox.SelectedIndex = Chosencondo.Index;
             }
         }
     }

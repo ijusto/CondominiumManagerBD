@@ -30,6 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsForm));
             this.Back_button = new System.Windows.Forms.Button();
+            this.Place_textBox = new System.Windows.Forms.TextBox();
+            this.Tenants_listBox = new System.Windows.Forms.ListBox();
+            this.Serv_Providers_textBox = new System.Windows.Forms.TextBox();
+            this.Serv_Providers_listBox = new System.Windows.Forms.ListBox();
+            this.Name_textBox = new System.Windows.Forms.TextBox();
+            this.Name_input_textBox = new System.Windows.Forms.TextBox();
+            this.Mobile_input_textBox = new System.Windows.Forms.TextBox();
+            this.Mobile_textBox = new System.Windows.Forms.TextBox();
+            this.Email_OR_Address_input_textBox = new System.Windows.Forms.TextBox();
+            this.Email_OR_Address_textBox = new System.Windows.Forms.TextBox();
+            this.Type_input_textBox = new System.Windows.Forms.TextBox();
+            this.Type_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Back_button
@@ -47,10 +59,152 @@
             this.Back_button.UseVisualStyleBackColor = false;
             this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
+            // Place_textBox
+            // 
+            this.Place_textBox.BackColor = System.Drawing.Color.White;
+            this.Place_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Place_textBox.Enabled = false;
+            this.Place_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Place_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Place_textBox.Location = new System.Drawing.Point(46, 42);
+            this.Place_textBox.Name = "Place_textBox";
+            this.Place_textBox.ReadOnly = true;
+            this.Place_textBox.Size = new System.Drawing.Size(60, 16);
+            this.Place_textBox.TabIndex = 34;
+            this.Place_textBox.Text = "Tenants:";
+            // 
+            // Tenants_listBox
+            // 
+            this.Tenants_listBox.FormattingEnabled = true;
+            this.Tenants_listBox.Location = new System.Drawing.Point(46, 64);
+            this.Tenants_listBox.Name = "Tenants_listBox";
+            this.Tenants_listBox.Size = new System.Drawing.Size(233, 95);
+            this.Tenants_listBox.TabIndex = 35;
+            this.Tenants_listBox.SelectedIndexChanged += new System.EventHandler(this.Tenants_listBox_SelectedIndexChanged);
+            // 
+            // Serv_Providers_textBox
+            // 
+            this.Serv_Providers_textBox.BackColor = System.Drawing.Color.White;
+            this.Serv_Providers_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Serv_Providers_textBox.Enabled = false;
+            this.Serv_Providers_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Serv_Providers_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Serv_Providers_textBox.Location = new System.Drawing.Point(46, 175);
+            this.Serv_Providers_textBox.Name = "Serv_Providers_textBox";
+            this.Serv_Providers_textBox.ReadOnly = true;
+            this.Serv_Providers_textBox.Size = new System.Drawing.Size(119, 16);
+            this.Serv_Providers_textBox.TabIndex = 36;
+            this.Serv_Providers_textBox.Text = "Service Providers:";
+            // 
+            // Serv_Providers_listBox
+            // 
+            this.Serv_Providers_listBox.FormattingEnabled = true;
+            this.Serv_Providers_listBox.Location = new System.Drawing.Point(46, 197);
+            this.Serv_Providers_listBox.Name = "Serv_Providers_listBox";
+            this.Serv_Providers_listBox.Size = new System.Drawing.Size(233, 95);
+            this.Serv_Providers_listBox.TabIndex = 37;
+            this.Serv_Providers_listBox.SelectedIndexChanged += new System.EventHandler(this.Serv_Providers_listBox_SelectedIndexChanged);
+            // 
+            // Name_textBox
+            // 
+            this.Name_textBox.BackColor = System.Drawing.Color.White;
+            this.Name_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Name_textBox.Enabled = false;
+            this.Name_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Name_textBox.Location = new System.Drawing.Point(319, 42);
+            this.Name_textBox.Name = "Name_textBox";
+            this.Name_textBox.ReadOnly = true;
+            this.Name_textBox.Size = new System.Drawing.Size(60, 16);
+            this.Name_textBox.TabIndex = 38;
+            this.Name_textBox.Text = "Name:";
+            // 
+            // Name_input_textBox
+            // 
+            this.Name_input_textBox.Location = new System.Drawing.Point(319, 64);
+            this.Name_input_textBox.Name = "Name_input_textBox";
+            this.Name_input_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Name_input_textBox.TabIndex = 39;
+            // 
+            // Mobile_input_textBox
+            // 
+            this.Mobile_input_textBox.Location = new System.Drawing.Point(319, 121);
+            this.Mobile_input_textBox.Name = "Mobile_input_textBox";
+            this.Mobile_input_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Mobile_input_textBox.TabIndex = 41;
+            // 
+            // Mobile_textBox
+            // 
+            this.Mobile_textBox.BackColor = System.Drawing.Color.White;
+            this.Mobile_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Mobile_textBox.Enabled = false;
+            this.Mobile_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mobile_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Mobile_textBox.Location = new System.Drawing.Point(319, 99);
+            this.Mobile_textBox.Name = "Mobile_textBox";
+            this.Mobile_textBox.ReadOnly = true;
+            this.Mobile_textBox.Size = new System.Drawing.Size(60, 16);
+            this.Mobile_textBox.TabIndex = 40;
+            this.Mobile_textBox.Text = "Mobile:";
+            // 
+            // Email_OR_Address_input_textBox
+            // 
+            this.Email_OR_Address_input_textBox.Location = new System.Drawing.Point(319, 175);
+            this.Email_OR_Address_input_textBox.Name = "Email_OR_Address_input_textBox";
+            this.Email_OR_Address_input_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Email_OR_Address_input_textBox.TabIndex = 43;
+            // 
+            // Email_OR_Address_textBox
+            // 
+            this.Email_OR_Address_textBox.BackColor = System.Drawing.Color.White;
+            this.Email_OR_Address_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Email_OR_Address_textBox.Enabled = false;
+            this.Email_OR_Address_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email_OR_Address_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Email_OR_Address_textBox.Location = new System.Drawing.Point(319, 153);
+            this.Email_OR_Address_textBox.Name = "Email_OR_Address_textBox";
+            this.Email_OR_Address_textBox.ReadOnly = true;
+            this.Email_OR_Address_textBox.Size = new System.Drawing.Size(128, 16);
+            this.Email_OR_Address_textBox.TabIndex = 42;
+            this.Email_OR_Address_textBox.Text = "Email/Address:";
+            // 
+            // Type_input_textBox
+            // 
+            this.Type_input_textBox.Location = new System.Drawing.Point(319, 228);
+            this.Type_input_textBox.Name = "Type_input_textBox";
+            this.Type_input_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Type_input_textBox.TabIndex = 45;
+            // 
+            // Type_textBox
+            // 
+            this.Type_textBox.BackColor = System.Drawing.Color.White;
+            this.Type_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Type_textBox.Enabled = false;
+            this.Type_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Type_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Type_textBox.Location = new System.Drawing.Point(319, 206);
+            this.Type_textBox.Name = "Type_textBox";
+            this.Type_textBox.ReadOnly = true;
+            this.Type_textBox.Size = new System.Drawing.Size(128, 16);
+            this.Type_textBox.TabIndex = 44;
+            this.Type_textBox.Text = "Type:";
+            // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.Type_input_textBox);
+            this.Controls.Add(this.Type_textBox);
+            this.Controls.Add(this.Email_OR_Address_input_textBox);
+            this.Controls.Add(this.Email_OR_Address_textBox);
+            this.Controls.Add(this.Mobile_input_textBox);
+            this.Controls.Add(this.Mobile_textBox);
+            this.Controls.Add(this.Name_input_textBox);
+            this.Controls.Add(this.Name_textBox);
+            this.Controls.Add(this.Serv_Providers_listBox);
+            this.Controls.Add(this.Serv_Providers_textBox);
+            this.Controls.Add(this.Tenants_listBox);
+            this.Controls.Add(this.Place_textBox);
             this.Controls.Add(this.Back_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
@@ -59,11 +213,24 @@
             this.Text = "CondominiumManager";
             this.Load += new System.EventHandler(this.Contacts_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button Back_button;
+        private System.Windows.Forms.TextBox Place_textBox;
+        private System.Windows.Forms.ListBox Tenants_listBox;
+        private System.Windows.Forms.TextBox Serv_Providers_textBox;
+        private System.Windows.Forms.ListBox Serv_Providers_listBox;
+        private System.Windows.Forms.TextBox Name_textBox;
+        private System.Windows.Forms.TextBox Name_input_textBox;
+        private System.Windows.Forms.TextBox Mobile_input_textBox;
+        private System.Windows.Forms.TextBox Mobile_textBox;
+        private System.Windows.Forms.TextBox Email_OR_Address_input_textBox;
+        private System.Windows.Forms.TextBox Email_OR_Address_textBox;
+        private System.Windows.Forms.TextBox Type_input_textBox;
+        private System.Windows.Forms.TextBox Type_textBox;
     }
 }

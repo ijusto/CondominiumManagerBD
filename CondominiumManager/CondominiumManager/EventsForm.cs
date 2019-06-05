@@ -22,25 +22,25 @@ namespace CondominiumManager
 
         private void EventsForm_Load(object sender, EventArgs e)
         {
-            Buttons_Visibility("events");
+            Info_Visibility("events");
         }
 
         private void Repair_button_Click(object sender, EventArgs e)
         {
-            Buttons_Visibility("Repair");
+            Info_Visibility("Repair");
         }
 
         private void Meeting_button_Click(object sender, EventArgs e)
         {
-            Buttons_Visibility("Meeting");
+            Info_Visibility("Meeting");
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
         {
-            Buttons_Visibility("cancel");
+            Info_Visibility("cancel");
         }
 
-        private void Buttons_Visibility(string name)
+        private void Info_Visibility(string name)
         {
             if (name.Equals("events"))
             {
