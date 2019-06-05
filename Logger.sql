@@ -16,12 +16,12 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagada reunião com o id', STR(d.id))
+			SELECT @operation, GETDATE(), Concat('Apagada reunião com o id ', STR(d.id))
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criada reunião com o id', STR(i.id))
+			SELECT @operation, GETDATE(), Concat('Criada reunião com o id ', STR(i.id))
 			FROM inserted i
  
 			IF @operation = 'Update'
@@ -45,12 +45,12 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagada reparação com o id', STR(d.id))
+			SELECT @operation, GETDATE(), Concat('Apagada reparação com o id ', STR(d.id))
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criada reparação com o id', STR(i.id))
+			SELECT @operation, GETDATE(), Concat('Criada reparação com o id ', STR(i.id))
 			FROM inserted i
  
 			IF @operation = 'Update'
@@ -74,17 +74,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagado condominio', d.Endereco)
+			SELECT @operation, GETDATE(), Concat('Apagado condominio ', d.Endereco)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criado condominio', i.Endereco)
+			SELECT @operation, GETDATE(), Concat('Criado condominio ', i.Endereco)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-				SELECT @operation, GETDATE(), Concat('Modificado condominio', d.Endereco)
+				SELECT @operation, GETDATE(), Concat('Modificado condominio ', d.Endereco)
 			FROM deleted d, inserted i
 END
 GO
@@ -103,17 +103,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagado condomino com o nif', d.NIF)
+			SELECT @operation, GETDATE(), Concat('Apagado condomino com o nif ', d.NIF)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criado condomino com o nif', i.NIF)
+			SELECT @operation, GETDATE(), Concat('Criado condomino com o nif ', i.NIF)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-				SELECT @operation, GETDATE(), Concat('Modificada reparação com o id ', d.NIF)
+				SELECT @operation, GETDATE(), Concat('Modificado Condomino com  nif ', d.NIF)
 			FROM deleted d, inserted i
 END
 
@@ -132,17 +132,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagada fracao', d.Ref_fracao, 'do condominio', d.Endereco)
+			SELECT @operation, GETDATE(), Concat('Apagada fracao ', d.Ref_fracao, 'do condominio ', d.Endereco)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criada fracao', i.Ref_fracao, 'do condominio', i.Endereco)
+			SELECT @operation, GETDATE(), Concat('Criada fracao ', i.Ref_fracao, 'do condominio ', i.Endereco)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificada fracao', i.Ref_fracao, 'do condominio', i.Endereco)
+			SELECT @operation, GETDATE(), Concat('Modificada fracao ', i.Ref_fracao, 'do condominio ', i.Endereco)
 			FROM deleted d, inserted i
 END
 GO
@@ -161,17 +161,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagado fornecedor com o NIF', d.NIF)
+			SELECT @operation, GETDATE(), Concat('Apagado fornecedor com o NIF ', d.NIF)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criado fornecedor com o NIF', i.NIF)
+			SELECT @operation, GETDATE(), Concat('Criado fornecedor com o NIF ', i.NIF)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificado fornecedor com o NIF', i.NIF)
+			SELECT @operation, GETDATE(), Concat('Modificado fornecedor com o NIF ', i.NIF)
 			FROM deleted d, inserted i
 END
 GO
@@ -190,17 +190,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagada Fatura de quotas com o ID', d.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Apagada Fatura de quotas com o ID ', d.Id_Fatura)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criada Fatura de quotas com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Criada Fatura de quotas com o ID ', i.Id_Fatura)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificada Fatura de quotas com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Modificada Fatura de quotas com o ID ', i.Id_Fatura)
 			FROM deleted d, inserted i
 END
 GO
@@ -219,17 +219,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Paga Fatura de quotas com o ID', d.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Paga Fatura de quotas com o ID ', d.Id_Fatura)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('De paga a não paga a Fatura de quotas com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('De paga a não paga a Fatura de quotas com o ID ', i.Id_Fatura)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificado o pagamento da Fatura de quotas com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Modificado o pagamento da Fatura de quotas com o ID ', i.Id_Fatura)
 			FROM deleted d, inserted i
 END
 GO
@@ -248,17 +248,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Apagada Fatura de serviços com o ID', d.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Apagada Fatura de serviços com o ID ', d.Id_Fatura)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Criada Fatura de serviços com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Criada Fatura de serviços com o ID ', i.Id_Fatura)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificada Fatura de serviços com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Modificada Fatura de serviços com o ID ', i.Id_Fatura)
 			FROM deleted d, inserted i
 END
 GO
@@ -277,17 +277,17 @@ begin
 		end
 			IF @operation = 'Delete'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Paga Fatura de serviços com o ID', d.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Paga Fatura de serviços com o ID ', d.Id_Fatura)
 			FROM deleted d
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('De paga a não paga a Fatura de serviços com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('De paga a não paga a Fatura de serviços com o ID ', i.Id_Fatura)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificado o pagamento da Fatura de serviços com o ID', i.Id_Fatura)
+			SELECT @operation, GETDATE(), Concat('Modificado o pagamento da Fatura de serviços com o ID ', i.Id_Fatura)
 			FROM deleted d, inserted i
 END
 GO
@@ -311,12 +311,12 @@ begin
  
 			IF @operation = 'Insert'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Removida foto do prédio', i.endereco)
+			SELECT @operation, GETDATE(), Concat('Removida foto do prédio ', i.endereco)
 			FROM inserted i
  
 			IF @operation = 'Update'
 			INSERT INTO condomanager.logs (Command, data, descricao)
-			SELECT @operation, GETDATE(), Concat('Modificada a foto do prédio', i.endereco)
+			SELECT @operation, GETDATE(), Concat('Modificada a foto do prédio ', i.endereco)
 			FROM deleted d, inserted i
 END
 GO
