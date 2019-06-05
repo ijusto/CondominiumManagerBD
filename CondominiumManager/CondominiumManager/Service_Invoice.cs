@@ -8,16 +8,18 @@ namespace CondominiumManager
 {
     class Service_Invoice : Invoice
     {
+        private int _ID;
         private String _Address;
-        private int _index;
+        private int _Index;
 
         public Service_Invoice() : base() { }
 
-        public Service_Invoice(String entity_Name, String tax_Number, String date, String amount, String desc, String address, int index)
+        public Service_Invoice(int id, String entity_Name, String tax_Number, String date, String amount, String desc, String address, int index)
             : base(entity_Name, tax_Number, date, amount, desc)
         {
+            _ID = id;
             _Address = address;
-            _index = index;
+            _Index = index;
         }
 
         public String Address
@@ -26,10 +28,16 @@ namespace CondominiumManager
             set { _Address = value; }
         }
 
-        public int index
+        public int Index
         {
-            get { return _index; }
-            set { _index = value; }
+            get { return _Index; }
+            set { _Index = value; }
+        }
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
         }
     }
 }

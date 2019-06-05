@@ -8,16 +8,18 @@ namespace CondominiumManager
 {
     class Quota_Invoice : Invoice
     {
+        private int _ID;
         private String _Address;
-        private int _index;
+        private int _Index;
 
         public Quota_Invoice() : base() { }
 
-        public Quota_Invoice(String entity_Name, String tax_Number, String date, String amount, String desc, String address, int index)
+        public Quota_Invoice(int id, String entity_Name, String tax_Number, String date, String amount, String desc, String address, int Index)
             : base(entity_Name, tax_Number, date, amount, desc)
         {
+            _ID = id;
             _Address = address;
-            _index = index;
+            _Index = Index;
         }
 
         public String Address
@@ -26,10 +28,16 @@ namespace CondominiumManager
             set { _Address = value; }
         }
 
-        public int index
+        public int Index
         {
-            get { return _index; }
-            set { _index = value; }
+            get { return _Index; }
+            set { _Index = value; }
+        }
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
         }
     }
 }
