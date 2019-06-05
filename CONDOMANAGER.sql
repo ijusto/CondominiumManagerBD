@@ -57,7 +57,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
  CREATE TABLE CONDOMANAGER.Reclamacao(
 	Id int not null Identity(0,1),
-	Data date,
+	Data datetime,
 	Descricao varchar(100),
 	nif_condomino varchar(9),
 	endereco_cond varchar(40),
@@ -72,7 +72,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
  CREATE TABLE CONDOMANAGER.Reuniao(
 	Id int not null Identity(0,1),
 	Nome varchar(40),
-	Data date,
+	Data datetime,
 	Descricao varchar(100),
 	localizacao varchar(40),
 	endereco varchar(40),
@@ -83,7 +83,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
  CREATE TABLE CONDOMANAGER.Reparacao(
 	Id int not null Identity(0,1),
 	Nome varchar(40),
-	Data date,
+	Data datetime,
 	Descricao varchar(100),
 	Danificado varchar(50),
 	endereco varchar(40),
@@ -109,7 +109,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
   CREATE TABLE CONDOMANAGER.Fatura_Quotas(
 	Id_Fatura int not null Identity(0,1),
-	Data date,
+	Data datetime,
 	descricao varchar(100),
 	ref_fracao varchar(5),
 	endereco varchar(40),
@@ -122,7 +122,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
  CREATE TABLE CONDOMANAGER.Pagamento_Quotas(
 	Id int not null Identity(0,1),
-	Data date,
+	Data datetime,
 	Descricao varchar(100),
 	Valor money,
 	id_fatura int,
@@ -132,7 +132,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
   CREATE TABLE CONDOMANAGER.Fatura_Servicos(
 	Id_Fatura int not null identity(0,1),
-	Data date,
+	Data datetime,
 	nif_Fornec varchar(9),
 	endereco varchar(40),
 	descricao varchar(100),
@@ -146,7 +146,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
   CREATE TABLE CONDOMANAGER.Pagamento_Servicos(
 	Id int not null Identity(0,1),
-	Data date,
+	Data datetime,
 	Descricao varchar(100),
 	Quantia money,
 	id_fatura int,
@@ -164,6 +164,16 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	foreign key(endereco) references condomanager.condominio(endereco)
  
  )
+
+ create table condomanager.logs(
+	id  int not null Identity(1,1),
+	data datetime not null,
+	command varchar(10),
+	descricao varchar(100),
+	primary key(id)
+ )
+
+
 
  Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
 			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', 'pass123'),
@@ -195,17 +205,17 @@ insert into condomanager.Condomino(NIF, Nome, Email, Telemovel) values
 
 
 insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_condomino) values
-			('Rua São Martinho', 'A1', 10000, 'RC/D','213564756'),
-			('Rua São Martinho', 'A2', 3000, 'RC/E', '263547859'),
-			('Rua São Martinho', 'A3', 100, '1Dt','126374659'),
-			('Rua São Martinho', 'A4', 12300, '1Esq', '167485967'),
-			('Rua São Martinho', 'A5', 1000, '2DT', '213564756'),
-			('Rua São Martinho', 'A6', 10000, '2Esq', '143567467'),
-			('Rua Nova', 'A1', 123743, 'RC/D', '237168594'),
-			('Rua Nova', 'A2', 12243, 'RC/E', '216374865'),
-			('Rua Nova', 'A3', 121743, '1Dt', '213564756'),
-			('Avenida dos Combatentes','B1', 12322, 'RC/D', '237168594'),
-			('Avenida dos Combatentes','B2', 12322, 'RC/E', '216374865')
+			('Rua São Martinho', 'A1', 100, 'RC/D','213564756'),
+			('Rua São Martinho', 'A2', 200, 'RC/E', '263547859'),
+			('Rua São Martinho', 'A3', 200, '1Dt','126374659'),
+			('Rua São Martinho', 'A4', 300, '1Esq', '167485967'),
+			('Rua São Martinho', 'A5', 110, '2DT', '213564756'),
+			('Rua São Martinho', 'A6', 90, '2Esq', '143567467'),
+			('Rua Nova', 'A1', 100, 'RC/D', '237168594'),
+			('Rua Nova', 'A2', 200, 'RC/E', '216374865'),
+			('Rua Nova', 'A3', 75, '1Dt', '213564756'),
+			('Avenida dos Combatentes','B1', 350, 'RC/D', '237168594'),
+			('Avenida dos Combatentes','B2', 200, 'RC/E', '216374865')
 
 
 insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, Descricao) values
@@ -248,3 +258,10 @@ insert into condomanager.Fatura_Servicos( nif_Fornec, endereco, Data, Quantia, d
 			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
 
 
+insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) values
+			('Mudança de Orçamento 2', '20190611', 'Alteração do Orçamento do 1º Direito', 'Cave do edificio da Rua São Martinho',
+			 'Rua São Martinho')
+
+delete from condomanager.Reuniao where id=1
+
+select * from condomanager.logs
