@@ -114,7 +114,7 @@
             // Services_Invoice_listBox
             // 
             this.Services_Invoice_listBox.FormattingEnabled = true;
-            this.Services_Invoice_listBox.Location = new System.Drawing.Point(5, 61);
+            this.Services_Invoice_listBox.Location = new System.Drawing.Point(298, 60);
             this.Services_Invoice_listBox.Name = "Services_Invoice_listBox";
             this.Services_Invoice_listBox.Size = new System.Drawing.Size(276, 95);
             this.Services_Invoice_listBox.TabIndex = 28;
@@ -220,7 +220,7 @@
             // Quotas_Invoice_listBox
             // 
             this.Quotas_Invoice_listBox.FormattingEnabled = true;
-            this.Quotas_Invoice_listBox.Location = new System.Drawing.Point(298, 61);
+            this.Quotas_Invoice_listBox.Location = new System.Drawing.Point(5, 60);
             this.Quotas_Invoice_listBox.Name = "Quotas_Invoice_listBox";
             this.Quotas_Invoice_listBox.Size = new System.Drawing.Size(276, 95);
             this.Quotas_Invoice_listBox.TabIndex = 58;

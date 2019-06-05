@@ -14,6 +14,8 @@ namespace CondominiumManager
         private String _Description;
         private String _Entity_Name;
 
+        public Invoice() { }
+
         public Invoice(String entity_Name, String tax_Number, String date, String amount, String desc)
         {
             _Entity_Name = entity_Name;

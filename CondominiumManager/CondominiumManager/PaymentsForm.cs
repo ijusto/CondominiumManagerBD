@@ -49,7 +49,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Quotas_Invoice_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("showcomplaints", cn) //TODO
+            cmd = new SqlCommand("getfaturaquota", cn) //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -60,8 +60,26 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                //quotaList.Add(new Quota_Invoice((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), "", q_index)); //TODO
+                Quota_Invoice invoice = new Quota_Invoice();
+                invoice.Amount = dr["quantia"].ToString();
+                invoice.Date = dr["data"].ToString();
+                invoice.Description = dr["descricao"].ToString();
+                invoice.index = q_index;
+                
+                cmd = new SqlCommand("gettenantnifname", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("ref_fracao", dr["ref_fracao"]);
+                cmd.Parameters.AddWithValue("endereco", dr["endereco"]);
+                cmd.ExecuteNonQuery();
+                DataTable dtt = new DataTable();
+                SqlDataAdapter daa = new SqlDataAdapter(cmd);
+                daa.Fill(dtt);
+                invoice.Entity_Name = dtt.Rows[0]["nome"].ToString();
+                invoice.Tax_Number = dtt.Rows[0]["nif"].ToString();
                 Quotas_Invoice_listBox.Items.Add(dr["Descricao"].ToString());
+                quotaList.Add(invoice);
                 q_index++;
             }
             cn.Close();
@@ -77,7 +95,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Services_Invoice_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("showcomplaints", cn) //TODO
+            cmd = new SqlCommand("getfaturaservico", cn) //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -88,6 +106,22 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
+                Service_Invoice invoice = new Service_Invoice();
+                invoice.index = sp_index;
+                invoice.Description = dr["descricao"].ToString();
+                invoice.Date = dr["data"].ToString();
+                invoice.Amount = dr["quantia"].ToString();
+                cmd = new SqlCommand("getmanager", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
+                cmd.ExecuteNonQuery();
+                DataTable dtt = new DataTable();
+                SqlDataAdapter daa = new SqlDataAdapter(cmd);
+                daa.Fill(dtt);
+                invoice.Tax_Number = dtt.Rows[0]["nif_gestor"].ToString();
+                spList.Add(invoice);
                 //spList.Add(new Service_Invoice((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), "", sp_index));  //TODO
                 Services_Invoice_listBox.Items.Add(dr["Descricao"].ToString());
                 sp_index++;
