@@ -9,17 +9,27 @@ namespace CondominiumManager
     class Service_Invoice : Invoice
     {
         private String _Address;
+        private int _index;
 
-        public Service_Invoice(String entity_Name, String tax_Number, String date, String amount, String desc, String address)
+        public Service_Invoice() : base() { }
+
+        public Service_Invoice(String entity_Name, String tax_Number, String date, String amount, String desc, String address, int index)
             : base(entity_Name, tax_Number, date, amount, desc)
         {
             _Address = address;
+            _index = index;
         }
 
         public String Address
         {
             get { return _Address; }
             set { _Address = value; }
+        }
+
+        public int index
+        {
+            get { return _index; }
+            set { _index = value; }
         }
     }
 }

@@ -117,15 +117,10 @@ begin
 end;
 go
 
-create procedure getnametenant(@nif as varchar(9)) as
-begin
-	select nome from condomanager.condomino where nif=@nif
-end;
-go
 
-create procedure gettenantnif(@ref_fracao as varchar(5), @endereco as varchar(40)) as
+create procedure gettenantnifname(@ref_fracao as varchar(5), @endereco as varchar(40)) as
 begin
-	select condomanagerdb.condomino.nif from condomanagerdb.fracao join condomanagerdb.condomino on nif_condomino = nif where ref_fracao = @ref_fracao and endereco = @endereco
+	select condomanager.condomino.nif as nif, nome from condomanager.fracao join condomanager.condomino on nif_condomino = nif where ref_fracao = @ref_fracao and endereco = @endereco
 end;
 go
 
