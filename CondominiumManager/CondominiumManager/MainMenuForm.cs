@@ -41,8 +41,9 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            //return new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            return ines;
         }
 
         private bool VerifySGBDConnection()
@@ -78,53 +79,60 @@ namespace CondominiumManager
             ChangeForm("Payments");
         }
 
-        private void Task_List_button_Click(object sender, EventArgs e)
+        private void Complaints_button_Click(object sender, EventArgs e)
         {
-            ChangeForm("TaskList");
+            ChangeForm("Complaints");
         }
 
         private void ChangeForm(string name)
         {
-            if (name.Equals("Events"))
+            if(Condo_choose_comboBox.SelectedIndex == -1)
             {
-                var form = new EventsForm();
-                form.ShowDialog();
+                MessageBox.Show("Please select a condominium first.", "Warning");
             }
-            else if (name.Equals("Readings"))
+            else
             {
-                var form = new ReadingsForm();
-                form.ShowDialog();
+                if (name.Equals("Events"))
+                {
+                    var form = new EventsForm();
+                    form.ShowDialog();
+                }
+                else if (name.Equals("Readings"))
+                {
+                    var form = new ReadingsForm();
+                    form.ShowDialog();
+                }
+                else if (name.Equals("Contacts"))
+                {
+                    var form = new ContactsForm();
+                    form.ShowDialog();
+                }
+                else if (name.Equals("Payments"))
+                {
+                    var form = new PaymentsForm();
+                    form.ShowDialog();
+                }
+                else if (name.Equals("Complaints"))
+                {
+                    var form = new ComplaintsForm();
+                    form.ShowDialog();
+                }
+                this.SendToBack();
+                this.Close();
             }
-            else if (name.Equals("Contacts"))
-            {
-                var form = new ContactsForm();
-                form.ShowDialog();
-            }
-            else if (name.Equals("Payments"))
-            {
-                var form = new PaymentsForm();
-                form.ShowDialog();
-            }
-            else if (name.Equals("TaskList"))
-            {
-                var form = new TaskListForm();
-                form.ShowDialog();
-            }
-            this.SendToBack();
-            this.Close();
         }
 
-        public static class chosencondo{
+        public static class Chosencondo{
             private static string _chosen_condo;
             private static int _index;
 
-            public static String chosen_condo
+            public static String Chosen_condo
             {
                 get { return _chosen_condo; }
                 set { _chosen_condo = value; }
             }
 
-            public static int index
+            public static int Index
             {
                 get { return _index; }
                 set { _index = value; }
@@ -135,15 +143,15 @@ namespace CondominiumManager
 
         private void Condo_choose_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            chosencondo.chosen_condo = Condo_choose_comboBox.Text.ToString();
-            chosencondo.index = Condo_choose_comboBox.SelectedIndex;
+            Chosencondo.Chosen_condo = Condo_choose_comboBox.Text.ToString();
+            Chosencondo.Index = Condo_choose_comboBox.SelectedIndex;
         }
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-            if(chosencondo.index != 0)
+            if(Chosencondo.Index != 0)
             {
-                Condo_choose_comboBox.SelectedIndex = chosencondo.index;
+                Condo_choose_comboBox.SelectedIndex = Chosencondo.Index;
             }
         }
     }

@@ -98,11 +98,11 @@
     <Compile Include="Revenue_Invoice.cs" />
     <Compile Include="Services_Provider.cs" />
     <Compile Include="Service_Invoice.cs" />
-    <Compile Include="TaskListForm.cs">
+    <Compile Include="ComplaintsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TaskListForm.Designer.cs">
-      <DependentUpon>TaskListForm.cs</DependentUpon>
+    <Compile Include="ComplaintsForm.Designer.cs">
+      <DependentUpon>ComplaintsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tenant.cs" />
     <Compile Include="EventsPanel.cs">
@@ -180,8 +180,8 @@
     <EmbeddedResource Include="ReadingsPanel.resx">
       <DependentUpon>ReadingsPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TaskListForm.resx">
-      <DependentUpon>TaskListForm.cs</DependentUpon>
+    <EmbeddedResource Include="ComplaintsForm.resx">
+      <DependentUpon>ComplaintsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaskListPanel.resx">
       <DependentUpon>TaskListPanel.cs</DependentUpon>

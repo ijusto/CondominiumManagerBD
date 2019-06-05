@@ -1,6 +1,6 @@
 ﻿namespace CondominiumManager
 {
-    partial class TaskListForm
+    partial class ComplaintsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComplaintsForm));
             this.Tenant_input_textBox = new System.Windows.Forms.TextBox();
             this.Back_button = new System.Windows.Forms.Button();
             this.Description_input_textBox = new System.Windows.Forms.TextBox();
@@ -163,7 +163,7 @@
             this.Combo_complaints.Name = "Combo_complaints";
             this.Combo_complaints.Size = new System.Drawing.Size(211, 251);
             this.Combo_complaints.TabIndex = 12;
-            this.Combo_complaints.SelectedIndexChanged += new System.EventHandler(this.TasklistBox_SelectedIndexChanged);
+            this.Combo_complaints.SelectedIndexChanged += new System.EventHandler(this.Combo_complaints_SelectedIndexChanged);
             // 
             // TaskListForm
             // 

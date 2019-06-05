@@ -12,15 +12,16 @@ using static CondominiumManager.MainMenuForm;
 
 namespace CondominiumManager
 {
-    public partial class TaskListForm : Form
+    public partial class ComplaintsForm : Form
     {
         private SqlConnection cn;
         SqlCommand cmd;
 
         private SqlConnection GetSGBDConnection()
         {
-            return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            //return new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            return ines;
         }
 
         private bool VerifySGBDConnection()
@@ -37,19 +38,21 @@ namespace CondominiumManager
 
         private int currentContact;
 
-        public TaskListForm()
+        public ComplaintsForm()
         {
             InitializeComponent();
         }
 
-        private void fillComplaint()
+        private void FillComplaint()
         {
             cn = GetSGBDConnection();
             Combo_complaints.Items.Clear();
             cn.Open();
-            SqlCommand cmd = new SqlCommand("showcomplaints", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("endereco", chosencondo.chosen_condo);
+            cmd = new SqlCommand("showcomplaints", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -65,7 +68,7 @@ namespace CondominiumManager
 
         private void TaskListForm_Load(object sender, EventArgs e)
         {
-            fillComplaint();
+            FillComplaint();
         }
 
         private void Back_button_Click(object sender, EventArgs e)
@@ -76,12 +79,12 @@ namespace CondominiumManager
             this.Close();
         }
 
-        private void TasklistBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Combo_complaints_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (TasklistBox.SelectedIndex > 0)
+            if (Combo_complaints.SelectedIndex > 0)
             {
-                currentContact = TasklistBox.SelectedIndex;
+                currentContact = Combo_complaints.SelectedIndex;
                 //ShowContact();
             }
         }

@@ -34,13 +34,14 @@
             this.Readings_button = new System.Windows.Forms.Button();
             this.Logo_button = new System.Windows.Forms.Button();
             this.Contacts_textBox = new System.Windows.Forms.TextBox();
-            this.TaskList_textBox = new System.Windows.Forms.TextBox();
+            this.Complaints_textBox = new System.Windows.Forms.TextBox();
             this.Events_button = new System.Windows.Forms.Button();
             this.Readings_textBox = new System.Windows.Forms.TextBox();
             this.Events_textBox = new System.Windows.Forms.TextBox();
             this.Payments_textBox = new System.Windows.Forms.TextBox();
             this.Payments_button = new System.Windows.Forms.Button();
-            this.TaskList_button = new System.Windows.Forms.Button();
+            this.Complaints_button = new System.Windows.Forms.Button();
+            this.CondominumSelect_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Condo_choose_comboBox
@@ -114,21 +115,21 @@
             this.Contacts_textBox.Text = "Contacts";
             this.Contacts_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // TaskList_textBox
+            // Complaints_textBox
             // 
-            this.TaskList_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskList_textBox.BackColor = System.Drawing.Color.White;
-            this.TaskList_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TaskList_textBox.Enabled = false;
-            this.TaskList_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.TaskList_textBox.ForeColor = System.Drawing.Color.Black;
-            this.TaskList_textBox.Location = new System.Drawing.Point(340, 300);
-            this.TaskList_textBox.Name = "TaskList_textBox";
-            this.TaskList_textBox.ReadOnly = true;
-            this.TaskList_textBox.Size = new System.Drawing.Size(80, 16);
-            this.TaskList_textBox.TabIndex = 30;
-            this.TaskList_textBox.Text = "Task List";
-            this.TaskList_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Complaints_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Complaints_textBox.BackColor = System.Drawing.Color.White;
+            this.Complaints_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Complaints_textBox.Enabled = false;
+            this.Complaints_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Complaints_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Complaints_textBox.Location = new System.Drawing.Point(340, 300);
+            this.Complaints_textBox.Name = "Complaints_textBox";
+            this.Complaints_textBox.ReadOnly = true;
+            this.Complaints_textBox.Size = new System.Drawing.Size(80, 16);
+            this.Complaints_textBox.TabIndex = 30;
+            this.Complaints_textBox.Text = "Complaints";
+            this.Complaints_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Events_button
             // 
@@ -206,37 +207,53 @@
             this.Payments_button.UseVisualStyleBackColor = false;
             this.Payments_button.Click += new System.EventHandler(this.Payments_button_Click);
             // 
-            // TaskList_button
+            // Complaints_button
             // 
-            this.TaskList_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskList_button.BackColor = System.Drawing.Color.Transparent;
-            this.TaskList_button.BackgroundImage = global::CondominiumManager.Properties.Resources.tasklist_web;
-            this.TaskList_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.TaskList_button.FlatAppearance.BorderSize = 0;
-            this.TaskList_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TaskList_button.Location = new System.Drawing.Point(340, 214);
-            this.TaskList_button.Name = "TaskList_button";
-            this.TaskList_button.Size = new System.Drawing.Size(80, 80);
-            this.TaskList_button.TabIndex = 23;
-            this.TaskList_button.UseVisualStyleBackColor = false;
-            this.TaskList_button.Click += new System.EventHandler(this.Task_List_button_Click);
+            this.Complaints_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Complaints_button.BackColor = System.Drawing.Color.Transparent;
+            this.Complaints_button.BackgroundImage = global::CondominiumManager.Properties.Resources.tasklist_web;
+            this.Complaints_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Complaints_button.FlatAppearance.BorderSize = 0;
+            this.Complaints_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Complaints_button.Location = new System.Drawing.Point(340, 214);
+            this.Complaints_button.Name = "Complaints_button";
+            this.Complaints_button.Size = new System.Drawing.Size(80, 80);
+            this.Complaints_button.TabIndex = 23;
+            this.Complaints_button.UseVisualStyleBackColor = false;
+            this.Complaints_button.Click += new System.EventHandler(this.Complaints_button_Click);
+            // 
+            // CondominumSelect_textBox
+            // 
+            this.CondominumSelect_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CondominumSelect_textBox.BackColor = System.Drawing.Color.White;
+            this.CondominumSelect_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CondominumSelect_textBox.Enabled = false;
+            this.CondominumSelect_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CondominumSelect_textBox.ForeColor = System.Drawing.Color.Black;
+            this.CondominumSelect_textBox.Location = new System.Drawing.Point(239, 27);
+            this.CondominumSelect_textBox.Name = "CondominumSelect_textBox";
+            this.CondominumSelect_textBox.ReadOnly = true;
+            this.CondominumSelect_textBox.Size = new System.Drawing.Size(100, 16);
+            this.CondominumSelect_textBox.TabIndex = 32;
+            this.CondominumSelect_textBox.Text = "Condominium:";
             // 
             // MainMenuForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.CondominumSelect_textBox);
             this.Controls.Add(this.Condo_choose_comboBox);
             this.Controls.Add(this.Contacts_button);
             this.Controls.Add(this.Readings_button);
             this.Controls.Add(this.Logo_button);
             this.Controls.Add(this.Contacts_textBox);
-            this.Controls.Add(this.TaskList_textBox);
+            this.Controls.Add(this.Complaints_textBox);
             this.Controls.Add(this.Events_button);
             this.Controls.Add(this.Readings_textBox);
             this.Controls.Add(this.Events_textBox);
             this.Controls.Add(this.Payments_textBox);
             this.Controls.Add(this.Payments_button);
-            this.Controls.Add(this.TaskList_button);
+            this.Controls.Add(this.Complaints_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "MainMenuForm";
@@ -255,13 +272,14 @@
         private System.Windows.Forms.Button Readings_button;
         private System.Windows.Forms.Button Logo_button;
         private System.Windows.Forms.TextBox Contacts_textBox;
-        private System.Windows.Forms.TextBox TaskList_textBox;
+        private System.Windows.Forms.TextBox Complaints_textBox;
         private System.Windows.Forms.Button Events_button;
         private System.Windows.Forms.TextBox Readings_textBox;
         private System.Windows.Forms.TextBox Events_textBox;
         private System.Windows.Forms.TextBox Payments_textBox;
         private System.Windows.Forms.Button Payments_button;
-        private System.Windows.Forms.Button TaskList_button;
+        private System.Windows.Forms.Button Complaints_button;
+        private System.Windows.Forms.TextBox CondominumSelect_textBox;
     }
 }
 
