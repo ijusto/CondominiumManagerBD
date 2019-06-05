@@ -235,7 +235,8 @@ insert into condomanager.Fornecedor_Servicos(NIF, Nome, Morada, Telemovel, tipo)
 
 
 insert into condomanager.Reparacao(Nome, Data, Danificado, Descricao, endereco) values
-			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', 'Rua Nova')
+			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', 'Rua Nova'),
+			('Composto o elevador', '20190610', 'Elevador', 'Motor do Elevador', 'Rua São Martinho')
 
 
 insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) values

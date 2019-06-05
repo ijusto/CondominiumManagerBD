@@ -2,17 +2,41 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CondominiumManager.MainMenuForm;
 
 namespace CondominiumManager
 {
     public partial class EventsForm : Form
     {
         private string date = "";
+        private SqlConnection cn;
+        private SqlCommand cmd;
+        private string condo = Chosencondo.Chosen_condo;
+        private string querydate = "";
+
+        private SqlConnection GetSGBDConnection()
+        {
+            SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            return toms;
+        }
+
+        private bool VerifySGBDConnection()
+        {
+            if (cn == null)
+                cn = GetSGBDConnection();
+
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
+        }
 
         public EventsForm()
         {
@@ -158,15 +182,53 @@ namespace CondominiumManager
         {
             string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
             string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
+            string dateq = monthCalendar.SelectionRange.Start.ToString();
             date = startDate;
+            querydate = dateq;
             Date_input_textBox.Text = date;
+            CheckEventInDate();
         }
 
-        private bool CheckEventInDate()
+        private void CheckEventInDate()
         {
-            //TODO: verify if date selected has events to show
-            string dateSel = monthCalendar.SelectionRange.Start.ToString();
-            return false;
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("showevents", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            querydate = querydate.Split('/')[2]+ querydate.Split('/')[1]+ querydate.Split('/')[0];
+            cmd.Parameters.AddWithValue("date", date);
+            cmd.Parameters.AddWithValue("condo", condo);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                MessageBox.Show(dr["descricao"].ToString());
+            }
+
+
+
+
+        }
+
+        public class meetings{
+            public int id;
+            public string name;
+            public string description;
+            public string date;
+            public string location;
+            public string condo;
+
+            public meetings(int id, string name, string description, string date, string location, string condo)
+            {
+                id = this.id;
+                name = this.name;
+                description = this.description;
+                date = this.date;
+                location = this.location;
+                condo = this.condo;
+            }
         }
     }
 }

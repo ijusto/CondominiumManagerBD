@@ -1,3 +1,5 @@
 use condomanagerdb
 
-exec showcontacts @endereco = 'Rua Nova'
+exec getinfo @id_complaint = 2
+
+select * from condomanager.Pagamento_Servicos
