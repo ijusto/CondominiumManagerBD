@@ -111,15 +111,21 @@ begin
 end;
 go
 
-create procedure getfaturaservico(@endereco as varchar(40) as
+create procedure getfaturaservico(@endereco as varchar(40)) as
 begin
-	select data, nif_fornecedor, ref_fracao, endereco, quantia from condomanager.fatura_servicos where endereco = @endereco
+	select data, nif_fornec, endereco, quantia from condomanager.fatura_servicos where endereco = @endereco
 end;
 go
 
 create procedure getnametenant(@nif as varchar(9)) as
 begin
 	select nome from condomanager.condomino where nif=@nif
+end;
+go
+
+create procedure gettenantnif(@ref_fracao as varchar(5), @endereco as varchar(40)) as
+begin
+	select condomanagerdb.condomino.nif from condomanagerdb.fracao join condomanagerdb.condomino on nif_condomino = nif
 end;
 go
 
