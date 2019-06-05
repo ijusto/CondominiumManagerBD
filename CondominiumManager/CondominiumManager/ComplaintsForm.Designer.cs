@@ -39,7 +39,7 @@
             this.Date_input_textBox = new System.Windows.Forms.TextBox();
             this.Date_textBox = new System.Windows.Forms.TextBox();
             this.Complaints_textBox = new System.Windows.Forms.TextBox();
-            this.Combo_complaints = new System.Windows.Forms.ListBox();
+            this.Listbox_complaints = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // Tenant_input_textBox
@@ -158,12 +158,12 @@
             // 
             // Combo_complaints
             // 
-            this.Combo_complaints.FormattingEnabled = true;
-            this.Combo_complaints.Location = new System.Drawing.Point(24, 71);
-            this.Combo_complaints.Name = "Combo_complaints";
-            this.Combo_complaints.Size = new System.Drawing.Size(211, 251);
-            this.Combo_complaints.TabIndex = 12;
-            this.Combo_complaints.SelectedIndexChanged += new System.EventHandler(this.Combo_complaints_SelectedIndexChanged);
+            this.Listbox_complaints.FormattingEnabled = true;
+            this.Listbox_complaints.Location = new System.Drawing.Point(24, 71);
+            this.Listbox_complaints.Name = "Combo_complaints";
+            this.Listbox_complaints.Size = new System.Drawing.Size(211, 251);
+            this.Listbox_complaints.TabIndex = 12;
+            this.Listbox_complaints.SelectedIndexChanged += new System.EventHandler(this.Listbox_complaints_SelectedIndexChanged);
             // 
             // TaskListForm
             // 
@@ -179,7 +179,7 @@
             this.Controls.Add(this.Date_input_textBox);
             this.Controls.Add(this.Date_textBox);
             this.Controls.Add(this.Complaints_textBox);
-            this.Controls.Add(this.Combo_complaints);
+            this.Controls.Add(this.Listbox_complaints);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "TaskListForm";
@@ -203,6 +203,6 @@
         private System.Windows.Forms.TextBox Date_input_textBox;
         private System.Windows.Forms.TextBox Date_textBox;
         private System.Windows.Forms.TextBox Complaints_textBox;
-        private System.Windows.Forms.ListBox Combo_complaints;
+        private System.Windows.Forms.ListBox Listbox_complaints;
     }
 }

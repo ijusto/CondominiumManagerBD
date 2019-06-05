@@ -27,14 +27,14 @@ namespace CondominiumManager
 
         private void ComplaintsForm_Load(object sender, EventArgs e)
         {
-            FillComplaint();
-            currentComplaint = Combo_complaints.SelectedIndex;
+            Fill_Complaint();
+            currentComplaint = Listbox_complaints.SelectedIndex;
         }
 
-        private void FillComplaint()
+        private void Fill_Complaint()
         {
             cn = GetSGBDConnection();
-            Combo_complaints.Items.Clear();
+            Listbox_complaints.Items.Clear();
             cn.Open();
             cmd = new SqlCommand("showcomplaints", cn)
             {
@@ -48,7 +48,7 @@ namespace CondominiumManager
             foreach (DataRow dr in dt.Rows)
             {
                 compList.Add(new Complaint((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), index));
-                Combo_complaints.Items.Add(dr["Descricao"].ToString());
+                Listbox_complaints.Items.Add(dr["Descricao"].ToString());
                 index++;
             }
             cn.Close();
@@ -78,9 +78,9 @@ namespace CondominiumManager
             this.Close();
         }
 
-        private void Combo_complaints_SelectedIndexChanged(object sender, EventArgs e)
+        private void Listbox_complaints_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentComplaint = Combo_complaints.SelectedIndex;
+            currentComplaint = Listbox_complaints.SelectedIndex;
             ShowComplaint();
         }
 
@@ -96,45 +96,6 @@ namespace CondominiumManager
                         Description_input_textBox.Text = c.Desc;
                     }
                 }
-            }
-        }
-        public class Complaint
-        {
-            private int _index;
-            private int _id;
-            private string _date;
-            private string _desc;
-
-            public Complaint(int id, string date, string desc, int index)
-            {
-                _id = id;
-                _date = date;
-                _desc = desc;
-                _index = index;
-            }
-
-            public int Index
-            {
-                get { return _index; }
-                set { _index = value; }
-            }
-
-            public int Id
-            {
-                get { return _id; }
-                set { _id = value; }
-            }
-
-            public string Date
-            {
-                get { return _date; }
-                set { _date = value; }
-            }
-
-            public string Desc
-            {
-                get { return _desc; }
-                set { _desc = value; }
             }
         }
     }

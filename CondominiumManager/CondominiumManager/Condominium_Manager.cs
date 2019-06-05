@@ -11,6 +11,11 @@ namespace CondominiumManager
     {
         private string _Password;
 
+        public Condominium_Manager(String tax_Number, String name, String mobile, String email, string password)
+           : base(tax_Number, name, mobile, email)
+        {
+            _Password = password;
+        }
         public String Password
         {
             get { return _Password; }

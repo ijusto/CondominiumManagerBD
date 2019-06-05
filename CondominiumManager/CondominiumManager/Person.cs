@@ -11,8 +11,16 @@ namespace CondominiumManager
     {
         private String _Tax_Number;
         private String _Name;
-        private int _Mobile;
+        private String _Mobile;
         private String _Email;
+
+        public Person(String tax_Number, String name, String mobile, String email)
+        {
+            _Tax_Number = tax_Number;
+            _Name = name;
+            _Mobile = mobile;
+            _Email = email;
+        }
 
         public String Tax_Number
         {
@@ -26,7 +34,7 @@ namespace CondominiumManager
             set { _Name = value; }
         }
 
-        public int Mobile
+        public String Mobile
         {
             get { return _Mobile; }
             set { _Mobile = value; }
@@ -37,25 +45,6 @@ namespace CondominiumManager
             get { return _Email; }
             set { _Email = value; }
         }
-
-        public override String ToString()
-        {
-            return _Name + "   " + Tax_Number;
-        }
-
-        public Person() : base()
-        {
-        }
-
-        public Person(String Name, String LastName, String FirstName) : base()
-        {
-            this.Name = LastName + ", " + FirstName;
-            this.Name = Name;
-        }
-
-        public Person(String CompanyName) : base()
-        {
-            this._Name = Name;
-        }
+       
     }
 }

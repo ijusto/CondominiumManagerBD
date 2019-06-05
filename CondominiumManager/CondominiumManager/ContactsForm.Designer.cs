@@ -211,7 +211,7 @@
             this.Name = "ContactsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
-            this.Load += new System.EventHandler(this.Contacts_Load);
+            this.Load += new System.EventHandler(this.ContactsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

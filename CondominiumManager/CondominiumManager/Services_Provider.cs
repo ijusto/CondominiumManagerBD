@@ -10,9 +10,21 @@ namespace CondominiumManager
     {
         private String _Tax_Number;
         private String _Name;
-        private int _Mobile;
+        private String _Mobile;
         private String _Address;
+        private String _Type;
+        private int _Index;
 
+        public Services_Provider(String tax_Number, String name, String mobile, String address, String type, int index)
+        {
+            _Tax_Number= tax_Number;
+            _Name = name;
+            _Mobile = mobile;
+            _Address = address;
+            _Type = type;
+            _Index = index;
+        }
+        
         public String Tax_Number
         {
             get { return _Tax_Number; }
@@ -25,7 +37,7 @@ namespace CondominiumManager
             set { _Name = value; }
         }
 
-        public int Mobile
+        public String Mobile
         {
             get { return _Mobile; }
             set { _Mobile = value; }
@@ -37,23 +49,16 @@ namespace CondominiumManager
             set { _Address = value; }
         }
 
-    }
-
-    class Services_Provider_Type
-    {
-        private String _ID;
-        private String _Description;
-
-        public String ID
+        public String Type
         {
-            get { return _ID; }
-            set { _ID = value; }
+            get { return _Type; }
+            set { _Type = value; }
+        }
+        public int Index
+        {
+            get { return _Index; }
+            set { _Index = value; }
         }
 
-        public String Description
-        {
-            get { return _Description; }
-            set { _Description = value; }
-        }
     }
 }

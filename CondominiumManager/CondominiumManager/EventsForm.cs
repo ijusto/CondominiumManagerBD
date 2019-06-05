@@ -22,9 +22,7 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            return toms;
+            return new SqlConnection(path);
         }
 
         private bool VerifySGBDConnection()
@@ -193,8 +191,10 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("showevents", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand("showevents", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
             querydate = querydate.Split('/')[2]+ querydate.Split('/')[1]+ querydate.Split('/')[0];
             cmd.Parameters.AddWithValue("date", date);
             cmd.Parameters.AddWithValue("condo", condo);
@@ -210,25 +210,6 @@ namespace CondominiumManager
 
 
 
-        }
-
-        public class meetings{
-            public int id;
-            public string name;
-            public string description;
-            public string date;
-            public string location;
-            public string condo;
-
-            public meetings(int id, string name, string description, string date, string location, string condo)
-            {
-                id = this.id;
-                name = this.name;
-                description = this.description;
-                date = this.date;
-                location = this.location;
-                condo = this.condo;
-            }
         }
     }
 }

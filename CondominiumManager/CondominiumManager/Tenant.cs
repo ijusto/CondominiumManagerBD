@@ -7,8 +7,19 @@ using System.Threading.Tasks;
 namespace CondominiumManager
 {
     [Serializable()]
-    class Tenant : Person
+    public class Tenant : Person
     {
-        
+        private int _index;
+
+        public Tenant(String tax_Number, String name, String mobile, String email, int index)
+           : base(tax_Number, name, mobile, email)
+        { 
+            _index = index;
+        }
+
+        public int Index{
+            get { return _index; }
+            set { _index = value; }
+        }
     }
 }
