@@ -14,7 +14,7 @@ namespace CondominiumManager
 {
     public partial class ComplaintsForm : Form
     {
-        private List<Complaint> compList = new List<Complaint>();
+        private List<Complaint> compList;
         private SqlConnection cn;
         private SqlCommand cmd;
         private int currentComplaint;
@@ -33,6 +33,9 @@ namespace CondominiumManager
 
         private void Fill_Complaint()
         {
+            index = 0;
+            Listbox_complaints.Items.Clear();
+            compList = new List<Complaint>();
             cn = GetSGBDConnection();
             Listbox_complaints.Items.Clear();
             cn.Open();

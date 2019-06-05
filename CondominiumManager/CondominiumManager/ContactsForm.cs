@@ -14,7 +14,7 @@ namespace CondominiumManager
 {
     public partial class ContactsForm : Form
     {
-        private List<Tenant> tenList = new List<Tenant>();
+        private List<Tenant> tenList;
         private List<Services_Provider> spList = new List<Services_Provider>();
         private SqlConnection cn;
         private SqlCommand cmd;
@@ -39,6 +39,9 @@ namespace CondominiumManager
 
         private void Fill_TenantContacts()
         {
+            ten_index = 0;
+            Tenants_listBox.Items.Clear();
+            tenList = new List<Tenant>();
             cn = GetSGBDConnection();
             Serv_Providers_listBox.Items.Clear();
             cn.Open();
@@ -62,6 +65,9 @@ namespace CondominiumManager
 
         private void Fill_Serv_Prov_Contacts()
         {
+            sp_index = 0;
+            Serv_Providers_listBox.Items.Clear();
+            spList = new List<Services_Provider>();
             cn = GetSGBDConnection();
             Serv_Providers_listBox.Items.Clear();
             cn.Open();

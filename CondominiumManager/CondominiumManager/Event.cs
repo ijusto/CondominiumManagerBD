@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace CondominiumManager
 {
-    class Event
+    public class Event
     {
-        private String _ID;
         private String _Date;
         private String _Name;
         private String _Description;
+        public String _Condo;
 
-        public String ID
+        public Event() { }
+
+        public Event(String name, String date, String desc, String condo)
         {
-            get { return _ID; }
-            set { _ID = value; }
+            _Name = name;
+            _Date = date;
+            _Description = desc;
+            _Condo = condo;
         }
+        
 
         public String Date
         {
@@ -35,6 +40,12 @@ namespace CondominiumManager
         {
             get { return _Description; }
             set { _Description = value; }
+        }
+
+        public string Condo
+        {
+            get { return _Condo; }
+            set { _Condo = value; }
         }
 
     }

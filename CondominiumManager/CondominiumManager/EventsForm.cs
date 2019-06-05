@@ -17,9 +17,16 @@ namespace CondominiumManager
         private string date = "";
         private SqlConnection cn;
         private SqlCommand cmd;
+        private SqlCommand cmd_repair;
         private string condo = Chosencondo.Chosen_condo;
         private string querydate = "";
-        private List<Meeting> meetingsList;
+        private List<Meeting> meetList;
+        private List<Repair> repairList;
+        private int currentEvent;
+        private int m_index = 0;
+        private int r_index = 0;
+
+        private bool creating_event = false;
 
         private SqlConnection GetSGBDConnection()
         {
@@ -45,21 +52,25 @@ namespace CondominiumManager
 
         private void EventsForm_Load(object sender, EventArgs e)
         {
+            currentEvent = Events_At_Date_listBox.SelectedIndex;
             Info_Visibility("events");
         }
 
         private void Repair_button_Click(object sender, EventArgs e)
         {
+            creating_event = true;
             Info_Visibility("Repair");
         }
 
         private void Meeting_button_Click(object sender, EventArgs e)
         {
+            creating_event = true;
             Info_Visibility("Meeting");
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
         {
+            creating_event = false;
             Info_Visibility("cancel");
         }
 
@@ -67,6 +78,16 @@ namespace CondominiumManager
         {
             if (name.Equals("events"))
             {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+
                 // Hide Meeting/Repair attributs
                 Name_textBox.Hide();
                 Name_input_textBox.Hide();
@@ -77,8 +98,8 @@ namespace CondominiumManager
                 Minute_input_textBox.Hide();
                 Type_textBox.Hide();
                 Type_input_textBox.Hide();
-                Place_textBox.Hide();
-                Place_input_textBox.Hide();
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
                 Damaged_textBox.Hide();
                 Damaged_input_textBox.Hide();
                 Description_textBox.Hide();
@@ -88,6 +109,17 @@ namespace CondominiumManager
             }
             else if (name.Equals("cancel"))
             {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+
+                // Hide Meeting/Repair attributs
                 Name_textBox.Hide();
                 Name_input_textBox.Hide();
                 Date_textBox.Hide();
@@ -97,8 +129,8 @@ namespace CondominiumManager
                 Minute_input_textBox.Hide();
                 Type_textBox.Hide();
                 Type_input_textBox.Hide();
-                Place_textBox.Hide();
-                Place_input_textBox.Hide();
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
                 Damaged_textBox.Hide();
                 Damaged_input_textBox.Hide();
                 Description_textBox.Hide();
@@ -108,9 +140,19 @@ namespace CondominiumManager
             }
             else if (name.Equals("Meeting"))
             {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+
+                // Show Meeting attributs
                 Damaged_textBox.Hide();
                 Damaged_input_textBox.Hide();
-                // Show Meeting/Repair attributs
                 Name_textBox.Show();
                 Name_input_textBox.Text = "";
                 Name_input_textBox.Show();
@@ -125,9 +167,9 @@ namespace CondominiumManager
                 Type_textBox.Show();
                 Type_input_textBox.Show();
                 Type_input_textBox.Text = "Meeting";
-                Place_textBox.Show();
-                Place_input_textBox.Text = "";
-                Place_input_textBox.Show();
+                Location_textBox.Show();
+                Location_input_textBox.Text = "";
+                Location_input_textBox.Show();
                 Description_textBox.Show();
                 Description_input_textBox.Text = "";
                 Description_input_textBox.Show();
@@ -136,9 +178,19 @@ namespace CondominiumManager
             }
             else if (name.Equals("Repair"))
             {
-                Place_textBox.Hide();
-                Place_input_textBox.Hide();
-                // Show Meeting/Repair attributs
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+
+                // Show Repair attributs
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
                 Name_textBox.Show();
                 Name_input_textBox.Text = "";
                 Name_input_textBox.Show();
@@ -162,6 +214,21 @@ namespace CondominiumManager
                 Ok_button.Show();
                 Cancel_button.Show();
             }
+            else if(name.Equals("event_info"))
+            {
+                // Show Events info
+                Events_At_Date_textBox.Show();
+                Events_At_Date_textBox.Text = "Events on " + date;
+                Events_At_Date_listBox.Show();
+
+                // Hide Events info
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+            }
         }
         
         private void Back_button_Click(object sender, EventArgs e)
@@ -174,11 +241,14 @@ namespace CondominiumManager
 
         private void Ok_button_Click(object sender, EventArgs e)
         {
+            creating_event = false;
             //TODO: Save event in database
         }
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
+            creating_event = false;
+            Info_Visibility("events");
             string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
             string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
             string dateq = monthCalendar.SelectionRange.Start.ToString();
@@ -190,36 +260,117 @@ namespace CondominiumManager
 
         private void CheckEventInDate()
         {
-            meetingsList = new List<Meeting>();
+            m_index = 0;
+            r_index = 0;
+            Events_At_Date_listBox.Items.Clear();
+            meetList = new List<Meeting>();
+            repairList = new List<Repair>();
+            Events_At_Date_listBox.ClearSelected();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("showevents", cn)
+            cmd_repair = new SqlCommand("showrepairs", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            querydate = querydate.Split('/')[2]+ querydate.Split('/')[1]+ querydate.Split('/')[0];
+            cmd = new SqlCommand("showmeetings", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            querydate = querydate.Split('/')[2] + querydate.Split('/')[1] + querydate.Split('/')[0];
             cmd.Parameters.AddWithValue("date", date);
+            cmd_repair.Parameters.AddWithValue("date", date);
             cmd.Parameters.AddWithValue("condo", condo);
+            cmd_repair.Parameters.AddWithValue("condo", condo);
             cmd.ExecuteNonQuery();
+            cmd_repair.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
+            DataTable dt_repair = new DataTable();
+            SqlDataAdapter da_repair = new SqlDataAdapter(cmd_repair);
+            da_repair.Fill(dt_repair);
             foreach (DataRow dr in dt.Rows)
             {
                 Meeting meet = new Meeting();
-                meet.id = (int)dr["id"];
-                meet.name = dr["name"].ToString();
-                meet.location = dr["localizacao"].ToString();
-                meet.date = dr["data"].ToString();
-                meet.description = dr["description"].ToString();
-                meet.condo = dr["endereco"].ToString();
-
-                meetingsList.Add(meet);
+                meet.Name = dr["nome"].ToString();
+                meet.Location = dr["localizacao"].ToString();
+                meet.Date = dr["data"].ToString();
+                meet.Description = dr["descricao"].ToString();
+                meet.Condo = dr["endereco"].ToString();
+                meet.Index = m_index;
+                meetList.Add(meet);
+                Events_At_Date_listBox.Items.Add(dr["nome"].ToString());
+                m_index++;
+                if (!creating_event)
+                {
+                    Info_Visibility("event_info");
+                }
             }
+            foreach (DataRow dr in dt_repair.Rows)
+            {
+                Repair rep = new Repair();
+                rep.Name = dr["nome"].ToString();
+                rep.Damaged = dr["danificado"].ToString();
+                rep.Date = dr["data"].ToString();
+                rep.Description = dr["descricao"].ToString();
+                rep.Condo = dr["endereco"].ToString();
+                rep.Index = m_index;
+                repairList.Add(rep);
+                Events_At_Date_listBox.Items.Add(dr["nome"].ToString());
+                r_index++;
+                if (!creating_event)
+                {
+                    Info_Visibility("event_info");
+                }
+            }
+            cn.Close();
+        }
 
+        private void Events_At_Date_listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentEvent = Events_At_Date_listBox.SelectedIndex;
+            ShowEvent();
+        }
 
-
-
+        private void ShowEvent()
+        {
+            if (currentEvent != -1)
+            {
+                foreach (Meeting m in meetList)
+                {
+                    if (m.Index == currentEvent)
+                    {
+                        // Show Event info
+                        Name_Event_Info_textBox.Show();
+                        Name_input_Event_Info_textBox.Show();
+                        Name_input_Event_Info_textBox.Text = m.Name;
+                        Location_OR_Damage_Event_Info_textBox.Text = "Location";
+                        Location_OR_Damage_Event_Info_textBox.Show();
+                        Location_OR_Damage_input_Event_Info_textBox.Show();
+                        Location_OR_Damage_input_Event_Info_textBox.Text = m.Location;
+                        Desc_Event_Info_textBox.Show();
+                        Desc_input_Event_Info_textBox.Text = m.Description;
+                        Desc_input_Event_Info_textBox.Show();
+                    }
+                }
+                foreach (Repair r in repairList)
+                {
+                    if (r.Index == currentEvent)
+                    {
+                        // Show Event info
+                        Name_Event_Info_textBox.Show();
+                        Name_input_Event_Info_textBox.Show();
+                        Name_input_Event_Info_textBox.Text = r.Name;
+                        Location_OR_Damage_Event_Info_textBox.Text = "Damaged";
+                        Location_OR_Damage_Event_Info_textBox.Show();
+                        Location_OR_Damage_input_Event_Info_textBox.Show();
+                        Location_OR_Damage_input_Event_Info_textBox.Text = r.Damaged;
+                        Desc_Event_Info_textBox.Show();
+                        Desc_input_Event_Info_textBox.Text = r.Description;
+                        Desc_input_Event_Info_textBox.Show();
+                    }
+                }
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ as
 
 go
 
-create procedure showevents (@date as date, @condo as varchar(40)) as
+create procedure showmeetings (@date as date, @condo as varchar(40)) as
 begin
 	select * from condomanager.Reuniao where data = @date and endereco = @condo
 end;

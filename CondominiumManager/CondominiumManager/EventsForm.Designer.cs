@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsForm));
             this.Date_input_textBox = new System.Windows.Forms.TextBox();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.Date_textBox = new System.Windows.Forms.TextBox();
             this.Back_button = new System.Windows.Forms.Button();
             this.Type_input_textBox = new System.Windows.Forms.TextBox();
@@ -41,8 +42,8 @@
             this.Description_input_textBox = new System.Windows.Forms.TextBox();
             this.Description_textBox = new System.Windows.Forms.TextBox();
             this.Damaged_input_textBox = new System.Windows.Forms.TextBox();
-            this.Place_input_textBox = new System.Windows.Forms.TextBox();
-            this.Place_textBox = new System.Windows.Forms.TextBox();
+            this.Location_input_textBox = new System.Windows.Forms.TextBox();
+            this.Location_textBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Time_textBox = new System.Windows.Forms.TextBox();
             this.Name_input_textBox = new System.Windows.Forms.TextBox();
@@ -50,8 +51,15 @@
             this.Book_textBox = new System.Windows.Forms.TextBox();
             this.Repair_button = new System.Windows.Forms.Button();
             this.Meeting_button = new System.Windows.Forms.Button();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.Damaged_textBox = new System.Windows.Forms.TextBox();
+            this.Events_At_Date_textBox = new System.Windows.Forms.TextBox();
+            this.Events_At_Date_listBox = new System.Windows.Forms.ListBox();
+            this.Name_Event_Info_textBox = new System.Windows.Forms.TextBox();
+            this.Name_input_Event_Info_textBox = new System.Windows.Forms.TextBox();
+            this.Location_OR_Damage_Event_Info_textBox = new System.Windows.Forms.TextBox();
+            this.Location_OR_Damage_input_Event_Info_textBox = new System.Windows.Forms.TextBox();
+            this.Desc_Event_Info_textBox = new System.Windows.Forms.TextBox();
+            this.Desc_input_Event_Info_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Date_input_textBox
@@ -66,7 +74,15 @@
             this.Date_input_textBox.ReadOnly = true;
             this.Date_input_textBox.Size = new System.Drawing.Size(67, 16);
             this.Date_input_textBox.TabIndex = 45;
-            this.Date_input_textBox.Text = this.monthCalendar.TodayDate.ToString();
+            this.Date_input_textBox.Text = "05/06/2019 00:00:00";
+            // 
+            // monthCalendar
+            // 
+            this.monthCalendar.Location = new System.Drawing.Point(28, 44);
+            this.monthCalendar.MaxSelectionCount = 1;
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 23;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             // 
             // Date_textBox
             // 
@@ -198,26 +214,26 @@
             this.Damaged_input_textBox.Size = new System.Drawing.Size(146, 20);
             this.Damaged_input_textBox.TabIndex = 36;
             // 
-            // Place_input_textBox
+            // Location_input_textBox
             // 
-            this.Place_input_textBox.Location = new System.Drawing.Point(329, 144);
-            this.Place_input_textBox.Name = "Place_input_textBox";
-            this.Place_input_textBox.Size = new System.Drawing.Size(167, 20);
-            this.Place_input_textBox.TabIndex = 35;
+            this.Location_input_textBox.Location = new System.Drawing.Point(350, 144);
+            this.Location_input_textBox.Name = "Location_input_textBox";
+            this.Location_input_textBox.Size = new System.Drawing.Size(146, 20);
+            this.Location_input_textBox.TabIndex = 35;
             // 
-            // Place_textBox
+            // Location_textBox
             // 
-            this.Place_textBox.BackColor = System.Drawing.Color.White;
-            this.Place_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Place_textBox.Enabled = false;
-            this.Place_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Place_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Place_textBox.Location = new System.Drawing.Point(267, 144);
-            this.Place_textBox.Name = "Place_textBox";
-            this.Place_textBox.ReadOnly = true;
-            this.Place_textBox.Size = new System.Drawing.Size(45, 16);
-            this.Place_textBox.TabIndex = 33;
-            this.Place_textBox.Text = "Place:";
+            this.Location_textBox.BackColor = System.Drawing.Color.White;
+            this.Location_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Location_textBox.Enabled = false;
+            this.Location_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Location_textBox.Location = new System.Drawing.Point(267, 144);
+            this.Location_textBox.Name = "Location_textBox";
+            this.Location_textBox.ReadOnly = true;
+            this.Location_textBox.Size = new System.Drawing.Size(77, 16);
+            this.Location_textBox.TabIndex = 33;
+            this.Location_textBox.Text = "Location:";
             // 
             // textBox1
             // 
@@ -312,14 +328,6 @@
             this.Meeting_button.UseVisualStyleBackColor = false;
             this.Meeting_button.Click += new System.EventHandler(this.Meeting_button_Click);
             // 
-            // monthCalendar
-            // 
-            this.monthCalendar.Location = new System.Drawing.Point(28, 44);
-            this.monthCalendar.MaxSelectionCount = 1;
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 23;
-            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
-            // 
             // Damaged_textBox
             // 
             this.Damaged_textBox.BackColor = System.Drawing.Color.White;
@@ -334,10 +342,105 @@
             this.Damaged_textBox.TabIndex = 34;
             this.Damaged_textBox.Text = "Damaged:";
             // 
+            // Events_At_Date_textBox
+            // 
+            this.Events_At_Date_textBox.BackColor = System.Drawing.Color.White;
+            this.Events_At_Date_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Events_At_Date_textBox.Enabled = false;
+            this.Events_At_Date_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Events_At_Date_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Events_At_Date_textBox.Location = new System.Drawing.Point(267, 78);
+            this.Events_At_Date_textBox.Name = "Events_At_Date_textBox";
+            this.Events_At_Date_textBox.ReadOnly = true;
+            this.Events_At_Date_textBox.Size = new System.Drawing.Size(229, 16);
+            this.Events_At_Date_textBox.TabIndex = 46;
+            this.Events_At_Date_textBox.Text = "Events at date:";
+            // 
+            // Events_At_Date_listBox
+            // 
+            this.Events_At_Date_listBox.FormattingEnabled = true;
+            this.Events_At_Date_listBox.Location = new System.Drawing.Point(267, 100);
+            this.Events_At_Date_listBox.Name = "Events_At_Date_listBox";
+            this.Events_At_Date_listBox.Size = new System.Drawing.Size(229, 82);
+            this.Events_At_Date_listBox.TabIndex = 47;
+            this.Events_At_Date_listBox.SelectedIndexChanged += new System.EventHandler(this.Events_At_Date_listBox_SelectedIndexChanged);
+            // 
+            // Name_Event_Info_textBox
+            // 
+            this.Name_Event_Info_textBox.BackColor = System.Drawing.Color.White;
+            this.Name_Event_Info_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Name_Event_Info_textBox.Enabled = false;
+            this.Name_Event_Info_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name_Event_Info_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Name_Event_Info_textBox.Location = new System.Drawing.Point(267, 190);
+            this.Name_Event_Info_textBox.Name = "Name_Event_Info_textBox";
+            this.Name_Event_Info_textBox.ReadOnly = true;
+            this.Name_Event_Info_textBox.Size = new System.Drawing.Size(56, 16);
+            this.Name_Event_Info_textBox.TabIndex = 48;
+            this.Name_Event_Info_textBox.Text = "Name:";
+            // 
+            // Name_input_Event_Info_textBox
+            // 
+            this.Name_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 212);
+            this.Name_input_Event_Info_textBox.Name = "Name_input_Event_Info_textBox";
+            this.Name_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Name_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Name_input_Event_Info_textBox.TabIndex = 49;
+            // 
+            // Location_OR_Damage_Event_Info_textBox
+            // 
+            this.Location_OR_Damage_Event_Info_textBox.BackColor = System.Drawing.Color.White;
+            this.Location_OR_Damage_Event_Info_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Location_OR_Damage_Event_Info_textBox.Enabled = false;
+            this.Location_OR_Damage_Event_Info_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location_OR_Damage_Event_Info_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Location_OR_Damage_Event_Info_textBox.Location = new System.Drawing.Point(267, 238);
+            this.Location_OR_Damage_Event_Info_textBox.Name = "Location_OR_Damage_Event_Info_textBox";
+            this.Location_OR_Damage_Event_Info_textBox.ReadOnly = true;
+            this.Location_OR_Damage_Event_Info_textBox.Size = new System.Drawing.Size(129, 16);
+            this.Location_OR_Damage_Event_Info_textBox.TabIndex = 50;
+            this.Location_OR_Damage_Event_Info_textBox.Text = "LocationORDamage:";
+            // 
+            // Location_OR_Damage_input_Event_Info_textBox
+            // 
+            this.Location_OR_Damage_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 260);
+            this.Location_OR_Damage_input_Event_Info_textBox.Name = "Location_OR_Damage_input_Event_Info_textBox";
+            this.Location_OR_Damage_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Location_OR_Damage_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Location_OR_Damage_input_Event_Info_textBox.TabIndex = 51;
+            // 
+            // Desc_Event_Info_textBox
+            // 
+            this.Desc_Event_Info_textBox.BackColor = System.Drawing.Color.White;
+            this.Desc_Event_Info_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Desc_Event_Info_textBox.Enabled = false;
+            this.Desc_Event_Info_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Desc_Event_Info_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Desc_Event_Info_textBox.Location = new System.Drawing.Point(267, 286);
+            this.Desc_Event_Info_textBox.Name = "Desc_Event_Info_textBox";
+            this.Desc_Event_Info_textBox.ReadOnly = true;
+            this.Desc_Event_Info_textBox.Size = new System.Drawing.Size(77, 16);
+            this.Desc_Event_Info_textBox.TabIndex = 52;
+            this.Desc_Event_Info_textBox.Text = "Description:";
+            // 
+            // Desc_input_Event_Info_textBox
+            // 
+            this.Desc_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 308);
+            this.Desc_input_Event_Info_textBox.Multiline = true;
+            this.Desc_input_Event_Info_textBox.Name = "Desc_input_Event_Info_textBox";
+            this.Desc_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Desc_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 45);
+            this.Desc_input_Event_Info_textBox.TabIndex = 53;
+            // 
             // EventsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.Desc_input_Event_Info_textBox);
+            this.Controls.Add(this.Desc_Event_Info_textBox);
+            this.Controls.Add(this.Location_OR_Damage_input_Event_Info_textBox);
+            this.Controls.Add(this.Location_OR_Damage_Event_Info_textBox);
+            this.Controls.Add(this.Events_At_Date_textBox);
             this.Controls.Add(this.Date_input_textBox);
             this.Controls.Add(this.Date_textBox);
             this.Controls.Add(this.Back_button);
@@ -350,8 +453,8 @@
             this.Controls.Add(this.Description_input_textBox);
             this.Controls.Add(this.Description_textBox);
             this.Controls.Add(this.Damaged_input_textBox);
-            this.Controls.Add(this.Place_input_textBox);
-            this.Controls.Add(this.Place_textBox);
+            this.Controls.Add(this.Location_input_textBox);
+            this.Controls.Add(this.Location_textBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Time_textBox);
             this.Controls.Add(this.Name_input_textBox);
@@ -361,6 +464,9 @@
             this.Controls.Add(this.Meeting_button);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.Damaged_textBox);
+            this.Controls.Add(this.Name_input_Event_Info_textBox);
+            this.Controls.Add(this.Name_Event_Info_textBox);
+            this.Controls.Add(this.Events_At_Date_listBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "EventsForm";
@@ -386,8 +492,8 @@
         private System.Windows.Forms.TextBox Description_input_textBox;
         private System.Windows.Forms.TextBox Description_textBox;
         private System.Windows.Forms.TextBox Damaged_input_textBox;
-        private System.Windows.Forms.TextBox Place_input_textBox;
-        private System.Windows.Forms.TextBox Place_textBox;
+        private System.Windows.Forms.TextBox Location_input_textBox;
+        private System.Windows.Forms.TextBox Location_textBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox Time_textBox;
         private System.Windows.Forms.TextBox Name_input_textBox;
@@ -397,5 +503,13 @@
         private System.Windows.Forms.Button Meeting_button;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.TextBox Damaged_textBox;
+        private System.Windows.Forms.TextBox Events_At_Date_textBox;
+        private System.Windows.Forms.ListBox Events_At_Date_listBox;
+        private System.Windows.Forms.TextBox Name_Event_Info_textBox;
+        private System.Windows.Forms.TextBox Name_input_Event_Info_textBox;
+        private System.Windows.Forms.TextBox Location_OR_Damage_Event_Info_textBox;
+        private System.Windows.Forms.TextBox Location_OR_Damage_input_Event_Info_textBox;
+        private System.Windows.Forms.TextBox Desc_Event_Info_textBox;
+        private System.Windows.Forms.TextBox Desc_input_Event_Info_textBox;
     }
 }
