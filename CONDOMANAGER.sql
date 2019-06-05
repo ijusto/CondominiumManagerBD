@@ -56,42 +56,38 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
 
  CREATE TABLE CONDOMANAGER.Reclamacao(
-	Id int not null Identity(1,1),
+	Id int not null Identity(0,1),
 	Data date,
 	Descricao varchar(100),
 	nif_condomino varchar(9),
-	nif_gestor varchar(9),
+	endereco_cond varchar(40),
 	endereco varchar(40),
 	ref_fracao varchar(5)
 	PRIMARY KEY(Id),
 	foreign key (nif_condomino) references CONDOMANAGER.condomino(nif),
-	foreign key (nif_gestor) references CONDOMANAGER.gestor_condominio(nif),
+	foreign key(endereco_cond) references condomanager.condominio(endereco),
 	foreign key (ref_fracao, endereco) references CONDOMANAGER.fracao(ref_fracao, endereco)
  )
 
  CREATE TABLE CONDOMANAGER.Reuniao(
-	Id int not null Identity(1,1),
+	Id int not null Identity(0,1),
 	Nome varchar(40),
 	Data date,
 	Descricao varchar(100),
 	localizacao varchar(40),
-	nif_gestor varchar(9),
 	endereco varchar(40),
 	PRIMARY KEY(Id),
-	foreign key(nif_gestor) references CONDOMANAGER.Gestor_Condominio(nif),
 	foreign key(endereco) references condomanager.condominio(endereco)
  )
 
  CREATE TABLE CONDOMANAGER.Reparacao(
-	Id int not null Identity(1,1),
+	Id int not null Identity(0,1),
 	Nome varchar(40),
 	Data date,
 	Descricao varchar(100),
 	Danificado varchar(50),
-	nif_gestor varchar(9),
 	endereco varchar(40),
 	PRIMARY KEY(Id),
-	foreign key(nif_gestor) references condomanager.gestor_condominio(nif),
 	foreign key(endereco) references condomanager.condominio(endereco)
  )
 
@@ -113,62 +109,59 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
 
  CREATE TABLE CONDOMANAGER.Pagamento_Quotas(
-	Id int not null Identity(1,1),
+	Id int not null Identity(0,1),
 	Data date,
-	NIF_condomino varchar(9),
 	Descricao varchar(100),
 	Valor money,
+	id_fatura int,
 	PRIMARY KEY(Id),
-	foreign key(nif_condomino) references condomanager.condomino(nif)
+	foreign key(id_fatura) references condomanager.fatura_quotas(id_fatura)
  )
  CREATE TABLE CONDOMANAGER.Fatura_Quotas(
-	Id_Fatura int not null Identity(1,1),
+	Id_Fatura int not null Identity(0,1),
 	Data date,
-	nif_gestor varchar(9),
-	nif_Consumidor varchar(9),
-	id_pagamento int,
+	descricao varchar(100),
+	ref_fracao varchar(5),
+	endereco varchar(40),
 	Quantia money,
-
 	PRIMARY KEY(Id_Fatura),
-	foreign key(nif_gestor) references condomanager.gestor_condominio(nif),
-	foreign key(nif_consumidor) references condomanager.condomino(nif),
-	foreign key(id_pagamento) references condomanager.pagamento_quotas(id)
+	
+
+	foreign key(ref_fracao,endereco) references condomanager.fracao(ref_fracao, endereco)
  )
 
   CREATE TABLE CONDOMANAGER.Pagamento_Servicos(
-	Id int not null Identity(1,1),
+	Id int not null Identity(0,1),
 	Data date,
-	NIF_gestor varchar(9),
-	Descricao varchar(40),
-	Valor money,
+	Descricao varchar(100),
+	Quantia money,
+	id_fatura int,
 	PRIMARY KEY(Id),
-	foreign key(nif_gestor) references condomanager.gestor_condominio(nif)
+	foreign key(id_fatura) references condomanager.fatura_servicos(id_fatura)
 
  )
 
 
  CREATE TABLE CONDOMANAGER.Fatura_Servicos(
-	Id_Fatura int not null identity(1,1),
+	Id_Fatura int not null identity(0,1),
 	Data date,
-	Id_Fornec varchar(9),
-	Id_Consumidor varchar(9),
+	nif_Fornec varchar(9),
 	endereco varchar(40),
-	id_pagamento int,
+	descricao varchar(100),
 	Quantia money,
 
 	PRIMARY KEY(Id_Fatura),
-	foreign key(id_fornec) references condomanager.fornecedor_servicos(nif),
-	foreign key (id_consumidor) references condomanager.gestor_condominio(nif),
-	foreign key( id_pagamento) references condomanager.pagamento_servicos(id),
+	foreign key(nif_fornec) references condomanager.fornecedor_servicos(nif),
 	foreign key(endereco) references condomanager.condominio(endereco)
 
  )
 
+
  Create table condomanager.fotosprediais(
-	id varchar(40),
+	endereco varchar(40),
 	localizacao varchar(256),
-	primary key(localizacao, id),
-	foreign key(id) references condomanager.condominio(endereco)
+	primary key(localizacao),
+	foreign key(endereco) references condomanager.condominio(endereco)
  
  )
 
@@ -244,8 +237,17 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, nif_gestor,
 			('Mudança de Orçamento', '20190610', 'Alteração do Orçamento do 1º Direito', 'Cave do edificio da Rua São Martinho',
 				'250238280', 'Rua São Martinho')
 
-insert into condomanager.Fatura_Servicos(Id_Consumidor, Id_Fornec, endereco, Data, Quantia) values
-			('123876530', '501654738', 'Rua Direita', '20190617',65)
+insert into condomanager.Fatura_Servicos( Id_Fornec, endereco, Data, Quantia, descricao) values
+			('501654738', 'Rua Direita', '20190617',65, 'Pagamento da Luz do prédio'),
+			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
 
---insert into condomanager.Fatura_Quotas(
-   
+
+--insert into condomanager.pagamento_servicos(id_fatura, data, quantia, descricao, nif_gestor)
+--	select id_fatura, data, quantia, descricao, id_consumidor from condomanager.Fatura_servicos where id_fatura = 0
+--update condomanager.fatura_servicos
+--	set id_pagamento = 
+--	(select max(condomanager.pagamento_servicos.id) from condomanager.Pagamento_Servicos)
+--	where id_fatura = 0
+
+--select * from condomanager.Fatura_Servicos
+
