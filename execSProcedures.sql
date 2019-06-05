@@ -1,5 +1,5 @@
 use condomanagerdb
 
-exec markaspaid @id_to = 1
+exec getinfo @id_complaint = 2
 
 select * from condomanager.Pagamento_Servicos

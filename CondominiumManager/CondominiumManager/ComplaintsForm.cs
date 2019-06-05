@@ -21,7 +21,7 @@ namespace CondominiumManager
         {
             SqlConnection toms = new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
             SqlConnection ines = new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            return ines;
+            return toms;
         }
 
         private bool VerifySGBDConnection()

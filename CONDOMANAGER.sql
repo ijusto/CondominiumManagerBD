@@ -248,11 +248,3 @@ insert into condomanager.Fatura_Servicos( nif_Fornec, endereco, Data, Quantia, d
 			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
 
 
---	select * from condomanager.Reuniao
---		where data = '20190610'
---union
---	select * from condomanager.Reparacao
---		where data = '20190610'
-
-select * from condomanager.Reuniao full outer join condomanager.Reparacao on condomanager.Reuniao.endereco = condomanager.Reparacao.endereco
-where condomanager.Reparacao.data = '20190610' and condomanager.Reuniao.data='20190610'
