@@ -265,3 +265,5 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 delete from condomanager.Reuniao where id=1
 
 select * from condomanager.logs
+
+select *  from condomanager.reparacao

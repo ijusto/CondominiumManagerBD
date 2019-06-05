@@ -252,10 +252,10 @@ namespace CondominiumManager
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd_ok.Parameters.AddWithValue("nome", Name_input_textBox.Text);
-                cmd_ok.Parameters.AddWithValue("date", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("data", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text + ":00");
                 cmd_ok.Parameters.AddWithValue("descricao", Description_input_textBox.Text);
                 cmd_ok.Parameters.AddWithValue("localizacao", Location_input_textBox.Text);
-                cmd_ok.Parameters.AddWithValue("endereco", date);
+                cmd_ok.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
                 cmd_ok.ExecuteNonQuery();
             }
             else if (Type_input_textBox.Text.Equals("Repair"))
@@ -265,10 +265,10 @@ namespace CondominiumManager
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd_ok.Parameters.AddWithValue("nome", Name_input_textBox.Text);
-                cmd_ok.Parameters.AddWithValue("date", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("data", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text + ":00");
                 cmd_ok.Parameters.AddWithValue("descricao", Description_input_textBox.Text);
                 cmd_ok.Parameters.AddWithValue("danificado", Damaged_input_textBox.Text);
-                cmd_ok.Parameters.AddWithValue("endereco", date);
+                cmd_ok.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
                 cmd_ok.ExecuteNonQuery();
             }
             cn.Close();
