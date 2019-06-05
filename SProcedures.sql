@@ -31,6 +31,14 @@ begin
 end;
 go
 
+create trigger timepaid
+on condomanager.pagamento_servicos
+After insert
+as
+	update condomanager.Pagamento_Servicos
+	set Data = GETDATE()
+	where ID in (Select max(id) from condomanager.Pagamento_Servicos)
+
 
 
 

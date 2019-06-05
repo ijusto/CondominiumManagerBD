@@ -235,7 +235,8 @@ insert into condomanager.Fornecedor_Servicos(NIF, Nome, Morada, Telemovel, tipo)
 
 
 insert into condomanager.Reparacao(Nome, Data, Danificado, Descricao, endereco) values
-			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', 'Rua Nova')
+			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', 'Rua Nova'),
+			('Composto o elevador', '20190610', 'Elevador', 'Motor do Elevador', 'Rua São Martinho')
 
 
 insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) values
@@ -247,3 +248,11 @@ insert into condomanager.Fatura_Servicos( nif_Fornec, endereco, Data, Quantia, d
 			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
 
 
+--	select * from condomanager.Reuniao
+--		where data = '20190610'
+--union
+--	select * from condomanager.Reparacao
+--		where data = '20190610'
+
+select * from condomanager.Reuniao full outer join condomanager.Reparacao on condomanager.Reuniao.endereco = condomanager.Reparacao.endereco
+where condomanager.Reparacao.data = '20190610' and condomanager.Reuniao.data='20190610'
