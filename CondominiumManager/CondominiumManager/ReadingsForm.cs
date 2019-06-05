@@ -39,7 +39,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             apart_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("showcomplaints", cn)  //TODO
+            cmd = new SqlCommand("getreadings", cn)  //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -50,8 +50,22 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
+                Apartment apt = new Apartment();
+                Tenant owner = new Tenant();
+                owner.Name = dr["nome"].ToString();
+                owner.Email = dr["email"].ToString();
+                owner.Mobile = dr["telemovel"].ToString();
+                apt.owner = owner;
+                apt.Index = index;
+                apt.Permil = dr["permilagem"].ToString();
+                apt.ReadGas = dr["leitura_gas"].ToString();
+                apt.ReadLight = dr["leitura_luz"].ToString();
+                apt.ReadWater = dr["leitura_agua"].ToString();
+                apt.Refer = dr["ref_fracao"].ToString();
+                apt.Address = Chosencondo.Chosen_condo + " - " + dr["piso"].ToString();
+                apList.Add(apt);
                 //apList.Add(new Apartment((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), "", index));  //TODO
-                apart_listBox.Items.Add(dr["Descricao"].ToString());
+                apart_listBox.Items.Add(dr["ref_fracao"].ToString() + " - " + dr["piso"].ToString());
                 index++;
             }
             cn.Close();

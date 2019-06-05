@@ -15,8 +15,13 @@ namespace CondominiumManager
         private String _ReadWater;
         private String _ReadLight;
         private int _Index;
+        private Tenant _owner;
 
-        public Apartment(String address, String refer, String permil, String readGas, String readWater, String readLight, int index)
+        public Apartment()
+        {
+        }
+
+        public Apartment(String address, String refer, String permil, String readGas, String readWater, String readLight, int index, Tenant owner)
         {
             _Address = address;
             _Refer = refer;
@@ -25,6 +30,7 @@ namespace CondominiumManager
             _ReadWater = readWater;
             _ReadLight = readLight;
             _Index = index;
+            _owner = owner;
         }
 
         public String Address
@@ -61,6 +67,11 @@ namespace CondominiumManager
         {
             get { return _Index; }
             set { _Index = value; }
+        }
+        public Tenant owner
+        {
+            get { return _owner;}
+            set { _owner = value; }
         }
     }
 }

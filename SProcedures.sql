@@ -124,6 +124,14 @@ begin
 end;
 go
 
+create procedure getreadings (@endereco as varchar(40)) as
+begin
+	select ref_fracao,permilagem, endereco, piso, leitura_gas, leitura_luz, leitura_agua, nome, email, telemovel from
+	condomanager.Fracao join condomanager.Condomino on nif_condomino = NIF
+	where endereco = @endereco
+end;
+go
+
 
 
 

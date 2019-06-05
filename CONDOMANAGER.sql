@@ -265,8 +265,4 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Quantia) values
 	('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
 
-delete from condomanager.Reuniao where id=1
 
-select * from condomanager.logs
-
-select *  from condomanager.reparacao
