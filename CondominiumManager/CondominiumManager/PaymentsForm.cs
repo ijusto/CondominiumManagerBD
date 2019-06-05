@@ -49,23 +49,25 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Quotas_Invoice_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("getfaturaquota", cn) //TODO
+            cmd = new SqlCommand("getfaturaquota", cn) 
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);  //TODO
+            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);  
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                Quota_Invoice invoice = new Quota_Invoice();
-                invoice.Amount = dr["quantia"].ToString();
-                invoice.Date = dr["data"].ToString();
-                invoice.Description = dr["descricao"].ToString();
-                invoice.index = q_index;
-                
+                Quota_Invoice invoice = new Quota_Invoice
+                {
+                    Amount = dr["quantia"].ToString(),
+                    Date = dr["data"].ToString(),
+                    Description = dr["descricao"].ToString(),
+                    Index = q_index
+                };
+
                 cmd = new SqlCommand("gettenantnifname", cn)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -95,22 +97,24 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Services_Invoice_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("getfaturaservico", cn) //TODO
+            cmd = new SqlCommand("getfaturaservico", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo); //TODO
+            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo); 
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                Service_Invoice invoice = new Service_Invoice();
-                invoice.index = sp_index;
-                invoice.Description = dr["descricao"].ToString();
-                invoice.Date = dr["data"].ToString();
-                invoice.Amount = dr["quantia"].ToString();
+                Service_Invoice invoice = new Service_Invoice
+                {
+                    Index = sp_index,
+                    Description = dr["descricao"].ToString(),
+                    Date = dr["data"].ToString(),
+                    Amount = dr["quantia"].ToString()
+                };
                 cmd = new SqlCommand("getmanager", cn)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -165,9 +169,18 @@ namespace CondominiumManager
             {
                 foreach (Service_Invoice sp in spList)
                 {
-                    //if (sp.Index == currentServiceInvoice)
+                    if (sp.Index == currentServiceInvoice)
                     {
-                        //TODO show info selected invoice
+                        Info_Visibility("showServiceInvoice");
+
+                        // depende se já está paga ou nao
+                        Mark_Paid_Service_button.Show();
+                        //pagamento
+                        Payment_Service_textBox.Show();
+                        Date_Service_Payment_textBox.Show();
+                        Date_input_Service_Payment_textBox.Show();
+                        Desc_Service_Payment_textBox.Show();
+                        Desc_input_Service_Payment_textBox.Show();
                     }
                 }
             }
@@ -185,9 +198,23 @@ namespace CondominiumManager
             {
                 foreach (Quota_Invoice q in quotaList)
                 {
-                    //if (q.Index == currentQuotaInvoice)
+                    if (q.Index == currentQuotaInvoice)
                     {
-                        //TODO show info selected invoice
+                        Info_Visibility("showQuotaInvoice");
+
+                        // if procedure ja foi paga
+                            //pagamento
+                            Payment_Quota_textBox.Show();
+                            Date_Quota_Payment_textBox.Show();
+                            Date_input_Quota_Payment_textBox.Show();
+                            Desc_Quota_Payment_textBox.Show();
+                            Desc_input_Quota_Payment_textBox.Show();
+                            //pôr valores do pagamento
+                            Date_input_Quota_Payment_textBox.Text = "";//TODO
+                            Desc_input_Quota_Payment_textBox.Text = "";//TODO
+                            Mark_Paid_Quota_button.Hide();
+                        //else
+                            Mark_Paid_Quota_button.Show();
                     }
                 }
             }
@@ -197,9 +224,74 @@ namespace CondominiumManager
         private void Info_Visibility(string name)
         {
             //TODO
-            if (name.Equals(""))
+            if (name.Equals("load"))
             {
-                // Hide Events info
+                //hide info selected quota invoice/payment
+                Invoice_Quota_textBox.Hide();
+                Date_Quota_Invoice_textBox.Hide();
+                Date_input_Quota_Invoice_textBox.Hide();
+                TaxNumber_Quota_Invoice_textBox.Hide();
+                TaxNumber_input_Quota_Invoice_textBox.Hide();
+                Amount_Quota_Invoice_textBox.Hide();
+                Amount_input_Quota_Invoice_textBox.Hide();
+                Ref_Quota_Invoice_textBox.Hide();
+                Ref_input_Quota_Invoice_textBox.Hide();
+                Desc_Quota_Invoice_textBox.Hide();
+                Desc_input_Quota_Invoice_textBox.Hide();
+                Mark_Paid_Quota_button.Hide();
+                Payment_Quota_textBox.Hide();
+                Date_Quota_Payment_textBox.Hide();
+                Date_input_Quota_Payment_textBox.Hide();
+                Desc_Quota_Payment_textBox.Hide();
+                Desc_input_Quota_Payment_textBox.Hide();
+                //hide info selected service invoice /payment
+                Invoice_Service_textBox.Hide();
+                Date_Service_Invoice_textBox.Hide();
+                Date_input_Service_Invoice_textBox.Hide();
+                TaxNumber_Service_Invoice_textBox.Hide();
+                TaxNumber_input_Service_Invoice_textBox.Hide();
+                Amount_Service_Invoice_textBox.Hide();
+                Amount_input_Service_Invoice_textBox.Hide();
+                Ref_Service_Invoice_textBox.Hide();
+                Ref_input_Service_Invoice_textBox.Hide();
+                Desc_Service_Invoice_textBox.Hide();
+                Desc_input_Service_Invoice_textBox.Hide();
+                Mark_Paid_Service_button.Hide();
+                Payment_Service_textBox.Hide();
+                Date_Service_Payment_textBox.Hide();
+                Date_input_Service_Payment_textBox.Hide();
+                Desc_Service_Payment_textBox.Hide();
+                Desc_input_Service_Payment_textBox.Hide();
+            }
+            else if (name.Equals("showServiceInvoice"))
+            {
+                //show info selected invoice
+                Invoice_Service_textBox.Show();
+                Date_Service_Invoice_textBox.Show();
+                Date_input_Service_Invoice_textBox.Show();
+                TaxNumber_Service_Invoice_textBox.Show();
+                TaxNumber_input_Service_Invoice_textBox.Show();
+                Amount_Service_Invoice_textBox.Show();
+                Amount_input_Service_Invoice_textBox.Show();
+                Ref_Service_Invoice_textBox.Show();
+                Ref_input_Service_Invoice_textBox.Show();
+                Desc_Service_Invoice_textBox.Show();
+                Desc_input_Service_Invoice_textBox.Show();
+            }
+            else if (name.Equals("showQuotaInvoice"))
+            {
+                //show info selected invoice
+                Invoice_Quota_textBox.Show();
+                Date_Quota_Invoice_textBox.Show();
+                Date_input_Quota_Invoice_textBox.Show();
+                TaxNumber_Quota_Invoice_textBox.Show();
+                TaxNumber_input_Quota_Invoice_textBox.Show();
+                Amount_Quota_Invoice_textBox.Show();
+                Amount_input_Quota_Invoice_textBox.Show();
+                Ref_Quota_Invoice_textBox.Show();
+                Ref_input_Quota_Invoice_textBox.Show();
+                Desc_Quota_Invoice_textBox.Show();
+                Desc_input_Quota_Invoice_textBox.Show();
             }
         }
     }
