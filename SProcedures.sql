@@ -125,7 +125,7 @@ go
 
 create procedure gettenantnif(@ref_fracao as varchar(5), @endereco as varchar(40)) as
 begin
-	select condomanagerdb.condomino.nif from condomanagerdb.fracao join condomanagerdb.condomino on nif_condomino = nif
+	select condomanagerdb.condomino.nif from condomanagerdb.fracao join condomanagerdb.condomino on nif_condomino = nif where ref_fracao = @ref_fracao and endereco = @endereco
 end;
 go
 
