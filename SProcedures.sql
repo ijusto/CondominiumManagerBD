@@ -107,13 +107,13 @@ go
 
 create procedure getfaturaquota (@endereco as varchar(40)) as
 begin
-	select data, descricao, ref_fracao, endereco, quantia from condomanager.fatura_quotas where endereco = @endereco
+	select id, data, descricao, ref_fracao, endereco, quantia from condomanager.fatura_quotas where endereco = @endereco
 end;
 go
 
 create procedure getfaturaservico(@endereco as varchar(40)) as
 begin
-	select data, nif_fornec, endereco, quantia from condomanager.fatura_servicos where endereco = @endereco
+	select id, data, nif_fornec, endereco, quantia from condomanager.fatura_servicos where endereco = @endereco
 end;
 go
 
@@ -129,6 +129,18 @@ begin
 	select ref_fracao,permilagem, endereco, piso, leitura_gas, leitura_luz, leitura_agua, nome, email, telemovel from
 	condomanager.Fracao join condomanager.Condomino on nif_condomino = NIF
 	where endereco = @endereco
+end;
+go
+
+create procedure ispaidquotas (@id_fatura as int) as
+begin
+	select * from condomager.pagamento_quotas where id_fatura = @id_fatura
+end;
+go
+
+create procedure ispaidservicos (@id_fatura as int) as
+begin
+	select * from condomager.pagamento_servicos where id_fatura = @id_fatura
 end;
 go
 
