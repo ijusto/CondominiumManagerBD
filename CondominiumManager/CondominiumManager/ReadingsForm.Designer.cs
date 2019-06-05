@@ -70,6 +70,7 @@
             this.apart_listBox.Name = "apart_listBox";
             this.apart_listBox.Size = new System.Drawing.Size(218, 238);
             this.apart_listBox.TabIndex = 16;
+            this.apart_listBox.SelectedIndexChanged += new System.EventHandler(this.Apart_listBox_SelectedIndexChanged);
             // 
             // Back_button
             // 
@@ -99,7 +100,7 @@
             this.Name = "ReadingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
-            this.Load += new System.EventHandler(this.Readings_Load);
+            this.Load += new System.EventHandler(this.ReadingsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

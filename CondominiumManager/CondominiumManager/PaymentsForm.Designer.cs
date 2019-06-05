@@ -64,6 +64,10 @@
             this.Date_Quota_Payment_textBox = new System.Windows.Forms.TextBox();
             this.Date_input_Quota_Payment_textBox = new System.Windows.Forms.TextBox();
             this.Payment_Quota_textBox = new System.Windows.Forms.TextBox();
+            this.TaxNumber_Service_Invoice_textBox = new System.Windows.Forms.TextBox();
+            this.TaxNumber_input_Service_Invoice_textBox = new System.Windows.Forms.TextBox();
+            this.TaxNumber_Quota_Invoice_textBox = new System.Windows.Forms.TextBox();
+            this.TaxNumber_input_Quota_Invoice_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Back_button
@@ -147,7 +151,7 @@
             this.Amount_Quota_Invoice_textBox.Enabled = false;
             this.Amount_Quota_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Amount_Quota_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Amount_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 210);
+            this.Amount_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 230);
             this.Amount_Quota_Invoice_textBox.Name = "Amount_Quota_Invoice_textBox";
             this.Amount_Quota_Invoice_textBox.ReadOnly = true;
             this.Amount_Quota_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
@@ -157,7 +161,7 @@
             // Amount_input_Quota_Invoice_textBox
             // 
             this.Amount_input_Quota_Invoice_textBox.Enabled = false;
-            this.Amount_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(55, 210);
+            this.Amount_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(55, 228);
             this.Amount_input_Quota_Invoice_textBox.Name = "Amount_input_Quota_Invoice_textBox";
             this.Amount_input_Quota_Invoice_textBox.ReadOnly = true;
             this.Amount_input_Quota_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -171,7 +175,7 @@
             this.Ref_Quota_Invoice_textBox.Enabled = false;
             this.Ref_Quota_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ref_Quota_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Ref_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 236);
+            this.Ref_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 252);
             this.Ref_Quota_Invoice_textBox.Name = "Ref_Quota_Invoice_textBox";
             this.Ref_Quota_Invoice_textBox.ReadOnly = true;
             this.Ref_Quota_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
@@ -181,11 +185,11 @@
             // Ref_input_Quota_Invoice_textBox
             // 
             this.Ref_input_Quota_Invoice_textBox.Enabled = false;
-            this.Ref_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(55, 236);
+            this.Ref_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(47, 250);
             this.Ref_input_Quota_Invoice_textBox.Name = "Ref_input_Quota_Invoice_textBox";
             this.Ref_input_Quota_Invoice_textBox.ReadOnly = true;
             this.Ref_input_Quota_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Ref_input_Quota_Invoice_textBox.Size = new System.Drawing.Size(82, 20);
+            this.Ref_input_Quota_Invoice_textBox.Size = new System.Drawing.Size(90, 20);
             this.Ref_input_Quota_Invoice_textBox.TabIndex = 55;
             // 
             // Desc_Quota_Invoice_textBox
@@ -195,7 +199,7 @@
             this.Desc_Quota_Invoice_textBox.Enabled = false;
             this.Desc_Quota_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Desc_Quota_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Desc_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 258);
+            this.Desc_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 275);
             this.Desc_Quota_Invoice_textBox.Name = "Desc_Quota_Invoice_textBox";
             this.Desc_Quota_Invoice_textBox.ReadOnly = true;
             this.Desc_Quota_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
@@ -205,12 +209,12 @@
             // Desc_input_Quota_Invoice_textBox
             // 
             this.Desc_input_Quota_Invoice_textBox.Enabled = false;
-            this.Desc_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 281);
+            this.Desc_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(338, 273);
             this.Desc_input_Quota_Invoice_textBox.Multiline = true;
             this.Desc_input_Quota_Invoice_textBox.Name = "Desc_input_Quota_Invoice_textBox";
             this.Desc_input_Quota_Invoice_textBox.ReadOnly = true;
             this.Desc_input_Quota_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Desc_input_Quota_Invoice_textBox.Size = new System.Drawing.Size(132, 42);
+            this.Desc_input_Quota_Invoice_textBox.Size = new System.Drawing.Size(92, 47);
             this.Desc_input_Quota_Invoice_textBox.TabIndex = 57;
             // 
             // Quotas_Invoice_listBox
@@ -225,12 +229,12 @@
             // Desc_input_Service_Invoice_textBox
             // 
             this.Desc_input_Service_Invoice_textBox.Enabled = false;
-            this.Desc_input_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 281);
+            this.Desc_input_Service_Invoice_textBox.Location = new System.Drawing.Point(45, 273);
             this.Desc_input_Service_Invoice_textBox.Multiline = true;
             this.Desc_input_Service_Invoice_textBox.Name = "Desc_input_Service_Invoice_textBox";
             this.Desc_input_Service_Invoice_textBox.ReadOnly = true;
             this.Desc_input_Service_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Desc_input_Service_Invoice_textBox.Size = new System.Drawing.Size(132, 42);
+            this.Desc_input_Service_Invoice_textBox.Size = new System.Drawing.Size(92, 47);
             this.Desc_input_Service_Invoice_textBox.TabIndex = 66;
             // 
             // Desc_Service_Invoice_textBox
@@ -240,21 +244,21 @@
             this.Desc_Service_Invoice_textBox.Enabled = false;
             this.Desc_Service_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Desc_Service_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Desc_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 258);
+            this.Desc_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 275);
             this.Desc_Service_Invoice_textBox.Name = "Desc_Service_Invoice_textBox";
             this.Desc_Service_Invoice_textBox.ReadOnly = true;
-            this.Desc_Service_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
+            this.Desc_Service_Invoice_textBox.Size = new System.Drawing.Size(34, 16);
             this.Desc_Service_Invoice_textBox.TabIndex = 65;
             this.Desc_Service_Invoice_textBox.Text = "Desc:";
             // 
             // Ref_input_Service_Invoice_textBox
             // 
             this.Ref_input_Service_Invoice_textBox.Enabled = false;
-            this.Ref_input_Service_Invoice_textBox.Location = new System.Drawing.Point(348, 236);
+            this.Ref_input_Service_Invoice_textBox.Location = new System.Drawing.Point(338, 250);
             this.Ref_input_Service_Invoice_textBox.Name = "Ref_input_Service_Invoice_textBox";
             this.Ref_input_Service_Invoice_textBox.ReadOnly = true;
             this.Ref_input_Service_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Ref_input_Service_Invoice_textBox.Size = new System.Drawing.Size(82, 20);
+            this.Ref_input_Service_Invoice_textBox.Size = new System.Drawing.Size(92, 20);
             this.Ref_input_Service_Invoice_textBox.TabIndex = 64;
             // 
             // Ref_Service_Invoice_textBox
@@ -264,7 +268,7 @@
             this.Ref_Service_Invoice_textBox.Enabled = false;
             this.Ref_Service_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ref_Service_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Ref_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 236);
+            this.Ref_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 252);
             this.Ref_Service_Invoice_textBox.Name = "Ref_Service_Invoice_textBox";
             this.Ref_Service_Invoice_textBox.ReadOnly = true;
             this.Ref_Service_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
@@ -274,7 +278,7 @@
             // Amount_input_Service_Invoice_textBox
             // 
             this.Amount_input_Service_Invoice_textBox.Enabled = false;
-            this.Amount_input_Service_Invoice_textBox.Location = new System.Drawing.Point(348, 210);
+            this.Amount_input_Service_Invoice_textBox.Location = new System.Drawing.Point(348, 228);
             this.Amount_input_Service_Invoice_textBox.Name = "Amount_input_Service_Invoice_textBox";
             this.Amount_input_Service_Invoice_textBox.ReadOnly = true;
             this.Amount_input_Service_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -288,7 +292,7 @@
             this.Amount_Service_Invoice_textBox.Enabled = false;
             this.Amount_Service_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Amount_Service_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Amount_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 210);
+            this.Amount_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 230);
             this.Amount_Service_Invoice_textBox.Name = "Amount_Service_Invoice_textBox";
             this.Amount_Service_Invoice_textBox.ReadOnly = true;
             this.Amount_Service_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
@@ -302,7 +306,7 @@
             this.Date_Service_Invoice_textBox.Enabled = false;
             this.Date_Service_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date_Service_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Date_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 184);
+            this.Date_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 186);
             this.Date_Service_Invoice_textBox.Name = "Date_Service_Invoice_textBox";
             this.Date_Service_Invoice_textBox.ReadOnly = true;
             this.Date_Service_Invoice_textBox.Size = new System.Drawing.Size(34, 16);
@@ -312,7 +316,7 @@
             // Date_input_Service_Invoice_textBox
             // 
             this.Date_input_Service_Invoice_textBox.Enabled = false;
-            this.Date_input_Service_Invoice_textBox.Location = new System.Drawing.Point(338, 183);
+            this.Date_input_Service_Invoice_textBox.Location = new System.Drawing.Point(338, 184);
             this.Date_input_Service_Invoice_textBox.Name = "Date_input_Service_Invoice_textBox";
             this.Date_input_Service_Invoice_textBox.ReadOnly = true;
             this.Date_input_Service_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -396,7 +400,7 @@
             this.textBox7Date_Service_Payment_textBox.Enabled = false;
             this.textBox7Date_Service_Payment_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7Date_Service_Payment_textBox.ForeColor = System.Drawing.Color.Black;
-            this.textBox7Date_Service_Payment_textBox.Location = new System.Drawing.Point(442, 184);
+            this.textBox7Date_Service_Payment_textBox.Location = new System.Drawing.Point(442, 185);
             this.textBox7Date_Service_Payment_textBox.Name = "textBox7Date_Service_Payment_textBox";
             this.textBox7Date_Service_Payment_textBox.ReadOnly = true;
             this.textBox7Date_Service_Payment_textBox.Size = new System.Drawing.Size(34, 16);
@@ -503,10 +507,62 @@
             this.Payment_Quota_textBox.Text = "Payment";
             this.Payment_Quota_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // TaxNumber_Service_Invoice_textBox
+            // 
+            this.TaxNumber_Service_Invoice_textBox.BackColor = System.Drawing.Color.White;
+            this.TaxNumber_Service_Invoice_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TaxNumber_Service_Invoice_textBox.Enabled = false;
+            this.TaxNumber_Service_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaxNumber_Service_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
+            this.TaxNumber_Service_Invoice_textBox.Location = new System.Drawing.Point(298, 208);
+            this.TaxNumber_Service_Invoice_textBox.Name = "TaxNumber_Service_Invoice_textBox";
+            this.TaxNumber_Service_Invoice_textBox.ReadOnly = true;
+            this.TaxNumber_Service_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
+            this.TaxNumber_Service_Invoice_textBox.TabIndex = 85;
+            this.TaxNumber_Service_Invoice_textBox.Text = "Tax nº :";
+            // 
+            // TaxNumber_input_Service_Invoice_textBox
+            // 
+            this.TaxNumber_input_Service_Invoice_textBox.Enabled = false;
+            this.TaxNumber_input_Service_Invoice_textBox.Location = new System.Drawing.Point(348, 206);
+            this.TaxNumber_input_Service_Invoice_textBox.Name = "TaxNumber_input_Service_Invoice_textBox";
+            this.TaxNumber_input_Service_Invoice_textBox.ReadOnly = true;
+            this.TaxNumber_input_Service_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TaxNumber_input_Service_Invoice_textBox.Size = new System.Drawing.Size(82, 20);
+            this.TaxNumber_input_Service_Invoice_textBox.TabIndex = 86;
+            // 
+            // TaxNumber_Quota_Invoice_textBox
+            // 
+            this.TaxNumber_Quota_Invoice_textBox.BackColor = System.Drawing.Color.White;
+            this.TaxNumber_Quota_Invoice_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TaxNumber_Quota_Invoice_textBox.Enabled = false;
+            this.TaxNumber_Quota_Invoice_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaxNumber_Quota_Invoice_textBox.ForeColor = System.Drawing.Color.Black;
+            this.TaxNumber_Quota_Invoice_textBox.Location = new System.Drawing.Point(5, 207);
+            this.TaxNumber_Quota_Invoice_textBox.Name = "TaxNumber_Quota_Invoice_textBox";
+            this.TaxNumber_Quota_Invoice_textBox.ReadOnly = true;
+            this.TaxNumber_Quota_Invoice_textBox.Size = new System.Drawing.Size(56, 16);
+            this.TaxNumber_Quota_Invoice_textBox.TabIndex = 87;
+            this.TaxNumber_Quota_Invoice_textBox.Text = "Tax nº :";
+            // 
+            // TaxNumber_input_Quota_Invoice_textBox
+            // 
+            this.TaxNumber_input_Quota_Invoice_textBox.Enabled = false;
+            this.TaxNumber_input_Quota_Invoice_textBox.Location = new System.Drawing.Point(55, 206);
+            this.TaxNumber_input_Quota_Invoice_textBox.Name = "TaxNumber_input_Quota_Invoice_textBox";
+            this.TaxNumber_input_Quota_Invoice_textBox.ReadOnly = true;
+            this.TaxNumber_input_Quota_Invoice_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TaxNumber_input_Quota_Invoice_textBox.Size = new System.Drawing.Size(82, 20);
+            this.TaxNumber_input_Quota_Invoice_textBox.TabIndex = 88;
+            // 
             // PaymentsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.TaxNumber_input_Quota_Invoice_textBox);
+            this.Controls.Add(this.TaxNumber_Quota_Invoice_textBox);
+            this.Controls.Add(this.TaxNumber_input_Service_Invoice_textBox);
+            this.Controls.Add(this.TaxNumber_Service_Invoice_textBox);
             this.Controls.Add(this.Desc_input_Quota_Payment_textBox);
             this.Controls.Add(this.Desc_Quota_Payment_textBox);
             this.Controls.Add(this.Date_Quota_Payment_textBox);
@@ -590,5 +646,9 @@
         private System.Windows.Forms.TextBox Date_Quota_Payment_textBox;
         private System.Windows.Forms.TextBox Date_input_Quota_Payment_textBox;
         private System.Windows.Forms.TextBox Payment_Quota_textBox;
+        private System.Windows.Forms.TextBox TaxNumber_Service_Invoice_textBox;
+        private System.Windows.Forms.TextBox TaxNumber_input_Service_Invoice_textBox;
+        private System.Windows.Forms.TextBox TaxNumber_Quota_Invoice_textBox;
+        private System.Windows.Forms.TextBox TaxNumber_input_Quota_Invoice_textBox;
     }
 }
