@@ -15,6 +15,8 @@ namespace CondominiumManager
         public string location;
         public string condo;
 
+        public Meeting() { }
+
         public Meeting(int id, string name, string description, string date, string location, string condo)
         {
             id = this.id;
