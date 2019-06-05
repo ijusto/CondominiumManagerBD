@@ -107,17 +107,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	foreign key(tipo) references condomanager.tipo_fornecedor(id)
  )
 
-
- CREATE TABLE CONDOMANAGER.Pagamento_Quotas(
-	Id int not null Identity(0,1),
-	Data date,
-	Descricao varchar(100),
-	Valor money,
-	id_fatura int,
-	PRIMARY KEY(Id),
-	foreign key(id_fatura) references condomanager.fatura_quotas(id_fatura)
- )
- CREATE TABLE CONDOMANAGER.Fatura_Quotas(
+  CREATE TABLE CONDOMANAGER.Fatura_Quotas(
 	Id_Fatura int not null Identity(0,1),
 	Data date,
 	descricao varchar(100),
@@ -128,6 +118,30 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	
 
 	foreign key(ref_fracao,endereco) references condomanager.fracao(ref_fracao, endereco)
+ )
+
+ CREATE TABLE CONDOMANAGER.Pagamento_Quotas(
+	Id int not null Identity(0,1),
+	Data date,
+	Descricao varchar(100),
+	Valor money,
+	id_fatura int,
+	PRIMARY KEY(Id),
+	foreign key(id_fatura) references condomanager.fatura_quotas(id_fatura)
+ )
+
+  CREATE TABLE CONDOMANAGER.Fatura_Servicos(
+	Id_Fatura int not null identity(0,1),
+	Data date,
+	nif_Fornec varchar(9),
+	endereco varchar(40),
+	descricao varchar(100),
+	Quantia money,
+
+	PRIMARY KEY(Id_Fatura),
+	foreign key(nif_fornec) references condomanager.fornecedor_servicos(nif),
+	foreign key(endereco) references condomanager.condominio(endereco)
+
  )
 
   CREATE TABLE CONDOMANAGER.Pagamento_Servicos(
@@ -141,20 +155,6 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
  )
 
-
- CREATE TABLE CONDOMANAGER.Fatura_Servicos(
-	Id_Fatura int not null identity(0,1),
-	Data date,
-	nif_Fornec varchar(9),
-	endereco varchar(40),
-	descricao varchar(100),
-	Quantia money,
-
-	PRIMARY KEY(Id_Fatura),
-	foreign key(nif_fornec) references condomanager.fornecedor_servicos(nif),
-	foreign key(endereco) references condomanager.condominio(endereco)
-
- )
 
 
  Create table condomanager.fotosprediais(
@@ -208,11 +208,16 @@ insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_cond
 			('Avenida dos Combatentes','B2', 12322, 'RC/E', '216374865')
 
 
-insert into condomanager.Reclamacao(endereco, ref_fracao, nif_gestor, nif_condomino, Data, Descricao) values
-			('Rua São Martinho', 'A3', '250238280', '126374659', '20190604', 'Contador da água com valores acima do normal'),
-			('Rua São Martinho', 'A1', '250238280', '213564756', '20190604', 'Contador da luz com valores acima do normal'),
-			('Rua Nova', 'A2', '123876530','216374865', '20190601', 'Luz da entrada fundida'),
-			('Avenida dos Combatentes', 'B2', '265904536', '216374865', '20190602', 'Elevador não funcional')
+insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, Descricao) values
+			('Rua São Martinho', 'A3', '126374659', '20190604', 'Contador da água com valores acima do normal'),
+			('Rua São Martinho', 'A1', '213564756', '20190604', 'Contador da luz com valores acima do normal'),
+			('Rua Nova', 'A2','216374865', '20190601', 'Luz da entrada fundida'),
+			('Avenida dos Combatentes', 'B2', '216374865', '20190602', 'Quadro Elétrico estragado')
+
+insert into condomanager.Reclamacao(endereco_cond, nif_condomino, Data, Descricao) values
+			('Avenida dos Combatentes', '237168594', '20190603', 'Elevador não funcional')
+			
+
 
 insert into condomanager.Tipo_Fornecedor(Id, Descricao) values
 			(1, 'Fornecedor de Água'),
@@ -229,25 +234,16 @@ insert into condomanager.Fornecedor_Servicos(NIF, Nome, Morada, Telemovel, tipo)
 			('504982746', 'Cimento&Afins', 'Rua da Ladra', '217364895', 5)
 
 
-insert into condomanager.Reparacao(Nome, Data, Danificado, Descricao, nif_gestor, endereco) values
-			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', '123876530', 'Rua Nova')
+insert into condomanager.Reparacao(Nome, Data, Danificado, Descricao, endereco) values
+			('Mudança da Luz', '20190603', 'Luz da entrada', 'Mudou-se a luz da entrada', 'Rua Nova')
 
 
-insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, nif_gestor, endereco) values
+insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) values
 			('Mudança de Orçamento', '20190610', 'Alteração do Orçamento do 1º Direito', 'Cave do edificio da Rua São Martinho',
-				'250238280', 'Rua São Martinho')
+			 'Rua São Martinho')
 
-insert into condomanager.Fatura_Servicos( Id_Fornec, endereco, Data, Quantia, descricao) values
+insert into condomanager.Fatura_Servicos( nif_Fornec, endereco, Data, Quantia, descricao) values
 			('501654738', 'Rua Direita', '20190617',65, 'Pagamento da Luz do prédio'),
 			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
 
-
---insert into condomanager.pagamento_servicos(id_fatura, data, quantia, descricao, nif_gestor)
---	select id_fatura, data, quantia, descricao, id_consumidor from condomanager.Fatura_servicos where id_fatura = 0
---update condomanager.fatura_servicos
---	set id_pagamento = 
---	(select max(condomanager.pagamento_servicos.id) from condomanager.Pagamento_Servicos)
---	where id_fatura = 0
-
---select * from condomanager.Fatura_Servicos
 

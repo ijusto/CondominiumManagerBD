@@ -25,14 +25,9 @@ go
 create procedure markaspaid (@id_to as int)  as
 begin
 	
-	insert into condomanager.pagamento_servicos(id_fatura, data, quantia, descricao, nif_gestor)
-	select id_fatura, data, quantia, descricao, id_consumidor from condomanager.Fatura_servicos where id_fatura = @id_to
+	insert into condomanager.pagamento_servicos(id_fatura, data, quantia, descricao)
+		select id_fatura, data, quantia, descricao from condomanager.Fatura_servicos where id_fatura = @id_to
 
-update condomanager.fatura_servicos
-	set id_pagamento = 
-	(select condomanager.pagamento_servicos.id from condomanager.pagamento_servicos join condomanager.fatura_servicos on 
-		condomanager.pagamento_servicos.id_fatura=condomanager.fatura_servicos.id_fatura where condomanager.Fatura_Servicos.Id_Fatura = @id_to)
-	where id_fatura = @id_to
 end;
 go
 
