@@ -16,7 +16,8 @@ namespace CondominiumManager
     {
         private string date = "";
         private SqlConnection cn;
-        private SqlCommand cmd;
+        private SqlCommand cmd_ok;
+        private SqlCommand cmd_meet;
         private SqlCommand cmd_repair;
         private string condo = Chosencondo.Chosen_condo;
         private string querydate = "";
@@ -242,7 +243,36 @@ namespace CondominiumManager
         private void Ok_button_Click(object sender, EventArgs e)
         {
             creating_event = false;
-            //TODO: Save event in database
+            cn = GetSGBDConnection();
+            cn.Open();
+            if (Type_input_textBox.Text.Equals("Meeting"))
+            {
+                cmd_ok = new SqlCommand("insertmeeting", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd_ok.Parameters.AddWithValue("nome", Name_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("date", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("descricao", Description_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("localizacao", Location_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("endereco", date);
+                cmd_ok.ExecuteNonQuery();
+            }
+            else if (Type_input_textBox.Text.Equals("Repair"))
+            {
+                cmd_ok = new SqlCommand("insertrepair", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd_ok.Parameters.AddWithValue("nome", Name_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("date", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("descricao", Description_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("danificado", Damaged_input_textBox.Text);
+                cmd_ok.Parameters.AddWithValue("endereco", date);
+                cmd_ok.ExecuteNonQuery();
+            }
+            cn.Close();
+            Info_Visibility("cancel");
         }
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
@@ -251,9 +281,7 @@ namespace CondominiumManager
             Info_Visibility("events");
             string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
             string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
-            string dateq = monthCalendar.SelectionRange.Start.ToString();
             date = startDate;
-            querydate = dateq;
             Date_input_textBox.Text = date;
             CheckEventInDate();
         }
@@ -272,32 +300,33 @@ namespace CondominiumManager
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd = new SqlCommand("showmeetings", cn)
+            cmd_meet = new SqlCommand("showmeetings", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            querydate = querydate.Split('/')[2] + querydate.Split('/')[1] + querydate.Split('/')[0];
-            cmd.Parameters.AddWithValue("date", date);
+            cmd_meet.Parameters.AddWithValue("date", date);
             cmd_repair.Parameters.AddWithValue("date", date);
-            cmd.Parameters.AddWithValue("condo", condo);
+            cmd_meet.Parameters.AddWithValue("condo", condo);
             cmd_repair.Parameters.AddWithValue("condo", condo);
-            cmd.ExecuteNonQuery();
+            cmd_meet.ExecuteNonQuery();
             cmd_repair.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            SqlDataAdapter da = new SqlDataAdapter(cmd_meet);
             da.Fill(dt);
             DataTable dt_repair = new DataTable();
             SqlDataAdapter da_repair = new SqlDataAdapter(cmd_repair);
             da_repair.Fill(dt_repair);
             foreach (DataRow dr in dt.Rows)
             {
-                Meeting meet = new Meeting();
-                meet.Name = dr["nome"].ToString();
-                meet.Location = dr["localizacao"].ToString();
-                meet.Date = dr["data"].ToString();
-                meet.Description = dr["descricao"].ToString();
-                meet.Condo = dr["endereco"].ToString();
-                meet.Index = m_index;
+                Meeting meet = new Meeting
+                {
+                    Name = dr["nome"].ToString(),
+                    Location = dr["localizacao"].ToString(),
+                    Date = dr["data"].ToString(),
+                    Description = dr["descricao"].ToString(),
+                    Condo = dr["endereco"].ToString(),
+                    Index = m_index
+                };
                 meetList.Add(meet);
                 Events_At_Date_listBox.Items.Add(dr["nome"].ToString());
                 m_index++;
@@ -308,13 +337,15 @@ namespace CondominiumManager
             }
             foreach (DataRow dr in dt_repair.Rows)
             {
-                Repair rep = new Repair();
-                rep.Name = dr["nome"].ToString();
-                rep.Damaged = dr["danificado"].ToString();
-                rep.Date = dr["data"].ToString();
-                rep.Description = dr["descricao"].ToString();
-                rep.Condo = dr["endereco"].ToString();
-                rep.Index = m_index;
+                Repair rep = new Repair
+                {
+                    Name = dr["nome"].ToString(),
+                    Damaged = dr["danificado"].ToString(),
+                    Date = dr["data"].ToString(),
+                    Description = dr["descricao"].ToString(),
+                    Condo = dr["endereco"].ToString(),
+                    Index = m_index
+                };
                 repairList.Add(rep);
                 Events_At_Date_listBox.Items.Add(dr["nome"].ToString());
                 r_index++;
@@ -325,6 +356,7 @@ namespace CondominiumManager
             }
             cn.Close();
         }
+        
 
         private void Events_At_Date_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
