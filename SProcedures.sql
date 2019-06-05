@@ -117,6 +117,12 @@ begin
 end;
 go
 
+create procedure getnametenant(@nif as varchar(9)) as
+begin
+	select nome from condomanager.condomino where nif=@nif
+end;
+go
+
 
 
 
