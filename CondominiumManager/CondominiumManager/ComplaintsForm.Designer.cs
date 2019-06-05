@@ -66,7 +66,7 @@
             // 
             // Description_input_textBox
             // 
-            this.Description_input_textBox.Location = new System.Drawing.Point(346, 181);
+            this.Description_input_textBox.Location = new System.Drawing.Point(346, 185);
             this.Description_input_textBox.Multiline = true;
             this.Description_input_textBox.Name = "Description_input_textBox";
             this.Description_input_textBox.Size = new System.Drawing.Size(194, 141);
@@ -156,16 +156,16 @@
             this.Complaints_textBox.TabIndex = 13;
             this.Complaints_textBox.Text = "Complaints:";
             // 
-            // Combo_complaints
+            // Listbox_complaints
             // 
             this.Listbox_complaints.FormattingEnabled = true;
             this.Listbox_complaints.Location = new System.Drawing.Point(24, 71);
-            this.Listbox_complaints.Name = "Combo_complaints";
+            this.Listbox_complaints.Name = "Listbox_complaints";
             this.Listbox_complaints.Size = new System.Drawing.Size(211, 251);
             this.Listbox_complaints.TabIndex = 12;
             this.Listbox_complaints.SelectedIndexChanged += new System.EventHandler(this.Listbox_complaints_SelectedIndexChanged);
             // 
-            // TaskListForm
+            // ComplaintsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
@@ -182,7 +182,7 @@
             this.Controls.Add(this.Listbox_complaints);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
-            this.Name = "TaskListForm";
+            this.Name = "ComplaintsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
             this.Load += new System.EventHandler(this.ComplaintsForm_Load);

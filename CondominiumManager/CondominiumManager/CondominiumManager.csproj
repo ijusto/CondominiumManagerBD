@@ -81,6 +81,7 @@
     <Compile Include="EventsForm.Designer.cs">
       <DependentUpon>EventsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.cs" />
     <Compile Include="Meeting.cs" />
     <Compile Include="PaymentsForm.cs">
       <SubType>Form</SubType>
@@ -96,7 +97,7 @@
       <DependentUpon>ReadingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Repair.cs" />
-    <Compile Include="Revenue_Invoice.cs" />
+    <Compile Include="Quota_Invoice.cs" />
     <Compile Include="Services_Provider.cs" />
     <Compile Include="Service_Invoice.cs" />
     <Compile Include="ComplaintsForm.cs">

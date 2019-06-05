@@ -6,17 +6,33 @@ using System.Threading.Tasks;
 
 namespace CondominiumManager
 {
-    class Revenue_Invoice
+    class Invoice
     {
-        private String _Invoice_ID;
+        private String _Tax_Number;
         private String _Date;
         private String _Amount;
         private String _Description;
+        private String _Entity_Name;
 
-        public String Invoice_ID
+        public Invoice(String entity_Name, String tax_Number, String date, String amount, String desc)
         {
-            get { return _Invoice_ID; }
-            set { _Invoice_ID = value; }
+            _Entity_Name = entity_Name;
+            _Tax_Number = tax_Number;
+            _Date = date;
+            _Amount = amount;
+            _Description = desc;
+        }
+
+        public String Entity_Name
+        {
+            get { return _Entity_Name; }
+            set { _Entity_Name = value; }
+        }
+
+        public String Tax_Number
+        {
+            get { return _Tax_Number; }
+            set { _Tax_Number = value; }
         }
 
         public String Date

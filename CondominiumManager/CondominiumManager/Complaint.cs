@@ -11,15 +11,17 @@ namespace CondominiumManager
     {
         private int _index;
         private int _id;
-        private string _date;
-        private string _desc;
+        private String _date;
+        private String _desc;
+        private String _tname;
 
-        public Complaint(int id, string date, string desc, int index)
+        public Complaint(int id, String date, String desc, String tname, int index)
         {
             _id = id;
             _date = date;
             _desc = desc;
             _index = index;
+            _tname = tname;
         }
 
         public int Index
@@ -34,16 +36,22 @@ namespace CondominiumManager
             set { _id = value; }
         }
 
-        public string Date
+        public String Date
         {
             get { return _date; }
             set { _date = value; }
         }
 
-        public string Desc
+        public String Desc
         {
             get { return _desc; }
             set { _desc = value; }
+        }
+
+        public String Tname
+        {
+            get { return _tname; }
+            set { _tname = value; }
         }
     }
 }

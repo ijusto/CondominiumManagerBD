@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CondominiumManager
 {
-    class Service_Invoice : Invoice
+    class Quota_Invoice : Invoice
     {
         private String _Address;
 
-        public Service_Invoice(String entity_Name, String tax_Number, String date, String amount, String desc, String address)
+        public Quota_Invoice(String entity_Name, String tax_Number, String date, String amount, String desc, String address)
             : base(entity_Name, tax_Number, date, amount, desc)
         {
             _Address = address;
@@ -18,7 +18,7 @@ namespace CondominiumManager
 
         public String Address
         {
-            get { return _Address; }
+            get{ return _Address; }
             set { _Address = value; }
         }
     }

@@ -381,8 +381,10 @@
             // 
             // Name_input_Event_Info_textBox
             // 
+            this.Name_input_Event_Info_textBox.Enabled = false;
             this.Name_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 212);
             this.Name_input_Event_Info_textBox.Name = "Name_input_Event_Info_textBox";
+            this.Name_input_Event_Info_textBox.ReadOnly = true;
             this.Name_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Name_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 20);
             this.Name_input_Event_Info_textBox.TabIndex = 49;
@@ -403,8 +405,10 @@
             // 
             // Location_OR_Damage_input_Event_Info_textBox
             // 
+            this.Location_OR_Damage_input_Event_Info_textBox.Enabled = false;
             this.Location_OR_Damage_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 260);
             this.Location_OR_Damage_input_Event_Info_textBox.Name = "Location_OR_Damage_input_Event_Info_textBox";
+            this.Location_OR_Damage_input_Event_Info_textBox.ReadOnly = true;
             this.Location_OR_Damage_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Location_OR_Damage_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 20);
             this.Location_OR_Damage_input_Event_Info_textBox.TabIndex = 51;
@@ -425,9 +429,11 @@
             // 
             // Desc_input_Event_Info_textBox
             // 
+            this.Desc_input_Event_Info_textBox.Enabled = false;
             this.Desc_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 308);
             this.Desc_input_Event_Info_textBox.Multiline = true;
             this.Desc_input_Event_Info_textBox.Name = "Desc_input_Event_Info_textBox";
+            this.Desc_input_Event_Info_textBox.ReadOnly = true;
             this.Desc_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Desc_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 45);
             this.Desc_input_Event_Info_textBox.TabIndex = 53;

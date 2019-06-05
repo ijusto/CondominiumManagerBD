@@ -20,7 +20,6 @@ namespace CondominiumManager
         private SqlCommand cmd_meet;
         private SqlCommand cmd_repair;
         private string condo = Chosencondo.Chosen_condo;
-        private string querydate = "";
         private List<Meeting> meetList;
         private List<Repair> repairList;
         private int currentEvent;

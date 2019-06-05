@@ -50,7 +50,7 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                compList.Add(new Complaint((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), index));
+                compList.Add(new Complaint((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), "", index));
                 Listbox_complaints.Items.Add(dr["Descricao"].ToString());
                 index++;
             }
