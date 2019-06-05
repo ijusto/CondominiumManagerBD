@@ -52,6 +52,7 @@
             this.Condo_choose_comboBox.Name = "Condo_choose_comboBox";
             this.Condo_choose_comboBox.Size = new System.Drawing.Size(280, 21);
             this.Condo_choose_comboBox.TabIndex = 31;
+            this.Condo_choose_comboBox.SelectedIndexChanged += new System.EventHandler(this.Condo_choose_comboBox_SelectedIndexChanged);
             // 
             // Contacts_button
             // 
@@ -241,7 +242,7 @@
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.Load += new System.EventHandler(this.MainMenuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

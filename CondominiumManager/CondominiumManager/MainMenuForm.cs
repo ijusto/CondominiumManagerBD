@@ -26,6 +26,9 @@ namespace CondominiumManager
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT Endereco FROM [CONDOMANAGER].[Condominio]";
             cmd.ExecuteNonQuery();
+            //cmd.commandtype = CommandType.storedprocedure
+            //cmd.Parameters.Addwithvalue("endereco", "Rua Nova")
+
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -38,8 +41,8 @@ namespace CondominiumManager
 
         private SqlConnection GetSGBDConnection()
         {
-            //return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
-            return new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            return new SqlConnection("data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
+            //return new SqlConnection("data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb");
         }
 
         private bool VerifySGBDConnection()
@@ -53,13 +56,11 @@ namespace CondominiumManager
             return cn.State == ConnectionState.Open;
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-        }
+    
 
         private void Events_button_Click(object sender, EventArgs e)
         {
-            ChangeForm("Events");            
+            ChangeForm("Events");
         }
 
         private void Readings_button_Click(object sender, EventArgs e)
@@ -112,5 +113,39 @@ namespace CondominiumManager
             this.SendToBack();
             this.Close();
         }
+
+        public static class chosencondo{
+            private static string _chosen_condo;
+            private static int _index;
+
+            public static String chosen_condo
+            {
+                get { return _chosen_condo; }
+                set { _chosen_condo = value; }
+            }
+
+            public static int index
+            {
+                get { return _index; }
+                set { _index = value; }
+            }
+
+
+        }
+
+        private void Condo_choose_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            chosencondo.chosen_condo = Condo_choose_comboBox.Text.ToString();
+            chosencondo.index = Condo_choose_comboBox.SelectedIndex;
+        }
+
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+            if(chosencondo.index != 0)
+            {
+                Condo_choose_comboBox.SelectedIndex = chosencondo.index;
+            }
+        }
     }
+
 }
