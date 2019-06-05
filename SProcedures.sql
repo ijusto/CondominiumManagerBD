@@ -98,6 +98,14 @@ begin
 end;
 go
 
+create procedure insertrepair (@nome as varchar(40), @data as date, @descricao as varchar(100), @danificado as varchar(40), @endereco as varchar(40)) as
+begin
+	insert into condomanager.Reparacao(Nome, Data, Descricao, Danificado, endereco) values
+		(@nome, @data, @descricao, @danificado, @endereco)
+end;
+go
+
+
 
 
 
