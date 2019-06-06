@@ -11,15 +11,17 @@ namespace CondominiumManager
         private int _ID;
         private String _Address;
         private int _Index;
+        private string _ref;
 
         public Quota_Invoice() : base() { }
 
-        public Quota_Invoice(int id, String entity_Name, String tax_Number, String date, String amount, String desc, String address, int Index)
+        public Quota_Invoice(int id, String entity_Name, String tax_Number, String date, String amount, String desc, String address, int Index, string ref_fracao)
             : base(entity_Name, tax_Number, date, amount, desc)
         {
             _ID = id;
             _Address = address;
             _Index = Index;
+            _ref = ref_fracao;
         }
 
         public String Address
@@ -39,5 +41,13 @@ namespace CondominiumManager
             get { return _ID; }
             set { _ID = value; }
         }
+
+        public string ref_fracao
+        {
+            get { return _ref; }
+            set { _ref = value; }
+
+        }
+
     }
 }

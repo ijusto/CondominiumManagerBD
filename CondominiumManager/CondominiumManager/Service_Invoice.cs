@@ -11,15 +11,17 @@ namespace CondominiumManager
         private int _ID;
         private String _Address;
         private int _Index;
+       
 
         public Service_Invoice() : base() { }
 
-        public Service_Invoice(int id, String entity_Name, String tax_Number, String date, String amount, String desc, String address, int index)
+        public Service_Invoice(int id, String entity_Name, String tax_Number, String date, String amount, String desc, String address, int index )
             : base(entity_Name, tax_Number, date, amount, desc)
         {
             _ID = id;
             _Address = address;
             _Index = index;
+           
         }
 
         public String Address
@@ -39,5 +41,6 @@ namespace CondominiumManager
             get { return _ID; }
             set { _ID = value; }
         }
+
     }
 }
