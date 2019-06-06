@@ -60,19 +60,23 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                Apartment apt = new Apartment();
-                Tenant owner = new Tenant();
-                owner.Name = dr["nome"].ToString();
-                owner.Email = dr["email"].ToString();
-                owner.Mobile = dr["telemovel"].ToString();
-                apt.owner = owner;
-                apt.Index = index;
-                apt.Permil = dr["permilagem"].ToString();
-                apt.ReadGas = dr["leitura_gas"].ToString();
-                apt.ReadLight = dr["leitura_luz"].ToString();
-                apt.ReadWater = dr["leitura_agua"].ToString();
-                apt.Refer = dr["ref_fracao"].ToString();
-                apt.Address = Chosencondo.Chosen_condo + " - " + dr["piso"].ToString();
+                Tenant owner = new Tenant
+                {
+                    Name = dr["nome"].ToString(),
+                    Email = dr["email"].ToString(),
+                    Mobile = dr["telemovel"].ToString()
+                };
+                Apartment apt = new Apartment
+                {
+                    owner = owner,
+                    Index = index,
+                    Permil = dr["permilagem"].ToString(),
+                    ReadGas = dr["leitura_gas"].ToString(),
+                    ReadLight = dr["leitura_luz"].ToString(),
+                    ReadWater = dr["leitura_agua"].ToString(),
+                    Refer = dr["ref_fracao"].ToString(),
+                    Address = Chosencondo.Chosen_condo + " - " + dr["piso"].ToString()
+                };
                 apList.Add(apt);
                 //apList.Add(new Apartment((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), "", index));  //TODO
                 apart_listBox.Items.Add(dr["ref_fracao"].ToString() + " - " + dr["piso"].ToString());

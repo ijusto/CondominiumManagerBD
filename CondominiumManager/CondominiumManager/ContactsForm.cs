@@ -22,6 +22,11 @@ namespace CondominiumManager
         private int currentSrvProv;
         private int ten_index = 0;
         private int sp_index = 0;
+        private bool showTenant = false;
+        private bool showSP = false;
+        private bool edit = false; 
+        private bool AddTenant = false;
+        private bool AddSP = false;
 
         public ContactsForm()
         {
@@ -141,6 +146,12 @@ namespace CondominiumManager
                 Email_OR_Address_input_textBox.Hide();
                 Type_textBox.Hide();
                 Type_input_textBox.Hide();
+                Ok_button.Hide();
+                Cancel_button.Hide();
+                Add_Tenant_button.Show();
+                Add_SP_button.Show();
+                Edit_button.Hide();
+                Delete_button.Hide();
             }
             else if(name.Equals("TenantContact"))
             {
@@ -154,6 +165,31 @@ namespace CondominiumManager
                 Email_OR_Address_input_textBox.Show();
                 Type_textBox.Hide();
                 Type_input_textBox.Hide();
+                Ok_button.Hide();
+                Cancel_button.Hide();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Show();
+                Delete_button.Show();
+            }
+            else if (name.Equals("EditTenant"))
+            {
+                // Show Tenant attributs
+                Name_textBox.Show();
+                Name_input_textBox.Show();
+                Mobile_textBox.Show();
+                Mobile_input_textBox.Show();
+                Email_OR_Address_textBox.Show();
+                Email_OR_Address_textBox.Text = "Email:";
+                Email_OR_Address_input_textBox.Show();
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Ok_button.Show();
+                Cancel_button.Show();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
             }
             else if(name.Equals("SPContact"))
             {
@@ -167,11 +203,75 @@ namespace CondominiumManager
                 Email_OR_Address_input_textBox.Show();
                 Type_textBox.Show();
                 Type_input_textBox.Show();
+                Ok_button.Hide();
+                Cancel_button.Hide();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Show();
+                Delete_button.Show();
+            }
+            else if (name.Equals("EditSP"))
+            {
+                // Show Tenant attributs
+                Name_textBox.Show();
+                Name_input_textBox.Show();
+                Mobile_textBox.Show();
+                Mobile_input_textBox.Show();
+                Email_OR_Address_textBox.Show();
+                Email_OR_Address_textBox.Text = "Address:";
+                Email_OR_Address_input_textBox.Show();
+                Type_textBox.Show();
+                Type_input_textBox.Show();
+                Ok_button.Show();
+                Cancel_button.Show();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+
+            }
+            else if (name.Equals("AddTenant"))
+            {
+                Name_textBox.Hide();
+                Name_input_textBox.Hide();
+                Mobile_textBox.Hide();
+                Mobile_input_textBox.Hide();
+                Email_OR_Address_textBox.Hide();
+                Email_OR_Address_input_textBox.Hide();
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Ok_button.Show();
+                Cancel_button.Show();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+            }
+            else if (name.Equals("AddSP"))
+            {
+                Name_textBox.Hide();
+                Name_input_textBox.Hide();
+                Mobile_textBox.Hide();
+                Mobile_input_textBox.Hide();
+                Email_OR_Address_textBox.Hide();
+                Email_OR_Address_input_textBox.Hide();
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Ok_button.Show();
+                Cancel_button.Show();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
             }
         }
 
         private void ShowTenantContact()
         {
+            showTenant = true;
+            showSP = false;
+            AddTenant = false;
+            AddSP = false;
             if (currentTenant != -1)
             {
                 foreach (Tenant t in tenList)
@@ -188,6 +288,10 @@ namespace CondominiumManager
 
         private void ShowSPContact()
         {
+            showTenant = false;
+            showSP = true;
+            AddTenant = false;
+            AddSP = false;
             if (currentSrvProv != -1)
             {
                 foreach (Services_Provider sp in spList)
@@ -201,6 +305,75 @@ namespace CondominiumManager
                     }
                 }
             }
+        }
+
+        private void Add_Tenant_button_Click(object sender, EventArgs e)
+        {
+            showTenant = false;
+            showSP = false;
+            edit = false;
+            AddTenant = true;
+            AddSP = false;
+            Info_Visibility("AddTenant");
+        }
+
+        private void Add_SP_button_Click(object sender, EventArgs e)
+        {
+            showTenant = false;
+            showSP = false;
+            edit = false;
+            AddTenant = false;
+            AddSP = true;
+            Info_Visibility("AddSP");
+        }
+
+        private void Ok_button_Click(object sender, EventArgs e)
+        {
+            edit = true;
+            if (edit && showTenant)
+            {
+                //Edit tenant contact 
+            }
+            else if (edit && showSP)
+            {
+                //Edit SP contact 
+            }
+            else if(AddTenant)
+            {
+                //Add Tenant contact
+            }
+            else if (AddSP)
+            {
+                //Add SP contact
+            }
+            Info_Visibility("Contacts_Load");
+        }
+
+        private void Cancel_button_Click(object sender, EventArgs e)
+        {
+            Info_Visibility("Contacts_Load");
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+            AddTenant = false;
+            AddSP = false;
+            edit = true;
+            if (showTenant) { Info_Visibility("EditTenant"); }
+            else if (showSP) { Info_Visibility("EditSP"); }
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            if (showTenant)
+            {
+                // Delete Tenant Contact
+            }
+            else if (showSP)
+            {
+                // Delete Tenant Contact
+            }
+            Info_Visibility("Contacts_Load");
         }
     }
 }

@@ -14,6 +14,9 @@ namespace CondominiumManager
         private String _date;
         private String _desc;
         private String _tname;
+        private String _Address;
+
+        public Complaint() { }
 
         public Complaint(int id, String date, String desc, String tname, int index)
         {
@@ -52,6 +55,12 @@ namespace CondominiumManager
         {
             get { return _tname; }
             set { _tname = value; }
+        }
+
+        public String Address
+        {
+            get { return _Address; }
+            set { _Address = value; }
         }
     }
 }

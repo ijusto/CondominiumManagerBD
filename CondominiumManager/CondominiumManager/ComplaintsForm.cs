@@ -39,7 +39,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Listbox_complaints.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("showcomplaints", cn)
+            cmd = new SqlCommand("showcomplaints", cn) //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -50,7 +50,16 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                compList.Add(new Complaint((int)dr["id"], dr["data"].ToString(), dr["Descricao"].ToString(), "", index));
+                Complaint comp = new Complaint
+                {
+                    Id = (int)dr["id"],
+                    Date = dr["data"].ToString(),
+                    Desc = dr["Descricao"].ToString(),
+                    Index = index,
+                    Tname = dr["condomino"].ToString(),
+                    Address = Chosencondo.Chosen_condo + " " + dr["ref"].ToString()
+                };
+                compList.Add(comp);
                 Listbox_complaints.Items.Add(dr["Descricao"].ToString());
                 index++;
             }
@@ -97,9 +106,61 @@ namespace CondominiumManager
                     {
                         Date_input_textBox.Text = c.Date.Split(' ')[0];
                         Description_input_textBox.Text = c.Desc;
+                        Tenant_input_textBox.Text = c.Tname;
+                        Address_input_textBox.Text = c.Address;
+                        if (c.Tname.Equals(""))
+                        {
+                            Info_Visibility("notF");
+                        }
+                        else
+                        {
+                            Info_Visibility("witchF");
+                        }
                     }
                 }
             }
+        }
+
+        private void Info_Visibility(string name)
+        {
+            if (name.Equals("load"))
+            {
+                Tenant_input_textBox.Hide();
+                Tenant_textBox.Hide();
+                Address_textBox.Hide();
+                Address_input_textBox.Hide();
+
+                Date_textBox.Hide();
+                Date_input_textBox.Hide();
+                Description_textBox.Hide();
+                Description_input_textBox.Hide();
+            }
+            else if (name.Equals("notF"))
+            {
+                Tenant_input_textBox.Hide();
+                Tenant_textBox.Hide();
+                Address_textBox.Hide();
+                Address_input_textBox.Hide();
+
+                Date_textBox.Show();
+                Date_input_textBox.Show();
+                Description_textBox.Show();
+                Description_input_textBox.Show();
+            }
+            else if (name.Equals("witchF"))
+            {
+                Tenant_input_textBox.Show();
+                Tenant_textBox.Show();
+                Address_textBox.Show();
+                Address_input_textBox.Show();
+
+                Date_textBox.Show();
+                Date_input_textBox.Show();
+                Description_textBox.Show();
+                Description_input_textBox.Show();
+            }
+
+
         }
     }
 }

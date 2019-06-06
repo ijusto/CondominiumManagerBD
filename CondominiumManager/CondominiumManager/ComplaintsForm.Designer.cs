@@ -44,7 +44,7 @@
             // 
             // Tenant_input_textBox
             // 
-            this.Tenant_input_textBox.Location = new System.Drawing.Point(346, 108);
+            this.Tenant_input_textBox.Location = new System.Drawing.Point(346, 259);
             this.Tenant_input_textBox.Name = "Tenant_input_textBox";
             this.Tenant_input_textBox.Size = new System.Drawing.Size(194, 20);
             this.Tenant_input_textBox.TabIndex = 22;
@@ -66,7 +66,7 @@
             // 
             // Description_input_textBox
             // 
-            this.Description_input_textBox.Location = new System.Drawing.Point(346, 185);
+            this.Description_input_textBox.Location = new System.Drawing.Point(346, 103);
             this.Description_input_textBox.Multiline = true;
             this.Description_input_textBox.Name = "Description_input_textBox";
             this.Description_input_textBox.Size = new System.Drawing.Size(194, 141);
@@ -79,7 +79,7 @@
             this.Description_textBox.Enabled = false;
             this.Description_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Description_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Description_textBox.Location = new System.Drawing.Point(252, 185);
+            this.Description_textBox.Location = new System.Drawing.Point(252, 103);
             this.Description_textBox.Name = "Description_textBox";
             this.Description_textBox.ReadOnly = true;
             this.Description_textBox.Size = new System.Drawing.Size(78, 16);
@@ -88,7 +88,7 @@
             // 
             // Address_input_textBox
             // 
-            this.Address_input_textBox.Location = new System.Drawing.Point(346, 145);
+            this.Address_input_textBox.Location = new System.Drawing.Point(346, 296);
             this.Address_input_textBox.Name = "Address_input_textBox";
             this.Address_input_textBox.Size = new System.Drawing.Size(194, 20);
             this.Address_input_textBox.TabIndex = 18;
@@ -100,7 +100,7 @@
             this.Address_textBox.Enabled = false;
             this.Address_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Address_textBox.Location = new System.Drawing.Point(252, 149);
+            this.Address_textBox.Location = new System.Drawing.Point(252, 300);
             this.Address_textBox.Name = "Address_textBox";
             this.Address_textBox.ReadOnly = true;
             this.Address_textBox.Size = new System.Drawing.Size(61, 16);
@@ -114,7 +114,7 @@
             this.Tenant_textBox.Enabled = false;
             this.Tenant_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tenant_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Tenant_textBox.Location = new System.Drawing.Point(252, 112);
+            this.Tenant_textBox.Location = new System.Drawing.Point(252, 263);
             this.Tenant_textBox.Name = "Tenant_textBox";
             this.Tenant_textBox.ReadOnly = true;
             this.Tenant_textBox.Size = new System.Drawing.Size(61, 16);
@@ -125,7 +125,7 @@
             // 
             this.Date_input_textBox.Location = new System.Drawing.Point(346, 68);
             this.Date_input_textBox.Name = "Date_input_textBox";
-            this.Date_input_textBox.Size = new System.Drawing.Size(89, 20);
+            this.Date_input_textBox.Size = new System.Drawing.Size(194, 20);
             this.Date_input_textBox.TabIndex = 15;
             // 
             // Date_textBox

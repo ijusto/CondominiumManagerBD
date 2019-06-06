@@ -42,6 +42,12 @@
             this.Email_OR_Address_textBox = new System.Windows.Forms.TextBox();
             this.Type_input_textBox = new System.Windows.Forms.TextBox();
             this.Type_textBox = new System.Windows.Forms.TextBox();
+            this.Cancel_button = new System.Windows.Forms.Button();
+            this.Ok_button = new System.Windows.Forms.Button();
+            this.Add_SP_button = new System.Windows.Forms.Button();
+            this.Add_Tenant_button = new System.Windows.Forms.Button();
+            this.Edit_button = new System.Windows.Forms.Button();
+            this.Delete_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Back_button
@@ -189,10 +195,100 @@
             this.Type_textBox.TabIndex = 44;
             this.Type_textBox.Text = "Type:";
             // 
+            // Cancel_button
+            // 
+            this.Cancel_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Cancel_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cancel_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Cancel_button.ForeColor = System.Drawing.Color.White;
+            this.Cancel_button.Location = new System.Drawing.Point(450, 269);
+            this.Cancel_button.Name = "Cancel_button";
+            this.Cancel_button.Size = new System.Drawing.Size(75, 23);
+            this.Cancel_button.TabIndex = 49;
+            this.Cancel_button.Text = "Cancel";
+            this.Cancel_button.UseVisualStyleBackColor = false;
+            this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
+            // 
+            // Ok_button
+            // 
+            this.Ok_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Ok_button.ForeColor = System.Drawing.Color.White;
+            this.Ok_button.Location = new System.Drawing.Point(344, 268);
+            this.Ok_button.Name = "Ok_button";
+            this.Ok_button.Size = new System.Drawing.Size(53, 23);
+            this.Ok_button.TabIndex = 48;
+            this.Ok_button.Text = "Ok";
+            this.Ok_button.UseVisualStyleBackColor = false;
+            this.Ok_button.Click += new System.EventHandler(this.Ok_button_Click);
+            // 
+            // Add_SP_button
+            // 
+            this.Add_SP_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Add_SP_button.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.Add_SP_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Add_SP_button.ForeColor = System.Drawing.Color.White;
+            this.Add_SP_button.Location = new System.Drawing.Point(426, 269);
+            this.Add_SP_button.Name = "Add_SP_button";
+            this.Add_SP_button.Size = new System.Drawing.Size(122, 23);
+            this.Add_SP_button.TabIndex = 47;
+            this.Add_SP_button.Text = "Add Service Provider";
+            this.Add_SP_button.UseVisualStyleBackColor = false;
+            this.Add_SP_button.Click += new System.EventHandler(this.Add_SP_button_Click);
+            // 
+            // Add_Tenant_button
+            // 
+            this.Add_Tenant_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Add_Tenant_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Add_Tenant_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Add_Tenant_button.ForeColor = System.Drawing.Color.White;
+            this.Add_Tenant_button.Location = new System.Drawing.Point(320, 268);
+            this.Add_Tenant_button.Name = "Add_Tenant_button";
+            this.Add_Tenant_button.Size = new System.Drawing.Size(100, 23);
+            this.Add_Tenant_button.TabIndex = 46;
+            this.Add_Tenant_button.Text = "Add Tenant";
+            this.Add_Tenant_button.UseVisualStyleBackColor = false;
+            this.Add_Tenant_button.Click += new System.EventHandler(this.Add_Tenant_button_Click);
+            // 
+            // Edit_button
+            // 
+            this.Edit_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Edit_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Edit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Edit_button.ForeColor = System.Drawing.Color.White;
+            this.Edit_button.Location = new System.Drawing.Point(320, 269);
+            this.Edit_button.Name = "Edit_button";
+            this.Edit_button.Size = new System.Drawing.Size(76, 23);
+            this.Edit_button.TabIndex = 50;
+            this.Edit_button.Text = "Edit";
+            this.Edit_button.UseVisualStyleBackColor = false;
+            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
+            // 
+            // Delete_button
+            // 
+            this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete_button.ForeColor = System.Drawing.Color.White;
+            this.Delete_button.Location = new System.Drawing.Point(449, 269);
+            this.Delete_button.Name = "Delete_button";
+            this.Delete_button.Size = new System.Drawing.Size(76, 23);
+            this.Delete_button.TabIndex = 51;
+            this.Delete_button.Text = "Delete";
+            this.Delete_button.UseVisualStyleBackColor = false;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
+            // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.Delete_button);
+            this.Controls.Add(this.Edit_button);
+            this.Controls.Add(this.Cancel_button);
+            this.Controls.Add(this.Ok_button);
+            this.Controls.Add(this.Add_SP_button);
+            this.Controls.Add(this.Add_Tenant_button);
             this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.Type_textBox);
             this.Controls.Add(this.Email_OR_Address_input_textBox);
@@ -232,5 +328,11 @@
         private System.Windows.Forms.TextBox Email_OR_Address_textBox;
         private System.Windows.Forms.TextBox Type_input_textBox;
         private System.Windows.Forms.TextBox Type_textBox;
+        private System.Windows.Forms.Button Cancel_button;
+        private System.Windows.Forms.Button Ok_button;
+        private System.Windows.Forms.Button Add_SP_button;
+        private System.Windows.Forms.Button Add_Tenant_button;
+        private System.Windows.Forms.Button Edit_button;
+        private System.Windows.Forms.Button Delete_button;
     }
 }
