@@ -50,9 +50,9 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	PRIMARY KEY(Ref_fracao, Endereco), 
 	FOREIGN KEY(Endereco) references CONDOMANAGER.Condominio(Endereco),
 	foreign key(nif_condomino) references condomanager.condomino(nif)
+	on update cascade on delete set null
  )
 
- 
 
 
  CREATE TABLE CONDOMANAGER.Reclamacao(
@@ -64,7 +64,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	endereco varchar(40),
 	ref_fracao varchar(5)
 	PRIMARY KEY(Id),
-	foreign key (nif_condomino) references CONDOMANAGER.condomino(nif),
+	foreign key (nif_condomino) references CONDOMANAGER.condomino(nif) on update cascade on delete cascade,
 	foreign key(endereco_cond) references condomanager.condominio(endereco),
 	foreign key (ref_fracao, endereco) references CONDOMANAGER.fracao(ref_fracao, endereco)
  )
@@ -115,8 +115,6 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	endereco varchar(40),
 	Quantia money,
 	PRIMARY KEY(Id_Fatura),
-	
-
 	foreign key(ref_fracao,endereco) references condomanager.fracao(ref_fracao, endereco)
  )
 
@@ -139,8 +137,8 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Quantia money,
 
 	PRIMARY KEY(Id_Fatura),
-	foreign key(nif_fornec) references condomanager.fornecedor_servicos(nif),
-	foreign key(endereco) references condomanager.condominio(endereco)
+	foreign key(nif_fornec) references condomanager.fornecedor_servicos(nif) on delete cascade,
+	foreign key(endereco) references condomanager.condominio(endereco) on delete cascade
 
  )
 
@@ -151,7 +149,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Quantia money,
 	id_fatura int,
 	PRIMARY KEY(Id),
-	foreign key(id_fatura) references condomanager.fatura_servicos(id_fatura)
+	foreign key(id_fatura) references condomanager.fatura_servicos(id_fatura) on delete cascade
 
  )
 
@@ -263,17 +261,8 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 			 'Rua São Martinho')
 
 insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Quantia) values
-	--('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60),
+	('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60),
 	('Pagamento Quota Junho 2018', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
 
-
-insert into condomanager.Pagamento_Quotas(id_fatura, Valor,Descricao) values
-	(0, 60, 'Olá, está pago')
-
-select * from condomanager.pagamento_quotas
-
-update condomanager.Pagamento_Quotas
-
-drop table condomanager.Pagamento_Quotas
 
 
