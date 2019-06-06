@@ -13,8 +13,8 @@ namespace CondominiumManager
 
         public Meeting() : base() { }
 
-        public Meeting(String name, String date, String desc, String condo, String location, int index)
-            : base(name, date, desc, condo)
+        public Meeting(String name, String date, String desc, String condo, String location, int index, int id)
+            : base(name, date, desc, condo, id)
         {
             _index = index;
             _location = location;
