@@ -37,8 +37,8 @@
             this.Type_textBox = new System.Windows.Forms.TextBox();
             this.Minute_input_textBox = new System.Windows.Forms.TextBox();
             this.Hour_input_textBox = new System.Windows.Forms.TextBox();
-            this.Cancel_button = new System.Windows.Forms.Button();
-            this.Ok_button = new System.Windows.Forms.Button();
+            this.Book_Cancel_button = new System.Windows.Forms.Button();
+            this.Book_Ok_button = new System.Windows.Forms.Button();
             this.Description_input_textBox = new System.Windows.Forms.TextBox();
             this.Description_textBox = new System.Windows.Forms.TextBox();
             this.Damaged_input_textBox = new System.Windows.Forms.TextBox();
@@ -60,6 +60,10 @@
             this.Location_OR_Damage_input_Event_Info_textBox = new System.Windows.Forms.TextBox();
             this.Desc_Event_Info_textBox = new System.Windows.Forms.TextBox();
             this.Desc_input_Event_Info_textBox = new System.Windows.Forms.TextBox();
+            this.Delete_button = new System.Windows.Forms.Button();
+            this.Edit_button = new System.Windows.Forms.Button();
+            this.Cancel_Edit_OR_Delete_button = new System.Windows.Forms.Button();
+            this.OK_Edit_OR_Delete_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Date_input_textBox
@@ -157,33 +161,33 @@
             this.Hour_input_textBox.Size = new System.Drawing.Size(21, 20);
             this.Hour_input_textBox.TabIndex = 30;
             // 
-            // Cancel_button
+            // Book_Cancel_button
             // 
-            this.Cancel_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
-            this.Cancel_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Cancel_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Cancel_button.ForeColor = System.Drawing.Color.White;
-            this.Cancel_button.Location = new System.Drawing.Point(421, 236);
-            this.Cancel_button.Name = "Cancel_button";
-            this.Cancel_button.Size = new System.Drawing.Size(75, 23);
-            this.Cancel_button.TabIndex = 40;
-            this.Cancel_button.Text = "Cancel";
-            this.Cancel_button.UseVisualStyleBackColor = false;
-            this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
+            this.Book_Cancel_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Book_Cancel_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Book_Cancel_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Book_Cancel_button.ForeColor = System.Drawing.Color.White;
+            this.Book_Cancel_button.Location = new System.Drawing.Point(421, 236);
+            this.Book_Cancel_button.Name = "Book_Cancel_button";
+            this.Book_Cancel_button.Size = new System.Drawing.Size(75, 23);
+            this.Book_Cancel_button.TabIndex = 40;
+            this.Book_Cancel_button.Text = "Cancel";
+            this.Book_Cancel_button.UseVisualStyleBackColor = false;
+            this.Book_Cancel_button.Click += new System.EventHandler(this.Book_Cancel_button_Click);
             // 
-            // Ok_button
+            // Book_Ok_button
             // 
-            this.Ok_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
-            this.Ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Ok_button.ForeColor = System.Drawing.Color.White;
-            this.Ok_button.Location = new System.Drawing.Point(350, 236);
-            this.Ok_button.Name = "Ok_button";
-            this.Ok_button.Size = new System.Drawing.Size(53, 23);
-            this.Ok_button.TabIndex = 39;
-            this.Ok_button.Text = "Ok";
-            this.Ok_button.UseVisualStyleBackColor = false;
-            this.Ok_button.Click += new System.EventHandler(this.Ok_button_Click);
+            this.Book_Ok_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Book_Ok_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Book_Ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Book_Ok_button.ForeColor = System.Drawing.Color.White;
+            this.Book_Ok_button.Location = new System.Drawing.Point(350, 236);
+            this.Book_Ok_button.Name = "Book_Ok_button";
+            this.Book_Ok_button.Size = new System.Drawing.Size(53, 23);
+            this.Book_Ok_button.TabIndex = 39;
+            this.Book_Ok_button.Text = "Ok";
+            this.Book_Ok_button.UseVisualStyleBackColor = false;
+            this.Book_Ok_button.Click += new System.EventHandler(this.Book_Ok_button_Click);
             // 
             // Description_input_textBox
             // 
@@ -430,18 +434,78 @@
             // Desc_input_Event_Info_textBox
             // 
             this.Desc_input_Event_Info_textBox.Enabled = false;
-            this.Desc_input_Event_Info_textBox.Location = new System.Drawing.Point(267, 308);
+            this.Desc_input_Event_Info_textBox.Location = new System.Drawing.Point(340, 285);
             this.Desc_input_Event_Info_textBox.Multiline = true;
             this.Desc_input_Event_Info_textBox.Name = "Desc_input_Event_Info_textBox";
             this.Desc_input_Event_Info_textBox.ReadOnly = true;
             this.Desc_input_Event_Info_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Desc_input_Event_Info_textBox.Size = new System.Drawing.Size(229, 45);
+            this.Desc_input_Event_Info_textBox.Size = new System.Drawing.Size(156, 44);
             this.Desc_input_Event_Info_textBox.TabIndex = 53;
+            // 
+            // Delete_button
+            // 
+            this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete_button.ForeColor = System.Drawing.Color.White;
+            this.Delete_button.Location = new System.Drawing.Point(411, 335);
+            this.Delete_button.Name = "Delete_button";
+            this.Delete_button.Size = new System.Drawing.Size(76, 23);
+            this.Delete_button.TabIndex = 55;
+            this.Delete_button.Text = "Delete";
+            this.Delete_button.UseVisualStyleBackColor = false;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
+            // 
+            // Edit_button
+            // 
+            this.Edit_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Edit_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Edit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Edit_button.ForeColor = System.Drawing.Color.White;
+            this.Edit_button.Location = new System.Drawing.Point(282, 335);
+            this.Edit_button.Name = "Edit_button";
+            this.Edit_button.Size = new System.Drawing.Size(76, 23);
+            this.Edit_button.TabIndex = 54;
+            this.Edit_button.Text = "Edit";
+            this.Edit_button.UseVisualStyleBackColor = false;
+            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
+            // 
+            // Cancel_Edit_OR_Delete_button
+            // 
+            this.Cancel_Edit_OR_Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Cancel_Edit_OR_Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cancel_Edit_OR_Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Cancel_Edit_OR_Delete_button.ForeColor = System.Drawing.Color.White;
+            this.Cancel_Edit_OR_Delete_button.Location = new System.Drawing.Point(412, 335);
+            this.Cancel_Edit_OR_Delete_button.Name = "Cancel_Edit_OR_Delete_button";
+            this.Cancel_Edit_OR_Delete_button.Size = new System.Drawing.Size(75, 23);
+            this.Cancel_Edit_OR_Delete_button.TabIndex = 57;
+            this.Cancel_Edit_OR_Delete_button.Text = "Cancel";
+            this.Cancel_Edit_OR_Delete_button.UseVisualStyleBackColor = false;
+            this.Cancel_Edit_OR_Delete_button.Click += new System.EventHandler(this.Cancel_Edit_OR_Delete_button_Click);
+            // 
+            // OK_Edit_OR_Delete_button
+            // 
+            this.OK_Edit_OR_Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.OK_Edit_OR_Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OK_Edit_OR_Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OK_Edit_OR_Delete_button.ForeColor = System.Drawing.Color.White;
+            this.OK_Edit_OR_Delete_button.Location = new System.Drawing.Point(295, 335);
+            this.OK_Edit_OR_Delete_button.Name = "OK_Edit_OR_Delete_button";
+            this.OK_Edit_OR_Delete_button.Size = new System.Drawing.Size(53, 23);
+            this.OK_Edit_OR_Delete_button.TabIndex = 56;
+            this.OK_Edit_OR_Delete_button.Text = "Ok";
+            this.OK_Edit_OR_Delete_button.UseVisualStyleBackColor = false;
+            this.OK_Edit_OR_Delete_button.Click += new System.EventHandler(this.OK_Edit_OR_Delete_button_Click);
             // 
             // EventsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.Cancel_Edit_OR_Delete_button);
+            this.Controls.Add(this.OK_Edit_OR_Delete_button);
+            this.Controls.Add(this.Delete_button);
+            this.Controls.Add(this.Edit_button);
             this.Controls.Add(this.Desc_input_Event_Info_textBox);
             this.Controls.Add(this.Desc_Event_Info_textBox);
             this.Controls.Add(this.Location_OR_Damage_input_Event_Info_textBox);
@@ -454,8 +518,8 @@
             this.Controls.Add(this.Type_textBox);
             this.Controls.Add(this.Minute_input_textBox);
             this.Controls.Add(this.Hour_input_textBox);
-            this.Controls.Add(this.Cancel_button);
-            this.Controls.Add(this.Ok_button);
+            this.Controls.Add(this.Book_Cancel_button);
+            this.Controls.Add(this.Book_Ok_button);
             this.Controls.Add(this.Description_input_textBox);
             this.Controls.Add(this.Description_textBox);
             this.Controls.Add(this.Damaged_input_textBox);
@@ -493,8 +557,8 @@
         private System.Windows.Forms.TextBox Type_textBox;
         private System.Windows.Forms.TextBox Minute_input_textBox;
         private System.Windows.Forms.TextBox Hour_input_textBox;
-        private System.Windows.Forms.Button Cancel_button;
-        private System.Windows.Forms.Button Ok_button;
+        private System.Windows.Forms.Button Book_Cancel_button;
+        private System.Windows.Forms.Button Book_Ok_button;
         private System.Windows.Forms.TextBox Description_input_textBox;
         private System.Windows.Forms.TextBox Description_textBox;
         private System.Windows.Forms.TextBox Damaged_input_textBox;
@@ -517,5 +581,9 @@
         private System.Windows.Forms.TextBox Location_OR_Damage_input_Event_Info_textBox;
         private System.Windows.Forms.TextBox Desc_Event_Info_textBox;
         private System.Windows.Forms.TextBox Desc_input_Event_Info_textBox;
+        private System.Windows.Forms.Button Delete_button;
+        private System.Windows.Forms.Button Edit_button;
+        private System.Windows.Forms.Button Cancel_Edit_OR_Delete_button;
+        private System.Windows.Forms.Button OK_Edit_OR_Delete_button;
     }
 }

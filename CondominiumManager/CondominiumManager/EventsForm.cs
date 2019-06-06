@@ -25,6 +25,8 @@ namespace CondominiumManager
         private int currentEvent;
         private int m_index = 0;
         private int r_index = 0;
+        private bool edit = false;
+        private bool delete = false;
 
         private bool creating_event = false;
 
@@ -68,169 +70,12 @@ namespace CondominiumManager
             Info_Visibility("Meeting");
         }
 
-        private void Cancel_button_Click(object sender, EventArgs e)
+        private void Book_Cancel_button_Click(object sender, EventArgs e)
         {
             creating_event = false;
             Info_Visibility("cancel");
         }
 
-        private void Info_Visibility(string name)
-        {
-            if (name.Equals("events"))
-            {
-                // Hide Events info
-                Events_At_Date_textBox.Hide();
-                Events_At_Date_listBox.Hide();
-                Name_Event_Info_textBox.Hide();
-                Name_input_Event_Info_textBox.Hide();
-                Location_OR_Damage_Event_Info_textBox.Hide();
-                Location_OR_Damage_input_Event_Info_textBox.Hide();
-                Desc_Event_Info_textBox.Hide();
-                Desc_input_Event_Info_textBox.Hide();
-
-                // Hide Meeting/Repair attributs
-                Name_textBox.Hide();
-                Name_input_textBox.Hide();
-                Date_textBox.Hide();
-                Date_input_textBox.Hide();
-                Time_textBox.Hide();
-                Hour_input_textBox.Hide();
-                Minute_input_textBox.Hide();
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Location_textBox.Hide();
-                Location_input_textBox.Hide();
-                Damaged_textBox.Hide();
-                Damaged_input_textBox.Hide();
-                Description_textBox.Hide();
-                Description_input_textBox.Hide();
-                Ok_button.Hide();
-                Cancel_button.Hide();
-            }
-            else if (name.Equals("cancel"))
-            {
-                // Hide Events info
-                Events_At_Date_textBox.Hide();
-                Events_At_Date_listBox.Hide();
-                Name_Event_Info_textBox.Hide();
-                Name_input_Event_Info_textBox.Hide();
-                Location_OR_Damage_Event_Info_textBox.Hide();
-                Location_OR_Damage_input_Event_Info_textBox.Hide();
-                Desc_Event_Info_textBox.Hide();
-                Desc_input_Event_Info_textBox.Hide();
-
-                // Hide Meeting/Repair attributs
-                Name_textBox.Hide();
-                Name_input_textBox.Hide();
-                Date_textBox.Hide();
-                Date_input_textBox.Hide();
-                Time_textBox.Hide();
-                Hour_input_textBox.Hide();
-                Minute_input_textBox.Hide();
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Location_textBox.Hide();
-                Location_input_textBox.Hide();
-                Damaged_textBox.Hide();
-                Damaged_input_textBox.Hide();
-                Description_textBox.Hide();
-                Description_input_textBox.Hide();
-                Ok_button.Hide();
-                Cancel_button.Hide();
-            }
-            else if (name.Equals("Meeting"))
-            {
-                // Hide Events info
-                Events_At_Date_textBox.Hide();
-                Events_At_Date_listBox.Hide();
-                Name_Event_Info_textBox.Hide();
-                Name_input_Event_Info_textBox.Hide();
-                Location_OR_Damage_Event_Info_textBox.Hide();
-                Location_OR_Damage_input_Event_Info_textBox.Hide();
-                Desc_Event_Info_textBox.Hide();
-                Desc_input_Event_Info_textBox.Hide();
-
-                // Show Meeting attributs
-                Damaged_textBox.Hide();
-                Damaged_input_textBox.Hide();
-                Name_textBox.Show();
-                Name_input_textBox.Text = "";
-                Name_input_textBox.Show();
-                Date_textBox.Show();
-                Date_input_textBox.Text = date;
-                Date_input_textBox.Show();
-                Time_textBox.Show();
-                Hour_input_textBox.Text = "";
-                Hour_input_textBox.Show();
-                Minute_input_textBox.Text = "";
-                Minute_input_textBox.Show();
-                Type_textBox.Show();
-                Type_input_textBox.Show();
-                Type_input_textBox.Text = "Meeting";
-                Location_textBox.Show();
-                Location_input_textBox.Text = "";
-                Location_input_textBox.Show();
-                Description_textBox.Show();
-                Description_input_textBox.Text = "";
-                Description_input_textBox.Show();
-                Ok_button.Show();
-                Cancel_button.Show();
-            }
-            else if (name.Equals("Repair"))
-            {
-                // Hide Events info
-                Events_At_Date_textBox.Hide();
-                Events_At_Date_listBox.Hide();
-                Name_Event_Info_textBox.Hide();
-                Name_input_Event_Info_textBox.Hide();
-                Location_OR_Damage_Event_Info_textBox.Hide();
-                Location_OR_Damage_input_Event_Info_textBox.Hide();
-                Desc_Event_Info_textBox.Hide();
-                Desc_input_Event_Info_textBox.Hide();
-
-                // Show Repair attributs
-                Location_textBox.Hide();
-                Location_input_textBox.Hide();
-                Name_textBox.Show();
-                Name_input_textBox.Text = "";
-                Name_input_textBox.Show();
-                Date_textBox.Show();
-                Date_input_textBox.Text = date;
-                Date_input_textBox.Show();
-                Time_textBox.Show();
-                Hour_input_textBox.Text = "";
-                Hour_input_textBox.Show();
-                Minute_input_textBox.Text = "";
-                Minute_input_textBox.Show();
-                Type_textBox.Show();
-                Type_input_textBox.Show();
-                Type_input_textBox.Text = "Repair";
-                Damaged_textBox.Show();
-                Damaged_input_textBox.Text = "";
-                Damaged_input_textBox.Show();
-                Description_textBox.Show();
-                Description_input_textBox.Text = "";
-                Description_input_textBox.Show();
-                Ok_button.Show();
-                Cancel_button.Show();
-            }
-            else if(name.Equals("event_info"))
-            {
-                // Show Events info
-                Events_At_Date_textBox.Show();
-                Events_At_Date_textBox.Text = "Events on " + date;
-                Events_At_Date_listBox.Show();
-
-                // Hide Events info
-                Name_Event_Info_textBox.Hide();
-                Name_input_Event_Info_textBox.Hide();
-                Location_OR_Damage_Event_Info_textBox.Hide();
-                Location_OR_Damage_input_Event_Info_textBox.Hide();
-                Desc_Event_Info_textBox.Hide();
-                Desc_input_Event_Info_textBox.Hide();
-            }
-        }
-        
         private void Back_button_Click(object sender, EventArgs e)
         {
             var form = new MainMenuForm();
@@ -239,7 +84,7 @@ namespace CondominiumManager
             this.Close();
         }
 
-        private void Ok_button_Click(object sender, EventArgs e)
+        private void Book_Ok_button_Click(object sender, EventArgs e)
         {
             creating_event = false;
             cn = GetSGBDConnection();
@@ -356,7 +201,6 @@ namespace CondominiumManager
             cn.Close();
         }
         
-
         private void Events_At_Date_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentEvent = Events_At_Date_listBox.SelectedIndex;
@@ -401,6 +245,221 @@ namespace CondominiumManager
                         Desc_input_Event_Info_textBox.Show();
                     }
                 }
+            }
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+            edit = true;
+            delete = false;
+            Cancel_Edit_OR_Delete_button.Show();
+            OK_Edit_OR_Delete_button.Show();
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            edit = false;
+            delete = true;
+            Cancel_Edit_OR_Delete_button.Show();
+            OK_Edit_OR_Delete_button.Show();
+        }
+
+        private void Cancel_Edit_OR_Delete_button_Click(object sender, EventArgs e)
+        {
+            Cancel_Edit_OR_Delete_button.Hide();
+            OK_Edit_OR_Delete_button.Hide();
+        }
+
+        private void OK_Edit_OR_Delete_button_Click(object sender, EventArgs e)
+        {
+            if (edit)
+            {
+                // TODO Edit Event
+            }
+            else if(delete)
+            {
+                // TODO Delete Event
+            }
+            Cancel_Edit_OR_Delete_button.Hide();
+            OK_Edit_OR_Delete_button.Hide();
+        }
+
+        private void Info_Visibility(string name)
+        {
+            if (name.Equals("events"))
+            {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+                Cancel_Edit_OR_Delete_button.Hide();
+                OK_Edit_OR_Delete_button.Hide();
+
+                // Hide Meeting/Repair attributs
+                Name_textBox.Hide();
+                Name_input_textBox.Hide();
+                Date_textBox.Hide();
+                Date_input_textBox.Hide();
+                Time_textBox.Hide();
+                Hour_input_textBox.Hide();
+                Minute_input_textBox.Hide();
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
+                Damaged_textBox.Hide();
+                Damaged_input_textBox.Hide();
+                Description_textBox.Hide();
+                Description_input_textBox.Hide();
+                Book_Ok_button.Hide();
+                Book_Cancel_button.Hide();
+            }
+            else if (name.Equals("cancel"))
+            {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+                Cancel_Edit_OR_Delete_button.Hide();
+                OK_Edit_OR_Delete_button.Hide();
+
+                // Hide Meeting/Repair attributs
+                Name_textBox.Hide();
+                Name_input_textBox.Hide();
+                Date_textBox.Hide();
+                Date_input_textBox.Hide();
+                Time_textBox.Hide();
+                Hour_input_textBox.Hide();
+                Minute_input_textBox.Hide();
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
+                Damaged_textBox.Hide();
+                Damaged_input_textBox.Hide();
+                Description_textBox.Hide();
+                Description_input_textBox.Hide();
+                Book_Ok_button.Hide();
+                Book_Cancel_button.Hide();
+            }
+            else if (name.Equals("Meeting"))
+            {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+                Cancel_Edit_OR_Delete_button.Hide();
+                OK_Edit_OR_Delete_button.Hide();
+
+                // Show Meeting attributs
+                Damaged_textBox.Hide();
+                Damaged_input_textBox.Hide();
+                Name_textBox.Show();
+                Name_input_textBox.Text = "";
+                Name_input_textBox.Show();
+                Date_textBox.Show();
+                Date_input_textBox.Text = date;
+                Date_input_textBox.Show();
+                Time_textBox.Show();
+                Hour_input_textBox.Text = "";
+                Hour_input_textBox.Show();
+                Minute_input_textBox.Text = "";
+                Minute_input_textBox.Show();
+                Type_textBox.Show();
+                Type_input_textBox.Show();
+                Type_input_textBox.Text = "Meeting";
+                Location_textBox.Show();
+                Location_input_textBox.Text = "";
+                Location_input_textBox.Show();
+                Description_textBox.Show();
+                Description_input_textBox.Text = "";
+                Description_input_textBox.Show();
+                Book_Ok_button.Show();
+                Book_Cancel_button.Show();
+            }
+            else if (name.Equals("Repair"))
+            {
+                // Hide Events info
+                Events_At_Date_textBox.Hide();
+                Events_At_Date_listBox.Hide();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+                Cancel_Edit_OR_Delete_button.Hide();
+                OK_Edit_OR_Delete_button.Hide();
+
+                // Show Repair attributs
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
+                Name_textBox.Show();
+                Name_input_textBox.Text = "";
+                Name_input_textBox.Show();
+                Date_textBox.Show();
+                Date_input_textBox.Text = date;
+                Date_input_textBox.Show();
+                Time_textBox.Show();
+                Hour_input_textBox.Text = "";
+                Hour_input_textBox.Show();
+                Minute_input_textBox.Text = "";
+                Minute_input_textBox.Show();
+                Type_textBox.Show();
+                Type_input_textBox.Show();
+                Type_input_textBox.Text = "Repair";
+                Damaged_textBox.Show();
+                Damaged_input_textBox.Text = "";
+                Damaged_input_textBox.Show();
+                Description_textBox.Show();
+                Description_input_textBox.Text = "";
+                Description_input_textBox.Show();
+                Book_Ok_button.Show();
+                Book_Cancel_button.Show();
+            }
+            else if (name.Equals("event_info"))
+            {
+                // Show Events info
+                Events_At_Date_textBox.Show();
+                Events_At_Date_textBox.Text = "Events on " + date;
+                Events_At_Date_listBox.Show();
+                Cancel_Edit_OR_Delete_button.Hide();
+                OK_Edit_OR_Delete_button.Hide();
+
+                // Hide Events info
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
+
+                //Show buttons
+                Edit_button.Show();
+                Delete_button.Show();
             }
         }
     }

@@ -27,6 +27,14 @@ namespace CondominiumManager
         private bool edit = false; 
         private bool AddTenant = false;
         private bool AddSP = false;
+        private String curTenTaxNum = "";
+        private String curTenName = "";
+        private String curTenEmail = "";
+        private String curTenMobile = "";
+        private String curSPTaxNum = "";
+        private String curSPName = "";
+        private String curSPAdd = "";
+        private String curSPMobile = "";
 
         public ContactsForm()
         {
@@ -278,6 +286,11 @@ namespace CondominiumManager
                 {
                     if (t.Index == currentTenant)
                     {
+
+                        curTenTaxNum = t.Tax_Number;
+                        curTenName = t.Name;
+                        curTenEmail = t.Email;
+                        curTenMobile = t.Mobile;
                         Name_input_textBox.Text = t.Name;
                         Mobile_input_textBox.Text = t.Mobile;
                         Email_OR_Address_input_textBox.Text = t.Email;
@@ -298,6 +311,11 @@ namespace CondominiumManager
                 {
                     if (sp.Index == currentSrvProv)
                     {
+
+                        curSPTaxNum = sp.Tax_Number;
+                        curSPName = sp.Name;
+                        curSPAdd = sp.Address;
+                        curSPMobile = sp.Mobile;
                         Name_input_textBox.Text = sp.Name;
                         Mobile_input_textBox.Text = sp.Mobile;
                         Email_OR_Address_input_textBox.Text = sp.Address;
@@ -329,51 +347,165 @@ namespace CondominiumManager
 
         private void Ok_button_Click(object sender, EventArgs e)
         {
+            Name_input_textBox.Enabled = false;
+            Name_input_textBox.ReadOnly = true;
+            Mobile_input_textBox.Enabled = false;
+            Mobile_input_textBox.ReadOnly = true;
+            Email_OR_Address_input_textBox.Enabled = false;
+            Email_OR_Address_input_textBox.ReadOnly = true;
+            Type_input_textBox.Enabled = false;
+            Type_input_textBox.ReadOnly = true;
             edit = true;
             if (edit && showTenant)
             {
-                //Edit tenant contact 
+                EditTenant();
             }
             else if (edit && showSP)
             {
-                //Edit SP contact 
+                EditSP();
             }
             else if(AddTenant)
             {
-                //Add Tenant contact
+                AddTen();
             }
             else if (AddSP)
             {
-                //Add SP contact
+                AddServP();
             }
             Info_Visibility("Contacts_Load");
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
         {
+            Name_input_textBox.Enabled = false;
+            Name_input_textBox.ReadOnly = true;
+            Mobile_input_textBox.Enabled = false;
+            Mobile_input_textBox.ReadOnly = true;
+            Email_OR_Address_input_textBox.Enabled = false;
+            Email_OR_Address_input_textBox.ReadOnly = true;
+            Type_input_textBox.Enabled = false;
+            Type_input_textBox.ReadOnly = true;
             Info_Visibility("Contacts_Load");
         }
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            Name_input_textBox.Enabled = true;
+            Name_input_textBox.ReadOnly = false;
+            Mobile_input_textBox.Enabled = true;
+            Mobile_input_textBox.ReadOnly = false;
+            Email_OR_Address_input_textBox.Enabled = true;
+            Email_OR_Address_input_textBox.ReadOnly = false;
+            Type_input_textBox.Enabled = true;
+            Type_input_textBox.ReadOnly = false;
             AddTenant = false;
             AddSP = false;
             edit = true;
             if (showTenant) { Info_Visibility("EditTenant"); }
             else if (showSP) { Info_Visibility("EditSP"); }
         }
-
+        
         private void Delete_button_Click(object sender, EventArgs e)
         {
             if (showTenant)
             {
-                // Delete Tenant Contact
+                DeleteTenant();
             }
             else if (showSP)
             {
-                // Delete Tenant Contact
+                DeleteSP();
             }
             Info_Visibility("Contacts_Load");
+        }
+
+        private void EditTenant()
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("edittenant", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("nif", curTenTaxNum);
+            cmd.Parameters.AddWithValue("nome", Name_input_textBox.Text);
+            cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
+            cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        private void EditSP()
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("editsp", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("nif", curTenTaxNum);
+            cmd.Parameters.AddWithValue("nome", Name_input_textBox.Text);
+            cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
+            cmd.Parameters.AddWithValue("morada", Email_OR_Address_input_textBox.Text);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        private void AddTen()
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("addtenant", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("nif", curTenTaxNum);
+            cmd.Parameters.AddWithValue("nome", Name_input_textBox.Text);
+            cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
+            cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        private void AddServP()
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("addsp", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("nif", curTenTaxNum);
+            cmd.Parameters.AddWithValue("nome", Name_input_textBox.Text);
+            cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
+            cmd.Parameters.AddWithValue("morada", Email_OR_Address_input_textBox.Text);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        private void DeleteTenant()
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("deletetenant", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("nif", curTenTaxNum);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        private void DeleteSP()
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("deletesp", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("nif", curSPTaxNum);
+            cmd.ExecuteNonQuery();
+            cn.Close();
         }
     }
 }

@@ -56,8 +56,8 @@ namespace CondominiumManager
                     Date = dr["data"].ToString(),
                     Desc = dr["Descricao"].ToString(),
                     Index = index,
-                    Tname = dr["condomino"].ToString(),
-                    Address = Chosencondo.Chosen_condo + " " + dr["ref"].ToString()
+                    Tname = dr["nome"].ToString(),
+                    Address = Chosencondo.Chosen_condo + " " + dr["ref_fracao"].ToString()
                 };
                 compList.Add(comp);
                 Listbox_complaints.Items.Add(dr["Descricao"].ToString());
@@ -102,13 +102,13 @@ namespace CondominiumManager
             {
                 foreach(Complaint c in compList)
                 {
-                    if(c.Index == currentComplaint)
+                    if (c.Index == currentComplaint)
                     {
                         Date_input_textBox.Text = c.Date.Split(' ')[0];
                         Description_input_textBox.Text = c.Desc;
                         Tenant_input_textBox.Text = c.Tname;
                         Address_input_textBox.Text = c.Address;
-                        if (c.Tname.Equals(""))
+                        if (c.Address.Split(' ')[1].ToString().Equals(""))
                         {
                             Info_Visibility("notF");
                         }
@@ -137,8 +137,8 @@ namespace CondominiumManager
             }
             else if (name.Equals("notF"))
             {
-                Tenant_input_textBox.Hide();
-                Tenant_textBox.Hide();
+                Tenant_input_textBox.Show();
+                Tenant_textBox.Show();
                 Address_textBox.Hide();
                 Address_input_textBox.Hide();
 
