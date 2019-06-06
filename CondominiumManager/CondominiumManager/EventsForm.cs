@@ -324,6 +324,7 @@ namespace CondominiumManager
                     Date = dr["data"].ToString(),
                     Description = dr["descricao"].ToString(),
                     Condo = dr["endereco"].ToString(),
+                    Id = (int)dr["id"],
                     Index = m_index
                 };
                 meetList.Add(meet);
@@ -343,6 +344,7 @@ namespace CondominiumManager
                     Date = dr["data"].ToString(),
                     Description = dr["descricao"].ToString(),
                     Condo = dr["endereco"].ToString(),
+                    Id = (int)dr["id"],
                     Index = m_index
                 };
                 repairList.Add(rep);

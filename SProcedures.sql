@@ -6,7 +6,8 @@ go
 
 Create procedure showcomplaints (@endereco as varchar(40)) as
 begin
-	select * from condomanager.Reclamacao where endereco = @endereco 
+	select * from condomanager.Reclamacao left outer join condomanager.Condomino on nif_condomino=nif
+	 where endereco = @endereco or endereco_cond = @endereco
 end;
 go
 
@@ -169,9 +170,56 @@ begin
 end;
 go
 
+create procedure addtenant(@NIF as varchar(9), @Nome as VARCHAR(40), @Telemovel as VARCHAR(9) , @Email as VARCHAR(40)) as
+begin
+	insert into condomanager.Condomino(nif, nome, telemovel, email) values
+		(@nif, @nome, @telemovel, @email)
+end;
+go
+
+create procedure edittenant(@NIF as varchar(9), @Nome as VARCHAR(40), @Telemovel as VARCHAR(9) , @Email as VARCHAR(40)) as
+begin
+	update condomanager.Condomino
+	set nome=@Nome, Telemovel=@Telemovel, Email=@Email
+	where NIF = @NIF
+end;
+go
+
+create procedure deletetenant(@NIF as varchar(9)) as
+begin
+	delete from condomanager.Condomino where NIF = @NIF
+end;
+go
+
+create procedure addsp(@NIF as varchar(9), @Nome as varchar(20), @Telemovel as varchar(9), @Morada as varchar(40)) as
+begin
+	insert into condomanager.Fornecedor_Servicos(nif, nome, Telemovel, Morada) values
+		(@nif, @nome, @Telemovel, @Morada)
+end;
+go
+
+create procedure editsp(@NIF as varchar(9), @Nome as varchar(20), @Telemovel as varchar(9), @Morada as varchar(40)) as
+begin
+	update condomanager.Fornecedor_Servicos
+	set nome=@nome, Telemovel=@Telemovel, Morada = @morada
+	where NIF = @NIF
+end;
+go
+
+create procedure deletesp(@NIF as varchar(9)) as
+begin
+	delete from condomanager.Fornecedor_Servicos where nif = @nif
+end;
+go
+
+create procedure deleterec(@id as int) as
+begin
+	delete from condomanager.Reclamacao where id = @id
+end;
+go
 
 
-
+	
 
 
 
