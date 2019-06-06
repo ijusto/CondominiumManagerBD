@@ -27,6 +27,16 @@ namespace CondominiumManager
 
         private void ReadingsForm_Load(object sender, EventArgs e)
         {
+            Gas_input_textBox.Hide();
+            Light_input_textBox.Hide();
+            Water_input_textBox.Hide();
+            Mobile_input_textBox.Hide();
+            Tenant_Name_input_textBox.Hide();
+            Tenant_Name_textBox.Hide();
+            Mobile_textBox.Hide();
+            Water_textBox.Hide();
+            Light_textBox.Hide();
+            Gas_textBox.Hide();
             Fill_Apart();
             currentAppart = apart_listBox.SelectedIndex;
         }
@@ -109,7 +119,22 @@ namespace CondominiumManager
                 {
                     if (a.Index == currentAppart)
                     {
-                        //TODO
+                        Tenant_Name_input_textBox.Text = a.owner.Name;
+                        Mobile_input_textBox.Text = a.owner.Mobile;
+                        Water_input_textBox.Text = a.ReadWater;
+                        Light_input_textBox.Text = a.ReadLight;
+                        Gas_input_textBox.Text = a.ReadGas;
+
+                        Gas_input_textBox.Show();
+                        Light_input_textBox.Show();
+                        Water_input_textBox.Show();
+                        Mobile_input_textBox.Show();
+                        Tenant_Name_input_textBox.Show();
+                        Tenant_Name_textBox.Show();
+                        Mobile_textBox.Show();
+                        Water_textBox.Show();
+                        Light_textBox.Show();
+                        Gas_textBox.Show();
                     }
                 }
             }
