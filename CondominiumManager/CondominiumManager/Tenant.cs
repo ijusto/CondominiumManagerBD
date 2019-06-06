@@ -11,6 +11,8 @@ namespace CondominiumManager
     {
         private int _index;
 
+        public Tenant() : base() { }
+
         public Tenant(String tax_Number, String name, String mobile, String email, int index)
            : base(tax_Number, name, mobile, email)
         { 

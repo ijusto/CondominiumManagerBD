@@ -14,6 +14,8 @@ namespace CondominiumManager
         private String _Mobile;
         private String _Email;
 
+        public Person() { }
+
         public Person(String tax_Number, String name, String mobile, String email)
         {
             _Tax_Number = tax_Number;

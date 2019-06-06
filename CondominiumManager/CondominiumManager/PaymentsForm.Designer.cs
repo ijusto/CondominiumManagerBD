@@ -403,6 +403,7 @@
             this.Mark_Paid_Quota_button.TabIndex = 78;
             this.Mark_Paid_Quota_button.Text = "Mark as paid";
             this.Mark_Paid_Quota_button.UseVisualStyleBackColor = false;
+            this.Mark_Paid_Quota_button.Click += new System.EventHandler(this.Mark_Paid_Quota_button_Click);
             // 
             // Mark_Paid_Service_button
             // 
@@ -416,6 +417,7 @@
             this.Mark_Paid_Service_button.TabIndex = 79;
             this.Mark_Paid_Service_button.Text = "Mark as paid";
             this.Mark_Paid_Service_button.UseVisualStyleBackColor = false;
+            this.Mark_Paid_Service_button.Click += new System.EventHandler(this.Mark_Paid_Service_button_Click);
             // 
             // Desc_input_Quota_Payment_textBox
             // 
@@ -566,9 +568,7 @@
             this.Controls.Add(this.Quotas_textBox);
             this.Controls.Add(this.Services_textBox);
             this.Controls.Add(this.TaxNumber_input_Quota_Invoice_textBox);
-            this.Controls.Add(this.TaxNumber_Quota_Invoice_textBox);
             this.Controls.Add(this.TaxNumber_input_Service_Invoice_textBox);
-            this.Controls.Add(this.TaxNumber_Service_Invoice_textBox);
             this.Controls.Add(this.Desc_input_Quota_Payment_textBox);
             this.Controls.Add(this.Desc_Quota_Payment_textBox);
             this.Controls.Add(this.Date_Quota_Payment_textBox);
@@ -577,31 +577,33 @@
             this.Controls.Add(this.Mark_Paid_Service_button);
             this.Controls.Add(this.Mark_Paid_Quota_button);
             this.Controls.Add(this.Desc_input_Service_Payment_textBox);
-            this.Controls.Add(this.Desc_Service_Payment_textBox);
             this.Controls.Add(this.Date_Service_Payment_textBox);
             this.Controls.Add(this.Date_input_Service_Payment_textBox);
             this.Controls.Add(this.Payment_Service_textBox);
             this.Controls.Add(this.Invoice_Service_textBox);
             this.Controls.Add(this.Invoice_Quota_textBox);
-            this.Controls.Add(this.Desc_Service_Invoice_textBox);
             this.Controls.Add(this.Ref_input_Service_Invoice_textBox);
-            this.Controls.Add(this.Ref_Service_Invoice_textBox);
             this.Controls.Add(this.Amount_input_Service_Invoice_textBox);
-            this.Controls.Add(this.Amount_Service_Invoice_textBox);
-            this.Controls.Add(this.Date_Service_Invoice_textBox);
             this.Controls.Add(this.Date_input_Service_Invoice_textBox);
             this.Controls.Add(this.Quotas_Invoice_listBox);
             this.Controls.Add(this.Desc_input_Quota_Invoice_textBox);
-            this.Controls.Add(this.Desc_Quota_Invoice_textBox);
             this.Controls.Add(this.Ref_input_Quota_Invoice_textBox);
-            this.Controls.Add(this.Ref_Quota_Invoice_textBox);
             this.Controls.Add(this.Amount_input_Quota_Invoice_textBox);
-            this.Controls.Add(this.Amount_Quota_Invoice_textBox);
-            this.Controls.Add(this.Date_Quota_Invoice_textBox);
             this.Controls.Add(this.Date_input_Quota_Invoice_textBox);
             this.Controls.Add(this.Services_Invoice_listBox);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Desc_input_Service_Invoice_textBox);
+            this.Controls.Add(this.TaxNumber_Quota_Invoice_textBox);
+            this.Controls.Add(this.Desc_Quota_Invoice_textBox);
+            this.Controls.Add(this.Ref_Quota_Invoice_textBox);
+            this.Controls.Add(this.Amount_Quota_Invoice_textBox);
+            this.Controls.Add(this.Date_Quota_Invoice_textBox);
+            this.Controls.Add(this.TaxNumber_Service_Invoice_textBox);
+            this.Controls.Add(this.Desc_Service_Invoice_textBox);
+            this.Controls.Add(this.Ref_Service_Invoice_textBox);
+            this.Controls.Add(this.Amount_Service_Invoice_textBox);
+            this.Controls.Add(this.Date_Service_Invoice_textBox);
+            this.Controls.Add(this.Desc_Service_Payment_textBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "PaymentsForm";

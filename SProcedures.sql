@@ -32,6 +32,15 @@ begin
 end;
 go
 
+create procedure markaspaidquota (@id_to as int)  as
+begin
+	
+	insert into condomanager.pagamento_quotas(id_fatura, data, valor, descricao)
+		select id_fatura, data, quantia, descricao from condomanager.Fatura_quotas where id_fatura = @id_to
+
+end;
+go
+
 create trigger timepaid
 on condomanager.pagamento_servicos
 After insert
@@ -41,6 +50,16 @@ as
 	where ID in (Select max(id) from condomanager.Pagamento_Servicos)
 
 go
+create trigger timepaidquotas
+on condomanager.pagamento_quotas
+After insert
+as
+	update condomanager.Pagamento_quotas
+	set Data = GETDATE()
+	where ID in (Select max(id) from condomanager.Pagamento_quotas)
+
+go
+
 
 create procedure showmeetings (@date as date, @condo as varchar(40)) as
 begin
@@ -107,13 +126,13 @@ go
 
 create procedure getfaturaquota (@endereco as varchar(40)) as
 begin
-	select data, descricao, ref_fracao, endereco, quantia from condomanager.fatura_quotas where endereco = @endereco
+	select id_fatura, data, descricao, ref_fracao, endereco, quantia from condomanager.fatura_quotas where endereco = @endereco
 end;
 go
 
 create procedure getfaturaservico(@endereco as varchar(40)) as
 begin
-	select data, nif_fornec, endereco, quantia from condomanager.fatura_servicos where endereco = @endereco
+	select id_fatura, data, nif_fornec, endereco, quantia, descricao from condomanager.fatura_servicos where endereco = @endereco
 end;
 go
 
@@ -121,6 +140,32 @@ go
 create procedure gettenantnifname(@ref_fracao as varchar(5), @endereco as varchar(40)) as
 begin
 	select condomanager.condomino.nif as nif, nome from condomanager.fracao join condomanager.condomino on nif_condomino = nif where ref_fracao = @ref_fracao and endereco = @endereco
+end;
+go
+
+create procedure getreadings (@endereco as varchar(40)) as
+begin
+	select ref_fracao,permilagem, endereco, piso, leitura_gas, leitura_luz, leitura_agua, nome, email, telemovel from
+	condomanager.Fracao join condomanager.Condomino on nif_condomino = NIF
+	where endereco = @endereco
+end;
+go
+
+create procedure ispaidquotas (@id_fatura as int) as
+begin
+	select * from condomanager.pagamento_quotas where id_fatura = @id_fatura
+end;
+go
+
+create procedure ispaidservicos (@id_fatura as int) as
+begin
+	select * from condomanager.pagamento_servicos where id_fatura = @id_fatura
+end;
+go
+
+create procedure getmanager (@endereco as varchar(40)) as
+begin
+	select * from condomanager.condominio where endereco = @endereco
 end;
 go
 

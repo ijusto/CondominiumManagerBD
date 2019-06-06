@@ -263,10 +263,17 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 			 'Rua São Martinho')
 
 insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Quantia) values
-	('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
+	--('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60),
+	('Pagamento Quota Junho 2018', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
 
-delete from condomanager.Reuniao where id=1
 
-select * from condomanager.logs
+insert into condomanager.Pagamento_Quotas(id_fatura, Valor,Descricao) values
+	(0, 60, 'Olá, está pago')
 
-select *  from condomanager.reparacao
+select * from condomanager.pagamento_quotas
+
+update condomanager.Pagamento_Quotas
+
+drop table condomanager.Pagamento_Quotas
+
+

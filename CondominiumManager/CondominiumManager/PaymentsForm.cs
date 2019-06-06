@@ -22,11 +22,13 @@ namespace CondominiumManager
         private SqlCommand cmd;
         private int q_index = 0;
         private int sp_index = 0;
+        private int id_f_quotas;
 
 
         public PaymentsForm()
         {
             InitializeComponent();
+            Info_Visibility("load");
         }
 
         private void PaymentsForm_Load(object sender, EventArgs e)
@@ -65,7 +67,8 @@ namespace CondominiumManager
                     Amount = dr["quantia"].ToString(),
                     Date = dr["data"].ToString(),
                     Description = dr["descricao"].ToString(),
-                    Index = q_index
+                    Index = q_index,
+                    ID = (int)dr["id_fatura"]
                 };
 
                 cmd = new SqlCommand("gettenantnifname", cn)
@@ -80,6 +83,7 @@ namespace CondominiumManager
                 daa.Fill(dtt);
                 invoice.Entity_Name = dtt.Rows[0]["nome"].ToString();
                 invoice.Tax_Number = dtt.Rows[0]["nif"].ToString();
+                invoice.ref_fracao = dr["ref_fracao"].ToString();
                 Quotas_Invoice_listBox.Items.Add(dr["Descricao"].ToString());
                 quotaList.Add(invoice);
                 q_index++;
@@ -113,7 +117,9 @@ namespace CondominiumManager
                     Index = sp_index,
                     Description = dr["descricao"].ToString(),
                     Date = dr["data"].ToString(),
-                    Amount = dr["quantia"].ToString()
+                    Amount = dr["quantia"].ToString(),
+                    ID = (int)dr["id_fatura"]
+                    
                 };
                 cmd = new SqlCommand("getmanager", cn)
                 {
@@ -160,6 +166,7 @@ namespace CondominiumManager
         private void Services_Invoice_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentServiceInvoice = Services_Invoice_listBox.SelectedIndex;
+            
             ShowServiceInvoice();
         }
 
@@ -194,15 +201,42 @@ namespace CondominiumManager
 
         private void ShowQuotaInvoice()
         {
+            cn = GetSGBDConnection();
+            cn.Open();
             if (currentQuotaInvoice != -1)
             {
                 foreach (Quota_Invoice q in quotaList)
                 {
                     if (q.Index == currentQuotaInvoice)
                     {
+                        id_f_quotas = q.ID;
                         Info_Visibility("showQuotaInvoice");
 
-                        // if procedure ja foi paga
+                        cmd = new SqlCommand("ispaidquotas", cn)
+                        {
+                            CommandType = CommandType.StoredProcedure
+                        };
+
+                        cmd.Parameters.AddWithValue("id_fatura", q.ID);
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+
+                        Date_input_Quota_Invoice_textBox.Text = q.Date;
+                        TaxNumber_input_Quota_Invoice_textBox.Text = q.Tax_Number;
+                        Amount_input_Quota_Invoice_textBox.Text = q.Amount;
+                        Ref_input_Quota_Invoice_textBox.Text = q.ref_fracao;
+                        Desc_input_Quota_Invoice_textBox.Text = q.Description;
+
+                        Date_Quota_Invoice_textBox.Show();
+                        TaxNumber_Quota_Invoice_textBox.Show();
+                        Amount_Quota_Invoice_textBox.Show();
+                        Ref_Quota_Invoice_textBox.Show();
+                        Desc_Quota_Invoice_textBox.Show();
+                        Invoice_Quota_textBox.Show();
+                        if (dt.Rows.Count != 0)
+                        {
                             //pagamento
                             Payment_Quota_textBox.Show();
                             Date_Quota_Payment_textBox.Show();
@@ -210,11 +244,14 @@ namespace CondominiumManager
                             Desc_Quota_Payment_textBox.Show();
                             Desc_input_Quota_Payment_textBox.Show();
                             //pôr valores do pagamento
-                            Date_input_Quota_Payment_textBox.Text = "";//TODO
-                            Desc_input_Quota_Payment_textBox.Text = "";//TODO
+                            Date_input_Quota_Payment_textBox.Text = dt.Rows[0]["data"].ToString();
+                            Desc_input_Quota_Payment_textBox.Text = dt.Rows[0]["descricao"].ToString();
                             Mark_Paid_Quota_button.Hide();
-                        //else
+                        }
+                        else
+                        {
                             Mark_Paid_Quota_button.Show();
+                        }
                     }
                 }
             }
@@ -293,6 +330,27 @@ namespace CondominiumManager
                 Desc_Quota_Invoice_textBox.Show();
                 Desc_input_Quota_Invoice_textBox.Show();
             }
+        }
+
+        private void Mark_Paid_Quota_button_Click(object sender, EventArgs e)
+        {
+            cn = GetSGBDConnection();
+            cn.Open();
+
+            cmd = new SqlCommand("markaspaidquota", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.AddWithValue("id_to", id_f_quotas);
+            cmd.ExecuteNonQuery();
+            ShowQuotaInvoice();
+
+        }
+
+        private void Mark_Paid_Service_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
