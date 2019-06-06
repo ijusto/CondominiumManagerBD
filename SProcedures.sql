@@ -191,10 +191,10 @@ begin
 end;
 go
 
-create procedure addsp(@NIF as varchar(9), @Nome as varchar(20), @Telemovel as varchar(9), @Morada as varchar(40)) as
+create procedure addsp(@NIF as varchar(9), @Nome as varchar(20), @Telemovel as varchar(9), @Morada as varchar(40), @tipo as int) as
 begin
-	insert into condomanager.Fornecedor_Servicos(nif, nome, Telemovel, Morada) values
-		(@nif, @nome, @Telemovel, @Morada)
+	insert into condomanager.Fornecedor_Servicos(nif, nome, Telemovel, Morada, tipo) values
+		(@nif, @nome, @Telemovel, @Morada, @tipo)
 end;
 go
 
