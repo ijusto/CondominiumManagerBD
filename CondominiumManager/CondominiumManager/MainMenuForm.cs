@@ -20,6 +20,14 @@ namespace CondominiumManager
             Fill_condo_comboBox();
         }
 
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+            if (Chosencondo.Index != 0)
+            {
+                Condo_choose_comboBox.SelectedIndex = Chosencondo.Index;
+            }
+        }
+
         private void Fill_condo_comboBox()
         {
             cn = GetSGBDConnection();
@@ -54,8 +62,6 @@ namespace CondominiumManager
 
             return cn.State == ConnectionState.Open;
         }
-
-    
 
         private void Events_button_Click(object sender, EventArgs e)
         {
@@ -124,14 +130,6 @@ namespace CondominiumManager
         {
             Chosencondo.Chosen_condo = Condo_choose_comboBox.Text.ToString();
             Chosencondo.Index = Condo_choose_comboBox.SelectedIndex;
-        }
-
-        private void MainMenuForm_Load(object sender, EventArgs e)
-        {
-            if(Chosencondo.Index != 0)
-            {
-                Condo_choose_comboBox.SelectedIndex = Chosencondo.Index;
-            }
         }
 
         public static class Chosencondo

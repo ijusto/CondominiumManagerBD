@@ -64,6 +64,7 @@
             this.Edit_button = new System.Windows.Forms.Button();
             this.Cancel_Edit_OR_Delete_button = new System.Windows.Forms.Button();
             this.OK_Edit_OR_Delete_button = new System.Windows.Forms.Button();
+            this.Delete_sure_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Date_input_textBox
@@ -498,6 +499,15 @@
             this.OK_Edit_OR_Delete_button.UseVisualStyleBackColor = false;
             this.OK_Edit_OR_Delete_button.Click += new System.EventHandler(this.OK_Edit_OR_Delete_button_Click);
             // 
+            // Delete_sure_textBox
+            // 
+            this.Delete_sure_textBox.Location = new System.Drawing.Point(295, 285);
+            this.Delete_sure_textBox.Multiline = true;
+            this.Delete_sure_textBox.Name = "Delete_sure_textBox";
+            this.Delete_sure_textBox.Size = new System.Drawing.Size(192, 73);
+            this.Delete_sure_textBox.TabIndex = 58;
+            this.Delete_sure_textBox.Text = "Are you sure you want to delete";
+            // 
             // EventsForm
             // 
             this.BackColor = System.Drawing.Color.White;
@@ -506,20 +516,13 @@
             this.Controls.Add(this.OK_Edit_OR_Delete_button);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Edit_button);
-            this.Controls.Add(this.Desc_input_Event_Info_textBox);
-            this.Controls.Add(this.Desc_Event_Info_textBox);
-            this.Controls.Add(this.Location_OR_Damage_input_Event_Info_textBox);
             this.Controls.Add(this.Location_OR_Damage_Event_Info_textBox);
-            this.Controls.Add(this.Events_At_Date_textBox);
             this.Controls.Add(this.Date_input_textBox);
-            this.Controls.Add(this.Date_textBox);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.Type_textBox);
             this.Controls.Add(this.Minute_input_textBox);
             this.Controls.Add(this.Hour_input_textBox);
-            this.Controls.Add(this.Book_Cancel_button);
-            this.Controls.Add(this.Book_Ok_button);
             this.Controls.Add(this.Description_input_textBox);
             this.Controls.Add(this.Description_textBox);
             this.Controls.Add(this.Damaged_input_textBox);
@@ -536,7 +539,15 @@
             this.Controls.Add(this.Damaged_textBox);
             this.Controls.Add(this.Name_input_Event_Info_textBox);
             this.Controls.Add(this.Name_Event_Info_textBox);
+            this.Controls.Add(this.Events_At_Date_textBox);
+            this.Controls.Add(this.Date_textBox);
             this.Controls.Add(this.Events_At_Date_listBox);
+            this.Controls.Add(this.Delete_sure_textBox);
+            this.Controls.Add(this.Desc_input_Event_Info_textBox);
+            this.Controls.Add(this.Location_OR_Damage_input_Event_Info_textBox);
+            this.Controls.Add(this.Book_Ok_button);
+            this.Controls.Add(this.Book_Cancel_button);
+            this.Controls.Add(this.Desc_Event_Info_textBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "EventsForm";
@@ -585,5 +596,6 @@
         private System.Windows.Forms.Button Edit_button;
         private System.Windows.Forms.Button Cancel_Edit_OR_Delete_button;
         private System.Windows.Forms.Button OK_Edit_OR_Delete_button;
+        private System.Windows.Forms.TextBox Delete_sure_textBox;
     }
 }

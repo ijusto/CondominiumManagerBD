@@ -22,13 +22,15 @@ namespace CondominiumManager
         private string condo = Chosencondo.Chosen_condo;
         private List<Meeting> meetList;
         private List<Repair> repairList;
+        private List<Meeting> meetListBold;
+        private List<Repair> repairListBold;
         private int currentEvent;
         private int m_index = 0;
         private int r_index = 0;
-        private bool edit = false;
-        private bool delete = false;
-
+        private bool edit_event = false;
+        private bool delete_event = false;
         private bool creating_event = false;
+        private DateTime check_date;
 
         private SqlConnection GetSGBDConnection()
         {
@@ -50,12 +52,14 @@ namespace CondominiumManager
         {
             InitializeComponent();
             date = Date_input_textBox.Text;
+            check_date = monthCalendar.TodayDate;
         }
 
         private void EventsForm_Load(object sender, EventArgs e)
         {
+            BoldCalendarDates();
             currentEvent = Events_At_Date_listBox.SelectedIndex;
-            Info_Visibility("events");
+            Info_Visibility("load");
         }
 
         private void Repair_button_Click(object sender, EventArgs e)
@@ -73,15 +77,7 @@ namespace CondominiumManager
         private void Book_Cancel_button_Click(object sender, EventArgs e)
         {
             creating_event = false;
-            Info_Visibility("cancel");
-        }
-
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            var form = new MainMenuForm();
-            form.ShowDialog();
-            this.SendToBack();
-            this.Close();
+            Info_Visibility("load");
         }
 
         private void Book_Ok_button_Click(object sender, EventArgs e)
@@ -96,7 +92,7 @@ namespace CondominiumManager
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd_ok.Parameters.AddWithValue("nome", Name_input_textBox.Text);
-                cmd_ok.Parameters.AddWithValue("data", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text + ":00");
+                cmd_ok.Parameters.AddWithValue("data", check_date);
                 cmd_ok.Parameters.AddWithValue("descricao", Description_input_textBox.Text);
                 cmd_ok.Parameters.AddWithValue("localizacao", Location_input_textBox.Text);
                 cmd_ok.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
@@ -109,22 +105,32 @@ namespace CondominiumManager
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd_ok.Parameters.AddWithValue("nome", Name_input_textBox.Text);
-                cmd_ok.Parameters.AddWithValue("data", date + " " + Hour_input_textBox.Text + ":" + Minute_input_textBox.Text + ":00");
+                cmd_ok.Parameters.AddWithValue("data", check_date);
                 cmd_ok.Parameters.AddWithValue("descricao", Description_input_textBox.Text);
                 cmd_ok.Parameters.AddWithValue("danificado", Damaged_input_textBox.Text);
                 cmd_ok.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
                 cmd_ok.ExecuteNonQuery();
             }
             cn.Close();
-            Info_Visibility("cancel");
+            Info_Visibility("load");
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            var form = new MainMenuForm();
+            form.ShowDialog();
+            this.SendToBack();
+            this.Close();
         }
 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             creating_event = false;
-            Info_Visibility("events");
+            Info_Visibility("load");
             string startDate = monthCalendar.SelectionRange.Start.ToString("dd MMM yyyy");
             string endDate = monthCalendar.SelectionRange.End.ToString("dd MMM yyyy");
+
+            check_date = monthCalendar.SelectionRange.Start;
             date = startDate;
             Date_input_textBox.Text = date;
             CheckEventInDate();
@@ -148,8 +154,8 @@ namespace CondominiumManager
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd_meet.Parameters.AddWithValue("date", date);
-            cmd_repair.Parameters.AddWithValue("date", date);
+            cmd_meet.Parameters.AddWithValue("date", check_date);
+            cmd_repair.Parameters.AddWithValue("date", check_date);
             cmd_meet.Parameters.AddWithValue("condo", condo);
             cmd_repair.Parameters.AddWithValue("condo", condo);
             cmd_meet.ExecuteNonQuery();
@@ -160,6 +166,7 @@ namespace CondominiumManager
             DataTable dt_repair = new DataTable();
             SqlDataAdapter da_repair = new SqlDataAdapter(cmd_repair);
             da_repair.Fill(dt_repair);
+            List<DateTime> d = new List<DateTime>();
             foreach (DataRow dr in dt.Rows)
             {
                 Meeting meet = new Meeting
@@ -202,11 +209,65 @@ namespace CondominiumManager
             }
             cn.Close();
         }
-        
+
+        private void BoldCalendarDates()
+        {
+            List<DateTime> d = new List<DateTime>();
+            meetListBold = new List<Meeting>();
+            repairListBold = new List<Repair>();
+            foreach (String day in GetMonth())
+            {
+                cn = GetSGBDConnection();
+                cn.Open();
+                cmd_repair = new SqlCommand("showrepairs", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd_meet = new SqlCommand("showmeetings", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                String todayDate = day + "/" + monthCalendar.TodayDate.Month.ToString() + "/" + monthCalendar.TodayDate.Year.ToString();
+                cmd_meet.Parameters.AddWithValue("date", new DateTime(int.Parse(monthCalendar.TodayDate.Year.ToString()), int.Parse(monthCalendar.TodayDate.Month.ToString()), int.Parse(day)));
+                cmd_repair.Parameters.AddWithValue("date", new DateTime(int.Parse(monthCalendar.TodayDate.Year.ToString()), int.Parse(monthCalendar.TodayDate.Month.ToString()), int.Parse(day)));
+                cmd_meet.Parameters.AddWithValue("condo", condo);
+                cmd_repair.Parameters.AddWithValue("condo", condo);
+                cmd_meet.ExecuteNonQuery();
+                cmd_repair.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd_meet);
+                da.Fill(dt);
+                DataTable dt_repair = new DataTable();
+                SqlDataAdapter da_repair = new SqlDataAdapter(cmd_repair);
+                da_repair.Fill(dt_repair);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (todayDate.Split('/')[0].Equals(dr["data"].ToString().Split(' ')[0].Split('/')[0]))
+                    {
+                        d.Add(new DateTime(int.Parse(dr["data"].ToString().Split(' ')[0].Split('/')[2]), Int32.Parse(dr["data"].ToString().Split(' ')[0].Split('/')[1]), Int32.Parse(dr["data"].ToString().Split(' ')[0].Split('/')[0])));
+                    }
+                }
+                foreach (DataRow dr in dt_repair.Rows)
+                {
+                    if (todayDate.Split('/')[0].Equals(dr["data"].ToString().Split(' ')[0]))
+                    {
+                        d.Add(new DateTime(int.Parse(dr["data"].ToString().Split(' ')[0].Split('/')[2]), Int32.Parse(dr["data"].ToString().Split(' ')[0].Split('/')[1]), Int32.Parse(dr["data"].ToString().Split(' ')[0].Split('/')[0])));
+                    }
+                }
+                cn.Close();
+            }
+            monthCalendar.BoldedDates = d.ToArray();
+        }
+
         private void Events_At_Date_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentEvent = Events_At_Date_listBox.SelectedIndex;
             ShowEvent();
+
+
+            //Show buttons
+            Edit_button.Show();
+            Delete_button.Show();
         }
 
         private void ShowEvent()
@@ -252,43 +313,70 @@ namespace CondominiumManager
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            edit = true;
-            delete = false;
+            edit_event = true;
             Cancel_Edit_OR_Delete_button.Show();
             OK_Edit_OR_Delete_button.Show();
+            Edit_button.Hide();
+            Delete_button.Hide();
+            Name_input_Event_Info_textBox.ReadOnly = false;
+            Name_input_Event_Info_textBox.Enabled = true;
+            Location_OR_Damage_input_Event_Info_textBox.ReadOnly = false;
+            Location_OR_Damage_input_Event_Info_textBox.Enabled = true;
+            Desc_input_Event_Info_textBox.ReadOnly = false;
+            Desc_input_Event_Info_textBox.Enabled = true;
         }
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            edit = false;
-            delete = true;
+            delete_event = true;
             Cancel_Edit_OR_Delete_button.Show();
             OK_Edit_OR_Delete_button.Show();
+            Edit_button.Hide();
+            Delete_button.Hide();
+            Delete_sure_textBox.Text = "Are you sure you want to delete \"" + Name_input_Event_Info_textBox.Text + "\" on " + date + "?";
+            Delete_sure_textBox.Show();
         }
 
         private void Cancel_Edit_OR_Delete_button_Click(object sender, EventArgs e)
         {
+            edit_event = false;
+            delete_event = false;
             Cancel_Edit_OR_Delete_button.Hide();
             OK_Edit_OR_Delete_button.Hide();
+            Edit_button.Show();
+            Delete_button.Show();
         }
 
         private void OK_Edit_OR_Delete_button_Click(object sender, EventArgs e)
         {
-            if (edit)
+            Delete_sure_textBox.Hide();
+            if (edit_event)
             {
                 // TODO Edit Event
             }
-            else if(delete)
+            else if(delete_event)
             {
                 // TODO Delete Event
             }
+            edit_event = false;
+            delete_event = false;
             Cancel_Edit_OR_Delete_button.Hide();
             OK_Edit_OR_Delete_button.Hide();
+            Edit_button.Show();
+            Delete_button.Show();
+
+            Name_input_Event_Info_textBox.ReadOnly = true;
+            Name_input_Event_Info_textBox.Enabled = false;
+            Location_OR_Damage_input_Event_Info_textBox.ReadOnly = true;
+            Location_OR_Damage_input_Event_Info_textBox.Enabled = false;
+            Desc_input_Event_Info_textBox.ReadOnly = true;
+            Desc_input_Event_Info_textBox.Enabled = false;
+
         }
 
         private void Info_Visibility(string name)
         {
-            if (name.Equals("events"))
+            if (name.Equals("load"))
             {
                 // Hide Events info
                 Events_At_Date_textBox.Hide();
@@ -322,41 +410,8 @@ namespace CondominiumManager
                 Description_input_textBox.Hide();
                 Book_Ok_button.Hide();
                 Book_Cancel_button.Hide();
-            }
-            else if (name.Equals("cancel"))
-            {
-                // Hide Events info
-                Events_At_Date_textBox.Hide();
-                Events_At_Date_listBox.Hide();
-                Name_Event_Info_textBox.Hide();
-                Name_input_Event_Info_textBox.Hide();
-                Location_OR_Damage_Event_Info_textBox.Hide();
-                Location_OR_Damage_input_Event_Info_textBox.Hide();
-                Desc_Event_Info_textBox.Hide();
-                Desc_input_Event_Info_textBox.Hide();
-                Edit_button.Hide();
-                Delete_button.Hide();
-                Cancel_Edit_OR_Delete_button.Hide();
-                OK_Edit_OR_Delete_button.Hide();
 
-                // Hide Meeting/Repair attributs
-                Name_textBox.Hide();
-                Name_input_textBox.Hide();
-                Date_textBox.Hide();
-                Date_input_textBox.Hide();
-                Time_textBox.Hide();
-                Hour_input_textBox.Hide();
-                Minute_input_textBox.Hide();
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Location_textBox.Hide();
-                Location_input_textBox.Hide();
-                Damaged_textBox.Hide();
-                Damaged_input_textBox.Hide();
-                Description_textBox.Hide();
-                Description_input_textBox.Hide();
-                Book_Ok_button.Hide();
-                Book_Cancel_button.Hide();
+                Delete_sure_textBox.Hide();
             }
             else if (name.Equals("Meeting"))
             {
@@ -458,11 +513,41 @@ namespace CondominiumManager
                 Location_OR_Damage_input_Event_Info_textBox.Hide();
                 Desc_Event_Info_textBox.Hide();
                 Desc_input_Event_Info_textBox.Hide();
+            }
+        }
 
-                //Show buttons
-                Edit_button.Show();
-                Delete_button.Show();
+        private List<String> GetMonth()
+        {
+            List<String> days = new List<String>();
+            int num = 0;
+            while (num < 31)
+            {
+                num++;
+                days.Add(num.ToString());
+            }
+            switch (check_date.Month)
+            {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    return days;
+
+                case 4: case 6: case 9: case 11:
+                    days.Remove("31");
+                    return days;
+
+                case 2:
+                    days.Remove("31");
+                    days.Remove("30");
+                    return days;
+
+                default:
+                    days.Remove("31");
+                    days.Remove("30");
+                    return days;
             }
         }
     }
 }
+
+
+
+

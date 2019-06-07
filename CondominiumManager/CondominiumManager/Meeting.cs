@@ -8,13 +8,13 @@ namespace CondominiumManager
 {
     public class Meeting : Event
     {
-        public string _location;
+        private string _location;
         private int _index;
 
         public Meeting() : base() { }
 
-        public Meeting(String name, String date, String desc, String condo, String location, int index)
-            : base(name, date, desc, condo)
+        public Meeting(String name, String date, String desc, String condo, String location, int id, int index)
+            : base(name, date, desc, condo, id)
         {
             _index = index;
             _location = location;
