@@ -1,12 +1,12 @@
---use master
---go
---drop database condomanagerdb
---go
+use master
+go
+drop database condomanagerdb
+go
 
---create database condomanagerdb
---go
---use condomanagerdb
---go
+create database condomanagerdb
+go
+use condomanagerdb
+go
 
 create schema condomanager
 go

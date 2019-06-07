@@ -1,5 +1,6 @@
 
-use [p2g8]
+--use [p2g8]
+use condomanagerdb
 go
 
 

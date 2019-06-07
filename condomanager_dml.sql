@@ -1,4 +1,5 @@
-use p2g8
+--use p2g8
+use condomanagerdb
 go
 
 
@@ -53,13 +54,13 @@ insert into condomanager.tipo_reclamacao(tipo, descricao) values
 			(2, 'Reclamação relativa a um condomínio')
 
 insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, Descricao, tipo) values
-			('Rua São Martinho', 'A3', '126374659', '20190604', 'Contador da água com valores acima do normal',0),
-			('Rua São Martinho', 'A1', '213564756', '20190604', 'Contador da luz com valores acima do normal',0),
-			('Rua Nova', 'A2','216374865', '20190601', 'Luz da entrada fundida',0),
-			('Avenida dos Combatentes', 'B2', '216374865', '20190602', 'Quadro Elétrico estragado',0)
+			('Rua São Martinho', 'A3', '126374659', '20190604', 'Contador da água com valores acima do normal',1),
+			('Rua São Martinho', 'A1', '213564756', '20190604', 'Contador da luz com valores acima do normal',1),
+			('Rua Nova', 'A2','216374865', '20190601', 'Luz da entrada fundida',1),
+			('Avenida dos Combatentes', 'B2', '216374865', '20190602', 'Quadro Elétrico estragado',1)
 
 insert into condomanager.Reclamacao(endereco, nif_condomino, Data, Descricao, tipo) values
-			('Avenida dos Combatentes', '237168594', '20190603', 'Elevador não funcional',1)
+			('Avenida dos Combatentes', '237168594', '20190603', 'Elevador não funcional',2)
 			
 
 
