@@ -230,3 +230,8 @@ end;
 go
 	
 
+create procedure getfreeref(@endereco as varchar(40)) as 
+begin
+	select ref_fracao, piso from condomanager.Fracao where nif_condomino is null;
+end;
+go
