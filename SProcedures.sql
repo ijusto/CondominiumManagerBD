@@ -1,5 +1,8 @@
 
-use [p2g8]
+--use [p2g8]
+--go
+
+use condomanagerdb
 go
 
 
@@ -230,7 +233,7 @@ end;
 go
 	
 
-create procedure getfreeref(@endereco as varchar(40)) as 
+create procedure condomanager.getfreeref(@endereco as varchar(40)) as 
 begin
 	select ref_fracao, piso from condomanager.Fracao where nif_condomino is null;
 end;

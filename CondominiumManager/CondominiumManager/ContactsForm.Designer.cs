@@ -342,7 +342,9 @@
             this.apart_comboBox.Name = "apart_comboBox";
             this.apart_comboBox.Size = new System.Drawing.Size(100, 21);
             this.apart_comboBox.TabIndex = 57;
-            // 
+            this.apart_comboBox.BackColor = System.Drawing.Color.White;
+            this.apart_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+             // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
