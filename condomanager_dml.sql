@@ -1,4 +1,4 @@
-use condomanagerdb
+use p2g8
 go
 
 
@@ -58,7 +58,7 @@ insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, D
 			('Rua Nova', 'A2','216374865', '20190601', 'Luz da entrada fundida',0),
 			('Avenida dos Combatentes', 'B2', '216374865', '20190602', 'Quadro Elétrico estragado',0)
 
-insert into condomanager.Reclamacao(endereco, nif_condomino, Data, Descricao) values
+insert into condomanager.Reclamacao(endereco, nif_condomino, Data, Descricao, tipo) values
 			('Avenida dos Combatentes', '237168594', '20190603', 'Elevador não funcional',1)
 			
 

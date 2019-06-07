@@ -1,3 +1,6 @@
+use p2g8
+go
+
 create function condomanager.calcquota (@ref_fracao as varchar(5), @endereco as varchar(40)) returns money as
 begin
 	declare @valorquota money
@@ -7,7 +10,7 @@ begin
 end;
 go
 
-create function authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
+create function condomanager.authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
 begin
 	declare @authed bit; 
 	IF exists( select * from condomanager.Gestor_Condominio where nif=@nif and hashed_pass = @password)

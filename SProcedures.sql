@@ -1,19 +1,16 @@
 
---use [p2g8]
---go
-
-use condomanagerdb
+use [p2g8]
 go
 
 
-create view view_condos as
+create view condomanager.view_condos as
 select endereco from condomanager.Condominio
 go
 
 Create procedure condomanager.showcomplaints (@endereco as varchar(40)) as
 begin
 	select * from condomanager.Reclamacao left outer join condomanager.Condomino on nif_condomino=nif
-	 where endereco = @endereco or endereco_cond = @endereco
+	 where endereco = @endereco
 end;
 go
 

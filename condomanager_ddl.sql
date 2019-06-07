@@ -70,9 +70,9 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	ref_fracao varchar(5),
 	tipo int not null
 	PRIMARY KEY(Id),
-	foreign key (nif_condomino) references CONDOMANAGER.condomino(nif) on update cascade on delete cascade,
-	foreign key (ref_fracao, endereco) references CONDOMANAGER.fracao(ref_fracao, endereco) on delete cascade on update cascade,
-	foreign key(tipo) references condomanager.tipo_reclamacao(tipo) on delete set null on update cascade
+	foreign key (nif_condomino) references CONDOMANAGER.condomino(nif),
+	foreign key (ref_fracao, endereco) references CONDOMANAGER.fracao(ref_fracao, endereco),
+	foreign key(tipo) references condomanager.tipo_reclamacao(tipo)
  )
 
  CREATE TABLE CONDOMANAGER.Reuniao(

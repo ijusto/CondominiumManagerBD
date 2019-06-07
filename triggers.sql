@@ -1,6 +1,7 @@
-use condomanagerdb
+use p2g8
+go
 
-create trigger timecreatedquotas
+create trigger condomanager.timecreatedquotas
 on condomanager.fatura_quotas
 After insert
 as
@@ -10,7 +11,7 @@ as
 
 go
 
-create trigger timepaid
+create trigger condomanager.timepaid
 on condomanager.pagamento_servicos
 After insert
 as
@@ -20,7 +21,7 @@ as
 
 go
 
-create trigger timepaidquotas
+create trigger condomanager.timepaidquotas
 on condomanager.pagamento_quotas
 After insert
 as
@@ -30,7 +31,7 @@ as
 
 go
 
-create trigger log_meetings on condomanager.reuniao after insert, update, delete as
+create trigger condomanager.log_meetings on condomanager.reuniao after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -59,7 +60,7 @@ begin
 END
 GO
 
-create trigger log_repairs on condomanager.reuniao after insert, update, delete as
+create trigger condomanager.log_repairs on condomanager.reuniao after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -88,7 +89,7 @@ begin
 END
 GO
 
-create trigger log_condo on condomanager.condominio after insert, update, delete as
+create trigger condomanager.log_condo on condomanager.condominio after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -117,7 +118,7 @@ begin
 END
 GO
 
-create trigger log_condomino on condomanager.condomino after insert, update, delete as
+create trigger condomanager.log_condomino on condomanager.condomino after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -146,7 +147,7 @@ begin
 END
 
 GO
-create trigger log_fracao on condomanager.fracao after insert, update, delete as
+create trigger condomanager.log_fracao on condomanager.fracao after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -175,7 +176,7 @@ begin
 END
 GO
 
-create trigger log_servicos on condomanager.fornecedor_servicos after insert, update, delete as
+create trigger condomanager.log_servicos on condomanager.fornecedor_servicos after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -204,7 +205,7 @@ begin
 END
 GO
 
-create trigger log_fatura_quotas on condomanager.fatura_quotas after insert, update, delete as
+create trigger condomanager.log_fatura_quotas on condomanager.fatura_quotas after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -233,7 +234,7 @@ begin
 END
 GO
 
-create trigger log_pagamento_quotas on condomanager.pagamento_quotas after insert, update, delete as
+create trigger condomanager.log_pagamento_quotas on condomanager.pagamento_quotas after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -262,7 +263,7 @@ begin
 END
 GO
 
-create trigger log_fatura_servicos on condomanager.fatura_servicos after insert, update, delete as
+create trigger condomanager.log_fatura_servicos on condomanager.fatura_servicos after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -291,7 +292,7 @@ begin
 END
 GO
 
-create trigger log_pagamento_servicos on condomanager.pagamento_servicos after insert, update, delete as
+create trigger condomanager.log_pagamento_servicos on condomanager.pagamento_servicos after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
@@ -320,7 +321,7 @@ begin
 END
 GO
 
-create trigger log_fotosprediais on condomanager.fotosprediais after insert, update, delete as
+create trigger condomanager.log_fotosprediais on condomanager.fotosprediais after insert, update, delete as
 begin 
 		DECLARE @operation CHAR(6)
 		SET @operation = CASE
