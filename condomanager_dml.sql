@@ -2,7 +2,7 @@
 use condomanagerdb
 go
 
-
+ 
 Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
 			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
 			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', 'pass123'),

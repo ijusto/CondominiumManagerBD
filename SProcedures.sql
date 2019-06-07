@@ -4,7 +4,7 @@ use condomanagerdb
 go
 
 
-create view condomanager.getsupplier as 
+create view condomanager.getsupplierview as 
 	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
 go
 
