@@ -4,8 +4,12 @@ use condomanagerdb
 go
 
 
+create view condomanager.getsupplier as 
+	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
+go
+
 create view condomanager.view_condos as
-select endereco from condomanager.Condominio
+	select endereco from condomanager.Condominio
 go
 
 Create procedure condomanager.showcomplaints (@endereco as varchar(40)) as
