@@ -218,6 +218,18 @@ begin
 end;
 go
 
+create function authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
+begin
+	declare @authed bit; 
+	IF exists( select * from condomanager.Gestor_Condominio where nif=@nif and hashed_pass = @password)
+	set @authed = 1
+	else
+		set @authed = 0
+	return @authed
+end;
+go
+
+
 
 	
 
