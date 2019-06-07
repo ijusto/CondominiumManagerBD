@@ -17,7 +17,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Nome VARCHAR(40) NOT NULL,
 	Telemovel VARCHAR(9) NOT NULL UNIQUE,
 	Email VARCHAR(40) NOT NULL UNIQUE,
-	hashed_pass VARCHAR(40) NOT NULL,
+	hashed_pass VARCHAR(256) NOT NULL,
 
 	PRIMARY KEY(NIF)
 )
@@ -174,7 +174,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 
 
  Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
-			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', 'pass123'),
+			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
 			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', 'pass123'),
 			('265904536', 'Pedro Vieira', '967230185', 'pedro.vieira@sapo.pt', 'pass123')
 
@@ -266,4 +266,3 @@ insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Qu
 
 
 
-	select * from condomanager.logs

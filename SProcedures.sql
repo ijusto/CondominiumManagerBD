@@ -218,6 +218,47 @@ begin
 end;
 go
 
+create procedure deletemeeting(@id as int) as
+begin
+	delete from condomanager.Reuniao where id = @id
+end;
+go
+
+create procedure deleterepair(@id as int) as 
+begin
+	delete from condomanager.Reparacao where id=@id
+end;
+go
+
+create procedure editmeeting(@id as int, @nome as varchar(40), @localizacao as varchar(40), @descricao as varchar(100)) as
+begin
+	update condomanager.Reuniao
+	set nome = @nome, localizacao=@localizacao, Descricao=@descricao
+	where id = @id
+end;
+go
+
+create procedure editrepair(@id as int, @nome as varchar(40), @danificado as varchar(40), @descricao as varchar(100)) as
+begin
+		update condomanager.Reparacao
+		set nome = @nome, danificado=@danificado, Descricao=@descricao
+		where id = @id
+end;
+go
+	
+
+create function authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
+begin
+	declare @authed bit; 
+	IF exists( select * from condomanager.Gestor_Condominio where nif=@nif and hashed_pass = @password)
+	set @authed = 1
+	else
+		set @authed = 0
+	return @authed
+end;
+go
+
+
 
 	
 
