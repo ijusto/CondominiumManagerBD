@@ -197,11 +197,6 @@ insert into condomanager.Condomino(NIF, Nome, Email, Telemovel) values
 			('216374865', 'Rúben Matias', 'ruben.matias@sapo.pt', '918274630')
 
 
-
-
-
-
-
 insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_condomino) values
 			('Rua São Martinho', 'A1', 100, 'RC/D','213564756'),
 			('Rua São Martinho', 'A2', 200, 'RC/E', '263547859'),
@@ -255,7 +250,12 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 
 insert into condomanager.Fatura_Servicos( nif_Fornec, endereco, Data, Quantia, descricao) values
 			('501654738', 'Rua Direita', '20190617',65, 'Pagamento da Luz do prédio'),
-			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
+			('502645787', 'Rua São Martinho', '20190617',66, 'Pagamento da agua do prédio'),
+			('504982746', 'Avenida dos Combatentes', '20190412', 150, 'Pagamento do Elevador'),
+			('501746539', 'Rua 25 de Abril', '20190107', 50, 'Pagamento da reparação do quadro elétrico'),
+			('502645787', 'Rua Nova', '20190318', 40, 'Pagamento da água do prédio'),
+			('501276453', 'Avenida Guerra Junqueiro', '20190605', 20, 'Pagamento da Luz do Prédio')
+
 
 
 insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) values
