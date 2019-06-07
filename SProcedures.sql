@@ -235,6 +235,6 @@ go
 
 create procedure condomanager.getfreeref(@endereco as varchar(40)) as 
 begin
-	select ref_fracao, piso from condomanager.Fracao where nif_condomino is null;
+	select ref_fracao, piso from condomanager.Fracao where nif_condomino is null and Endereco=@endereco;
 end;
-go
+go 
