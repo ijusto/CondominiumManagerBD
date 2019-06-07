@@ -41,27 +41,6 @@ begin
 end;
 go
 
-create trigger timepaid
-on condomanager.pagamento_servicos
-After insert
-as
-	update condomanager.Pagamento_Servicos
-	set Data = GETDATE()
-	where ID in (Select max(id) from condomanager.Pagamento_Servicos)
-
-go
-
-create trigger timepaidquotas
-on condomanager.pagamento_quotas
-After insert
-as
-	update condomanager.Pagamento_quotas
-	set Data = GETDATE()
-	where ID in (Select max(id) from condomanager.Pagamento_quotas)
-
-go
-
-
 create procedure showmeetings (@date as date, @condo as varchar(40)) as
 begin
 	select * from condomanager.Reuniao where data = @date and endereco = @condo
@@ -98,15 +77,6 @@ create procedure getsuppliernif(@nif as varchar(9)) as
 begin
 	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
 	 where condomanager.Fornecedor_Servicos.NIF = @nif
-end;
-go
-
-create function condomanager.calcquota (@ref_fracao as varchar(5), @endereco as varchar(40)) returns money as
-begin
-	declare @valorquota money
-	select @valorquota = (Orcam_Anual*(Permilagem /1000)) from condomanager.Fracao join 
-	condomanager.Condominio on condomanager.fracao.Endereco=condomanager.Condominio.Endereco where Ref_fracao = @ref_fracao and condomanager.fracao.Endereco = @endereco
-	Return @valorquota;
 end;
 go
 
@@ -260,28 +230,3 @@ end;
 go
 	
 
-create function authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
-begin
-	declare @authed bit; 
-	IF exists( select * from condomanager.Gestor_Condominio where nif=@nif and hashed_pass = @password)
-		set @authed = 1
-	else
-		set @authed = 0
-	return @authed
-end;
-go
-
-
-create trigger timecreatedquotas
-on condomanager.fatura_quotas
-After insert
-as
-	update condomanager.fatura_quotas
-	set Data = GETDATE()
-	where id_fatura in (Select max(id_fatura) from condomanager.fatura_quotas)
-
-go
-
-exec createquota @ref_fracao='A2', @endereco='Rua Nova', @descricao = 'Pagamento de Quotas';
-
-select * from condomanager.Fatura_Quotas
