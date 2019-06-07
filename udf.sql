@@ -1,4 +1,5 @@
-use p2g8
+--use p2g8
+use condomanagerdb
 go
 
 create function condomanager.calcquota (@ref_fracao as varchar(5), @endereco as varchar(40)) returns money as

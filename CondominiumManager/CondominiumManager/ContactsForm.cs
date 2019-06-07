@@ -84,9 +84,9 @@ namespace CondominiumManager
             spList = new List<Services_Provider>();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("condomanager.getsupplier", cn)
+            cmd = new SqlCommand("Select * from condomanager.getsupplierview", cn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
             };
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -509,7 +509,8 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
             cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
             cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
-            cmd.Parameters.AddWithValue("ref_fracao", apart_comboBox.SelectedItem);
+            apart_comboBox.Enabled = true;
+            cmd.Parameters.AddWithValue("ref_fracao", "A7");
             cmd.ExecuteNonQuery();
             cn.Close();
         }
@@ -619,6 +620,10 @@ namespace CondominiumManager
             }
             cn.Close();
         }
-        
+
+        private void apart_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
