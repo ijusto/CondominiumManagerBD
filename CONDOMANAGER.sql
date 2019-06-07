@@ -266,4 +266,3 @@ insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Qu
 
 
 
-	select * from condomanager.logs
