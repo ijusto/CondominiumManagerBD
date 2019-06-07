@@ -6,6 +6,9 @@ use condomanagerdb
 go
 
 
+create view view_condos as
+select endereco from condomanager.Condominio
+go
 
 Create procedure condomanager.showcomplaints (@endereco as varchar(40)) as
 begin
@@ -20,11 +23,6 @@ begin
 end;
 go
 
-create procedure condomanager.showreadings (@endereco as varchar(40), @piso as varchar(10)) as
-begin
-	select * from condomanager.condomino join condomanager.fracao on nif=nif_condomino where endereco=@endereco and piso=@piso
-end;
-go
 
 create procedure condomanager.markaspaid (@id_to as int)  as
 begin

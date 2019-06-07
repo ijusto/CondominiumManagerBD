@@ -47,14 +47,19 @@ insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_cond
 insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso) values
 			('Rua São Martinho', 'A7', 100, 'Loft')
 
-insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, Descricao) values
-			('Rua São Martinho', 'A3', '126374659', '20190604', 'Contador da água com valores acima do normal'),
-			('Rua São Martinho', 'A1', '213564756', '20190604', 'Contador da luz com valores acima do normal'),
-			('Rua Nova', 'A2','216374865', '20190601', 'Luz da entrada fundida'),
-			('Avenida dos Combatentes', 'B2', '216374865', '20190602', 'Quadro Elétrico estragado')
 
-insert into condomanager.Reclamacao(endereco_cond, nif_condomino, Data, Descricao) values
-			('Avenida dos Combatentes', '237168594', '20190603', 'Elevador não funcional')
+insert into condomanager.tipo_reclamacao(tipo, descricao) values
+			(1, 'Reclamação relativa a uma fração'),
+			(2, 'Reclamação relativa a um condomínio')
+
+insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, Descricao, tipo) values
+			('Rua São Martinho', 'A3', '126374659', '20190604', 'Contador da água com valores acima do normal',0),
+			('Rua São Martinho', 'A1', '213564756', '20190604', 'Contador da luz com valores acima do normal',0),
+			('Rua Nova', 'A2','216374865', '20190601', 'Luz da entrada fundida',0),
+			('Avenida dos Combatentes', 'B2', '216374865', '20190602', 'Quadro Elétrico estragado',0)
+
+insert into condomanager.Reclamacao(endereco, nif_condomino, Data, Descricao) values
+			('Avenida dos Combatentes', '237168594', '20190603', 'Elevador não funcional',1)
 			
 
 
@@ -84,7 +89,12 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 
 insert into condomanager.Fatura_Servicos( nif_Fornec, endereco, Data, Quantia, descricao) values
 			('501654738', 'Rua Direita', '20190617',65, 'Pagamento da Luz do prédio'),
-			('501654738', 'Rua Direita', '20190617',66, 'Pagamento da agua do prédio')
+			('502645787', 'Rua São Martinho', '20190617',66, 'Pagamento da agua do prédio'),
+			('504982746', 'Avenida dos Combatentes', '20190412', 150, 'Pagamento do Elevador'),
+			('501746539', 'Rua 25 de Abril', '20190107', 50, 'Pagamento da reparação do quadro elétrico'),
+			('502645787', 'Rua Nova', '20190318', 40, 'Pagamento da água do prédio'),
+			('501276453', 'Avenida Guerra Junqueiro', '20190605', 20, 'Pagamento da Luz do Prédio')
+
 
 
 insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) values
