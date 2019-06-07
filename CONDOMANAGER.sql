@@ -206,7 +206,7 @@ insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_cond
 			('Rua São Martinho', 'A1', 100, 'RC/D','213564756'),
 			('Rua São Martinho', 'A2', 200, 'RC/E', '263547859'),
 			('Rua São Martinho', 'A3', 200, '1Dt','126374659'),
-			('Rua São Martinho', 'A4', 300, '1Esq', '167485967'),
+			('Rua São Martinho', 'A4', 200, '1Esq', '167485967'),
 			('Rua São Martinho', 'A5', 110, '2DT', '213564756'),
 			('Rua São Martinho', 'A6', 90, '2Esq', '143567467'),
 			('Rua Nova', 'A1', 100, 'RC/D', '237168594'),
@@ -215,6 +215,8 @@ insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_cond
 			('Avenida dos Combatentes','B1', 350, 'RC/D', '237168594'),
 			('Avenida dos Combatentes','B2', 200, 'RC/E', '216374865')
 
+insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso) values
+			('Rua São Martinho', 'A7', 100, 'Loft')
 
 insert into condomanager.Reclamacao(endereco, ref_fracao, nif_condomino, Data, Descricao) values
 			('Rua São Martinho', 'A3', '126374659', '20190604', 'Contador da água com valores acima do normal'),
@@ -263,6 +265,5 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Quantia) values
 	('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60),
 	('Pagamento Quota Junho 2018', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
-
 
 

@@ -13,8 +13,7 @@ go
 
 create procedure showcontacts (@endereco as varchar(40)) as
 begin
-	Select distinct(NIF), nome, telemovel, email from condomanager.condomino join condomanager.fracao on nif=nif_condomino where endereco = @endereco
-
+	Select distinct(NIF), nome, telemovel, email, ref_fracao, endereco from condomanager.condomino join condomanager.fracao on nif=nif_condomino where endereco = @endereco
 end;
 go
 
@@ -51,6 +50,7 @@ as
 	where ID in (Select max(id) from condomanager.Pagamento_Servicos)
 
 go
+
 create trigger timepaidquotas
 on condomanager.pagamento_quotas
 After insert
@@ -101,7 +101,7 @@ begin
 end;
 go
 
-create function calcquota (@ref_fracao as varchar(5), @endereco as varchar(40)) returns money as
+create function condomanager.calcquota (@ref_fracao as varchar(5), @endereco as varchar(40)) returns money as
 begin
 	declare @valorquota money
 	select @valorquota = (Orcam_Anual*(Permilagem /1000)) from condomanager.Fracao join 
@@ -170,10 +170,13 @@ begin
 end;
 go
 
-create procedure addtenant(@NIF as varchar(9), @Nome as VARCHAR(40), @Telemovel as VARCHAR(9) , @Email as VARCHAR(40)) as
+create procedure addtenant(@NIF as varchar(9), @Nome as VARCHAR(40), @Telemovel as VARCHAR(9) , @Email as VARCHAR(40), @endereco as varchar(40), @ref_fracao as varchar(5)) as
 begin
 	insert into condomanager.Condomino(nif, nome, telemovel, email) values
 		(@nif, @nome, @telemovel, @email)
+	update condomanager.Fracao
+	set nif_condomino = @nif
+	where endereco = @endereco and ref_fracao = @ref_fracao
 end;
 go
 
@@ -245,13 +248,23 @@ begin
 		where id = @id
 end;
 go
+
+
+create procedure createquota(@ref_fracao as varchar(5), @endereco as varchar(40), @descricao as varchar(100)) as
+begin
+	declare @quantia as money
+	set @quantia = condomanager.calcquota(@ref_fracao, @endereco)
+	insert into condomanager.Fatura_Quotas(ref_fracao, endereco, descricao, Quantia) values
+	(@ref_fracao, @endereco, @descricao, @quantia)
+end;
+go
 	
 
 create function authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
 begin
 	declare @authed bit; 
 	IF exists( select * from condomanager.Gestor_Condominio where nif=@nif and hashed_pass = @password)
-	set @authed = 1
+		set @authed = 1
 	else
 		set @authed = 0
 	return @authed
@@ -259,14 +272,16 @@ end;
 go
 
 
+create trigger timecreatedquotas
+on condomanager.fatura_quotas
+After insert
+as
+	update condomanager.fatura_quotas
+	set Data = GETDATE()
+	where id_fatura in (Select max(id_fatura) from condomanager.fatura_quotas)
 
-	
+go
 
+exec createquota @ref_fracao='A2', @endereco='Rua Nova', @descricao = 'Pagamento de Quotas';
 
-
-
-
-
-
-
-
+select * from condomanager.Fatura_Quotas
