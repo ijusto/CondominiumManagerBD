@@ -25,12 +25,12 @@ namespace CondominiumManager
         private List<Meeting> meetListBold;
         private List<Repair> repairListBold;
         private int currentEvent;
-        private int m_index = 0;
-        private int r_index = 0;
+        private int e_index = 0;
         private bool edit_event = false;
         private bool delete_event = false;
         private bool creating_event = false;
         private DateTime check_date;
+        private bool isMeeting;
 
         private SqlConnection GetSGBDConnection()
         {
@@ -138,8 +138,7 @@ namespace CondominiumManager
 
         private void CheckEventInDate()
         {
-            m_index = 0;
-            r_index = 0;
+            e_index = 0;
             Events_At_Date_listBox.Items.Clear();
             meetList = new List<Meeting>();
             repairList = new List<Repair>();
@@ -177,11 +176,11 @@ namespace CondominiumManager
                     Description = dr["descricao"].ToString(),
                     Condo = dr["endereco"].ToString(),
                     Id = (int)dr["id"],
-                    Index = m_index
+                    Index = e_index
                 };
                 meetList.Add(meet);
                 Events_At_Date_listBox.Items.Add(dr["nome"].ToString());
-                m_index++;
+                e_index++;
                 if (!creating_event)
                 {
                     Info_Visibility("event_info");
@@ -197,11 +196,11 @@ namespace CondominiumManager
                     Description = dr["descricao"].ToString(),
                     Condo = dr["endereco"].ToString(),
                     Id = (int)dr["id"],
-                    Index = m_index
+                    Index = e_index
                 };
                 repairList.Add(rep);
                 Events_At_Date_listBox.Items.Add(dr["nome"].ToString());
-                r_index++;
+                e_index++;
                 if (!creating_event)
                 {
                     Info_Visibility("event_info");
@@ -264,7 +263,6 @@ namespace CondominiumManager
             currentEvent = Events_At_Date_listBox.SelectedIndex;
             ShowEvent();
 
-
             //Show buttons
             Edit_button.Show();
             Delete_button.Show();
@@ -278,6 +276,7 @@ namespace CondominiumManager
                 {
                     if (m.Index == currentEvent)
                     {
+                        isMeeting = true;
                         // Show Event info
                         Name_Event_Info_textBox.Show();
                         Name_input_Event_Info_textBox.Show();
@@ -295,6 +294,7 @@ namespace CondominiumManager
                 {
                     if (r.Index == currentEvent)
                     {
+                        isMeeting = false;
                         // Show Event info
                         Name_Event_Info_textBox.Show();
                         Name_input_Event_Info_textBox.Show();
@@ -328,6 +328,7 @@ namespace CondominiumManager
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
+
             delete_event = true;
             Cancel_Edit_OR_Delete_button.Show();
             OK_Edit_OR_Delete_button.Show();
@@ -352,11 +353,62 @@ namespace CondominiumManager
             Delete_sure_textBox.Hide();
             if (edit_event)
             {
-                // TODO Edit Event
+                if (isMeeting)
+                {
+                    Meeting m = Events_At_Date_listBox.SelectedItem as Meeting;
+                    cn = GetSGBDConnection();
+                    cn.Open();
+                    cmd_repair = new SqlCommand("editmeeting", cn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd_meet.Parameters.AddWithValue("nome", Name_input_Event_Info_textBox.Text);
+                    cmd_meet.Parameters.AddWithValue("localizacao", Location_OR_Damage_input_Event_Info_textBox.Text);
+                    cmd_meet.Parameters.AddWithValue("descricao", Desc_input_Event_Info_textBox.Text);
+                    cmd_repair.ExecuteNonQuery();
+                }
+                else
+                {
+                    Repair r = Events_At_Date_listBox.SelectedItem as Repair;
+                    cn = GetSGBDConnection();
+                    cn.Open();
+                    cmd_repair = new SqlCommand("editrepair", cn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd_meet.Parameters.AddWithValue("nome", Name_input_Event_Info_textBox.Text);
+                    cmd_meet.Parameters.AddWithValue("danificado", Location_OR_Damage_input_Event_Info_textBox.Text);
+                    cmd_meet.Parameters.AddWithValue("descricao", Desc_input_Event_Info_textBox.Text);
+                    cmd_repair.ExecuteNonQuery();
+                }
             }
             else if(delete_event)
             {
-                // TODO Delete Event
+                if(isMeeting)
+                {
+                    Meeting m = Events_At_Date_listBox.SelectedItem as Meeting;
+                    cn = GetSGBDConnection();
+                    cn.Open();
+                    cmd_repair = new SqlCommand("deletemeeting", cn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd_meet.Parameters.AddWithValue("id", m.Id);
+                    cmd_repair.ExecuteNonQuery();
+                } else
+                {
+                    Repair r = Events_At_Date_listBox.SelectedItem as Repair;
+                    cn = GetSGBDConnection();
+                    cn.Open();
+                    cmd_repair = new SqlCommand("deleterepair", cn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd_meet.Parameters.AddWithValue("id", r.Id);
+                    cmd_repair.ExecuteNonQuery();
+                }
+
+                CheckEventInDate();
             }
             edit_event = false;
             delete_event = false;

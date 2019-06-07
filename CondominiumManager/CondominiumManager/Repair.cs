@@ -13,7 +13,7 @@ namespace CondominiumManager
 
         public Repair() : base() { }
 
-        public Repair(String name, String date, String desc, String condo, String damage, int index, int id)
+        public Repair(String name, String date, String desc, String condo, String damage,int id, int index)
             : base(name, date, desc, condo, id)
         {
             _index = index;
