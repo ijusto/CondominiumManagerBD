@@ -48,6 +48,11 @@
             this.Add_Tenant_button = new System.Windows.Forms.Button();
             this.Edit_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
+            this.Tax_Number_input_textBox = new System.Windows.Forms.TextBox();
+            this.Tax_Number_textBox = new System.Windows.Forms.TextBox();
+            this.ref_ap_textBox = new System.Windows.Forms.TextBox();
+            this.Apartment_textBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Back_button
@@ -178,7 +183,7 @@
             // 
             this.Type_input_textBox.Location = new System.Drawing.Point(319, 228);
             this.Type_input_textBox.Name = "Type_input_textBox";
-            this.Type_input_textBox.Size = new System.Drawing.Size(229, 20);
+            this.Type_input_textBox.Size = new System.Drawing.Size(101, 20);
             this.Type_input_textBox.TabIndex = 45;
             // 
             // Type_textBox
@@ -279,10 +284,72 @@
             this.Delete_button.UseVisualStyleBackColor = false;
             this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
+            // Tax_Number_input_textBox
+            // 
+            this.Tax_Number_input_textBox.Location = new System.Drawing.Point(426, 228);
+            this.Tax_Number_input_textBox.Name = "Tax_Number_input_textBox";
+            this.Tax_Number_input_textBox.Size = new System.Drawing.Size(123, 20);
+            this.Tax_Number_input_textBox.TabIndex = 53;
+            // 
+            // Tax_Number_textBox
+            // 
+            this.Tax_Number_textBox.BackColor = System.Drawing.Color.White;
+            this.Tax_Number_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tax_Number_textBox.Enabled = false;
+            this.Tax_Number_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tax_Number_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Tax_Number_textBox.Location = new System.Drawing.Point(426, 206);
+            this.Tax_Number_textBox.Name = "Tax_Number_textBox";
+            this.Tax_Number_textBox.ReadOnly = true;
+            this.Tax_Number_textBox.Size = new System.Drawing.Size(100, 16);
+            this.Tax_Number_textBox.TabIndex = 52;
+            this.Tax_Number_textBox.Text = "Tax Number:";
+            // 
+            // ref_ap_textBox
+            // 
+            this.ref_ap_textBox.Location = new System.Drawing.Point(319, 228);
+            this.ref_ap_textBox.Name = "ref_ap_textBox";
+            this.ref_ap_textBox.Size = new System.Drawing.Size(100, 20);
+            this.ref_ap_textBox.TabIndex = 55;
+            // 
+            // Apartment_textBox
+            // 
+            this.Apartment_textBox.BackColor = System.Drawing.Color.White;
+            this.Apartment_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Apartment_textBox.Enabled = false;
+            this.Apartment_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Apartment_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Apartment_textBox.Location = new System.Drawing.Point(319, 206);
+            this.Apartment_textBox.Name = "Apartment_textBox";
+            this.Apartment_textBox.ReadOnly = true;
+            this.Apartment_textBox.Size = new System.Drawing.Size(100, 16);
+            this.Apartment_textBox.TabIndex = 54;
+            this.Apartment_textBox.Text = "Apartment:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(579, 363);
+            this.button1.TabIndex = 56;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.ref_ap_textBox);
+            this.Controls.Add(this.Apartment_textBox);
+            this.Controls.Add(this.Tax_Number_input_textBox);
+            this.Controls.Add(this.Tax_Number_textBox);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Edit_button);
             this.Controls.Add(this.Cancel_button);
@@ -302,6 +369,7 @@
             this.Controls.Add(this.Tenants_listBox);
             this.Controls.Add(this.Place_textBox);
             this.Controls.Add(this.Back_button);
+            this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 365);
             this.Name = "ContactsForm";
@@ -334,5 +402,10 @@
         private System.Windows.Forms.Button Add_Tenant_button;
         private System.Windows.Forms.Button Edit_button;
         private System.Windows.Forms.Button Delete_button;
+        private System.Windows.Forms.TextBox Tax_Number_input_textBox;
+        private System.Windows.Forms.TextBox Tax_Number_textBox;
+        private System.Windows.Forms.TextBox ref_ap_textBox;
+        private System.Windows.Forms.TextBox Apartment_textBox;
+        private System.Windows.Forms.Button button1;
     }
 }

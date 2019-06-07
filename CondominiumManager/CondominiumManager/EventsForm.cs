@@ -112,7 +112,7 @@ namespace CondominiumManager
                 cmd_ok.ExecuteNonQuery();
             }
             cn.Close();
-            Info_Visibility("load");
+            Info_Visibility("event_info");
         }
 
         private void Back_button_Click(object sender, EventArgs e)
@@ -262,10 +262,12 @@ namespace CondominiumManager
         {
             currentEvent = Events_At_Date_listBox.SelectedIndex;
             ShowEvent();
-
-            //Show buttons
-            Edit_button.Show();
-            Delete_button.Show();
+            if(currentEvent>-1)
+            {
+                //Show buttons
+                Edit_button.Show();
+                Delete_button.Show();
+            }
         }
 
         private void ShowEvent()
@@ -355,67 +357,105 @@ namespace CondominiumManager
             {
                 if (isMeeting)
                 {
-                    Meeting m = Events_At_Date_listBox.SelectedItem as Meeting;
-                    cn = GetSGBDConnection();
-                    cn.Open();
-                    cmd_repair = new SqlCommand("editmeeting", cn)
+                    Meeting m;
+                    foreach(Meeting meet in meetList)
                     {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd_meet.Parameters.AddWithValue("nome", Name_input_Event_Info_textBox.Text);
-                    cmd_meet.Parameters.AddWithValue("localizacao", Location_OR_Damage_input_Event_Info_textBox.Text);
-                    cmd_meet.Parameters.AddWithValue("descricao", Desc_input_Event_Info_textBox.Text);
-                    cmd_repair.ExecuteNonQuery();
+                        if(meet.Index == Events_At_Date_listBox.SelectedIndex)
+                        {
+                            m = meet;
+                            cn = GetSGBDConnection();
+                            cn.Open();
+                            cmd_meet = new SqlCommand("editmeeting", cn)
+                            {
+                                CommandType = CommandType.StoredProcedure
+                            };
+                            cmd_meet.Parameters.AddWithValue("id", m.Id);
+                            cmd_meet.Parameters.AddWithValue("nome", Name_input_Event_Info_textBox.Text);
+                            cmd_meet.Parameters.AddWithValue("localizacao", Location_OR_Damage_input_Event_Info_textBox.Text);
+                            cmd_meet.Parameters.AddWithValue("descricao", Desc_input_Event_Info_textBox.Text);
+                            cmd_meet.ExecuteNonQuery();
+                            break;
+                        }
+                    }
                 }
                 else
                 {
-                    Repair r = Events_At_Date_listBox.SelectedItem as Repair;
-                    cn = GetSGBDConnection();
-                    cn.Open();
-                    cmd_repair = new SqlCommand("editrepair", cn)
+                    Repair r;
+                    foreach (Repair repair in repairList)
                     {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd_meet.Parameters.AddWithValue("nome", Name_input_Event_Info_textBox.Text);
-                    cmd_meet.Parameters.AddWithValue("danificado", Location_OR_Damage_input_Event_Info_textBox.Text);
-                    cmd_meet.Parameters.AddWithValue("descricao", Desc_input_Event_Info_textBox.Text);
-                    cmd_repair.ExecuteNonQuery();
+                        if (repair.Index == Events_At_Date_listBox.SelectedIndex)
+                        {
+                            r = repair;
+                            cn = GetSGBDConnection();
+                            cn.Open();
+                            cmd_repair = new SqlCommand("editrepair", cn)
+                            {
+                                CommandType = CommandType.StoredProcedure
+                            };
+                            cmd_repair.Parameters.AddWithValue("id", r.Id);
+                            cmd_repair.Parameters.AddWithValue("nome", Name_input_Event_Info_textBox.Text);
+                            cmd_repair.Parameters.AddWithValue("danificado", Location_OR_Damage_input_Event_Info_textBox.Text);
+                            cmd_repair.Parameters.AddWithValue("descricao", Desc_input_Event_Info_textBox.Text);
+                            cmd_repair.ExecuteNonQuery();
+                            break;
+                        }
+                    }
                 }
             }
             else if(delete_event)
             {
                 if(isMeeting)
                 {
-                    Meeting m = Events_At_Date_listBox.SelectedItem as Meeting;
-                    cn = GetSGBDConnection();
-                    cn.Open();
-                    cmd_repair = new SqlCommand("deletemeeting", cn)
+                    Meeting m;
+                    foreach (Meeting meet in meetList)
                     {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd_meet.Parameters.AddWithValue("id", m.Id);
-                    cmd_repair.ExecuteNonQuery();
+                        if (meet.Index == Events_At_Date_listBox.SelectedIndex)
+                        {
+                            m = meet;
+                            cn = GetSGBDConnection();
+                            cn.Open();
+                            cmd_meet = new SqlCommand("deletemeeting", cn)
+                            {
+                                CommandType = CommandType.StoredProcedure
+                            };
+                            cmd_meet.Parameters.AddWithValue("id", m.Id);
+                            cmd_meet.ExecuteNonQuery();
+                        }
+                    }
                 } else
                 {
-                    Repair r = Events_At_Date_listBox.SelectedItem as Repair;
-                    cn = GetSGBDConnection();
-                    cn.Open();
-                    cmd_repair = new SqlCommand("deleterepair", cn)
+                    Repair r;
+                    foreach (Repair repair in repairList)
                     {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd_meet.Parameters.AddWithValue("id", r.Id);
-                    cmd_repair.ExecuteNonQuery();
+                        if (repair.Index == Events_At_Date_listBox.SelectedIndex)
+                        {
+                            r = repair;
+                            cn = GetSGBDConnection();
+                            cn.Open();
+                            cmd_repair = new SqlCommand("deleterepair", cn)
+                            {
+                                CommandType = CommandType.StoredProcedure
+                            };
+                            cmd_repair.Parameters.AddWithValue("id", r.Id);
+                            cmd_repair.ExecuteNonQuery();
+                        }
+                    }
                 }
-
-                CheckEventInDate();
+                Name_Event_Info_textBox.Hide();
+                Name_input_Event_Info_textBox.Hide();
+                Location_OR_Damage_Event_Info_textBox.Hide();
+                Location_OR_Damage_input_Event_Info_textBox.Hide();
+                Desc_Event_Info_textBox.Hide();
+                Desc_input_Event_Info_textBox.Hide();
             }
+            CheckEventInDate();
+            BoldCalendarDates();
             edit_event = false;
             delete_event = false;
             Cancel_Edit_OR_Delete_button.Hide();
             OK_Edit_OR_Delete_button.Hide();
-            Edit_button.Show();
-            Delete_button.Show();
+            Edit_button.Hide();
+            Delete_button.Hide();
 
             Name_input_Event_Info_textBox.ReadOnly = true;
             Name_input_Event_Info_textBox.Enabled = false;
@@ -565,6 +605,24 @@ namespace CondominiumManager
                 Location_OR_Damage_input_Event_Info_textBox.Hide();
                 Desc_Event_Info_textBox.Hide();
                 Desc_input_Event_Info_textBox.Hide();
+
+                Name_textBox.Hide();
+                Name_input_textBox.Hide();
+                Date_textBox.Hide();
+                Date_input_textBox.Hide();
+                Time_textBox.Hide();
+                Hour_input_textBox.Hide();
+                Minute_input_textBox.Hide();
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Location_textBox.Hide();
+                Location_input_textBox.Hide();
+                Damaged_textBox.Hide();
+                Damaged_input_textBox.Hide();
+                Description_textBox.Hide();
+                Description_input_textBox.Hide();
+                Book_Ok_button.Hide();
+                Book_Cancel_button.Hide();
             }
         }
 

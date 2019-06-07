@@ -181,12 +181,12 @@ namespace CondominiumManager
                         id_f_sp = sp.ID;
                         Info_Visibility("showServiceInvoice");
 
-                        cmd = new SqlCommand("ispaidquotas", cn) //TODO
+                        cmd = new SqlCommand("ispaidservicos", cn) 
                         {
                             CommandType = CommandType.StoredProcedure
                         };
 
-                        cmd.Parameters.AddWithValue("id_fatura", sp.ID);  //TODO
+                        cmd.Parameters.AddWithValue("id_fatura", sp.ID); 
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
