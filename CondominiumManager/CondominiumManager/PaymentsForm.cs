@@ -52,7 +52,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Quotas_Invoice_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("getfaturaquota", cn) 
+            cmd = new SqlCommand("condomanager.getfaturaquota", cn) 
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -72,7 +72,7 @@ namespace CondominiumManager
                     ID = (int)dr["id_fatura"]
                 };
 
-                cmd = new SqlCommand("gettenantnifname", cn)
+                cmd = new SqlCommand("condomanager.gettenantnifname", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -102,7 +102,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Services_Invoice_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("getfaturaservico", cn)
+            cmd = new SqlCommand("condomanager.getfaturaservico", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -122,7 +122,7 @@ namespace CondominiumManager
                     ID = (int)dr["id_fatura"]
                     
                 };
-                cmd = new SqlCommand("getmanager", cn)
+                cmd = new SqlCommand("condomanager.getmanager", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -181,7 +181,7 @@ namespace CondominiumManager
                         id_f_sp = sp.ID;
                         Info_Visibility("showServiceInvoice");
 
-                        cmd = new SqlCommand("ispaidservicos", cn) 
+                        cmd = new SqlCommand("condomanager.ispaidservicos", cn) 
                         {
                             CommandType = CommandType.StoredProcedure
                         };
@@ -244,7 +244,7 @@ namespace CondominiumManager
                         id_f_quotas = q.ID;
                         Info_Visibility("showQuotaInvoice");
 
-                        cmd = new SqlCommand("ispaidquotas", cn)
+                        cmd = new SqlCommand("condomanager.ispaidquotas", cn)
                         {
                             CommandType = CommandType.StoredProcedure
                         };
@@ -367,7 +367,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             cn.Open();
 
-            cmd = new SqlCommand("markaspaidquota", cn)
+            cmd = new SqlCommand("condomanager.markaspaidquota", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -383,7 +383,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             cn.Open();
 
-            cmd = new SqlCommand("markaspaidquota", cn) //TODO
+            cmd = new SqlCommand("condomanager.markaspaidquota", cn) //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };

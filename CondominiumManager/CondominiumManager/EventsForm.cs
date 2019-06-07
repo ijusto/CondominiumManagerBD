@@ -87,7 +87,7 @@ namespace CondominiumManager
             cn.Open();
             if (Type_input_textBox.Text.Equals("Meeting"))
             {
-                cmd_ok = new SqlCommand("insertmeeting", cn)
+                cmd_ok = new SqlCommand("condomanager.insertmeeting", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -100,7 +100,7 @@ namespace CondominiumManager
             }
             else if (Type_input_textBox.Text.Equals("Repair"))
             {
-                cmd_ok = new SqlCommand("insertrepair", cn)
+                cmd_ok = new SqlCommand("condomanager.insertrepair", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -145,11 +145,11 @@ namespace CondominiumManager
             Events_At_Date_listBox.ClearSelected();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd_repair = new SqlCommand("showrepairs", cn)
+            cmd_repair = new SqlCommand("condomanager.showrepairs", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd_meet = new SqlCommand("showmeetings", cn)
+            cmd_meet = new SqlCommand("condomanager.showmeetings", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -218,11 +218,11 @@ namespace CondominiumManager
             {
                 cn = GetSGBDConnection();
                 cn.Open();
-                cmd_repair = new SqlCommand("showrepairs", cn)
+                cmd_repair = new SqlCommand("condomanager.showrepairs", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd_meet = new SqlCommand("showmeetings", cn)
+                cmd_meet = new SqlCommand("condomanager.showmeetings", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -365,7 +365,7 @@ namespace CondominiumManager
                             m = meet;
                             cn = GetSGBDConnection();
                             cn.Open();
-                            cmd_meet = new SqlCommand("editmeeting", cn)
+                            cmd_meet = new SqlCommand("condomanager.editmeeting", cn)
                             {
                                 CommandType = CommandType.StoredProcedure
                             };
@@ -388,7 +388,7 @@ namespace CondominiumManager
                             r = repair;
                             cn = GetSGBDConnection();
                             cn.Open();
-                            cmd_repair = new SqlCommand("editrepair", cn)
+                            cmd_repair = new SqlCommand("condomanager.editrepair", cn)
                             {
                                 CommandType = CommandType.StoredProcedure
                             };
@@ -414,7 +414,7 @@ namespace CondominiumManager
                             m = meet;
                             cn = GetSGBDConnection();
                             cn.Open();
-                            cmd_meet = new SqlCommand("deletemeeting", cn)
+                            cmd_meet = new SqlCommand("condomanager.deletemeeting", cn)
                             {
                                 CommandType = CommandType.StoredProcedure
                             };
@@ -432,7 +432,7 @@ namespace CondominiumManager
                             r = repair;
                             cn = GetSGBDConnection();
                             cn.Open();
-                            cmd_repair = new SqlCommand("deleterepair", cn)
+                            cmd_repair = new SqlCommand("condomanager.deleterepair", cn)
                             {
                                 CommandType = CommandType.StoredProcedure
                             };

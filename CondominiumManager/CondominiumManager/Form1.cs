@@ -40,7 +40,7 @@ namespace CondominiumManager
 
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("authenticate", cn)
+            cmd = new SqlCommand("condomanager.authenticate", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };

@@ -49,7 +49,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             apart_listBox.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("getreadings", cn)  //TODO
+            cmd = new SqlCommand("condomanager.getreadings", cn)  //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };

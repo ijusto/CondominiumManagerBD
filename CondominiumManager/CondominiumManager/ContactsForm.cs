@@ -59,7 +59,7 @@ namespace CondominiumManager
             tenList = new List<Tenant>();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("showcontacts", cn)
+            cmd = new SqlCommand("condomanager.showcontacts", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -84,7 +84,7 @@ namespace CondominiumManager
             spList = new List<Services_Provider>();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("getsupplier", cn)
+            cmd = new SqlCommand("condomanager.getsupplier", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -468,7 +468,7 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("edittenant", cn)
+            cmd = new SqlCommand("condomanager.edittenant", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -484,7 +484,7 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("editsp", cn)
+            cmd = new SqlCommand("condomanager.editsp", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -500,7 +500,7 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("addtenant", cn)
+            cmd = new SqlCommand("condomanager.addtenant", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -518,7 +518,7 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("addsp", cn)
+            cmd = new SqlCommand("condomanager.addsp", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -535,7 +535,7 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("deletetenant", cn)
+            cmd = new SqlCommand("condomanager.deletetenant", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -548,7 +548,7 @@ namespace CondominiumManager
         {
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("deletesp", cn)
+            cmd = new SqlCommand("condomanager.deletesp", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -604,7 +604,7 @@ namespace CondominiumManager
             apart_comboBox.Items.Clear();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("getfreeref", cn)
+            cmd = new SqlCommand("condomanager.getfreeref", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };

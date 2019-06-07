@@ -11,6 +11,7 @@ namespace CondominiumManager
         SqlCommand cmd;
         private static String tomsDB = "data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
         private static String inesDB = "data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
+        private static String p2g8;
         public static String path = inesDB;
 
         public MainMenuForm()

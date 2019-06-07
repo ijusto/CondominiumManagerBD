@@ -39,7 +39,7 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             Listbox_complaints.Items.Clear();
             cn.Open();
-            cmd = new SqlCommand("showcomplaints", cn) //TODO
+            cmd = new SqlCommand("condomanager.showcomplaints", cn) //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };
