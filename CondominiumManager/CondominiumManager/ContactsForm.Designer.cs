@@ -50,9 +50,9 @@
             this.Delete_button = new System.Windows.Forms.Button();
             this.Tax_Number_input_textBox = new System.Windows.Forms.TextBox();
             this.Tax_Number_textBox = new System.Windows.Forms.TextBox();
-            this.ref_ap_textBox = new System.Windows.Forms.TextBox();
             this.Apartment_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.apart_comboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // Back_button
@@ -305,13 +305,6 @@
             this.Tax_Number_textBox.TabIndex = 52;
             this.Tax_Number_textBox.Text = "Tax Number:";
             // 
-            // ref_ap_textBox
-            // 
-            this.ref_ap_textBox.Location = new System.Drawing.Point(319, 228);
-            this.ref_ap_textBox.Name = "ref_ap_textBox";
-            this.ref_ap_textBox.Size = new System.Drawing.Size(100, 20);
-            this.ref_ap_textBox.TabIndex = 55;
-            // 
             // Apartment_textBox
             // 
             this.Apartment_textBox.BackColor = System.Drawing.Color.White;
@@ -342,11 +335,19 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // apart_comboBox
+            // 
+            this.apart_comboBox.FormattingEnabled = true;
+            this.apart_comboBox.Location = new System.Drawing.Point(319, 227);
+            this.apart_comboBox.Name = "apart_comboBox";
+            this.apart_comboBox.Size = new System.Drawing.Size(100, 21);
+            this.apart_comboBox.TabIndex = 57;
+            // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
-            this.Controls.Add(this.ref_ap_textBox);
+            this.Controls.Add(this.apart_comboBox);
             this.Controls.Add(this.Apartment_textBox);
             this.Controls.Add(this.Tax_Number_input_textBox);
             this.Controls.Add(this.Tax_Number_textBox);
@@ -404,8 +405,8 @@
         private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.TextBox Tax_Number_input_textBox;
         private System.Windows.Forms.TextBox Tax_Number_textBox;
-        private System.Windows.Forms.TextBox ref_ap_textBox;
         private System.Windows.Forms.TextBox Apartment_textBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox apart_comboBox;
     }
 }

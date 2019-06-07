@@ -43,6 +43,7 @@ namespace CondominiumManager
 
         private void ContactsForm_Load(object sender, EventArgs e)
         {
+            updateAvailApart();
             Info_Visibility("Contacts_Load");
             Fill_TenantContacts();
             currentTenant = Tenants_listBox.SelectedIndex;
@@ -169,7 +170,7 @@ namespace CondominiumManager
                 Tax_Number_textBox.Hide();
                 Tax_Number_input_textBox.Hide();
                 Apartment_textBox.Hide();
-                ref_ap_textBox.Hide();
+                apart_comboBox.Hide();
             }
             else if(name.Equals("TenantContact"))
             {
@@ -360,7 +361,7 @@ namespace CondominiumManager
             Tax_Number_textBox.Show();
             Tax_Number_input_textBox.Show();
             Apartment_textBox.Show();
-            ref_ap_textBox.Show();
+            apart_comboBox.Show();
             ShowTextBoxes();
             Type_textBox.Hide();
             Type_input_textBox.Hide();
@@ -395,11 +396,12 @@ namespace CondominiumManager
 
         private void Ok_button_Click(object sender, EventArgs e)
         {
+            updateAvailApart();
             button1.Enabled = true;
             Tax_Number_textBox.Hide();
             Tax_Number_input_textBox.Hide();
             Apartment_textBox.Show();
-            ref_ap_textBox.Show();
+            apart_comboBox.Show();
             DisableWriteTextboxes();
             edit = true;
             if (edit && showTenant)
@@ -507,7 +509,7 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
             cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
             cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
-            cmd.Parameters.AddWithValue("ref_fracao", ref_ap_textBox.Text);
+            cmd.Parameters.AddWithValue("ref_fracao", apart_comboBox.SelectedItem);
             cmd.ExecuteNonQuery();
             cn.Close();
         }
@@ -595,6 +597,27 @@ namespace CondominiumManager
             Tenants_listBox.ClearSelected();
             Serv_Providers_listBox.ClearSelected();
             Info_Visibility("Contacts_Load");
+        }
+
+        private void updateAvailApart()
+        {
+            apart_comboBox.Items.Clear();
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("getfreeref", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                apart_comboBox.Items.Add(dr["ref_fracao"].ToString() + "-" + dr["piso"].ToString());
+            }
+            cn.Close();
         }
     }
 }
