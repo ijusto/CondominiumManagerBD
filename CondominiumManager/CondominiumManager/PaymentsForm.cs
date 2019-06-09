@@ -156,14 +156,6 @@ namespace CondominiumManager
             return cn.State == ConnectionState.Open;
         }
 
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            var form = new MainMenuForm();
-            form.ShowDialog();
-            this.SendToBack();
-            this.Close();
-        }
-
         private void Services_Invoice_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentServiceInvoice = Services_Invoice_listBox.SelectedIndex;
@@ -421,6 +413,11 @@ namespace CondominiumManager
         private void Delete_Service_button_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

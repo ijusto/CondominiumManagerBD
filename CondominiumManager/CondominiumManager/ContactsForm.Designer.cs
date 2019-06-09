@@ -345,7 +345,6 @@
             this.apart_comboBox.Name = "apart_comboBox";
             this.apart_comboBox.Size = new System.Drawing.Size(100, 21);
             this.apart_comboBox.TabIndex = 57;
-            this.apart_comboBox.SelectedIndexChanged += new System.EventHandler(this.apart_comboBox_SelectedIndexChanged);
             // 
             // textBox1
             // 
