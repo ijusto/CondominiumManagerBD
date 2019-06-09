@@ -35,6 +35,7 @@ namespace CondominiumManager
         private String curSPName = "";
         private String curSPAdd = "";
         private String curSPMobile = "";
+        private bool hide_add = false;
 
         public ContactsForm()
         {
@@ -171,6 +172,10 @@ namespace CondominiumManager
                 Tax_Number_input_textBox.Hide();
                 Apartment_textBox.Hide();
                 apart_comboBox.Hide();
+                if(hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
             }
             else if(name.Equals("TenantContact"))
             {
@@ -190,6 +195,10 @@ namespace CondominiumManager
                 Add_SP_button.Hide();
                 Edit_button.Show();
                 Delete_button.Show();
+                if (hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
             }
             else if (name.Equals("EditTenant"))
             {
@@ -209,6 +218,10 @@ namespace CondominiumManager
                 Add_SP_button.Hide();
                 Edit_button.Hide();
                 Delete_button.Hide();
+                if (hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
             }
             else if(name.Equals("SPContact"))
             {
@@ -228,6 +241,10 @@ namespace CondominiumManager
                 Add_SP_button.Hide();
                 Edit_button.Show();
                 Delete_button.Show();
+                if (hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
             }
             else if (name.Equals("EditSP"))
             {
@@ -247,6 +264,10 @@ namespace CondominiumManager
                 Add_SP_button.Hide();
                 Edit_button.Hide();
                 Delete_button.Hide();
+                if (hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
 
             }
             else if (name.Equals("AddTenant"))
@@ -271,6 +292,10 @@ namespace CondominiumManager
                 Add_SP_button.Hide();
                 Edit_button.Hide();
                 Delete_button.Hide();
+                if (hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
             }
             else if (name.Equals("AddSP"))
             {
@@ -296,6 +321,10 @@ namespace CondominiumManager
                 Add_SP_button.Hide();
                 Edit_button.Hide();
                 Delete_button.Hide();
+                if (hide_add)
+                {
+                    Add_Tenant_button.Hide();
+                }
             }
         }
 
@@ -512,7 +541,7 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
             cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
             apart_comboBox.Enabled = true;
-            cmd.Parameters.AddWithValue("ref_fracao", apart_comboBox.SelectedText);
+            cmd.Parameters.AddWithValue("ref_fracao", apart_comboBox.SelectedItem.ToString().Split('-')[0]);
             cmd.ExecuteNonQuery();
             cn.Close();
         }
@@ -619,6 +648,10 @@ namespace CondominiumManager
             foreach (DataRow dr in dt.Rows)
             {
                 apart_comboBox.Items.Add(dr["ref_fracao"].ToString() + "-" + dr["piso"].ToString());
+            }
+            if(apart_comboBox.Items.Count == 0)
+            {
+                hide_add = true;
             }
             cn.Close();
         }
