@@ -131,7 +131,7 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	Valor money,
 	id_fatura int,
 	PRIMARY KEY(Id),
-	foreign key(id_fatura) references condomanager.fatura_quotas(id_fatura)
+	foreign key(id_fatura) references condomanager.fatura_quotas(id_fatura) on delete cascade
  )
 
   CREATE TABLE CONDOMANAGER.Fatura_Servicos(

@@ -11,13 +11,15 @@ begin
 end;
 go
 
-create function condomanager.authenticate (@nif as varchar(9), @password as varchar(256)) returns bit as
+create function condomanager.authenticate (@nif as varchar(9), @password as varchar(256)) returns int as
 begin
-	declare @authed bit; 
+	declare @authed int; 
 	IF exists( select * from condomanager.Gestor_Condominio where nif=@nif and hashed_pass = @password)
 		set @authed = 1
 	else
 		set @authed = 0
-	return @authed
 end;
 go
+
+select condomanager.authenticate('250238280','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8') 
+

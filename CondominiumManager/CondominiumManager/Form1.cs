@@ -40,24 +40,26 @@ namespace CondominiumManager
 
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("condomanager.authenticate", cn)
+            cmd = new SqlCommand("select condomanager.authenticate(@nif, @password)", cn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
             };
-            cmd.Parameters.AddWithValue("nif", username);
-            cmd.Parameters.AddWithValue("password", passwordhash);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.Add("@nif", username);
+            cmd.Parameters.Add("@password", passwordhash);
+            bool returnvalue =  (bool)cmd.ExecuteScalar();
 
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            if (returnvalue)
+            {
+                var mainmenu = new MainMenuForm();
+                mainmenu.ShowDialog();
+                this.SendToBack();
+                this.Dispose();
+                this.Close();
+                
+            }
 
 
-          
-
-
-
-
+            
         }
         private SqlConnection GetSGBDConnection()
         {
@@ -73,6 +75,11 @@ namespace CondominiumManager
                 cn.Open();
 
             return cn.State == ConnectionState.Open;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
