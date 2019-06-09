@@ -15,8 +15,8 @@ Insert into condomanager.fotosprediais(endereco, localizacao) values
 
 Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
 			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
-			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', 'pass123'),
-			('265904536', 'Pedro Vieira', '967230185', 'pedro.vieira@sapo.pt', 'pass123')
+			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
+			('265904536', 'Pedro Vieira', '967230185', 'pedro.vieira@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8')
 
 insert into condomanager.Condominio(Endereco, Orcam_Anual, nif_gestor) values
 			('Rua São Martinho', 10000, '250238280'),
@@ -42,18 +42,18 @@ insert into condomanager.Condomino(NIF, Nome, Email, Telemovel) values
 
 
 
-insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_condomino) values
-			('Rua São Martinho', 'A1', 100, 'RC/D','213564756'),
-			('Rua São Martinho', 'A2', 200, 'RC/E', '263547859'),
-			('Rua São Martinho', 'A3', 200, '1Dt','126374659'),
-			('Rua São Martinho', 'A4', 200, '1Esq', '167485967'),
-			('Rua São Martinho', 'A5', 110, '2DT', '213564756'),
-			('Rua São Martinho', 'A6', 90, '2Esq', '143567467'),
-			('Rua Nova', 'A1', 100, 'RC/D', '237168594'),
-			('Rua Nova', 'A2', 200, 'RC/E', '216374865'),
-			('Rua Nova', 'A3', 75, '1Dt', '213564756'),
-			('Avenida dos Combatentes','B1', 350, 'RC/D', '237168594'),
-			('Avenida dos Combatentes','B2', 200, 'RC/E', '216374865')
+insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso, nif_condomino, leitura_agua, leitura_gas, leitura_luz) values
+			('Rua São Martinho', 'A1', 100, 'RC/D','213564756', 130, 120, 345),
+			('Rua São Martinho', 'A2', 200, 'RC/E', '263547859', 234, 126, 178),
+			('Rua São Martinho', 'A3', 200, '1Dt','126374659', 187, 265, 97),
+			('Rua São Martinho', 'A4', 200, '1Esq', '167485967', 167, 111, 67),
+			('Rua São Martinho', 'A5', 110, '2DT', '213564756', 175, 265, 999),
+			('Rua São Martinho', 'A6', 90, '2Esq', '143567467', 726, 165, 34),
+			('Rua Nova', 'A1', 100, 'RC/D', '237168594', 62, 156, 183),
+			('Rua Nova', 'A2', 200, 'RC/E', '216374865', 23, 165, 176),
+			('Rua Nova', 'A3', 75, '1Dt', '213564756', 108, 203, 367),
+			('Avenida dos Combatentes','B1', 350, 'RC/D', '237168594', 164, 238, 145),
+			('Avenida dos Combatentes','B2', 200, 'RC/E', '216374865', 198, 256, 356)
 
 insert into condomanager.Fracao(Endereco, Ref_fracao, Permilagem, piso) values
 			('Rua São Martinho', 'A7', 100, 'Loft')
@@ -115,3 +115,7 @@ insert into condomanager.Reuniao(Nome, Data, Descricao, localizacao, endereco) v
 insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Quantia) values
 	('Pagamento Quota Junho 2019', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60),
 	('Pagamento Quota Junho 2018', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
+
+
+
+
