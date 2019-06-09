@@ -181,7 +181,8 @@
             this.Controls.Add(this.Complaints_textBox);
             this.Controls.Add(this.Listbox_complaints);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(580, 365);
+            this.MaximumSize = new System.Drawing.Size(596, 404);
+            this.MinimumSize = new System.Drawing.Size(596, 404);
             this.Name = "ComplaintsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";

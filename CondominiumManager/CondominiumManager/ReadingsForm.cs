@@ -124,10 +124,20 @@ namespace CondominiumManager
                     if (a.Index == currentAppart)
                     {
                         Tenant_Name_input_textBox.Text = a.owner.Name;
+                        Tenant_Name_input_textBox.ReadOnly = true;
+                        Tenant_Name_input_textBox.Enabled = false;
                         Mobile_input_textBox.Text = a.owner.Mobile;
+                        Mobile_input_textBox.ReadOnly = true;
+                        Mobile_input_textBox.Enabled = false;
                         Water_input_textBox.Text = a.ReadWater;
+                        Water_input_textBox.ReadOnly = true;
+                        Water_input_textBox.Enabled = false;
                         Light_input_textBox.Text = a.ReadLight;
+                        Light_input_textBox.ReadOnly = true;
+                        Light_input_textBox.Enabled = false;
                         Gas_input_textBox.Text = a.ReadGas;
+                        Gas_input_textBox.ReadOnly = true;
+                        Gas_input_textBox.Enabled = false;
 
                         Gas_input_textBox.Show();
                         Light_input_textBox.Show();
@@ -135,10 +145,20 @@ namespace CondominiumManager
                         Mobile_input_textBox.Show();
                         Tenant_Name_input_textBox.Show();
                         Tenant_Name_textBox.Show();
+                        Tenant_Name_textBox.ReadOnly = true;
+                        Tenant_Name_textBox.Enabled = false;
                         Mobile_textBox.Show();
+                        Mobile_textBox.ReadOnly = true;
+                        Mobile_textBox.Enabled = false;
                         Water_textBox.Show();
+                        Water_textBox.ReadOnly = true;
+                        Water_textBox.Enabled = false;
                         Light_textBox.Show();
+                        Light_textBox.ReadOnly = true;
+                        Light_textBox.Enabled = false;
                         Gas_textBox.Show();
+                        Gas_textBox.ReadOnly = true;
+                        Gas_textBox.Enabled = false;
                     }
                 }
             }

@@ -647,7 +647,8 @@
             this.Controls.Add(this.Date_Service_Invoice_textBox);
             this.Controls.Add(this.Desc_Service_Payment_textBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(580, 365);
+            this.MaximumSize = new System.Drawing.Size(596, 404);
+            this.MinimumSize = new System.Drawing.Size(596, 404);
             this.Name = "PaymentsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";

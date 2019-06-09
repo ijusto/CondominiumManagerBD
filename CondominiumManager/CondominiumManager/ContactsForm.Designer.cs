@@ -262,7 +262,7 @@
             this.Edit_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Edit_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Edit_button.ForeColor = System.Drawing.Color.White;
-            this.Edit_button.Location = new System.Drawing.Point(320, 269);
+            this.Edit_button.Location = new System.Drawing.Point(332, 268);
             this.Edit_button.Name = "Edit_button";
             this.Edit_button.Size = new System.Drawing.Size(76, 23);
             this.Edit_button.TabIndex = 50;
@@ -375,7 +375,8 @@
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(580, 365);
+            this.MaximumSize = new System.Drawing.Size(596, 404);
+            this.MinimumSize = new System.Drawing.Size(596, 404);
             this.Name = "ContactsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";

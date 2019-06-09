@@ -13,12 +13,12 @@ using static CondominiumManager.MainMenuForm;
 
 namespace CondominiumManager
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         private SqlCommand cmd;
         private SqlConnection cn;
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -75,11 +75,6 @@ namespace CondominiumManager
                 cn.Open();
 
             return cn.State == ConnectionState.Open;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

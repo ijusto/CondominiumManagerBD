@@ -205,7 +205,8 @@
             this.Controls.Add(this.apart_listBox);
             this.Controls.Add(this.Back_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(580, 365);
+            this.MaximumSize = new System.Drawing.Size(596, 404);
+            this.MinimumSize = new System.Drawing.Size(596, 404);
             this.Name = "ReadingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
