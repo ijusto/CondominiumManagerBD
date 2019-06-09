@@ -46,25 +46,39 @@ namespace CondominiumManager
         {
             updateAvailApart();
             Info_Visibility("Contacts_Load");
-            Fill_TenantContacts();
+            Fill_TenantContacts(false, "");
             currentTenant = Tenants_listBox.SelectedIndex;
             Fill_Serv_Prov_Contacts();
             currentSrvProv = Serv_Providers_listBox.SelectedIndex;
             DisableWriteTextboxes();
         }
 
-        private void Fill_TenantContacts()
+        private void Fill_TenantContacts(bool search, string searchquery)
         {
+            string query = "";
+            if (search)
+            {
+                query = "condomanager.showcontactsSearch";
+            }
+            else
+            {
+                query = "condomanager.showcontacts";
+            }
+
             ten_index = 0;
             Tenants_listBox.Items.Clear();
             tenList = new List<Tenant>();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("condomanager.showcontacts", cn)
+            cmd = new SqlCommand(query, cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
+            if (search)
+            {
+                cmd.Parameters.AddWithValue("search", searchquery);
+            }
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -400,7 +414,7 @@ namespace CondominiumManager
             AddTenant = true;
             AddSP = false;
             Info_Visibility("AddTenant");
-            Fill_TenantContacts();
+            Fill_TenantContacts(false, "");
         }
 
         private void Add_SP_button_Click(object sender, EventArgs e)
@@ -435,7 +449,7 @@ namespace CondominiumManager
             if (edit && showTenant)
             {
                 EditTenant();
-                Fill_TenantContacts();
+                Fill_TenantContacts(false, "");
             }
             else if (edit && showSP)
             {
@@ -445,7 +459,7 @@ namespace CondominiumManager
             else if(AddTenant)
             {
                 AddTen();
-                Fill_TenantContacts();
+                Fill_TenantContacts(false, "");
             }
             else if (AddSP)
             {
@@ -476,7 +490,7 @@ namespace CondominiumManager
             else if (showSP) { Info_Visibility("EditSP"); }
 
             Fill_Serv_Prov_Contacts();
-            Fill_TenantContacts();
+            Fill_TenantContacts(false, "");
         }
         
         private void Delete_button_Click(object sender, EventArgs e)
@@ -492,7 +506,7 @@ namespace CondominiumManager
             Info_Visibility("Contacts_Load");
 
             Fill_Serv_Prov_Contacts();
-            Fill_TenantContacts();
+            Fill_TenantContacts(false, "");
         }
 
         private void EditTenant()
@@ -662,6 +676,11 @@ namespace CondominiumManager
         private void apart_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Fill_TenantContacts(true, textBox1.Text.ToString());
         }
     }
 }

@@ -53,6 +53,7 @@
             this.Apartment_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.apart_comboBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Back_button
@@ -346,10 +347,19 @@
             this.apart_comboBox.TabIndex = 57;
             this.apart_comboBox.SelectedIndexChanged += new System.EventHandler(this.apart_comboBox_SelectedIndexChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(179, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 58;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.apart_comboBox);
             this.Controls.Add(this.Apartment_textBox);
             this.Controls.Add(this.Tax_Number_input_textBox);
@@ -412,5 +422,6 @@
         private System.Windows.Forms.TextBox Apartment_textBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox apart_comboBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

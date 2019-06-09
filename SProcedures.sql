@@ -257,6 +257,17 @@ begin
 	delete from condomanager.Fatura_Servicos where Id_Fatura=@id_fatura
 end;
 go
+
+create procedure condomanager.showcontactssearch(@endereco as varchar(40), @search as varchar(50)) as 
+begin
 	
-	
-	 
+	Select distinct(NIF), nome, telemovel, email, ref_fracao, endereco from condomanager.condomino join condomanager.fracao on nif=nif_condomino where endereco = @endereco and
+	 (nome like '%'+@search+'%' or nif like '%'+@search+'%')
+end;
+go
+
+create procedure condomanager.showspsearch(@search as varchar(50)) as
+begin
+	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id where nome like '%'+@search+'%' or nif like '%'+@search+'%'
+end;
+go

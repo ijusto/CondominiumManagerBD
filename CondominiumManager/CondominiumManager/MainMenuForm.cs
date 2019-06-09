@@ -14,7 +14,7 @@ namespace CondominiumManager
         private static String tomsDB = "data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
         private static String inesDB = "data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
         private static String p2g8 = "data source = tcp:mednat.ieeta.pt\\sqlserver,8101; initial catalog=p2g8;uid=p2g8;password=1358054938@Bd";
-        public static String path = inesDB;
+        public static String path = tomsDB;
 
         public MainMenuForm()
         {
@@ -38,7 +38,7 @@ namespace CondominiumManager
             cn.Open();
             cmd = cn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Endereco FROM [CONDOMANAGER].[Condominio]";
+            cmd.CommandText = "SELECT * from condomanager.view_condos";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
