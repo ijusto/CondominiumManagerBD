@@ -42,6 +42,8 @@
             this.Payments_button = new System.Windows.Forms.Button();
             this.Complaints_button = new System.Windows.Forms.Button();
             this.CondominumSelect_textBox = new System.Windows.Forms.TextBox();
+            this.photo_pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.photo_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Condo_choose_comboBox
@@ -92,11 +94,12 @@
             this.Logo_button.BackColor = System.Drawing.Color.Transparent;
             this.Logo_button.BackgroundImage = global::CondominiumManager.Properties.Resources.condo_manager_app_icon_web;
             this.Logo_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logo_button.Enabled = false;
             this.Logo_button.FlatAppearance.BorderSize = 0;
             this.Logo_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Logo_button.Location = new System.Drawing.Point(61, 113);
+            this.Logo_button.Location = new System.Drawing.Point(192, 38);
             this.Logo_button.Name = "Logo_button";
-            this.Logo_button.Size = new System.Drawing.Size(140, 140);
+            this.Logo_button.Size = new System.Drawing.Size(41, 42);
             this.Logo_button.TabIndex = 20;
             this.Logo_button.UseVisualStyleBackColor = false;
             // 
@@ -237,10 +240,20 @@
             this.CondominumSelect_textBox.TabIndex = 32;
             this.CondominumSelect_textBox.Text = "Condominium:";
             // 
+            // photo_pictureBox
+            // 
+            this.photo_pictureBox.Location = new System.Drawing.Point(35, 112);
+            this.photo_pictureBox.Name = "photo_pictureBox";
+            this.photo_pictureBox.Size = new System.Drawing.Size(178, 162);
+            this.photo_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.photo_pictureBox.TabIndex = 34;
+            this.photo_pictureBox.TabStop = false;
+            // 
             // MainMenuForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.photo_pictureBox);
             this.Controls.Add(this.CondominumSelect_textBox);
             this.Controls.Add(this.Condo_choose_comboBox);
             this.Controls.Add(this.Contacts_button);
@@ -260,6 +273,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.photo_pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +294,7 @@
         private System.Windows.Forms.Button Payments_button;
         private System.Windows.Forms.Button Complaints_button;
         private System.Windows.Forms.TextBox CondominumSelect_textBox;
+        private System.Windows.Forms.PictureBox photo_pictureBox;
     }
 }
 

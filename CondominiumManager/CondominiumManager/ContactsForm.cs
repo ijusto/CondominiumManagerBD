@@ -652,6 +652,9 @@ namespace CondominiumManager
             if(apart_comboBox.Items.Count == 0)
             {
                 hide_add = true;
+            } else
+            {
+                hide_add = false;
             }
             cn.Close();
         }

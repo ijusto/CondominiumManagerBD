@@ -4,6 +4,13 @@ use condomanagerdb
 go
 
 
+Create procedure condomanager.showphoto (@endereco as varchar(40)) as
+begin
+	select localizacao from condomanager.fotosprediais
+	 where endereco = @endereco
+end;
+go
+
 create view condomanager.getsupplierview as 
 	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
 go
