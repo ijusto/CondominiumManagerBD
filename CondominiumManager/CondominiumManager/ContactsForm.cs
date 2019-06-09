@@ -396,7 +396,6 @@ namespace CondominiumManager
 
         private void Ok_button_Click(object sender, EventArgs e)
         {
-            updateAvailApart();
             button1.Enabled = true;
             Tax_Number_textBox.Hide();
             Tax_Number_input_textBox.Hide();
@@ -407,22 +406,25 @@ namespace CondominiumManager
             if (edit && showTenant)
             {
                 EditTenant();
+                Fill_TenantContacts();
             }
             else if (edit && showSP)
             {
                 EditSP();
+                Fill_Serv_Prov_Contacts();
             }
             else if(AddTenant)
             {
                 AddTen();
+                Fill_TenantContacts();
             }
             else if (AddSP)
             {
                 AddServP();
+                Fill_Serv_Prov_Contacts();
             }
+            updateAvailApart();
             Info_Visibility("Contacts_Load");
-            Fill_Serv_Prov_Contacts();
-            Fill_TenantContacts();
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
@@ -510,7 +512,7 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
             cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
             apart_comboBox.Enabled = true;
-            cmd.Parameters.AddWithValue("ref_fracao", "A7");
+            cmd.Parameters.AddWithValue("ref_fracao", apart_comboBox.SelectedText);
             cmd.ExecuteNonQuery();
             cn.Close();
         }

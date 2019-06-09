@@ -218,6 +218,12 @@ namespace CondominiumManager
                         }
                         else
                         {
+                            //payment
+                            Payment_Service_textBox.Hide();
+                            Date_Service_Payment_textBox.Hide();
+                            Date_input_Service_Payment_textBox.Hide();
+                            Desc_Service_Payment_textBox.Hide();
+                            Desc_input_Service_Payment_textBox.Hide();
                             Mark_Paid_Service_button.Show();
                         }
                     }
@@ -282,6 +288,12 @@ namespace CondominiumManager
                         }
                         else
                         {
+                            //payment
+                            Payment_Quota_textBox.Hide();
+                            Date_Quota_Payment_textBox.Hide();
+                            Date_input_Quota_Payment_textBox.Hide();
+                            Desc_Quota_Payment_textBox.Hide();
+                            Desc_input_Quota_Payment_textBox.Hide();
                             Mark_Paid_Quota_button.Show();
                         }
                     }
@@ -311,6 +323,8 @@ namespace CondominiumManager
                 Date_input_Quota_Payment_textBox.Hide();
                 Desc_Quota_Payment_textBox.Hide();
                 Desc_input_Quota_Payment_textBox.Hide();
+                Add_Quota_button.Hide();
+                Delete_Quota_button.Hide();
                 //hide info selected service invoice /payment
                 Invoice_Service_textBox.Hide();
                 Date_Service_Invoice_textBox.Hide();
@@ -329,6 +343,7 @@ namespace CondominiumManager
                 Date_input_Service_Payment_textBox.Hide();
                 Desc_Service_Payment_textBox.Hide();
                 Desc_input_Service_Payment_textBox.Hide();
+                Delete_Service_button.Hide();
             }
             else if (name.Equals("showServiceInvoice"))
             {
@@ -391,6 +406,21 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("id_to", id_f_quotas); //TODO
             cmd.ExecuteNonQuery();
             ShowQuotaInvoice();
+        }
+
+        private void Add_Quota_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_Quota_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_Service_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

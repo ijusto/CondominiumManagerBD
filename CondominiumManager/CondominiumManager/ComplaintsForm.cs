@@ -27,6 +27,7 @@ namespace CondominiumManager
 
         private void ComplaintsForm_Load(object sender, EventArgs e)
         {
+            Info_Visibility("load");
             Fill_Complaint();
             currentComplaint = Listbox_complaints.SelectedIndex;
         }
@@ -125,6 +126,14 @@ namespace CondominiumManager
         {
             if (name.Equals("load"))
             {
+                Date_input_textBox.Enabled = false;
+                Date_input_textBox.ReadOnly = true;
+                Description_input_textBox.Enabled = false;
+                Description_input_textBox.ReadOnly = true;
+                Tenant_input_textBox.Enabled = false;
+                Tenant_input_textBox.ReadOnly = true;
+                Address_input_textBox.Enabled = false;
+                Address_input_textBox.ReadOnly = true;
                 Tenant_input_textBox.Hide();
                 Tenant_textBox.Hide();
                 Address_textBox.Hide();

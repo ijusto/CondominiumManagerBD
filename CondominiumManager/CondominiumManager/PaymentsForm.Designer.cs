@@ -68,6 +68,9 @@
             this.TaxNumber_input_Quota_Invoice_textBox = new System.Windows.Forms.TextBox();
             this.Services_textBox = new System.Windows.Forms.TextBox();
             this.Quotas_textBox = new System.Windows.Forms.TextBox();
+            this.Delete_Quota_button = new System.Windows.Forms.Button();
+            this.Add_Quota_button = new System.Windows.Forms.Button();
+            this.Delete_Service_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Back_button
@@ -299,45 +302,42 @@
             // 
             // Invoice_Quota_textBox
             // 
-            this.Invoice_Quota_textBox.BackColor = System.Drawing.Color.DimGray;
-            this.Invoice_Quota_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Invoice_Quota_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
             this.Invoice_Quota_textBox.Enabled = false;
             this.Invoice_Quota_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Invoice_Quota_textBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Invoice_Quota_textBox.Location = new System.Drawing.Point(5, 162);
+            this.Invoice_Quota_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Invoice_Quota_textBox.Location = new System.Drawing.Point(5, 158);
             this.Invoice_Quota_textBox.Name = "Invoice_Quota_textBox";
             this.Invoice_Quota_textBox.ReadOnly = true;
-            this.Invoice_Quota_textBox.Size = new System.Drawing.Size(132, 16);
+            this.Invoice_Quota_textBox.Size = new System.Drawing.Size(132, 23);
             this.Invoice_Quota_textBox.TabIndex = 67;
             this.Invoice_Quota_textBox.Text = "Invoice";
             this.Invoice_Quota_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Invoice_Service_textBox
             // 
-            this.Invoice_Service_textBox.BackColor = System.Drawing.Color.DimGray;
-            this.Invoice_Service_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Invoice_Service_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
             this.Invoice_Service_textBox.Enabled = false;
             this.Invoice_Service_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Invoice_Service_textBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Invoice_Service_textBox.Location = new System.Drawing.Point(298, 161);
+            this.Invoice_Service_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Invoice_Service_textBox.Location = new System.Drawing.Point(298, 158);
             this.Invoice_Service_textBox.Name = "Invoice_Service_textBox";
             this.Invoice_Service_textBox.ReadOnly = true;
-            this.Invoice_Service_textBox.Size = new System.Drawing.Size(132, 16);
+            this.Invoice_Service_textBox.Size = new System.Drawing.Size(132, 23);
             this.Invoice_Service_textBox.TabIndex = 68;
             this.Invoice_Service_textBox.Text = "Invoice";
             this.Invoice_Service_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Payment_Service_textBox
             // 
-            this.Payment_Service_textBox.BackColor = System.Drawing.Color.DimGray;
-            this.Payment_Service_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Payment_Service_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
             this.Payment_Service_textBox.Enabled = false;
             this.Payment_Service_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Payment_Service_textBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Payment_Service_textBox.Location = new System.Drawing.Point(442, 161);
+            this.Payment_Service_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Payment_Service_textBox.Location = new System.Drawing.Point(442, 158);
             this.Payment_Service_textBox.Name = "Payment_Service_textBox";
             this.Payment_Service_textBox.ReadOnly = true;
-            this.Payment_Service_textBox.Size = new System.Drawing.Size(132, 16);
+            this.Payment_Service_textBox.Size = new System.Drawing.Size(132, 23);
             this.Payment_Service_textBox.TabIndex = 69;
             this.Payment_Service_textBox.Text = "Payment";
             this.Payment_Service_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -470,15 +470,14 @@
             // 
             // Payment_Quota_textBox
             // 
-            this.Payment_Quota_textBox.BackColor = System.Drawing.Color.DimGray;
-            this.Payment_Quota_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Payment_Quota_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
             this.Payment_Quota_textBox.Enabled = false;
             this.Payment_Quota_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Payment_Quota_textBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Payment_Quota_textBox.Location = new System.Drawing.Point(149, 161);
+            this.Payment_Quota_textBox.ForeColor = System.Drawing.Color.Black;
+            this.Payment_Quota_textBox.Location = new System.Drawing.Point(149, 158);
             this.Payment_Quota_textBox.Name = "Payment_Quota_textBox";
             this.Payment_Quota_textBox.ReadOnly = true;
-            this.Payment_Quota_textBox.Size = new System.Drawing.Size(132, 16);
+            this.Payment_Quota_textBox.Size = new System.Drawing.Size(132, 23);
             this.Payment_Quota_textBox.TabIndex = 80;
             this.Payment_Quota_textBox.Text = "Payment";
             this.Payment_Quota_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -534,10 +533,9 @@
             // Services_textBox
             // 
             this.Services_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
-            this.Services_textBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Services_textBox.Enabled = false;
             this.Services_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Services_textBox.ForeColor = System.Drawing.Color.White;
+            this.Services_textBox.ForeColor = System.Drawing.Color.Transparent;
             this.Services_textBox.Location = new System.Drawing.Point(298, 30);
             this.Services_textBox.Name = "Services_textBox";
             this.Services_textBox.ReadOnly = true;
@@ -549,10 +547,9 @@
             // Quotas_textBox
             // 
             this.Quotas_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
-            this.Quotas_textBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Quotas_textBox.Enabled = false;
             this.Quotas_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Quotas_textBox.ForeColor = System.Drawing.Color.White;
+            this.Quotas_textBox.ForeColor = System.Drawing.Color.Transparent;
             this.Quotas_textBox.Location = new System.Drawing.Point(5, 31);
             this.Quotas_textBox.Name = "Quotas_textBox";
             this.Quotas_textBox.ReadOnly = true;
@@ -561,10 +558,55 @@
             this.Quotas_textBox.Text = "Quotas";
             this.Quotas_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // Delete_Quota_button
+            // 
+            this.Delete_Quota_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Delete_Quota_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Delete_Quota_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete_Quota_button.ForeColor = System.Drawing.Color.White;
+            this.Delete_Quota_button.Location = new System.Drawing.Point(176, 329);
+            this.Delete_Quota_button.Name = "Delete_Quota_button";
+            this.Delete_Quota_button.Size = new System.Drawing.Size(76, 23);
+            this.Delete_Quota_button.TabIndex = 94;
+            this.Delete_Quota_button.Text = "Delete";
+            this.Delete_Quota_button.UseVisualStyleBackColor = false;
+            this.Delete_Quota_button.Click += new System.EventHandler(this.Delete_Quota_button_Click);
+            // 
+            // Add_Quota_button
+            // 
+            this.Add_Quota_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Add_Quota_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Add_Quota_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Add_Quota_button.ForeColor = System.Drawing.Color.White;
+            this.Add_Quota_button.Location = new System.Drawing.Point(12, 329);
+            this.Add_Quota_button.Name = "Add_Quota_button";
+            this.Add_Quota_button.Size = new System.Drawing.Size(113, 23);
+            this.Add_Quota_button.TabIndex = 91;
+            this.Add_Quota_button.Text = "Add Quota Invoice";
+            this.Add_Quota_button.UseVisualStyleBackColor = false;
+            this.Add_Quota_button.Click += new System.EventHandler(this.Add_Quota_button_Click);
+            // 
+            // Delete_Service_button
+            // 
+            this.Delete_Service_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(146)))), ((int)(((byte)(202)))));
+            this.Delete_Service_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Delete_Service_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete_Service_button.ForeColor = System.Drawing.Color.White;
+            this.Delete_Service_button.Location = new System.Drawing.Point(471, 330);
+            this.Delete_Service_button.Name = "Delete_Service_button";
+            this.Delete_Service_button.Size = new System.Drawing.Size(76, 23);
+            this.Delete_Service_button.TabIndex = 96;
+            this.Delete_Service_button.Text = "Delete";
+            this.Delete_Service_button.UseVisualStyleBackColor = false;
+            this.Delete_Service_button.Click += new System.EventHandler(this.Delete_Service_button_Click);
+            // 
             // PaymentsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.Delete_Service_button);
+            this.Controls.Add(this.Delete_Quota_button);
+            this.Controls.Add(this.Add_Quota_button);
             this.Controls.Add(this.Quotas_textBox);
             this.Controls.Add(this.Services_textBox);
             this.Controls.Add(this.TaxNumber_input_Quota_Invoice_textBox);
@@ -656,5 +698,8 @@
         private System.Windows.Forms.TextBox TaxNumber_input_Quota_Invoice_textBox;
         private System.Windows.Forms.TextBox Services_textBox;
         private System.Windows.Forms.TextBox Quotas_textBox;
+        private System.Windows.Forms.Button Delete_Quota_button;
+        private System.Windows.Forms.Button Add_Quota_button;
+        private System.Windows.Forms.Button Delete_Service_button;
     }
 }
