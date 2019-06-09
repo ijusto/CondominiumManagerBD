@@ -244,4 +244,19 @@ create procedure condomanager.getfreeref(@endereco as varchar(40)) as
 begin
 	select ref_fracao, piso from condomanager.Fracao where nif_condomino is null and Endereco=@endereco;
 end;
-go 
+go
+
+create procedure condomanager.deletequota(@id_fatura as int) as
+begin
+	delete from condomanager.Fatura_Quotas where Id_Fatura=@id_fatura
+end;
+go
+
+create procedure condomanager.deleteservicos(@id_fatura as int) as
+begin
+	delete from condomanager.Fatura_Servicos where Id_Fatura=@id_fatura
+end;
+go
+	
+	
+	 
