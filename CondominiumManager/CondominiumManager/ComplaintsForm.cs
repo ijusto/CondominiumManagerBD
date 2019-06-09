@@ -83,14 +83,6 @@ namespace CondominiumManager
             return cn.State == ConnectionState.Open;
         }
 
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            var form = new MainMenuForm();
-            form.ShowDialog();
-            this.SendToBack();
-            this.Close();
-        }
-
         private void Listbox_complaints_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentComplaint = Listbox_complaints.SelectedIndex;
@@ -168,8 +160,11 @@ namespace CondominiumManager
                 Description_textBox.Show();
                 Description_input_textBox.Show();
             }
+        }
 
-
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -115,14 +115,6 @@ namespace CondominiumManager
             Info_Visibility("event_info");
         }
 
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            var form = new MainMenuForm();
-            form.ShowDialog();
-            this.SendToBack();
-            this.Close();
-        }
-
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             creating_event = false;
@@ -654,6 +646,11 @@ namespace CondominiumManager
                     days.Remove("30");
                     return days;
             }
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

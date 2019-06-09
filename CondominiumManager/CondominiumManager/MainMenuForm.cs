@@ -99,33 +99,38 @@ namespace CondominiumManager
             }
             else
             {
+                //Hide the main form before showing the secondary
+                this.Hide();
+
+                // Show secondary form, code execution stop until next_form is closed
                 if (name.Equals("Events"))
                 {
-                    var form = new EventsForm();
-                    form.ShowDialog();
+                    EventsForm next_form = new EventsForm();
+                    next_form.ShowDialog(); 
                 }
                 else if (name.Equals("Readings"))
                 {
-                    var form = new ReadingsForm();
-                    form.ShowDialog();
+                    ReadingsForm next_form = new ReadingsForm();
+                    next_form.ShowDialog();
                 }
                 else if (name.Equals("Contacts"))
                 {
-                    var form = new ContactsForm();
-                    form.ShowDialog();
+                    ContactsForm next_form = new ContactsForm();
+                    next_form.ShowDialog();
                 }
                 else if (name.Equals("Payments"))
                 {
-                    var form = new PaymentsForm();
-                    form.ShowDialog();
+                    PaymentsForm next_form = new PaymentsForm();
+                    next_form.ShowDialog();
                 }
                 else if (name.Equals("Complaints"))
                 {
-                    var form = new ComplaintsForm();
-                    form.ShowDialog();
+                    ComplaintsForm next_form = new ComplaintsForm();
+                    next_form.ShowDialog();
                 }
-                this.SendToBack();
-                this.Close();
+
+                //When next_form is closed, continue with the code (show main form)
+                this.Show(); 
             }
         }
 

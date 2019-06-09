@@ -118,14 +118,6 @@ namespace CondominiumManager
             return cn.State == ConnectionState.Open;
         }
 
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            var form = new MainMenuForm();
-            form.ShowDialog();
-            this.SendToBack();
-            this.Close();
-        }
-
         private void Tenants_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentTenant = Tenants_listBox.SelectedIndex;
@@ -659,9 +651,9 @@ namespace CondominiumManager
             cn.Close();
         }
 
-        private void apart_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Back_button_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

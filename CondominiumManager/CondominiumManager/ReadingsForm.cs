@@ -101,14 +101,6 @@ namespace CondominiumManager
             return cn.State == ConnectionState.Open;
         }
 
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            var form = new MainMenuForm();
-            form.ShowDialog();
-            this.SendToBack();
-            this.Close();
-        }
-
         private void Apart_listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentAppart = apart_listBox.SelectedIndex;
@@ -162,6 +154,11 @@ namespace CondominiumManager
                     }
                 }
             }
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

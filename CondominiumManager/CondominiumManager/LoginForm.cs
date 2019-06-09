@@ -44,17 +44,24 @@ namespace CondominiumManager
             {
                 CommandType = CommandType.Text
             };
-            cmd.Parameters.Add("@nif", username);
-            cmd.Parameters.Add("@password", passwordhash);
+            cmd.Parameters.AddWithValue("nif", username);
+            cmd.Parameters.AddWithValue("password", passwordhash);
             bool returnvalue =  (bool)cmd.ExecuteScalar();
 
             if (returnvalue)
             {
+                MainMenuForm mainmenu = new MainMenuForm();
+                this.Hide();           //Hide the main form before showing the secondary
+                passwordinput.Text = "";
+                mainmenu.ShowDialog();     //Show secondary form, code execution stop until frm2 is closed
+                this.Show();           //When frm2 is closed, continue with the code (show main form)
+                /*
                 var mainmenu = new MainMenuForm();
                 mainmenu.ShowDialog();
                 this.SendToBack();
                 this.Dispose();
                 this.Close();
+                */
                 
             }
 
@@ -76,5 +83,6 @@ namespace CondominiumManager
 
             return cn.State == ConnectionState.Open;
         }
+       
     }
 }
