@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsForm));
-            this.Back_button = new System.Windows.Forms.Button();
             this.Place_textBox = new System.Windows.Forms.TextBox();
             this.Tenants_listBox = new System.Windows.Forms.ListBox();
             this.Serv_Providers_textBox = new System.Windows.Forms.TextBox();
@@ -53,23 +52,12 @@
             this.Apartment_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.apart_comboBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search_input_textBox = new System.Windows.Forms.TextBox();
+            this.type_comboBox = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Back_button = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Back_button
-            // 
-            this.Back_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Back_button.BackColor = System.Drawing.SystemColors.Window;
-            this.Back_button.BackgroundImage = global::CondominiumManager.Properties.Resources.back_icon_web;
-            this.Back_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Back_button.FlatAppearance.BorderSize = 0;
-            this.Back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Back_button.Location = new System.Drawing.Point(1, 1);
-            this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(30, 30);
-            this.Back_button.TabIndex = 12;
-            this.Back_button.UseVisualStyleBackColor = false;
-            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
             // Place_textBox
             // 
@@ -346,20 +334,56 @@
             this.apart_comboBox.Size = new System.Drawing.Size(100, 21);
             this.apart_comboBox.TabIndex = 57;
             // 
-            // textBox1
+            // search_input_textBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(179, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 58;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.search_input_textBox.Location = new System.Drawing.Point(214, 7);
+            this.search_input_textBox.Name = "search_input_textBox";
+            this.search_input_textBox.Size = new System.Drawing.Size(165, 20);
+            this.search_input_textBox.TabIndex = 58;
+            this.search_input_textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // type_comboBox
+            // 
+            this.type_comboBox.BackColor = System.Drawing.Color.White;
+            this.type_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.type_comboBox.FormattingEnabled = true;
+            this.type_comboBox.Location = new System.Drawing.Point(319, 228);
+            this.type_comboBox.Name = "type_comboBox";
+            this.type_comboBox.Size = new System.Drawing.Size(100, 21);
+            this.type_comboBox.TabIndex = 59;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::CondominiumManager.Properties.Resources.magnifying_glass;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(354, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Back_button
+            // 
+            this.Back_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Back_button.BackColor = System.Drawing.SystemColors.Window;
+            this.Back_button.BackgroundImage = global::CondominiumManager.Properties.Resources.back_icon_web;
+            this.Back_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Back_button.FlatAppearance.BorderSize = 0;
+            this.Back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Back_button.Location = new System.Drawing.Point(1, 1);
+            this.Back_button.Name = "Back_button";
+            this.Back_button.Size = new System.Drawing.Size(30, 30);
+            this.Back_button.TabIndex = 12;
+            this.Back_button.UseVisualStyleBackColor = false;
+            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.apart_comboBox);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.search_input_textBox);
             this.Controls.Add(this.Apartment_textBox);
             this.Controls.Add(this.Tax_Number_input_textBox);
             this.Controls.Add(this.Tax_Number_textBox);
@@ -369,7 +393,6 @@
             this.Controls.Add(this.Ok_button);
             this.Controls.Add(this.Add_SP_button);
             this.Controls.Add(this.Add_Tenant_button);
-            this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.Type_textBox);
             this.Controls.Add(this.Email_OR_Address_input_textBox);
             this.Controls.Add(this.Email_OR_Address_textBox);
@@ -382,6 +405,9 @@
             this.Controls.Add(this.Tenants_listBox);
             this.Controls.Add(this.Place_textBox);
             this.Controls.Add(this.Back_button);
+            this.Controls.Add(this.type_comboBox);
+            this.Controls.Add(this.apart_comboBox);
+            this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(596, 404);
@@ -390,6 +416,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CondominiumManager";
             this.Load += new System.EventHandler(this.ContactsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,6 +448,8 @@
         private System.Windows.Forms.TextBox Apartment_textBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox apart_comboBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search_input_textBox;
+        private System.Windows.Forms.ComboBox type_comboBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

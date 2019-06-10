@@ -2,7 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace CondominiumManager
@@ -14,7 +16,7 @@ namespace CondominiumManager
         private static String tomsDB = "data source= DESKTOP-RLLMGBE\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
         private static String inesDB = "data source= DESKTOP-ACJ8GCN\\SQLEXPRESS;integrated security=true;initial catalog=condomanagerdb";
         private static String p2g8 = "data source = tcp:mednat.ieeta.pt\\sqlserver,8101; initial catalog=p2g8;uid=p2g8;password=1358054938@Bd";
-        public static String path = tomsDB;
+        public static String path = inesDB;
 
         public MainMenuForm()
         {
@@ -150,7 +152,8 @@ namespace CondominiumManager
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             string photo_path;
-            photo_path = dt.Rows[0]["localizacao"].ToString();
+            string[] s = { "\\bin" };
+            photo_path = Application.StartupPath.Split(s, StringSplitOptions.None)[0] +  dt.Rows[0]["localizacao"].ToString();
             cn.Close();
             /*
             var request = WebRequest.Create(photo_path);
@@ -161,7 +164,7 @@ namespace CondominiumManager
                 photo_pictureBox.Image = Bitmap.FromStream(stream);
             }
             */
-            photo_pictureBox.Load(photo_path);
+            photo_pictureBox.BackgroundImage = Image.FromFile(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), photo_path));
         }
 
         public static class Chosencondo
@@ -181,6 +184,7 @@ namespace CondominiumManager
                 set { _index = value; }
             }
         }
+
     }
 
 }

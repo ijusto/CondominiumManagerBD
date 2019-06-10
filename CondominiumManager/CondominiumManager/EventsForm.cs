@@ -340,6 +340,7 @@ namespace CondominiumManager
             OK_Edit_OR_Delete_button.Hide();
             Edit_button.Show();
             Delete_button.Show();
+            Delete_sure_textBox.Hide();
         }
 
         private void OK_Edit_OR_Delete_button_Click(object sender, EventArgs e)

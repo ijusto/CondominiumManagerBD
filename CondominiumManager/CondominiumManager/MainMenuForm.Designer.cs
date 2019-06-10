@@ -1,4 +1,4 @@
-﻿namespace CondominiumManager
+namespace CondominiumManager
 {
     partial class MainMenuForm
     {
@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.Condo_choose_comboBox = new System.Windows.Forms.ComboBox();
-            this.Contacts_button = new System.Windows.Forms.Button();
-            this.Readings_button = new System.Windows.Forms.Button();
-            this.Logo_button = new System.Windows.Forms.Button();
             this.Contacts_textBox = new System.Windows.Forms.TextBox();
             this.Complaints_textBox = new System.Windows.Forms.TextBox();
-            this.Events_button = new System.Windows.Forms.Button();
             this.Readings_textBox = new System.Windows.Forms.TextBox();
             this.Events_textBox = new System.Windows.Forms.TextBox();
             this.Payments_textBox = new System.Windows.Forms.TextBox();
-            this.Payments_button = new System.Windows.Forms.Button();
-            this.Complaints_button = new System.Windows.Forms.Button();
             this.CondominumSelect_textBox = new System.Windows.Forms.TextBox();
             this.photo_pictureBox = new System.Windows.Forms.PictureBox();
+            this.Contacts_button = new System.Windows.Forms.Button();
+            this.Readings_button = new System.Windows.Forms.Button();
+            this.Logo_button = new System.Windows.Forms.Button();
+            this.Events_button = new System.Windows.Forms.Button();
+            this.Payments_button = new System.Windows.Forms.Button();
+            this.Complaints_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.photo_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,52 +56,6 @@
             this.Condo_choose_comboBox.Size = new System.Drawing.Size(280, 21);
             this.Condo_choose_comboBox.TabIndex = 31;
             this.Condo_choose_comboBox.SelectedIndexChanged += new System.EventHandler(this.Condo_choose_comboBox_SelectedIndexChanged);
-            // 
-            // Contacts_button
-            // 
-            this.Contacts_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Contacts_button.BackColor = System.Drawing.Color.Transparent;
-            this.Contacts_button.BackgroundImage = global::CondominiumManager.Properties.Resources.contacts_icon_web;
-            this.Contacts_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Contacts_button.FlatAppearance.BorderSize = 0;
-            this.Contacts_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Contacts_button.Location = new System.Drawing.Point(439, 91);
-            this.Contacts_button.Margin = new System.Windows.Forms.Padding(0);
-            this.Contacts_button.Name = "Contacts_button";
-            this.Contacts_button.Size = new System.Drawing.Size(80, 80);
-            this.Contacts_button.TabIndex = 25;
-            this.Contacts_button.UseVisualStyleBackColor = false;
-            this.Contacts_button.Click += new System.EventHandler(this.Contacts_button_Click);
-            // 
-            // Readings_button
-            // 
-            this.Readings_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Readings_button.BackColor = System.Drawing.Color.Transparent;
-            this.Readings_button.BackgroundImage = global::CondominiumManager.Properties.Resources.utilities_web;
-            this.Readings_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Readings_button.FlatAppearance.BorderSize = 0;
-            this.Readings_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Readings_button.Location = new System.Drawing.Point(340, 91);
-            this.Readings_button.Name = "Readings_button";
-            this.Readings_button.Size = new System.Drawing.Size(80, 80);
-            this.Readings_button.TabIndex = 24;
-            this.Readings_button.UseVisualStyleBackColor = false;
-            this.Readings_button.Click += new System.EventHandler(this.Readings_button_Click);
-            // 
-            // Logo_button
-            // 
-            this.Logo_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Logo_button.BackColor = System.Drawing.Color.Transparent;
-            this.Logo_button.BackgroundImage = global::CondominiumManager.Properties.Resources.condo_manager_app_icon_web;
-            this.Logo_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Logo_button.Enabled = false;
-            this.Logo_button.FlatAppearance.BorderSize = 0;
-            this.Logo_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Logo_button.Location = new System.Drawing.Point(192, 38);
-            this.Logo_button.Name = "Logo_button";
-            this.Logo_button.Size = new System.Drawing.Size(41, 42);
-            this.Logo_button.TabIndex = 20;
-            this.Logo_button.UseVisualStyleBackColor = false;
             // 
             // Contacts_textBox
             // 
@@ -133,21 +87,6 @@
             this.Complaints_textBox.TabIndex = 30;
             this.Complaints_textBox.Text = "Complaints";
             this.Complaints_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Events_button
-            // 
-            this.Events_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Events_button.BackColor = System.Drawing.Color.Transparent;
-            this.Events_button.BackgroundImage = global::CondominiumManager.Properties.Resources.events_icon_web;
-            this.Events_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Events_button.FlatAppearance.BorderSize = 0;
-            this.Events_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Events_button.Location = new System.Drawing.Point(239, 91);
-            this.Events_button.Name = "Events_button";
-            this.Events_button.Size = new System.Drawing.Size(80, 80);
-            this.Events_button.TabIndex = 22;
-            this.Events_button.UseVisualStyleBackColor = false;
-            this.Events_button.Click += new System.EventHandler(this.Events_button_Click);
             // 
             // Readings_textBox
             // 
@@ -195,6 +134,91 @@
             this.Payments_textBox.Text = "Payments";
             this.Payments_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // CondominumSelect_textBox
+            // 
+            this.CondominumSelect_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CondominumSelect_textBox.BackColor = System.Drawing.Color.White;
+            this.CondominumSelect_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CondominumSelect_textBox.Enabled = false;
+            this.CondominumSelect_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CondominumSelect_textBox.ForeColor = System.Drawing.Color.Black;
+            this.CondominumSelect_textBox.Location = new System.Drawing.Point(239, 27);
+            this.CondominumSelect_textBox.Name = "CondominumSelect_textBox";
+            this.CondominumSelect_textBox.ReadOnly = true;
+            this.CondominumSelect_textBox.Size = new System.Drawing.Size(100, 16);
+            this.CondominumSelect_textBox.TabIndex = 32;
+            this.CondominumSelect_textBox.Text = "Condominium:";
+            // 
+            // photo_pictureBox
+            // 
+            this.photo_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.photo_pictureBox.Location = new System.Drawing.Point(35, 112);
+            this.photo_pictureBox.Name = "photo_pictureBox";
+            this.photo_pictureBox.Size = new System.Drawing.Size(178, 162);
+            this.photo_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.photo_pictureBox.TabIndex = 34;
+            this.photo_pictureBox.TabStop = false;
+            // 
+            // Contacts_button
+            // 
+            this.Contacts_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Contacts_button.BackColor = System.Drawing.Color.Transparent;
+            this.Contacts_button.BackgroundImage = global::CondominiumManager.Properties.Resources.contacts_icon_web;
+            this.Contacts_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Contacts_button.FlatAppearance.BorderSize = 0;
+            this.Contacts_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Contacts_button.Location = new System.Drawing.Point(439, 91);
+            this.Contacts_button.Margin = new System.Windows.Forms.Padding(0);
+            this.Contacts_button.Name = "Contacts_button";
+            this.Contacts_button.Size = new System.Drawing.Size(80, 80);
+            this.Contacts_button.TabIndex = 25;
+            this.Contacts_button.UseVisualStyleBackColor = false;
+            this.Contacts_button.Click += new System.EventHandler(this.Contacts_button_Click);
+            // 
+            // Readings_button
+            // 
+            this.Readings_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Readings_button.BackColor = System.Drawing.Color.Transparent;
+            this.Readings_button.BackgroundImage = global::CondominiumManager.Properties.Resources.utilities_web;
+            this.Readings_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Readings_button.FlatAppearance.BorderSize = 0;
+            this.Readings_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Readings_button.Location = new System.Drawing.Point(340, 91);
+            this.Readings_button.Name = "Readings_button";
+            this.Readings_button.Size = new System.Drawing.Size(80, 80);
+            this.Readings_button.TabIndex = 24;
+            this.Readings_button.UseVisualStyleBackColor = false;
+            this.Readings_button.Click += new System.EventHandler(this.Readings_button_Click);
+            // 
+            // Logo_button
+            // 
+            this.Logo_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Logo_button.BackColor = System.Drawing.Color.Transparent;
+            this.Logo_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logo_button.Enabled = false;
+            this.Logo_button.FlatAppearance.BorderSize = 0;
+            this.Logo_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Logo_button.Location = new System.Drawing.Point(192, 38);
+            this.Logo_button.Name = "Logo_button";
+            this.Logo_button.Size = new System.Drawing.Size(41, 42);
+            this.Logo_button.TabIndex = 20;
+            this.Logo_button.UseVisualStyleBackColor = false;
+            // 
+            // Events_button
+            // 
+            this.Events_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Events_button.BackColor = System.Drawing.Color.Transparent;
+            this.Events_button.BackgroundImage = global::CondominiumManager.Properties.Resources.events_icon_web;
+            this.Events_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Events_button.FlatAppearance.BorderSize = 0;
+            this.Events_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Events_button.Location = new System.Drawing.Point(239, 91);
+            this.Events_button.Name = "Events_button";
+            this.Events_button.Size = new System.Drawing.Size(80, 80);
+            this.Events_button.TabIndex = 22;
+            this.Events_button.UseVisualStyleBackColor = false;
+            this.Events_button.Click += new System.EventHandler(this.Events_button_Click);
+            // 
             // Payments_button
             // 
             this.Payments_button.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -224,30 +248,6 @@
             this.Complaints_button.TabIndex = 23;
             this.Complaints_button.UseVisualStyleBackColor = false;
             this.Complaints_button.Click += new System.EventHandler(this.Complaints_button_Click);
-            // 
-            // CondominumSelect_textBox
-            // 
-            this.CondominumSelect_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CondominumSelect_textBox.BackColor = System.Drawing.Color.White;
-            this.CondominumSelect_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CondominumSelect_textBox.Enabled = false;
-            this.CondominumSelect_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CondominumSelect_textBox.ForeColor = System.Drawing.Color.Black;
-            this.CondominumSelect_textBox.Location = new System.Drawing.Point(239, 27);
-            this.CondominumSelect_textBox.Name = "CondominumSelect_textBox";
-            this.CondominumSelect_textBox.ReadOnly = true;
-            this.CondominumSelect_textBox.Size = new System.Drawing.Size(100, 16);
-            this.CondominumSelect_textBox.TabIndex = 32;
-            this.CondominumSelect_textBox.Text = "Condominium:";
-            // 
-            // photo_pictureBox
-            // 
-            this.photo_pictureBox.Location = new System.Drawing.Point(35, 112);
-            this.photo_pictureBox.Name = "photo_pictureBox";
-            this.photo_pictureBox.Size = new System.Drawing.Size(178, 162);
-            this.photo_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.photo_pictureBox.TabIndex = 34;
-            this.photo_pictureBox.TabStop = false;
             // 
             // MainMenuForm
             // 
