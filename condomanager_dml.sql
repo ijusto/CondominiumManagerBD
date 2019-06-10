@@ -3,13 +3,17 @@ use condomanagerdb
 go
 
  
+ select * from condomanager.fotosprediais
+
+ delete condomanager.fotosprediais
+
 Insert into condomanager.fotosprediais(endereco, localizacao) values
-			('Rua São Martinho','https://vidalasalle.ca/images/community/hero-condos.jpg'),
-			('Rua Nova','https://cdn2.torontorentals.com/photos/medium/7d9a1911-55d4-4ad9-ba03-6180384978b8_720x405.jpg'),
-			('Avenida dos Combatentes','https://thewindsorcondos.com/wp-content/uploads/2018/04/yourdeveloper_box.jpg'),
-			('Rua 25 de Abril','https://images1.apartments.com/i2/HK5HlUEEAcFR_I8vSthPquldbXKJzB_8aT6zFQMRBDs/117/1-br-1-bath-condo---200-n-jefferson-st-1405-chicago-il-foto-principal.jpg'),
-			('Rua Direita','http://www.apra-usa.com/resources/Homepage%20Slideshow/condos.jpg'),
-			('Avenida Guerra Junqueiro','https://media.propertypassbook.com/rx/848/prime/media/2016/11/the-saxony-condominiums-burlington-maple-0.jpg')
+			('Rua São Martinho','\Resources\martinho.jpg'),
+			('Rua Nova','\Resources\nova.jpg'),
+			('Avenida dos Combatentes','\Resources\combatentes.jpg'),
+			('Rua 25 de Abril','\Resources\abril.jpg'),
+			('Rua Direita', '\Resources\direita.jpg'),
+			('Avenida Guerra Junqueiro','\Resources\junqueiro.jpg')
 
 
 
