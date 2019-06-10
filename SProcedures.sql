@@ -282,4 +282,3 @@ begin
 end;
 go
 
-select * from condomanager.fatura_quotas
