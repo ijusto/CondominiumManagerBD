@@ -348,7 +348,7 @@
             this.type_comboBox.BackColor = System.Drawing.Color.White;
             this.type_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.type_comboBox.FormattingEnabled = true;
-            this.type_comboBox.Location = new System.Drawing.Point(319, 228);
+            this.type_comboBox.Location = new System.Drawing.Point(319, 226);
             this.type_comboBox.Name = "type_comboBox";
             this.type_comboBox.Size = new System.Drawing.Size(100, 21);
             this.type_comboBox.TabIndex = 59;
@@ -390,7 +390,6 @@
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
-            this.Controls.Add(this.apart_input_textBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.search_input_textBox);
             this.Controls.Add(this.Apartment_textBox);
@@ -414,9 +413,10 @@
             this.Controls.Add(this.Tenants_listBox);
             this.Controls.Add(this.Place_textBox);
             this.Controls.Add(this.Back_button);
-            this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.type_comboBox);
             this.Controls.Add(this.apart_comboBox);
+            this.Controls.Add(this.apart_input_textBox);
+            this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.Away_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(596, 404);

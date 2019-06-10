@@ -275,3 +275,11 @@ begin
 	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id where nome like '%'+@search+'%' or nif like '%'+@search+'%'
 end;
 go
+
+create procedure condomanager.getoccupiedfractions(@endereco as varchar(40)) as
+begin
+	select ref_fracao, piso from condomanager.Fracao where Endereco = @endereco and nif_condomino is not null
+end;
+go
+
+select * from condomanager.fatura_quotas

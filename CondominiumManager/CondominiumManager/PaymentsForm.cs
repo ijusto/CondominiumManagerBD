@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static CondominiumManager.MainMenuForm;
+using static CondominiumManager.Form1;
 
 namespace CondominiumManager
 {
@@ -30,6 +31,7 @@ namespace CondominiumManager
         {
             InitializeComponent();
             Info_Visibility("load");
+            Add_Quota_button.Show();
         }
 
         private void PaymentsForm_Load(object sender, EventArgs e)
@@ -172,6 +174,7 @@ namespace CondominiumManager
                     {
                         id_f_sp = sp.ID;
                         Info_Visibility("showServiceInvoice");
+                        VerifySGBDConnection();
 
                         cmd = new SqlCommand("condomanager.ispaidservicos", cn) 
                         {
@@ -351,6 +354,7 @@ namespace CondominiumManager
                 Ref_input_Service_Invoice_textBox.Show();
                 Desc_Service_Invoice_textBox.Show();
                 Desc_input_Service_Invoice_textBox.Show();
+                Delete_Service_button.Show();
             }
             else if (name.Equals("showQuotaInvoice"))
             {
@@ -366,6 +370,7 @@ namespace CondominiumManager
                 Ref_input_Quota_Invoice_textBox.Show();
                 Desc_Quota_Invoice_textBox.Show();
                 Desc_input_Quota_Invoice_textBox.Show();
+                Delete_Quota_button.Show();
             }
         }
 
@@ -382,6 +387,7 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("id_to", id_f_quotas);
             cmd.ExecuteNonQuery();
             ShowQuotaInvoice();
+           
         }
 
         private void Mark_Paid_Service_button_Click(object sender, EventArgs e)
@@ -390,28 +396,63 @@ namespace CondominiumManager
             cn = GetSGBDConnection();
             cn.Open();
 
-            cmd = new SqlCommand("condomanager.markaspaidquota", cn) //TODO
+            cmd = new SqlCommand("condomanager.markaspaid", cn) //TODO
             {
                 CommandType = CommandType.StoredProcedure
             };
 
-            cmd.Parameters.AddWithValue("id_to", id_f_quotas); //TODO
+            cmd.Parameters.AddWithValue("id_to", id_f_sp); //TODO
             cmd.ExecuteNonQuery();
-            ShowQuotaInvoice();
+            ShowServiceInvoice();
         }
 
         private void Add_Quota_button_Click(object sender, EventArgs e)
         {
+            var Form1 = new Form1();
+            Form1.ShowDialog();
+            cn = GetSGBDConnection();
+            cn.Open();
 
+            cmd = new SqlCommand("condomanager.createquota", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
+            cmd.Parameters.AddWithValue("ref_fracao", chosenfraction);
+            cmd.Parameters.AddWithValue("descricao", "Fatura de quotas");
+            cmd.ExecuteNonQuery();
+            Fill_Quota();
         }
 
         private void Delete_Quota_button_Click(object sender, EventArgs e)
         {
 
+            VerifySGBDConnection();
+
+            cmd = new SqlCommand("condomanager.deletequota", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("id_fatura", id_f_quotas);
+            cmd.ExecuteNonQuery();
+            Fill_Quota();
+
         }
 
         private void Delete_Service_button_Click(object sender, EventArgs e)
         {
+
+
+            VerifySGBDConnection();
+
+            cmd = new SqlCommand("condomanager.deleteservicos", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("id_fatura", id_f_sp);
+            cmd.ExecuteNonQuery();
+            Fill_Service();
 
         }
 

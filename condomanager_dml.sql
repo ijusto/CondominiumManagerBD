@@ -68,7 +68,7 @@ insert into condomanager.Tipo_Fornecedor(Id, Descricao) values
 			(2, 'Fornecedor de Luz'),
 			(3, 'Fornecedor de Gás'),
 			(4, 'Fornecedor de Material de Reparação'),
-			(5, 'Forencedor de Material de Construcão')
+			(5, 'Fornecedor de Material de Construcão')
 
 insert into condomanager.Fornecedor_Servicos(NIF, Nome, Morada, Telemovel, tipo) values
 			('501654738', 'Endesa', 'Rua Marquês de Pombal', '213423569', 2),
@@ -113,3 +113,5 @@ Insert into condomanager.fotosprediais(endereco, localizacao) values
 			('Rua 25 de Abril','\Resources\abril.jpg'),
 			('Rua Direita', '\Resources\direita.jpg'),
 			('Avenida Guerra Junqueiro','\Resources\junqueiro.jpg')
+
+delete from condomanager.Condomino where NIF =''

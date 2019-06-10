@@ -211,6 +211,7 @@ namespace CondominiumManager
                         Mobile_input_textBox.Text = t.Mobile;
                         Email_OR_Address_input_textBox.Text = t.Email;
                         Tax_Number_input_textBox.Text = t.Tax_Number;
+                        apart_input_textBox.Text = String.Join(", ", t.fracao.ToArray());
                     }
                 }
             }
@@ -236,7 +237,9 @@ namespace CondominiumManager
                         Name_input_textBox.Text = sp.Name;
                         Mobile_input_textBox.Text = sp.Mobile;
                         Email_OR_Address_input_textBox.Text = sp.Address;
-                        Type_input_textBox.Text = sp.Type;
+                        Tax_Number_input_textBox.Text = sp.Tax_Number;
+                        Type_input_textBox.Text = sp.Type.Replace("Fornecedor de", "");
+                        
                     }
                 }
             }
@@ -287,7 +290,6 @@ namespace CondominiumManager
             cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
             cmd.Parameters.AddWithValue("email", Email_OR_Address_input_textBox.Text);
             cmd.Parameters.AddWithValue("endereco", Chosencondo.Chosen_condo);
-            apart_comboBox.Enabled = true;
             cmd.Parameters.AddWithValue("ref_fracao", apart_comboBox.SelectedItem.ToString().Split('-')[0]);
             cmd.ExecuteNonQuery();
             cn.Close();
@@ -295,17 +297,36 @@ namespace CondominiumManager
 
         private void AddServP()
         {
+            int id = 0;
             cn = GetSGBDConnection();
             cn.Open();
             cmd = new SqlCommand("condomanager.addsp", cn)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.AddWithValue("nif", Tax_Number_input_textBox.Text);
+            cmd.Parameters.AddWithValue("nif", Tax_Number_input_textBox.Text.ToString());
             cmd.Parameters.AddWithValue("nome", Name_input_textBox.Text);
             cmd.Parameters.AddWithValue("telemovel", Mobile_input_textBox.Text);
             cmd.Parameters.AddWithValue("morada", Email_OR_Address_input_textBox.Text);
-            cmd.Parameters.AddWithValue("tipo", Type_input_textBox.Text);
+            switch (type_comboBox.SelectedItem.ToString())
+            {
+                case "Luz":
+                   id = 2;
+                   break;
+                case "Gás":
+                    id = 3;
+                    break;
+                case "Água":
+                    id = 1;
+                    break;
+                case "Material de Reparação":
+                    id = 4;
+                    break;
+                case "Material de Construção":
+                    id = 5;
+                    break;
+            }
+            cmd.Parameters.AddWithValue("tipo",id);
             cmd.ExecuteNonQuery();
             cn.Close();
         }
@@ -379,7 +400,7 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                type_comboBox.Items.Add(dr["descricao"].ToString());
+                type_comboBox.Items.Add(dr["descricao"].ToString().Replace("Fornecedor de " , ""));
             }
             cn.Close();
         }
@@ -395,6 +416,12 @@ namespace CondominiumManager
         private void Add_Tenant_button_Click(object sender, EventArgs e)
         {
             ResetAllInput();
+            showTenant = false;
+            showSP = false;
+            edit = false;
+            AddTenant = true;
+            AddSP = false;
+
 
             // Clickable away action does'nt cause lost of add info
             Away_button.Enabled = false;
@@ -402,32 +429,32 @@ namespace CondominiumManager
             EnableAllWriteTextboxes();
             HideTextBoxes();
             ShowTextBoxes("tenant");
+            apart_comboBox.Show();
+            ShowButtons();
+            updateAvailApart();
            
-            showTenant = false;
-            showSP = false;
-            edit = false;
-            AddTenant = true;
-            AddSP = false;
-
+            
             Fill_Tenant_ListBox(false, "");
         }
 
         private void Add_SP_button_Click(object sender, EventArgs e)
         {
             ResetAllInput();
-
-            // Clickable away action does'nt cause lost of add info
-            Away_button.Enabled = false;
-
-            EnableAllWriteTextboxes();
-            HideTextBoxes();
-            ShowTextBoxes("sp");
-            
             showTenant = false;
             showSP = false;
             edit = false;
             AddTenant = false;
             AddSP = true;
+
+            // Clickable away action does'nt cause lost of add info
+            Away_button.Enabled = false;
+
+            ShowButtons();
+            EnableAllWriteTextboxes();
+            HideTextBoxes();
+            ShowTextBoxes("sp");
+            
+            
 
             Fill_Serv_Prov_ListBox(false, "");
         }
@@ -437,7 +464,7 @@ namespace CondominiumManager
             // Clickable away action causes lost of contact/edit info
             Away_button.Enabled = true;
 
-            ResetAllInput();
+           
             DisableAllWriteTextboxes();
 
             if (edit && showTenant)
@@ -468,6 +495,7 @@ namespace CondominiumManager
             {
                 Add_Tenant_button.Hide();
             }
+            ResetAllInput();
         }
         
         private void Cancel_button_Click(object sender, EventArgs e)
@@ -623,6 +651,8 @@ namespace CondominiumManager
             Tax_Number_input_textBox.Hide();
             apart_comboBox.Hide();
             type_comboBox.Hide();
+            apart_input_textBox.Hide();
+            
         }
 
         private void ShowTextBoxes(string str)

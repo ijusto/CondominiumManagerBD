@@ -5,7 +5,7 @@ go
 create function condomanager.calcquota (@ref_fracao as varchar(5), @endereco as varchar(40)) returns money as
 begin
 	declare @valorquota money
-	select @valorquota = (Orcam_Anual*(Permilagem /1000)) from condomanager.Fracao join 
+	select @valorquota = floor((Orcam_Anual*(Permilagem /1000))/12) from condomanager.Fracao join 
 	condomanager.Condominio on condomanager.fracao.Endereco=condomanager.Condominio.Endereco where Ref_fracao = @ref_fracao and condomanager.fracao.Endereco = @endereco
 	Return @valorquota;
 end;
