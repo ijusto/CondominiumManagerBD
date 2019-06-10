@@ -106,10 +106,6 @@ insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Qu
 	('Pagamento Quota Junho 2018', '20190608 12:00:00', 'Rua São Martinho', 'A1', 60)
 
 
-
-
-delete condomanager.fotosprediais
-
 Insert into condomanager.fotosprediais(endereco, localizacao) values
 			('Rua São Martinho','\Resources\martinho.jpg'),
 			('Rua Nova','\Resources\nova.jpg'),

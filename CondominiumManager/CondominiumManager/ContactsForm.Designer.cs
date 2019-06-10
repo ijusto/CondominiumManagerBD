@@ -50,12 +50,13 @@
             this.Tax_Number_input_textBox = new System.Windows.Forms.TextBox();
             this.Tax_Number_textBox = new System.Windows.Forms.TextBox();
             this.Apartment_textBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Away_button = new System.Windows.Forms.Button();
             this.apart_comboBox = new System.Windows.Forms.ComboBox();
             this.search_input_textBox = new System.Windows.Forms.TextBox();
             this.type_comboBox = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Back_button = new System.Windows.Forms.Button();
+            this.apart_input_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -308,21 +309,21 @@
             this.Apartment_textBox.TabIndex = 54;
             this.Apartment_textBox.Text = "Apartment:";
             // 
-            // button1
+            // Away_button
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(579, 363);
-            this.button1.TabIndex = 56;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Away_button.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.Away_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Away_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Away_button.FlatAppearance.BorderSize = 0;
+            this.Away_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.Away_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Away_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Away_button.Location = new System.Drawing.Point(1, 1);
+            this.Away_button.Name = "Away_button";
+            this.Away_button.Size = new System.Drawing.Size(579, 363);
+            this.Away_button.TabIndex = 56;
+            this.Away_button.UseVisualStyleBackColor = false;
+            this.Away_button.Click += new System.EventHandler(this.Away_button_Click);
             // 
             // apart_comboBox
             // 
@@ -336,7 +337,7 @@
             // 
             // search_input_textBox
             // 
-            this.search_input_textBox.Location = new System.Drawing.Point(214, 7);
+            this.search_input_textBox.Location = new System.Drawing.Point(183, 7);
             this.search_input_textBox.Name = "search_input_textBox";
             this.search_input_textBox.Size = new System.Drawing.Size(165, 20);
             this.search_input_textBox.TabIndex = 58;
@@ -356,7 +357,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::CondominiumManager.Properties.Resources.magnifying_glass;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(354, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(349, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -378,10 +379,18 @@
             this.Back_button.UseVisualStyleBackColor = false;
             this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
+            // apart_input_textBox
+            // 
+            this.apart_input_textBox.Location = new System.Drawing.Point(319, 227);
+            this.apart_input_textBox.Name = "apart_input_textBox";
+            this.apart_input_textBox.Size = new System.Drawing.Size(101, 20);
+            this.apart_input_textBox.TabIndex = 62;
+            // 
             // ContactsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.apart_input_textBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.search_input_textBox);
             this.Controls.Add(this.Apartment_textBox);
@@ -405,10 +414,10 @@
             this.Controls.Add(this.Tenants_listBox);
             this.Controls.Add(this.Place_textBox);
             this.Controls.Add(this.Back_button);
+            this.Controls.Add(this.Type_input_textBox);
             this.Controls.Add(this.type_comboBox);
             this.Controls.Add(this.apart_comboBox);
-            this.Controls.Add(this.Type_input_textBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Away_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(596, 404);
             this.MinimumSize = new System.Drawing.Size(596, 404);
@@ -446,10 +455,11 @@
         private System.Windows.Forms.TextBox Tax_Number_input_textBox;
         private System.Windows.Forms.TextBox Tax_Number_textBox;
         private System.Windows.Forms.TextBox Apartment_textBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Away_button;
         private System.Windows.Forms.ComboBox apart_comboBox;
         private System.Windows.Forms.TextBox search_input_textBox;
         private System.Windows.Forms.ComboBox type_comboBox;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox apart_input_textBox;
     }
 }

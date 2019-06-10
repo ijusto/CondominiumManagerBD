@@ -65,6 +65,10 @@ namespace CondominiumManager
                 */
                 
             }
+            else
+            {
+                MessageBox.Show("Wrong credencials");
+            }
 
 
             
