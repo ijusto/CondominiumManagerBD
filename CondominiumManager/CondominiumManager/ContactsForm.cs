@@ -489,6 +489,11 @@ namespace CondominiumManager
                 AddServP();
                 Fill_Serv_Prov_ListBox(false, "");
             }
+            showSP = false;
+            showTenant = false;
+            edit = false;
+            AddSP = false;
+            AddTenant = false;
             updateAvailApart();
             search_input_textBox.Text = "";
             HideTextBoxes();
@@ -498,6 +503,7 @@ namespace CondominiumManager
                 Add_Tenant_button.Hide();
             }
             ResetAllInput();
+            DisableAllWriteTextboxes();
         }
         
         private void Cancel_button_Click(object sender, EventArgs e)
@@ -510,9 +516,6 @@ namespace CondominiumManager
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
-            // Clickable away action does'nt cause lost of add info
-            Away_button.Enabled = false;
-
             showTenant = false;
             showSP = false;
             edit = true;
@@ -531,6 +534,9 @@ namespace CondominiumManager
 
             Fill_Serv_Prov_ListBox(false, "");
             Fill_Tenant_ListBox(false, "");
+
+            // Clickable away action does'nt cause lost of add info
+            Away_button.Enabled = false;
         }
 
         private void Delete_button_Click(object sender, EventArgs e)
