@@ -186,5 +186,6 @@ namespace CondominiumManager
             Info_Visibility("load");
             Fill_Complaint();
         }
+        
     }
 }
