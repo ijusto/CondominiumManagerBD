@@ -3,14 +3,6 @@
 use condomanagerdb
 go
 
-
-Create procedure condomanager.showphoto (@endereco as varchar(40)) as
-begin
-	select localizacao from condomanager.fotosprediais
-	 where endereco = @endereco
-end;
-go
-
 create view condomanager.getsptypes as
 	select * from condomanager.Tipo_Fornecedor
 go
@@ -22,6 +14,19 @@ go
 create view condomanager.view_condos as
 	select endereco from condomanager.Condominio
 go
+
+create view condomanager.view_logs as 
+	select * from condomanager.logs
+go
+
+
+Create procedure condomanager.showphoto (@endereco as varchar(40)) as
+begin
+	select localizacao from condomanager.fotosprediais
+	 where endereco = @endereco
+end;
+go
+
 
 Create procedure condomanager.showcomplaints (@endereco as varchar(40)) as
 begin

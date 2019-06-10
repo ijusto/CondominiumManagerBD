@@ -206,7 +206,8 @@ namespace CondominiumManager
                             //add payment values
                             Date_input_Service_Payment_textBox.Text = dt.Rows[0]["data"].ToString();
                             Desc_input_Service_Payment_textBox.Text = dt.Rows[0]["descricao"].ToString();
-                            Mark_Paid_Quota_button.Hide();
+                            Mark_Paid_Quota_button.Show();
+                            Add_Quota_button.Hide();
                         }
                         else
                         {
@@ -238,6 +239,7 @@ namespace CondominiumManager
                         ShowQuotaInvTB();
                         //Show Quota Buttons
                         Delete_Quota_button.Show();
+                        
 
                         cmd = new SqlCommand("condomanager.ispaidquotas", cn)
                         {
@@ -274,6 +276,7 @@ namespace CondominiumManager
                             Date_input_Quota_Payment_textBox.Text = dt.Rows[0]["data"].ToString();
                             Desc_input_Quota_Payment_textBox.Text = dt.Rows[0]["descricao"].ToString();
                             Mark_Paid_Quota_button.Hide();
+                            Add_Quota_button.Hide();
                         }
                         else
                         {
@@ -284,6 +287,7 @@ namespace CondominiumManager
                             Desc_Quota_Payment_textBox.Hide();
                             Desc_input_Quota_Payment_textBox.Hide();
                             Mark_Paid_Quota_button.Show();
+                            Add_Quota_button.Hide();
                         }
                     }
                 }
