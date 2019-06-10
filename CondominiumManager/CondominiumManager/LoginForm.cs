@@ -84,6 +84,16 @@ namespace CondominiumManager
 
             return cn.State == ConnectionState.Open;
         }
-       
+
+        private void passwordinput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginbutton.PerformClick();
+                // these last two lines will stop the beep sound
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
     }
 }
