@@ -40,6 +40,7 @@
             this.Date_textBox = new System.Windows.Forms.TextBox();
             this.Complaints_textBox = new System.Windows.Forms.TextBox();
             this.Listbox_complaints = new System.Windows.Forms.ListBox();
+            this.deletebutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Tenant_input_textBox
@@ -165,10 +166,21 @@
             this.Listbox_complaints.TabIndex = 12;
             this.Listbox_complaints.SelectedIndexChanged += new System.EventHandler(this.Listbox_complaints_SelectedIndexChanged);
             // 
+            // deletebutton
+            // 
+            this.deletebutton.Location = new System.Drawing.Point(402, 330);
+            this.deletebutton.Name = "deletebutton";
+            this.deletebutton.Size = new System.Drawing.Size(75, 23);
+            this.deletebutton.TabIndex = 24;
+            this.deletebutton.Text = "Delete";
+            this.deletebutton.UseVisualStyleBackColor = true;
+            this.deletebutton.Click += new System.EventHandler(this.deletebutton_Click);
+            // 
             // ComplaintsForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.deletebutton);
             this.Controls.Add(this.Tenant_input_textBox);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Description_input_textBox);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.TextBox Date_textBox;
         private System.Windows.Forms.TextBox Complaints_textBox;
         private System.Windows.Forms.ListBox Listbox_complaints;
+        private System.Windows.Forms.Button deletebutton;
     }
 }

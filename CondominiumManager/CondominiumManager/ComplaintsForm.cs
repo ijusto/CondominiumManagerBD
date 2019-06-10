@@ -19,6 +19,8 @@ namespace CondominiumManager
         private SqlCommand cmd;
         private int currentComplaint;
         private int index = 0;
+        private int selectedcomplaintid = 0;
+
 
         public ComplaintsForm()
         {
@@ -97,6 +99,7 @@ namespace CondominiumManager
                 {
                     if (c.Index == currentComplaint)
                     {
+                        selectedcomplaintid = c.Id;
                         Date_input_textBox.Text = c.Date.Split(' ')[0];
                         Description_input_textBox.Text = c.Desc;
                         Tenant_input_textBox.Text = c.Tname;
@@ -135,6 +138,7 @@ namespace CondominiumManager
                 Date_input_textBox.Hide();
                 Description_textBox.Hide();
                 Description_input_textBox.Hide();
+                deletebutton.Hide();
             }
             else if (name.Equals("notF"))
             {
@@ -147,6 +151,7 @@ namespace CondominiumManager
                 Date_input_textBox.Show();
                 Description_textBox.Show();
                 Description_input_textBox.Show();
+                deletebutton.Show();
             }
             else if (name.Equals("witchF"))
             {
@@ -159,12 +164,27 @@ namespace CondominiumManager
                 Date_input_textBox.Show();
                 Description_textBox.Show();
                 Description_input_textBox.Show();
+                deletebutton.Show();
             }
         }
 
         private void Back_button_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void deletebutton_Click(object sender, EventArgs e)
+        {
+            VerifySGBDConnection();
+            var cmd = new SqlCommand("condomanager.deleterec", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.AddWithValue("id", selectedcomplaintid);
+            cmd.ExecuteNonQuery();
+            Info_Visibility("load");
+            Fill_Complaint();
         }
     }
 }
