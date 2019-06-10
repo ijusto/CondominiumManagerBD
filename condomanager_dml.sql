@@ -2,11 +2,6 @@
 use condomanagerdb
 go
 
- 
-
-
-
-
 Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
 			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
 			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
@@ -112,10 +107,9 @@ insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Qu
 
 
 Insert into condomanager.fotosprediais(endereco, localizacao) values
-			('Rua São Martinho','https://vidalasalle.ca/images/community/hero-condos.jpg'),
-			('Rua Nova','https://cdn2.torontorentals.com/photos/medium/7d9a1911-55d4-4ad9-ba03-6180384978b8_720x405.jpg'),
-			('Avenida dos Combatentes','https://thewindsorcondos.com/wp-content/uploads/2018/04/yourdeveloper_box.jpg'),
-			('Rua 25 de Abril','https://images1.apartments.com/i2/HK5HlUEEAcFR_I8vSthPquldbXKJzB_8aT6zFQMRBDs/117/1-br-1-bath-condo---200-n-jefferson-st-1405-chicago-il-foto-principal.jpg'),
-			('Rua Direita','http://www.apra-usa.com/resources/Homepage%20Slideshow/condos.jpg'),
-			('Avenida Guerra Junqueiro','https://media.propertypassbook.com/rx/848/prime/media/2016/11/the-saxony-condominiums-burlington-maple-0.jpg')
-
+			('Rua São Martinho','\Resources\martinho.jpg'),
+			('Rua Nova','\Resources\nova.jpg'),
+			('Avenida dos Combatentes','\Resources\combatentes.jpg'),
+			('Rua 25 de Abril','\Resources\abril.jpg'),
+			('Rua Direita', '\Resources\direita.jpg'),
+			('Avenida Guerra Junqueiro','\Resources\junqueiro.jpg')

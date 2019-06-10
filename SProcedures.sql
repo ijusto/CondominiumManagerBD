@@ -11,6 +11,10 @@ begin
 end;
 go
 
+create view condomanager.getsptypes as
+	select * from condomanager.Tipo_Fornecedor
+go
+
 create view condomanager.getsupplierview as 
 	select NIF, Nome, telemovel, morada, descricao from condomanager.Fornecedor_Servicos join condomanager.Tipo_Fornecedor on tipo = Id
 go

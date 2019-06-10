@@ -45,15 +45,18 @@ namespace CondominiumManager
         private void ContactsForm_Load(object sender, EventArgs e)
         {
             updateAvailApart();
-            Info_Visibility("Contacts_Load");
-            Fill_TenantContacts(false, "");
+            getSPTypes();
+            search_input_textBox.Text = "";
+            HideTextBoxes();
+            HideButtons();
+            Fill_Tenant_ListBox(false, "");
             currentTenant = Tenants_listBox.SelectedIndex;
-            Fill_Serv_Prov_Contacts(false, "");
+            Fill_Serv_Prov_ListBox(false, "");
             currentSrvProv = Serv_Providers_listBox.SelectedIndex;
-            DisableWriteTextboxes();
+            DisableAllWriteTextboxes();
         }
 
-        private void Fill_TenantContacts(bool search, string searchquery)
+        private void Fill_Tenant_ListBox(bool search, string searchquery)
         {
             string query = "";
             if (search)
@@ -108,7 +111,7 @@ namespace CondominiumManager
             cn.Close();
         }
 
-        private void Fill_Serv_Prov_Contacts(bool search, string searchquery)
+        private void Fill_Serv_Prov_ListBox(bool search, string searchquery)
         {
             
             sp_index = 0;
@@ -168,10 +171,11 @@ namespace CondominiumManager
             if (currentTenant != -1)
             {
                 Serv_Providers_listBox.ClearSelected();
-                Info_Visibility("TenantContact");
+                HideTextBoxes();
+                ShowTextBoxes("tenant");
+                ShowButtons();
+                ShowTenantDBInfo();
             }
-            
-            ShowTenantContact();
         }
 
         private void Serv_Providers_listBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,191 +184,14 @@ namespace CondominiumManager
             if(currentSrvProv!=-1)
             {
                 Tenants_listBox.ClearSelected();
-                Info_Visibility("SPContact");
-            }
-            ShowSPContact();
-        }
-
-        private void Info_Visibility(string name)
-        {
-            if (name.Equals("Contacts_Load"))
-            {
-                // Hide Tenant/Service_Provider attributs
-                Name_textBox.Hide();
-                Name_input_textBox.Hide();
-                Mobile_textBox.Hide();
-                Mobile_input_textBox.Hide();
-                Email_OR_Address_textBox.Hide();
-                Email_OR_Address_input_textBox.Hide();
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Ok_button.Hide();
-                Cancel_button.Hide();
-                Add_Tenant_button.Show();
-                Add_SP_button.Show();
-                Edit_button.Hide();
-                Delete_button.Hide();
-                Tax_Number_textBox.Hide();
-                Tax_Number_input_textBox.Hide();
-                Apartment_textBox.Hide();
-                apart_comboBox.Hide();
-                if(hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
-            }
-            else if(name.Equals("TenantContact"))
-            {
-                // Show Tenant attributs
-                Name_textBox.Show();
-                Name_input_textBox.Show();
-                Mobile_textBox.Show();
-                Mobile_input_textBox.Show();
-                Email_OR_Address_textBox.Show();
-                Email_OR_Address_textBox.Text = "Email:";
-                Email_OR_Address_input_textBox.Show();
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Ok_button.Hide();
-                Cancel_button.Hide();
-                Add_Tenant_button.Hide();
-                Add_SP_button.Hide();
-                Edit_button.Show();
-                Delete_button.Show();
-                if (hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
-            }
-            else if (name.Equals("EditTenant"))
-            {
-                // Show Tenant attributs
-                Name_textBox.Show();
-                Name_input_textBox.Show();
-                Mobile_textBox.Show();
-                Mobile_input_textBox.Show();
-                Email_OR_Address_textBox.Show();
-                Email_OR_Address_textBox.Text = "Email:";
-                Email_OR_Address_input_textBox.Show();
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Ok_button.Show();
-                Cancel_button.Show();
-                Add_Tenant_button.Hide();
-                Add_SP_button.Hide();
-                Edit_button.Hide();
-                Delete_button.Hide();
-                if (hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
-            }
-            else if(name.Equals("SPContact"))
-            {
-                // Show Tenant attributs
-                Name_textBox.Show();
-                Name_input_textBox.Show();
-                Mobile_textBox.Show();
-                Mobile_input_textBox.Show();
-                Email_OR_Address_textBox.Show();
-                Email_OR_Address_textBox.Text = "Address:";
-                Email_OR_Address_input_textBox.Show();
-                Type_textBox.Show();
-                Type_input_textBox.Show();
-                Ok_button.Hide();
-                Cancel_button.Hide();
-                Add_Tenant_button.Hide();
-                Add_SP_button.Hide();
-                Edit_button.Show();
-                Delete_button.Show();
-                if (hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
-            }
-            else if (name.Equals("EditSP"))
-            {
-                // Show Tenant attributs
-                Name_textBox.Show();
-                Name_input_textBox.Show();
-                Mobile_textBox.Show();
-                Mobile_input_textBox.Show();
-                Email_OR_Address_textBox.Show();
-                Email_OR_Address_textBox.Text = "Address:";
-                Email_OR_Address_input_textBox.Show();
-                Type_textBox.Show();
-                Type_input_textBox.Show();
-                Ok_button.Show();
-                Cancel_button.Show();
-                Add_Tenant_button.Hide();
-                Add_SP_button.Hide();
-                Edit_button.Hide();
-                Delete_button.Hide();
-                if (hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
-
-            }
-            else if (name.Equals("AddTenant"))
-            {
-                Name_textBox.Show();
-                Name_input_textBox.Show();
-                Name_input_textBox.ReadOnly = false;
-                Name_input_textBox.Enabled = true;
-                Mobile_textBox.Show();
-                Mobile_input_textBox.Show();
-                Mobile_input_textBox.ReadOnly = false;
-                Mobile_input_textBox.Enabled = true;
-                Email_OR_Address_textBox.Show();
-                Email_OR_Address_input_textBox.Show();
-                Email_OR_Address_input_textBox.ReadOnly = false;
-                Email_OR_Address_input_textBox.Enabled = true;
-                Type_textBox.Hide();
-                Type_input_textBox.Hide();
-                Ok_button.Show();
-                Cancel_button.Show();
-                Add_Tenant_button.Hide();
-                Add_SP_button.Hide();
-                Edit_button.Hide();
-                Delete_button.Hide();
-                if (hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
-            }
-            else if (name.Equals("AddSP"))
-            {
-                Name_textBox.Show();
-                Name_input_textBox.Show();
-                Name_input_textBox.ReadOnly = false;
-                Name_input_textBox.Enabled = true;
-                Mobile_textBox.Show();
-                Mobile_input_textBox.Show();
-                Mobile_input_textBox.ReadOnly = false;
-                Mobile_input_textBox.Enabled = true;
-                Email_OR_Address_textBox.Show();
-                Email_OR_Address_input_textBox.Show();
-                Email_OR_Address_input_textBox.ReadOnly = false;
-                Email_OR_Address_input_textBox.Enabled = true;
-                Type_textBox.Show();
-                Type_input_textBox.Show();
-                Type_input_textBox.ReadOnly = false;
-                Type_input_textBox.Enabled = true;
-                Ok_button.Show();
-                Cancel_button.Show();
-                Add_Tenant_button.Hide();
-                Add_SP_button.Hide();
-                Edit_button.Hide();
-                Delete_button.Hide();
-                if (hide_add)
-                {
-                    Add_Tenant_button.Hide();
-                }
+                HideTextBoxes();
+                ShowTextBoxes("sp");
+                ShowButtons();
+                ShowSPDBInfo();
             }
         }
 
-        private void ShowTenantContact()
+        private void ShowTenantDBInfo()
         {
             showTenant = true;
             showSP = false;
@@ -376,7 +203,6 @@ namespace CondominiumManager
                 {
                     if (t.Index == currentTenant)
                     {
-
                         curTenTaxNum = t.Tax_Number;
                         curTenName = t.Name;
                         curTenEmail = t.Email;
@@ -384,12 +210,13 @@ namespace CondominiumManager
                         Name_input_textBox.Text = t.Name;
                         Mobile_input_textBox.Text = t.Mobile;
                         Email_OR_Address_input_textBox.Text = t.Email;
+                        Tax_Number_input_textBox.Text = t.Tax_Number;
                     }
                 }
             }
         }
 
-        private void ShowSPContact()
+        private void ShowSPDBInfo()
         {
             showTenant = false;
             showSP = true;
@@ -413,122 +240,6 @@ namespace CondominiumManager
                     }
                 }
             }
-        }
-
-        private void Add_Tenant_button_Click(object sender, EventArgs e)
-        {
-            Name_input_textBox.Text = "";
-            Mobile_input_textBox.Text = "";
-            Email_OR_Address_input_textBox.Text = "";
-            Email_OR_Address_textBox.Text = "Email";
-            Type_input_textBox.Text = "";
-            button1.Enabled = false;
-            Tax_Number_textBox.Show();
-            Tax_Number_input_textBox.Show();
-            Apartment_textBox.Show();
-            apart_comboBox.Show();
-            ShowTextBoxes();
-            Type_textBox.Hide();
-            Type_input_textBox.Hide();
-            showTenant = false;
-            showSP = false;
-            edit = false;
-            AddTenant = true;
-            AddSP = false;
-            Info_Visibility("AddTenant");
-            Fill_TenantContacts(false, "");
-        }
-
-        private void Add_SP_button_Click(object sender, EventArgs e)
-        {
-            Name_input_textBox.Text = "";
-            Mobile_input_textBox.Text = "";
-            Email_OR_Address_input_textBox.Text = "";
-            Email_OR_Address_textBox.Text = "Address";
-            Type_input_textBox.Text = "";
-            button1.Enabled = false;
-            Tax_Number_textBox.Show();
-            Tax_Number_input_textBox.Show();
-            ShowTextBoxes();
-            showTenant = false;
-            showSP = false;
-            edit = false;
-            AddTenant = false;
-            AddSP = true;
-            Info_Visibility("AddSP");
-            Fill_Serv_Prov_Contacts(false, "");
-        }
-
-        private void Ok_button_Click(object sender, EventArgs e)
-        {
-            button1.Enabled = true;
-            Tax_Number_textBox.Hide();
-            Tax_Number_input_textBox.Hide();
-            Apartment_textBox.Show();
-            apart_comboBox.Show();
-            DisableWriteTextboxes();
-            edit = true;
-            if (edit && showTenant)
-            {
-                EditTenant();
-                Fill_TenantContacts(false, "");
-            }
-            else if (edit && showSP)
-            {
-                EditSP();
-                Fill_Serv_Prov_Contacts(false, "");
-            }
-            else if(AddTenant)
-            {
-                AddTen();
-                Fill_TenantContacts(false, "");
-            }
-            else if (AddSP)
-            {
-                AddServP();
-                Fill_Serv_Prov_Contacts(false, "");
-            }
-            updateAvailApart();
-            Info_Visibility("Contacts_Load");
-        }
-
-        private void Cancel_button_Click(object sender, EventArgs e)
-        {
-            Tax_Number_textBox.Hide();
-            Tax_Number_input_textBox.Hide();
-            DisableWriteTextboxes();
-            Info_Visibility("Contacts_Load");
-        }
-
-        private void Edit_button_Click(object sender, EventArgs e)
-        {
-            EnableWriteTextboxes();
-            Type_input_textBox.Enabled = true;
-            Type_input_textBox.ReadOnly = false;
-            AddTenant = false;
-            AddSP = false;
-            edit = true;
-            if (showTenant) { Info_Visibility("EditTenant"); }
-            else if (showSP) { Info_Visibility("EditSP"); }
-
-            Fill_Serv_Prov_Contacts(false, "");
-            Fill_TenantContacts(false, "");
-        }
-        
-        private void Delete_button_Click(object sender, EventArgs e)
-        {
-            if (showTenant)
-            {
-                DeleteTenant();
-            }
-            else if (showSP)
-            {
-                DeleteSP();
-            }
-            Info_Visibility("Contacts_Load");
-
-            Fill_Serv_Prov_Contacts(false, "");
-            Fill_TenantContacts(false, "");
         }
 
         private void EditTenant()
@@ -625,48 +336,6 @@ namespace CondominiumManager
             cn.Close();
         }
 
-        private void EnableWriteTextboxes()
-        {
-            Name_input_textBox.ReadOnly = false;
-            Name_input_textBox.Enabled = true;
-            Mobile_input_textBox.ReadOnly = false;
-            Mobile_input_textBox.Enabled = true;
-            Email_OR_Address_input_textBox.ReadOnly = false;
-            Email_OR_Address_input_textBox.Enabled = true;
-        }
-
-        private void DisableWriteTextboxes()
-        {
-            Name_input_textBox.ReadOnly = true;
-            Name_input_textBox.Enabled = false;
-            Mobile_input_textBox.ReadOnly = true;
-            Mobile_input_textBox.Enabled = false;
-            Email_OR_Address_input_textBox.ReadOnly = true;
-            Email_OR_Address_input_textBox.Enabled = false;
-            Type_input_textBox.ReadOnly = true;
-            Type_input_textBox.Enabled = false;
-        }
-
-        private void ShowTextBoxes()
-        {
-            Name_textBox.Show();
-            Name_input_textBox.Show();
-            Mobile_textBox.Show();
-            Mobile_input_textBox.Show();
-            Email_OR_Address_textBox.Show();
-            Email_OR_Address_input_textBox.Show();
-            Type_textBox.Show();
-            Type_input_textBox.Show();
-        }
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Tenants_listBox.ClearSelected();
-            Serv_Providers_listBox.ClearSelected();
-            Info_Visibility("Contacts_Load");
-        }
-
         private void updateAvailApart()
         {
             apart_comboBox.Items.Clear();
@@ -695,15 +364,363 @@ namespace CondominiumManager
             cn.Close();
         }
 
+        private void getSPTypes()
+        {
+            apart_comboBox.Items.Clear();
+            cn = GetSGBDConnection();
+            cn.Open();
+            cmd = new SqlCommand("SELECT * FROM condomanager.getsptypes", cn)
+            {
+                CommandType = CommandType.Text
+            };
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                type_comboBox.Items.Add(dr["descricao"].ToString());
+            }
+            cn.Close();
+        }
+
+        private void search_input_textBox_TextChanged(object sender, EventArgs e)
+        {
+            Fill_Tenant_ListBox(true, search_input_textBox.Text.ToString());
+            Fill_Serv_Prov_ListBox(true, search_input_textBox.Text.ToString());
+        }
+
+        // BUTTONS --------------------------------------------------------------------------------------------------
+
+        private void Add_Tenant_button_Click(object sender, EventArgs e)
+        {
+            ResetAllInput();
+
+            // Clickable away action does'nt cause lost of add info
+            Away_button.Enabled = false;
+
+            EnableAllWriteTextboxes();
+            HideTextBoxes();
+            ShowTextBoxes("tenant");
+           
+            showTenant = false;
+            showSP = false;
+            edit = false;
+            AddTenant = true;
+            AddSP = false;
+
+            Fill_Tenant_ListBox(false, "");
+        }
+
+        private void Add_SP_button_Click(object sender, EventArgs e)
+        {
+            ResetAllInput();
+
+            // Clickable away action does'nt cause lost of add info
+            Away_button.Enabled = false;
+
+            EnableAllWriteTextboxes();
+            HideTextBoxes();
+            ShowTextBoxes("sp");
+            
+            showTenant = false;
+            showSP = false;
+            edit = false;
+            AddTenant = false;
+            AddSP = true;
+
+            Fill_Serv_Prov_ListBox(false, "");
+        }
+
+        private void Ok_button_Click(object sender, EventArgs e)
+        {
+            // Clickable away action causes lost of contact/edit info
+            Away_button.Enabled = true;
+
+            ResetAllInput();
+            DisableAllWriteTextboxes();
+
+            if (edit && showTenant)
+            {
+                EditTenant();
+                Fill_Tenant_ListBox(false, "");
+            }
+            else if (edit && showSP)
+            {
+                EditSP();
+                Fill_Serv_Prov_ListBox(false, "");
+            }
+            else if (AddTenant)
+            {
+                AddTen();
+                Fill_Tenant_ListBox(false, "");
+            }
+            else if (AddSP)
+            {
+                AddServP();
+                Fill_Serv_Prov_ListBox(false, "");
+            }
+            updateAvailApart();
+            search_input_textBox.Text = "";
+            HideTextBoxes();
+            HideButtons();
+            if (hide_add)
+            {
+                Add_Tenant_button.Hide();
+            }
+        }
+        
+        private void Cancel_button_Click(object sender, EventArgs e)
+        {
+            DisableAllWriteTextboxes();
+            search_input_textBox.Text = "";
+            HideTextBoxes();
+            HideButtons();
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+            // Clickable away action does'nt cause lost of add info
+            Away_button.Enabled = false;
+
+            EnableAllWriteTextboxes();
+
+            AddTenant = false;
+            AddSP = false;
+            edit = true;
+            HideTextBoxes();
+            if (showTenant) {
+                ShowTextBoxes("tenant");
+            }
+            else if (showSP)
+            {
+                ShowTextBoxes("sp");
+            }
+
+            ShowButtons();
+
+            Fill_Serv_Prov_ListBox(false, "");
+            Fill_Tenant_ListBox(false, "");
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            if (showTenant)
+            {
+                DeleteTenant();
+            }
+            else if (showSP)
+            {
+                DeleteSP();
+            }
+            search_input_textBox.Text = "";
+
+            HideTextBoxes();
+            HideButtons();
+
+            Fill_Serv_Prov_ListBox(false, "");
+            Fill_Tenant_ListBox(false, "");
+        }
+
         private void Back_button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Away_button_Click(object sender, EventArgs e)
         {
-            Fill_TenantContacts(true, textBox1.Text.ToString());
-            Fill_Serv_Prov_Contacts(true, textBox1.Text.ToString());
+            Tenants_listBox.ClearSelected();
+            Serv_Providers_listBox.ClearSelected();
+            search_input_textBox.Text = "";
+            HideTextBoxes();
+            HideButtons();
+            if(hide_add)
+            {
+                Add_Tenant_button.Hide();
+            }
         }
+
+        // ----------------------------------------------------------------------------------------------------------
+
+        // HANDLE TEXTBOXES ----------------------------------------------------------------------------------------
+        private void Info_Visibility(string name)
+        {
+            if (name.Equals("AddTenant"))
+            {
+                Name_textBox.Show();
+                Name_input_textBox.Show();
+                Name_input_textBox.ReadOnly = false;
+                Name_input_textBox.Enabled = true;
+                Mobile_textBox.Show();
+                Mobile_input_textBox.Show();
+                Mobile_input_textBox.ReadOnly = false;
+                Mobile_input_textBox.Enabled = true;
+                Email_OR_Address_textBox.Show();
+                Email_OR_Address_input_textBox.Show();
+                Email_OR_Address_input_textBox.ReadOnly = false;
+                Email_OR_Address_input_textBox.Enabled = true;
+                Type_textBox.Hide();
+                Type_input_textBox.Hide();
+                Ok_button.Show();
+                Cancel_button.Show();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+            }
+            else if (name.Equals("AddSP"))
+            {
+                Name_textBox.Show();
+                Name_input_textBox.Show();
+                Name_input_textBox.ReadOnly = false;
+                Name_input_textBox.Enabled = true;
+                Mobile_textBox.Show();
+                Mobile_input_textBox.Show();
+                Mobile_input_textBox.ReadOnly = false;
+                Mobile_input_textBox.Enabled = true;
+                Email_OR_Address_textBox.Show();
+                Email_OR_Address_input_textBox.Show();
+                Email_OR_Address_input_textBox.ReadOnly = false;
+                Email_OR_Address_input_textBox.Enabled = true;
+                Type_textBox.Show();
+                Type_input_textBox.Show();
+                Type_input_textBox.ReadOnly = false;
+                Type_input_textBox.Enabled = true;
+                Ok_button.Show();
+                Cancel_button.Show();
+                Add_Tenant_button.Hide();
+                Add_SP_button.Hide();
+                Edit_button.Hide();
+                Delete_button.Hide();
+            }
+        }
+
+        private void HideButtons()
+        {
+            // Hide buttons (except Adds)
+            Ok_button.Hide();
+            Cancel_button.Hide();
+            Edit_button.Hide();
+            Delete_button.Hide();
+            Add_Tenant_button.Show();
+            Add_SP_button.Show();
+        }
+
+        private void HideTextBoxes()
+        {
+            // Hide Contact Info
+            Name_textBox.Hide();
+            Name_input_textBox.Hide();
+            Mobile_textBox.Hide();
+            Mobile_input_textBox.Hide();
+            Email_OR_Address_textBox.Hide();
+            Email_OR_Address_input_textBox.Hide();
+            Type_textBox.Hide();
+            Type_input_textBox.Hide();
+            Apartment_textBox.Hide();
+            apart_comboBox.Hide();
+            Tax_Number_textBox.Hide();
+            Tax_Number_input_textBox.Hide();
+            apart_comboBox.Hide();
+            type_comboBox.Hide();
+        }
+
+        private void ShowTextBoxes(string str)
+        {
+            // show global atributts
+            Name_textBox.Show();
+            Name_input_textBox.Show();
+            Mobile_textBox.Show();
+            Mobile_input_textBox.Show();
+            Email_OR_Address_textBox.Show();
+            Email_OR_Address_input_textBox.Show();
+            Tax_Number_textBox.Show();
+            Tax_Number_input_textBox.Show();
+            if (str.Equals("tenant"))
+            {
+                // Show Tenant only attributs
+                Email_OR_Address_textBox.Text = "Email:";
+                Apartment_textBox.Show();
+                if (AddTenant || edit)
+                {
+                    apart_comboBox.Show();
+                }
+                else
+                {
+                    apart_input_textBox.Show();
+                }
+            } else if(str.Equals("sp"))
+            {
+                // Show Service Provider only attributs
+                Email_OR_Address_textBox.Text = "Address:";
+                Type_textBox.Show();
+                if(AddSP || edit)
+                {
+                    type_comboBox.Show();
+                    //TODO fill dropdown
+                }
+                else
+                {
+                    Type_input_textBox.Show();
+                }
+            }
+        }
+
+        private void ShowButtons()
+        {
+            // Hide all buttons (except edit and delete)
+            Ok_button.Hide();
+            Cancel_button.Hide();
+            Add_Tenant_button.Hide();
+            Add_SP_button.Hide();
+            Edit_button.Show();
+            Delete_button.Show();
+            if(edit || AddSP || AddTenant)
+            {
+                Ok_button.Show();
+                Cancel_button.Show();
+                Edit_button.Hide();
+                Delete_button.Hide();
+            }
+        }
+
+        private void EnableAllWriteTextboxes()
+        {
+            Name_input_textBox.ReadOnly = false;
+            Name_input_textBox.Enabled = true;
+            Mobile_input_textBox.ReadOnly = false;
+            Mobile_input_textBox.Enabled = true;
+            Email_OR_Address_input_textBox.ReadOnly = false;
+            Email_OR_Address_input_textBox.Enabled = true;
+            Tax_Number_input_textBox.ReadOnly = false;
+            Tax_Number_input_textBox.Enabled = true;
+        }
+
+        private void DisableAllWriteTextboxes()
+        {
+            Name_input_textBox.ReadOnly = true;
+            Name_input_textBox.Enabled = false;
+            Mobile_input_textBox.ReadOnly = true;
+            Mobile_input_textBox.Enabled = false;
+            Email_OR_Address_input_textBox.ReadOnly = true;
+            Email_OR_Address_input_textBox.Enabled = false;
+            Type_input_textBox.ReadOnly = true;
+            Type_input_textBox.Enabled = false;
+            Tax_Number_input_textBox.ReadOnly = true;
+            Tax_Number_input_textBox.Enabled = false;
+            apart_input_textBox.ReadOnly = true;
+            apart_input_textBox.Enabled = false;
+        }
+
+        private void ResetAllInput()
+        {
+            Name_input_textBox.Text = "";
+            Mobile_input_textBox.Text = "";
+            Email_OR_Address_input_textBox.Text = "";
+            Type_input_textBox.Text = "";
+            Tax_Number_input_textBox.Text = "";
+            apart_input_textBox.Text = "";
+        }
+        // ----------------------------------------------------------------------------------------------------------
     }
 }
