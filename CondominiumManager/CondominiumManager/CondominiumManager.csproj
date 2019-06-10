@@ -89,11 +89,11 @@
     <Compile Include="EventsForm.Designer.cs">
       <DependentUpon>EventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="InformationQuotaInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="InformationQuotaInForm.Designer.cs">
+      <DependentUpon>InformationQuotaInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="EventsForm.resx">
       <DependentUpon>EventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="InformationQuotaInForm.resx">
+      <DependentUpon>InformationQuotaInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

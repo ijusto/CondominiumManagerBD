@@ -41,3 +41,4 @@ C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumMa
 C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.LoginForm.resources
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.LoginForm.resources
 C:\Users\toms\Documents\BD\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.Form1.resources
+C:\Users\Ines Justo\source\repos\CondominiumManager_\CondominiumManagerBD\CondominiumManager\CondominiumManager\obj\Debug\CondominiumManager.InformationQuotaInForm.resources

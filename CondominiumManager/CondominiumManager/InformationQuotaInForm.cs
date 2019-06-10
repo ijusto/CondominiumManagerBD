@@ -12,17 +12,18 @@ using static CondominiumManager.MainMenuForm;
 
 namespace CondominiumManager
 {
-    public partial class Form1 : Form
+    public partial class InformationQuotaInForm : Form
     {
         private SqlConnection cn;
         public static string chosenfraction = "";
+        public static string desc = "";
 
-        public Form1()
+        public InformationQuotaInForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void InformationQuotaInForm_Load(object sender, EventArgs e)
         {
             fill_fraction();
         }
@@ -69,15 +70,17 @@ namespace CondominiumManager
 
         private void createquotabutton_Click(object sender, EventArgs e)
         {
-            if(fractionselector.SelectedIndex < 0) 
+            if(fractionselector.SelectedIndex < 0 && Desc_input_quota_textBox.Text.Equals("")) 
             {
-                MessageBox.Show("Please select a fraction");
+                MessageBox.Show("Please select a fraction and write a description");
             }
             else
             {
                 chosenfraction = fractionselector.SelectedItem.ToString().Split('-')[0];
+                desc = Desc_input_quota_textBox.Text.ToString();
                 this.Close();
             }
         }
+        
     }
 }
