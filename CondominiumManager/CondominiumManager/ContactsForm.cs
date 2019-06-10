@@ -48,7 +48,7 @@ namespace CondominiumManager
             Info_Visibility("Contacts_Load");
             Fill_TenantContacts(false, "");
             currentTenant = Tenants_listBox.SelectedIndex;
-            Fill_Serv_Prov_Contacts();
+            Fill_Serv_Prov_Contacts(false, "");
             currentSrvProv = Serv_Providers_listBox.SelectedIndex;
             DisableWriteTextboxes();
         }
@@ -92,18 +92,32 @@ namespace CondominiumManager
             cn.Close();
         }
 
-        private void Fill_Serv_Prov_Contacts()
+        private void Fill_Serv_Prov_Contacts(bool search, string searchquery)
         {
+            
             sp_index = 0;
             Serv_Providers_listBox.Items.Clear();
             spList = new List<Services_Provider>();
             cn = GetSGBDConnection();
             cn.Open();
-            cmd = new SqlCommand("Select * from condomanager.getsupplierview", cn)
+            if (search == false)
             {
-                CommandType = CommandType.Text
-            };
-            cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("Select * from condomanager.getsupplierview", cn)
+                {
+                    CommandType = CommandType.Text
+                };
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                cmd = new SqlCommand("condomanager.showspsearch", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.AddWithValue("search", searchquery);
+            }
+            
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -426,7 +440,7 @@ namespace CondominiumManager
             AddTenant = false;
             AddSP = true;
             Info_Visibility("AddSP");
-            Fill_Serv_Prov_Contacts();
+            Fill_Serv_Prov_Contacts(false, "");
         }
 
         private void Ok_button_Click(object sender, EventArgs e)
@@ -446,7 +460,7 @@ namespace CondominiumManager
             else if (edit && showSP)
             {
                 EditSP();
-                Fill_Serv_Prov_Contacts();
+                Fill_Serv_Prov_Contacts(false, "");
             }
             else if(AddTenant)
             {
@@ -456,7 +470,7 @@ namespace CondominiumManager
             else if (AddSP)
             {
                 AddServP();
-                Fill_Serv_Prov_Contacts();
+                Fill_Serv_Prov_Contacts(false, "");
             }
             updateAvailApart();
             Info_Visibility("Contacts_Load");
@@ -481,7 +495,7 @@ namespace CondominiumManager
             if (showTenant) { Info_Visibility("EditTenant"); }
             else if (showSP) { Info_Visibility("EditSP"); }
 
-            Fill_Serv_Prov_Contacts();
+            Fill_Serv_Prov_Contacts(false, "");
             Fill_TenantContacts(false, "");
         }
         
@@ -497,7 +511,7 @@ namespace CondominiumManager
             }
             Info_Visibility("Contacts_Load");
 
-            Fill_Serv_Prov_Contacts();
+            Fill_Serv_Prov_Contacts(false, "");
             Fill_TenantContacts(false, "");
         }
 
@@ -673,6 +687,7 @@ namespace CondominiumManager
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Fill_TenantContacts(true, textBox1.Text.ToString());
+            Fill_Serv_Prov_Contacts(true, textBox1.Text.ToString());
         }
     }
 }

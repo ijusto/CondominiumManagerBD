@@ -177,6 +177,9 @@ CREATE TABLE CONDOMANAGER.Gestor_Condominio(
 	primary key(id)
  )
 
+ create index idx_tenantname on condomanager.condomino(nome)
+ create index idx_servicename on condomanager.fornecedor_servicos(nome)
+
 
 
 
