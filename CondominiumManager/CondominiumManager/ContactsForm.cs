@@ -85,9 +85,25 @@ namespace CondominiumManager
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                tenList.Add(new Tenant(dr["NIF"].ToString(), dr["Nome"].ToString(), dr["Telemovel"].ToString(), dr["Email"].ToString(), ten_index));
-                Tenants_listBox.Items.Add(dr["Nome"].ToString());
-                ten_index++;
+                List<String> fracoes = new List<string>();
+                fracoes.Add(dr["ref_fracao"].ToString());
+                Tenant temp = new Tenant(dr["NIF"].ToString(), dr["Nome"].ToString(), dr["Telemovel"].ToString(), dr["Email"].ToString(), ten_index, fracoes);
+                if (tenList.Contains(temp)){
+                    foreach(Tenant ten in tenList)
+                    {
+                        if (temp.Equals(ten))
+                        {
+                            ten.fracao.Add(dr["ref_fracao"].ToString());
+                        }
+                    }
+                }
+                else
+                {
+                    tenList.Add(temp);
+                    Tenants_listBox.Items.Add(dr["Nome"].ToString());
+                    ten_index++;
+                }
+               
             }
             cn.Close();
         }
