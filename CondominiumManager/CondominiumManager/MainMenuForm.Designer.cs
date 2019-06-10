@@ -36,13 +36,16 @@ namespace CondominiumManager
             this.Events_textBox = new System.Windows.Forms.TextBox();
             this.Payments_textBox = new System.Windows.Forms.TextBox();
             this.CondominumSelect_textBox = new System.Windows.Forms.TextBox();
+            this.Logo_button = new System.Windows.Forms.Button();
+            this.history_button2 = new System.Windows.Forms.Button();
             this.photo_pictureBox = new System.Windows.Forms.PictureBox();
             this.Contacts_button = new System.Windows.Forms.Button();
             this.Readings_button = new System.Windows.Forms.Button();
-            this.Logo_button = new System.Windows.Forms.Button();
             this.Events_button = new System.Windows.Forms.Button();
             this.Payments_button = new System.Windows.Forms.Button();
             this.Complaints_button = new System.Windows.Forms.Button();
+            this.history_button1 = new System.Windows.Forms.Button();
+            this.history_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.photo_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,6 +152,35 @@ namespace CondominiumManager
             this.CondominumSelect_textBox.TabIndex = 32;
             this.CondominumSelect_textBox.Text = "Condominium:";
             // 
+            // Logo_button
+            // 
+            this.Logo_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Logo_button.BackColor = System.Drawing.Color.Transparent;
+            this.Logo_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logo_button.Enabled = false;
+            this.Logo_button.FlatAppearance.BorderSize = 0;
+            this.Logo_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Logo_button.Location = new System.Drawing.Point(192, 38);
+            this.Logo_button.Name = "Logo_button";
+            this.Logo_button.Size = new System.Drawing.Size(41, 42);
+            this.Logo_button.TabIndex = 20;
+            this.Logo_button.UseVisualStyleBackColor = false;
+            // 
+            // history_button2
+            // 
+            this.history_button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.history_button2.BackColor = System.Drawing.Color.Transparent;
+            this.history_button2.BackgroundImage = global::CondominiumManager.Properties.Resources.history;
+            this.history_button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.history_button2.FlatAppearance.BorderSize = 0;
+            this.history_button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.history_button2.Location = new System.Drawing.Point(452, 228);
+            this.history_button2.Name = "history_button2";
+            this.history_button2.Size = new System.Drawing.Size(56, 53);
+            this.history_button2.TabIndex = 35;
+            this.history_button2.UseVisualStyleBackColor = false;
+            this.history_button2.Click += new System.EventHandler(this.history_button2_Click);
+            // 
             // photo_pictureBox
             // 
             this.photo_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -189,20 +221,6 @@ namespace CondominiumManager
             this.Readings_button.TabIndex = 24;
             this.Readings_button.UseVisualStyleBackColor = false;
             this.Readings_button.Click += new System.EventHandler(this.Readings_button_Click);
-            // 
-            // Logo_button
-            // 
-            this.Logo_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Logo_button.BackColor = System.Drawing.Color.Transparent;
-            this.Logo_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Logo_button.Enabled = false;
-            this.Logo_button.FlatAppearance.BorderSize = 0;
-            this.Logo_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Logo_button.Location = new System.Drawing.Point(192, 38);
-            this.Logo_button.Name = "Logo_button";
-            this.Logo_button.Size = new System.Drawing.Size(41, 42);
-            this.Logo_button.TabIndex = 20;
-            this.Logo_button.UseVisualStyleBackColor = false;
             // 
             // Events_button
             // 
@@ -249,10 +267,43 @@ namespace CondominiumManager
             this.Complaints_button.UseVisualStyleBackColor = false;
             this.Complaints_button.Click += new System.EventHandler(this.Complaints_button_Click);
             // 
+            // history_button1
+            // 
+            this.history_button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.history_button1.BackColor = System.Drawing.Color.Transparent;
+            this.history_button1.BackgroundImage = global::CondominiumManager.Properties.Resources.payments_icon_web;
+            this.history_button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.history_button1.FlatAppearance.BorderSize = 0;
+            this.history_button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.history_button1.Location = new System.Drawing.Point(439, 214);
+            this.history_button1.Name = "history_button1";
+            this.history_button1.Size = new System.Drawing.Size(80, 80);
+            this.history_button1.TabIndex = 36;
+            this.history_button1.UseVisualStyleBackColor = false;
+            this.history_button1.Click += new System.EventHandler(this.history_button1_Click);
+            // 
+            // history_textBox
+            // 
+            this.history_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.history_textBox.BackColor = System.Drawing.Color.White;
+            this.history_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.history_textBox.Enabled = false;
+            this.history_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.history_textBox.ForeColor = System.Drawing.Color.Black;
+            this.history_textBox.Location = new System.Drawing.Point(439, 300);
+            this.history_textBox.Name = "history_textBox";
+            this.history_textBox.ReadOnly = true;
+            this.history_textBox.Size = new System.Drawing.Size(80, 16);
+            this.history_textBox.TabIndex = 37;
+            this.history_textBox.Text = "History";
+            this.history_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MainMenuForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 365);
+            this.Controls.Add(this.history_textBox);
+            this.Controls.Add(this.history_button2);
             this.Controls.Add(this.photo_pictureBox);
             this.Controls.Add(this.CondominumSelect_textBox);
             this.Controls.Add(this.Condo_choose_comboBox);
@@ -267,6 +318,7 @@ namespace CondominiumManager
             this.Controls.Add(this.Payments_textBox);
             this.Controls.Add(this.Payments_button);
             this.Controls.Add(this.Complaints_button);
+            this.Controls.Add(this.history_button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(596, 404);
             this.MinimumSize = new System.Drawing.Size(596, 404);
@@ -296,6 +348,9 @@ namespace CondominiumManager
         private System.Windows.Forms.Button Complaints_button;
         private System.Windows.Forms.TextBox CondominumSelect_textBox;
         private System.Windows.Forms.PictureBox photo_pictureBox;
+        private System.Windows.Forms.Button history_button2;
+        private System.Windows.Forms.Button history_button1;
+        private System.Windows.Forms.TextBox history_textBox;
     }
 }
 

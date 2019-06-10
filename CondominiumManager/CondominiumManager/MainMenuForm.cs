@@ -130,6 +130,11 @@ namespace CondominiumManager
                     ComplaintsForm next_form = new ComplaintsForm();
                     next_form.ShowDialog();
                 }
+                else if (name.Equals("History"))
+                {
+                    HistoryForm next_form = new HistoryForm();
+                    next_form.ShowDialog();
+                }
 
                 //When next_form is closed, continue with the code (show main form)
                 this.Show(); 
@@ -186,6 +191,15 @@ namespace CondominiumManager
             }
         }
 
+        private void history_button1_Click(object sender, EventArgs e)
+        {
+            ChangeForm("History");
+        }
+
+        private void history_button2_Click(object sender, EventArgs e)
+        {
+            ChangeForm("History");
+        }
     }
 
 }
