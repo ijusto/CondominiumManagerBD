@@ -2,21 +2,6 @@
 use condomanagerdb
 go
 
- 
- select * from condomanager.fotosprediais
-
- delete condomanager.fotosprediais
-
-Insert into condomanager.fotosprediais(endereco, localizacao) values
-			('Rua São Martinho','\Resources\martinho.jpg'),
-			('Rua Nova','\Resources\nova.jpg'),
-			('Avenida dos Combatentes','\Resources\combatentes.jpg'),
-			('Rua 25 de Abril','\Resources\abril.jpg'),
-			('Rua Direita', '\Resources\direita.jpg'),
-			('Avenida Guerra Junqueiro','\Resources\junqueiro.jpg')
-
-
-
 Insert into condomanager.Gestor_Condominio(NIF, Nome, Telemovel, Email, hashed_pass) values
 			('250238280', 'Joaquim Inácio', '918273646', 'joaquim.inac@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
 			('123876530', 'João Melão', '927659386', 'joao.melao@sapo.pt', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
@@ -123,3 +108,12 @@ insert into condomanager.Fatura_Quotas(descricao, Data, endereco, ref_fracao, Qu
 
 
 
+delete condomanager.fotosprediais
+
+Insert into condomanager.fotosprediais(endereco, localizacao) values
+			('Rua São Martinho','\Resources\martinho.jpg'),
+			('Rua Nova','\Resources\nova.jpg'),
+			('Avenida dos Combatentes','\Resources\combatentes.jpg'),
+			('Rua 25 de Abril','\Resources\abril.jpg'),
+			('Rua Direita', '\Resources\direita.jpg'),
+			('Avenida Guerra Junqueiro','\Resources\junqueiro.jpg')

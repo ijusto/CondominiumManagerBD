@@ -46,9 +46,10 @@ namespace CondominiumManager
             };
             cmd.Parameters.AddWithValue("nif", username);
             cmd.Parameters.AddWithValue("password", passwordhash);
-            bool returnvalue =  (bool)cmd.ExecuteScalar();
+            int returnvalue =  (int)cmd.ExecuteScalar();
+           
 
-            if (returnvalue)
+            if (returnvalue == 1)
             {
                 MainMenuForm mainmenu = new MainMenuForm();
                 this.Hide();           //Hide the main form before showing the secondary

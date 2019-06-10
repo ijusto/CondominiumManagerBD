@@ -18,6 +18,7 @@ begin
 		set @authed = 1
 	else
 		set @authed = 0
+	return @authed
 end;
 go
 

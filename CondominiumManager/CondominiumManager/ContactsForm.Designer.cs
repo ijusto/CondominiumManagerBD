@@ -340,7 +340,7 @@
             this.search_input_textBox.Name = "search_input_textBox";
             this.search_input_textBox.Size = new System.Drawing.Size(165, 20);
             this.search_input_textBox.TabIndex = 58;
-            this.search_input_textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.search_input_textBox.TextChanged += new System.EventHandler(this.search_input_textBox_TextChanged);
             // 
             // type_comboBox
             // 
